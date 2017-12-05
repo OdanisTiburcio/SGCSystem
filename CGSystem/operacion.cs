@@ -80,7 +80,7 @@ namespace Nomina_Cia_del_Caribe
             try
             {
                 cnx.Open();
-                Datatable dt = new Datatable();
+                DataTable dt = new DataTable();
                 SQLiteDataAdapter adapter = new SQLiteDataAdapter(sql, cnx);
                 adapter.Fill(dt);
                 return dt;
