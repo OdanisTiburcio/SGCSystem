@@ -29,22 +29,33 @@
         private void InitializeComponent()
         {
             this.btnEntrar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnEntrar
             // 
-            this.btnEntrar.Location = new System.Drawing.Point(12, 62);
+            this.btnEntrar.Location = new System.Drawing.Point(294, 12);
             this.btnEntrar.Name = "btnEntrar";
             this.btnEntrar.Size = new System.Drawing.Size(75, 23);
             this.btnEntrar.TabIndex = 0;
             this.btnEntrar.Text = "Entrar";
             this.btnEntrar.UseVisualStyleBackColor = true;
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(294, 41);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelar.TabIndex = 1;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(390, 122);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEntrar);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -58,6 +69,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnEntrar;
+        private System.Windows.Forms.Button btnCancelar;
     }
 }
 

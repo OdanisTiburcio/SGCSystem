@@ -12,7 +12,7 @@ namespace Nomina_Cia_del_Caribe
     {
         public string Conectar()
             {
-            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\BD\\SGCSystemBD.db;Version=3;");
+            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\SGCSystemBD.db;Version=3;");
                 try
                 {
                     cnx.Open();
@@ -31,7 +31,7 @@ namespace Nomina_Cia_del_Caribe
         public string ConsultaSinResultado(string sql)
         {
 
-            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\BD\\SGCSystemBD.db;Version=3;");
+            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\SGCSystemBD.db;Version=3;");
             try
             {
                 cnx.Open();
@@ -53,7 +53,7 @@ namespace Nomina_Cia_del_Caribe
         public DataSet ConsultaConResultado(string sql)
         {
 
-            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\BD\\SGCSystemBD.db;Version=3;");
+            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\SGCSystemBD.db;Version=3;");
             try
             {
                 cnx.Open();
