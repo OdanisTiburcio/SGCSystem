@@ -72,5 +72,29 @@ namespace Nomina_Cia_del_Caribe
             }
 
         }
+
+        public DataTable ConsultaDataTable(string sql)
+        {
+
+            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\SGCSystemBD.db;Version=3;");
+            try
+            {
+                cnx.Open();
+                Datatable dt = new Datatable();
+                SQLiteDataAdapter adapter = new SQLiteDataAdapter(sql, cnx);
+                adapter.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+            finally
+            {
+                cnx.Close();
+            }
+
+        }
+
     }
 }
