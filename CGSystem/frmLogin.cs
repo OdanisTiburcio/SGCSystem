@@ -15,12 +15,22 @@ namespace CGSystem
         public frmLogin()
         {
             InitializeComponent();
+            tbusuario.Select();
         }
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            Form f = new Visor_de_Datos_Sqlite();
-            f.ShowDialog();
+            if (tbusuario.Text == "mario" && tbcontraseña.Text == "bros")
+            {
+                Form f = new Visor_de_Datos_Sqlite();
+                f.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Revise los datos e inténtelo de nuevo","Aviso", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                tbcontraseña.Select();
+
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
