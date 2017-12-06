@@ -11,6 +11,9 @@ namespace CGSystem
 {
     public class operacion
     {
+
+        //Pruba de Sincronización #1
+
         public string Conectar()
         {
             SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\SGCSystem\\SGCSystemBD.db;Version=3;");
