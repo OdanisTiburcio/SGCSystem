@@ -13,6 +13,8 @@ namespace CGSystem
     public partial class Visor_de_Datos_Sqlite : Form
     {
 
+        
+
         public Visor_de_Datos_Sqlite()
         {
             InitializeComponent();
@@ -27,6 +29,11 @@ namespace CGSystem
             catch
             {             
             }
+        }
+
+        private void Visor_de_Datos_Sqlite_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

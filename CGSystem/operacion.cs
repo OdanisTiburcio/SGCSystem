@@ -4,6 +4,7 @@ using System.Data.SQLite;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using System.Threading.Tasks;
 
 namespace Nomina_Cia_del_Caribe

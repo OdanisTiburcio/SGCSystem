@@ -81,8 +81,13 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(711, 383);
+            this.MinimumSize = new System.Drawing.Size(711, 383);
             this.Name = "Visor_de_Datos_Sqlite";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Visor_de_Datos_Sqlite";
+            this.Load += new System.EventHandler(this.Visor_de_Datos_Sqlite_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDatos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -22,5 +22,10 @@ namespace CGSystem
             Form f = new Visor_de_Datos_Sqlite();
             f.ShowDialog();
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
