@@ -11,9 +11,7 @@ using System.Windows.Forms;
 namespace CGSystem
 {
     public partial class Visor_de_Datos_Sqlite : Form
-    {
-
-        
+    {        
 
         public Visor_de_Datos_Sqlite()
         {
