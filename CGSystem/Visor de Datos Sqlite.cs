@@ -10,17 +10,23 @@ using System.Windows.Forms;
 
 namespace CGSystem
 {
-    public partial class frmLogin : Form
+    public partial class Visor_de_Datos_Sqlite : Form
     {
-        public frmLogin()
+
+        public Visor_de_Datos_Sqlite()
         {
             InitializeComponent();
         }
 
-        private void btnEntrar_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            Form f = new Visor_de_Datos_Sqlite();
-            f.ShowDialog();
+            try
+            {
+                
+            }
+            catch
+            {             
+            }
         }
     }
 }
