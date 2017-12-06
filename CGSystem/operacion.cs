@@ -12,27 +12,28 @@ namespace CGSystem
     public class operacion
     {
         public string Conectar()
+        {
+            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\SGCSystem\\SGCSystemBD.db;Version=3;");
+            try
             {
-            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\SGCSystemBD.db;Version=3;");
-                try
-                {
-                    cnx.Open();
+                cnx.Open();
 
-                    return "Conexión exitosa!";
-                }
-                catch (Exception ex)
-                {
-                    return ex.Message;
-                }
-                finally
-                {
-                    cnx.Close();
-                }
+                return "Conexión exitosa!";
             }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+            finally
+            {
+                cnx.Close();
+            }
+        }
+
         public string ConsultaSinResultado(string sql)
         {
 
-            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\SGCSystemBD.db;Version=3;");
+            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\SGCSystem\\SGCSystemBD.db;Version=3;");
             try
             {
                 cnx.Open();
@@ -54,7 +55,7 @@ namespace CGSystem
         public DataSet ConsultaConResultado(string sql)
         {
 
-            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\SGCSystemBD.db;Version=3;");
+            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\SGCSystem\\SGCSystemBD.db;Version=3;");
             try
             {
                 cnx.Open();
@@ -63,7 +64,7 @@ namespace CGSystem
                 adapter.Fill(ds);
                 return ds;
             }
-            catch (Exception ex)
+            catch
             {
                 return null;
             }
@@ -77,7 +78,7 @@ namespace CGSystem
         public DataTable ConsultaDataTable(string sql)
         {
 
-            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\SGCSystemBD.db;Version=3;");
+            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\SGCSystem\\SGCSystemBD.db;Version=3;");
             try
             {
                 cnx.Open();
@@ -86,7 +87,7 @@ namespace CGSystem
                 adapter.Fill(dt);
                 return dt;
             }
-            catch (Exception ex)
+            catch
             {
                 return null;
             }
