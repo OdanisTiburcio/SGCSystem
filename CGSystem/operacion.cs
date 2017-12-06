@@ -12,7 +12,7 @@ namespace CGSystem
     public class operacion
     {
 
-        //Pruba de Sincronización #1
+        //Pruba de Sincronización #2
 
         public string Conectar()
         {
