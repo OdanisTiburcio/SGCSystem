@@ -11,7 +11,10 @@ using System.Windows.Forms;
 namespace CGSystem
 {
     public partial class Visor_de_Datos_Sqlite : Form
-    {        
+    {
+        operacion oper = new operacion();
+        DataTable dt = new DataTable();
+        DataSet ds = new DataSet();
 
         public Visor_de_Datos_Sqlite()
         {
@@ -22,7 +25,9 @@ namespace CGSystem
         {
             try
             {
-                
+                dt = oper.ConsultaDataTable("SELECT * FROM "+ tbnombretabla.Text +";");
+                dgvDatos.DataSource = dt;
+                dgvDatos.Refresh();
             }
             catch
             {             
