@@ -75,6 +75,18 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="ListaDeClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaDeClientes.Designer.cs">
+      <DependentUpon>ListaDeClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ListaDeEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListaDeEmpleados.Designer.cs">
+      <DependentUpon>ListaDeEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="operacion.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -86,6 +98,12 @@
     </Compile>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaDeClientes.resx">
+      <DependentUpon>ListaDeClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ListaDeEmpleados.resx">
+      <DependentUpon>ListaDeEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
