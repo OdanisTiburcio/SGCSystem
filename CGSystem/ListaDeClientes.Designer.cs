@@ -141,7 +141,7 @@
             this.btnagregar.Name = "btnagregar";
             this.btnagregar.Size = new System.Drawing.Size(147, 39);
             this.btnagregar.TabIndex = 35;
-            this.btnagregar.Text = "Agregar Empleado (+)";
+            this.btnagregar.Text = "Agregar Cliente (+)";
             this.btnagregar.UseVisualStyleBackColor = false;
             // 
             // datanomina
