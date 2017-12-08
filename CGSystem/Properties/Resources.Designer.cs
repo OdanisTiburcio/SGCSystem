@@ -63,6 +63,16 @@ namespace CGSystem.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_item_icon_orange_1 {
+            get {
+                object obj = ResourceManager.GetObject("add-item-icon-orange-1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap lupa_psd_468x468 {
             get {
                 object obj = ResourceManager.GetObject("lupa-psd-468x468", resourceCulture);
