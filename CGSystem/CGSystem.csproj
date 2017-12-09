@@ -87,6 +87,18 @@
     <Compile Include="CRUDClientes.Designer.cs">
       <DependentUpon>CRUDClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="CRUDIngresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRUDIngresos.Designer.cs">
+      <DependentUpon>CRUDIngresos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CuadreCaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CuadreCaja.Designer.cs">
+      <DependentUpon>CuadreCaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="CXC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,11 +135,11 @@
     <Compile Include="MantenimientoDeServicios.Designer.cs">
       <DependentUpon>MantenimientoDeServicios.cs</DependentUpon>
     </Compile>
-    <Compile Include="MenúPrincipal.cs">
+    <Compile Include="MenuPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MenúPrincipal.Designer.cs">
-      <DependentUpon>MenúPrincipal.cs</DependentUpon>
+    <Compile Include="MenuPrincipal.Designer.cs">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="operacion.cs" />
     <Compile Include="Program.cs" />
@@ -153,6 +165,12 @@
     <EmbeddedResource Include="CRUDClientes.resx">
       <DependentUpon>CRUDClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CRUDIngresos.resx">
+      <DependentUpon>CRUDIngresos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CuadreCaja.resx">
+      <DependentUpon>CuadreCaja.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CXC.resx">
       <DependentUpon>CXC.cs</DependentUpon>
     </EmbeddedResource>
@@ -171,8 +189,8 @@
     <EmbeddedResource Include="MantenimientoDeServicios.resx">
       <DependentUpon>MantenimientoDeServicios.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="MenúPrincipal.resx">
-      <DependentUpon>MenúPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="MenuPrincipal.resx">
+      <DependentUpon>MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

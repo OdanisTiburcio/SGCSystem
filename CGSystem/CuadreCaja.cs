@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CGSystem
 {
-    public partial class MenúPrincipal : Form
+    public partial class CuadreCaja : Form
     {
-        public MenúPrincipal()
+        public CuadreCaja()
         {
             InitializeComponent();
         }
