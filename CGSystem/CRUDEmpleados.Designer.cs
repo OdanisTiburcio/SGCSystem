@@ -488,7 +488,7 @@
             this.MinimizeBox = false;
             this.Name = "CRUDEmpleados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CRUDEmpleados";
+            this.Text = "Mantenimiento de Empleados";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);

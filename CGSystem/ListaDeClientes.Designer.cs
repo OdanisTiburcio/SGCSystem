@@ -247,7 +247,7 @@
             this.Controls.Add(this.datanomina);
             this.Controls.Add(this.label1);
             this.Name = "ListaDeClientes";
-            this.Text = "ListaDeClientes";
+            this.Text = "Lista de Clientes";
             ((System.ComponentModel.ISupportInitialize)(this.datanomina)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

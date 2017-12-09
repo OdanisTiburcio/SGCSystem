@@ -408,7 +408,7 @@
             this.MinimizeBox = false;
             this.Name = "CRUDClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CRUDClientes";
+            this.Text = "Mantenimiento de Clientes";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);

@@ -173,7 +173,7 @@
             this.MinimizeBox = false;
             this.Name = "CuadreCaja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CuadreCaja";
+            this.Text = "Cuadre de Caja";
             ((System.ComponentModel.ISupportInitialize)(this.dtvcuadrecaja)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

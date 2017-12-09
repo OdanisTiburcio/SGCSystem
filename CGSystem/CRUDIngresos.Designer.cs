@@ -36,12 +36,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dtpIngresohasta = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.rbcodigoingreso = new System.Windows.Forms.RadioButton();
-            this.rbnumerofact = new System.Windows.Forms.RadioButton();
-            this.rbfechadesdeingresos = new System.Windows.Forms.RadioButton();
             this.dtpIngresodesde = new System.Windows.Forms.DateTimePicker();
+            this.rbfechadesdeingresos = new System.Windows.Forms.RadioButton();
             this.rbtodosingresos = new System.Windows.Forms.RadioButton();
+            this.rbnumerofact = new System.Windows.Forms.RadioButton();
+            this.rbcodigoingreso = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbseleccion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdetalleingresos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -121,6 +122,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbseleccion);
             this.groupBox1.Controls.Add(this.dtpIngresodesde);
             this.groupBox1.Controls.Add(this.rbfechadesdeingresos);
             this.groupBox1.Controls.Add(this.dtpIngresohasta);
@@ -137,37 +139,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle de Ingresos";
             // 
-            // label1
+            // dtpIngresodesde
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(40, 25);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(82, 18);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Buscar por:";
-            // 
-            // rbcodigoingreso
-            // 
-            this.rbcodigoingreso.AutoSize = true;
-            this.rbcodigoingreso.Location = new System.Drawing.Point(201, 25);
-            this.rbcodigoingreso.Name = "rbcodigoingreso";
-            this.rbcodigoingreso.Size = new System.Drawing.Size(67, 21);
-            this.rbcodigoingreso.TabIndex = 2;
-            this.rbcodigoingreso.TabStop = true;
-            this.rbcodigoingreso.Text = "Código";
-            this.rbcodigoingreso.UseVisualStyleBackColor = true;
-            // 
-            // rbnumerofact
-            // 
-            this.rbnumerofact.AutoSize = true;
-            this.rbnumerofact.Location = new System.Drawing.Point(274, 23);
-            this.rbnumerofact.Name = "rbnumerofact";
-            this.rbnumerofact.Size = new System.Drawing.Size(126, 21);
-            this.rbnumerofact.TabIndex = 3;
-            this.rbnumerofact.TabStop = true;
-            this.rbnumerofact.Text = "Número Factura";
-            this.rbnumerofact.UseVisualStyleBackColor = true;
+            this.dtpIngresodesde.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpIngresodesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpIngresodesde.Location = new System.Drawing.Point(227, 49);
+            this.dtpIngresodesde.Name = "dtpIngresodesde";
+            this.dtpIngresodesde.Size = new System.Drawing.Size(84, 24);
+            this.dtpIngresodesde.TabIndex = 41;
+            this.dtpIngresodesde.Value = new System.DateTime(2017, 11, 16, 0, 0, 0, 0);
+            this.dtpIngresodesde.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // rbfechadesdeingresos
             // 
@@ -180,20 +161,10 @@
             this.rbfechadesdeingresos.Text = "Fecha desde:";
             this.rbfechadesdeingresos.UseVisualStyleBackColor = true;
             // 
-            // dtpIngresodesde
-            // 
-            this.dtpIngresodesde.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpIngresodesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpIngresodesde.Location = new System.Drawing.Point(227, 49);
-            this.dtpIngresodesde.Name = "dtpIngresodesde";
-            this.dtpIngresodesde.Size = new System.Drawing.Size(84, 24);
-            this.dtpIngresodesde.TabIndex = 41;
-            this.dtpIngresodesde.Value = new System.DateTime(2017, 11, 16, 0, 0, 0, 0);
-            this.dtpIngresodesde.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
             // rbtodosingresos
             // 
             this.rbtodosingresos.AutoSize = true;
+            this.rbtodosingresos.Checked = true;
             this.rbtodosingresos.Location = new System.Drawing.Point(127, 25);
             this.rbtodosingresos.Name = "rbtodosingresos";
             this.rbtodosingresos.Size = new System.Drawing.Size(65, 21);
@@ -201,6 +172,46 @@
             this.rbtodosingresos.TabStop = true;
             this.rbtodosingresos.Text = "Todo...";
             this.rbtodosingresos.UseVisualStyleBackColor = true;
+            // 
+            // rbnumerofact
+            // 
+            this.rbnumerofact.AutoSize = true;
+            this.rbnumerofact.Location = new System.Drawing.Point(274, 23);
+            this.rbnumerofact.Name = "rbnumerofact";
+            this.rbnumerofact.Size = new System.Drawing.Size(126, 21);
+            this.rbnumerofact.TabIndex = 3;
+            this.rbnumerofact.TabStop = true;
+            this.rbnumerofact.Text = "Número Factura";
+            this.rbnumerofact.UseVisualStyleBackColor = true;
+            // 
+            // rbcodigoingreso
+            // 
+            this.rbcodigoingreso.AutoSize = true;
+            this.rbcodigoingreso.Location = new System.Drawing.Point(201, 25);
+            this.rbcodigoingreso.Name = "rbcodigoingreso";
+            this.rbcodigoingreso.Size = new System.Drawing.Size(67, 21);
+            this.rbcodigoingreso.TabIndex = 2;
+            this.rbcodigoingreso.TabStop = true;
+            this.rbcodigoingreso.Text = "Código";
+            this.rbcodigoingreso.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(40, 25);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 18);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Buscar por:";
+            // 
+            // tbseleccion
+            // 
+            this.tbseleccion.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbseleccion.Location = new System.Drawing.Point(398, 23);
+            this.tbseleccion.Name = "tbseleccion";
+            this.tbseleccion.Size = new System.Drawing.Size(53, 21);
+            this.tbseleccion.TabIndex = 42;
             // 
             // CRUDIngresos
             // 
@@ -214,7 +225,7 @@
             this.Controls.Add(this.btbuscaringreso);
             this.Controls.Add(this.dgvdetalleingresos);
             this.Name = "CRUDIngresos";
-            this.Text = "CRUDIngresos";
+            this.Text = "Detalle de Ingresos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvdetalleingresos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -237,5 +248,6 @@
         private System.Windows.Forms.RadioButton rbcodigoingreso;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton rbtodosingresos;
+        private System.Windows.Forms.TextBox tbseleccion;
     }
 }
