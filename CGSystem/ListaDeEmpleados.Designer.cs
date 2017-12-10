@@ -246,7 +246,10 @@
             this.Controls.Add(this.btnbuscar);
             this.Controls.Add(this.btnagregar);
             this.Controls.Add(this.datanomina);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ListaDeEmpleados";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ListaDeEmpleados";
             ((System.ComponentModel.ISupportInitialize)(this.datanomina)).EndInit();
             this.ResumeLayout(false);

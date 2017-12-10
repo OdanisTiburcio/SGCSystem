@@ -246,7 +246,10 @@
             this.Controls.Add(this.btnagregar);
             this.Controls.Add(this.datanomina);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "ListaDeClientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Clientes";
             ((System.ComponentModel.ISupportInitialize)(this.datanomina)).EndInit();
             this.ResumeLayout(false);

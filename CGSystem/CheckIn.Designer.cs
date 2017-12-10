@@ -207,7 +207,10 @@
             this.Controls.Add(this.tbid);
             this.Controls.Add(this.tbnombre);
             this.Controls.Add(this.btnguardar);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "CheckIn";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "CheckIn";
             ((System.ComponentModel.ISupportInitialize)(this.ptbfotoempleado)).EndInit();
             this.ResumeLayout(false);

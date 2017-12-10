@@ -382,6 +382,7 @@
             this.Controls.Add(this.btbuscar);
             this.Controls.Add(this.label11);
             this.Name = "Facturación";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facturación";
             ((System.ComponentModel.ISupportInitialize)(this.btnsearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1detalle)).EndInit();
