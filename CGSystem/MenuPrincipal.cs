@@ -56,12 +56,12 @@ namespace CGSystem
         {
             try
             {
-                DateTime fechahoy = DateTime.Today;
+                //DateTime fechahoy = DateTime.Today;
                 operacion oper = new operacion();
-                DataSet ds = oper.ConsultaConResultado("SELECT * FROM cliente WHERE fin_periodo < '" + fechahoy + "'");
+                DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, foto FROM cliente");// WHERE fin_periodo < '" + fechahoy + "'");
                 ds.WriteXml("C:\\CGSystem\\CGSystem\\Clientes con Servicios Vencidos.xml");
-                VisorReportes f = new VisorReportes("ServiciosVencidos.rpt");
-                f.Show();
+                VisorReportes f = new VisorReportes("ServiciosVencidos.rpt");//"C:\\CGSystem\\CGSystem\\ServiciosVencidos.rpt"
+            f.Show();
             }
             catch (Exception ex)
             {
@@ -100,6 +100,12 @@ namespace CGSystem
         private void listaDeServiciosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ServiciosEmitidos f = new ServiciosEmitidos();
+            f.ShowDialog();
+        }
+
+        private void departamentosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Departamentos f = new Departamentos();
             f.ShowDialog();
         }
     }

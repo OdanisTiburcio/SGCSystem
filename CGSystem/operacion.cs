@@ -14,7 +14,7 @@ namespace CGSystem
 
         public string Conectar()
         {
-            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\SGCSystem\\SGCSystemBD.db;Version=3;");
+            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\SGCSystemBD.db;Version=3;");
             try
             {
                 cnx.Open();
@@ -34,7 +34,7 @@ namespace CGSystem
         public string ConsultaSinResultado(string sql)
         {
 
-            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\SGCSystem\\SGCSystemBD.db;Version=3;");
+            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\SGCSystemBD.db;Version=3;");
             try
             {
                 cnx.Open();
@@ -56,7 +56,7 @@ namespace CGSystem
         public DataSet ConsultaConResultado(string sql)
         {
 
-            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\SGCSystem\\SGCSystemBD.db;Version=3;");
+            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\SGCSystemBD.db;Version=3;");
             try
             {
                 cnx.Open();
@@ -79,7 +79,7 @@ namespace CGSystem
         public DataTable ConsultaDataTable(string sql)
         {
 
-            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\SGCSystem\\SGCSystemBD.db;Version=3;");
+            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\SGCSystemBD.db;Version=3;");
             try
             {
                 cnx.Open();
