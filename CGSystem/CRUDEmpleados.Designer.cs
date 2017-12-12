@@ -84,6 +84,7 @@
             this.bncargarfotoempleado.TabIndex = 28;
             this.bncargarfotoempleado.Text = "Cargar Foto...";
             this.bncargarfotoempleado.UseVisualStyleBackColor = true;
+            this.bncargarfotoempleado.Click += new System.EventHandler(this.bncargarfotoempleado_Click);
             // 
             // tbRutaFoto
             // 
@@ -354,6 +355,7 @@
             this.btnguardarempleado.TabIndex = 27;
             this.btnguardarempleado.Text = "Guardar";
             this.btnguardarempleado.UseVisualStyleBackColor = false;
+            this.btnguardarempleado.Click += new System.EventHandler(this.btnguardarempleado_Click);
             // 
             // groupBox3
             // 
@@ -489,6 +491,7 @@
             this.Name = "CRUDEmpleados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento de Empleados";
+            this.Load += new System.EventHandler(this.CRUDEmpleados_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox1.ResumeLayout(false);
