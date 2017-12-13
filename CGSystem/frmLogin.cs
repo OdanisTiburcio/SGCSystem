@@ -15,27 +15,35 @@ namespace CGSystem
         public frmLogin()
         {
             InitializeComponent();
-            tbusuario.Select();
+            cbusuario.Select();
         }
 
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-            if (tbusuario.Text == "mario" && tbcontraseña.Text == "bros")
-            {
-                Form f = new Visor_de_Datos_Sqlite();
-                f.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Revise los datos e inténtelo de nuevo","Aviso", MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
-                tbcontraseña.Select();
-
-            }
+            Entrar();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+
+        public void Entrar()
+        {
+
+            if (cbusuario.Text == "Adanis Tiburcio" && tbcontraseña.Text == "bros")
+            {
+                Form f = new Visor_de_Datos_Sqlite();
+                f.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Revise los datos e inténtelo de nuevo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                tbcontraseña.Select();
+
+            }
+
+        }
+
     }
 }
