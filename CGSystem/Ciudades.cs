@@ -67,5 +67,10 @@ namespace CGSystem
             }
 
         }
+
+        private void Ciudades_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -17,11 +17,11 @@ namespace CGSystem
     {
         public VisorReportes(string nombre_reporte)
         {
-            InitializeComponent();
-            ReportDocument cryRpt = new ReportDocument();
-            cryRpt.Load(nombre_reporte);
-            crystalReportViewer1.ReportSource = cryRpt;
-            crystalReportViewer1.Refresh();
+            //InitializeComponent();
+            //ReportDocument cryRpt = new ReportDocument();
+            //cryRpt.Load(nombre_reporte);
+            //crystalReportViewer1.ReportSource = cryRpt;
+            //crystalReportViewer1.Refresh();
         }
     }
 }

@@ -130,6 +130,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Ciudades";
             this.Text = "Ciudades";
+            this.Load += new System.EventHandler(this.Ciudades_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
