@@ -26,11 +26,7 @@ namespace CGSystem
         private void btnCancelar_Click(object sender, EventArgs e)
         {
 
-            DialogResult Result = MessageBox.Show("¿Está seguro que desea salir del sistema?", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (Result == DialogResult.OK)
-            {
-                this.Close();
-            }
+            this.Close();
 
         }
 
@@ -56,5 +52,30 @@ namespace CGSystem
         {
             MenuPrincipal.SalirDelSistema = true;
         }
+
+        private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            bool cerrar = true;
+            cerrar = Cerrar(cerrar);
+            if (!cerrar)
+            {
+                e.Cancel = true;
+            }
+            else{
+            }
+        }
+
+        public bool Cerrar(bool close)
+        {
+            DialogResult Result = MessageBox.Show("¿Está seguro que desea salir del sistema?", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (Result == DialogResult.OK)
+            {
+                close = true;
+                return close;
+            }
+            close = false;
+            return close;
+        }
+
     }
 }
