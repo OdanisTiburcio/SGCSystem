@@ -25,20 +25,27 @@ namespace CGSystem
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            this.Close();
+
+            DialogResult Result = MessageBox.Show("¿Está seguro que desea salir del sistema?", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (Result == DialogResult.OK)
+            {
+                MenuPrincipal.SalirDelSistema = true;
+                this.Close();
+            }
+
         }
 
         public void Entrar()
         {
-
+            //Validar Inicio de Sesión
             if (cbusuario.Text == "Adanis Tiburcio" && tbcontraseña.Text == "bros")
             {
-                Form f = new Visor_de_Datos_Sqlite();
-                f.ShowDialog();
+                MenuPrincipal.Logeado = true;
+                this.Close();
             }
             else
             {
-                MessageBox.Show("Revise los datos e inténtelo de nuevo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Datos incorrectos, inténtelo de nuevo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 tbcontraseña.Select();
 
             }

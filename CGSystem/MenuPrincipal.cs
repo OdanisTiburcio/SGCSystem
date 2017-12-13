@@ -15,9 +15,31 @@ namespace CGSystem
 {
     public partial class MenuPrincipal : Form
     {
+        //Variables Estáticas para el usuario logeado
+        public static int UsuarioID = 0;
+        public static string NombreUsuario = "Adanis Tiburcio";
+        public static bool Logeado = false; //Para confirmar que la sesión esté iniciada
+        public static bool SalirDelSistema = false;
+
         public MenuPrincipal()
         {
             InitializeComponent();
+        }
+
+        public void Actualizar()
+        {
+            try
+            {
+                if (Logeado == false)
+                {
+                    Form F = new frmLogin();
+                    F.ShowDialog();
+                }
+                else { }
+            }
+            catch
+            {
+            }
         }
 
         private void btnfacturar_Click(object sender, EventArgs e)
@@ -54,6 +76,20 @@ namespace CGSystem
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
+            try
+            {
+                Actualizar();
+                if (SalirDelSistema) {
+                    this.Close();
+                } else
+                {
+
+                }
+            }
+            catch
+            {
+            }
+
             try
             {
                 //DateTime fechahoy = DateTime.Today;
