@@ -250,7 +250,7 @@
             this.MinimizeBox = false;
             this.Name = "ListaDeEmpleados";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ListaDeEmpleados";
+            this.Text = "Lista de Empleados";
             ((System.ComponentModel.ISupportInitialize)(this.datanomina)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -223,7 +223,7 @@
             this.Controls.Add(this.btbuscar1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "CXC";
-            this.Text = "CXC";
+            this.Text = "Cuenta por Cobrar";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1update)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btbuscar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -29,7 +29,6 @@ namespace CGSystem
             DialogResult Result = MessageBox.Show("¿Está seguro que desea salir del sistema?", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
             if (Result == DialogResult.OK)
             {
-                MenuPrincipal.SalirDelSistema = true;
                 this.Close();
             }
 
@@ -41,6 +40,7 @@ namespace CGSystem
             if (cbusuario.Text == "Adanis Tiburcio" && tbcontraseña.Text == "bros")
             {
                 MenuPrincipal.Logeado = true;
+                MenuPrincipal.SalirDelSistema = false;
                 this.Close();
             }
             else
@@ -52,5 +52,9 @@ namespace CGSystem
 
         }
 
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            MenuPrincipal.SalirDelSistema = true;
+        }
     }
 }
