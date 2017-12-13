@@ -214,12 +214,12 @@
             // 
             // btnfacturar
             // 
-            this.btnfacturar.BackColor = System.Drawing.Color.White;
+            this.btnfacturar.BackColor = System.Drawing.Color.Azure;
             this.btnfacturar.Font = new System.Drawing.Font("Bookman Old Style", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.btnfacturar.ForeColor = System.Drawing.Color.Black;
             this.btnfacturar.Location = new System.Drawing.Point(10, 161);
             this.btnfacturar.Name = "btnfacturar";
-            this.btnfacturar.Size = new System.Drawing.Size(200, 88);
+            this.btnfacturar.Size = new System.Drawing.Size(222, 88);
             this.btnfacturar.TabIndex = 2;
             this.btnfacturar.Text = "Facturar";
             this.btnfacturar.UseVisualStyleBackColor = false;
@@ -227,12 +227,12 @@
             // 
             // btncheckin
             // 
-            this.btncheckin.BackColor = System.Drawing.Color.White;
+            this.btncheckin.BackColor = System.Drawing.Color.AntiqueWhite;
             this.btncheckin.Font = new System.Drawing.Font("Bookman Old Style", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.btncheckin.ForeColor = System.Drawing.Color.Black;
             this.btncheckin.Location = new System.Drawing.Point(10, 65);
             this.btncheckin.Name = "btncheckin";
-            this.btncheckin.Size = new System.Drawing.Size(200, 89);
+            this.btncheckin.Size = new System.Drawing.Size(222, 89);
             this.btncheckin.TabIndex = 3;
             this.btncheckin.Text = "Check-in";
             this.btncheckin.UseVisualStyleBackColor = false;
@@ -240,11 +240,11 @@
             // 
             // btnlistaclientes
             // 
-            this.btnlistaclientes.BackColor = System.Drawing.Color.White;
+            this.btnlistaclientes.BackColor = System.Drawing.Color.Honeydew;
             this.btnlistaclientes.Font = new System.Drawing.Font("Bookman Old Style", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlistaclientes.Location = new System.Drawing.Point(10, 255);
             this.btnlistaclientes.Name = "btnlistaclientes";
-            this.btnlistaclientes.Size = new System.Drawing.Size(200, 88);
+            this.btnlistaclientes.Size = new System.Drawing.Size(222, 88);
             this.btnlistaclientes.TabIndex = 4;
             this.btnlistaclientes.Text = "Clientes";
             this.btnlistaclientes.UseVisualStyleBackColor = false;
