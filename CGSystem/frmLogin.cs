@@ -55,13 +55,18 @@ namespace CGSystem
 
         private void frmLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
-            bool cerrar = true;
-            cerrar = Cerrar(cerrar);
-            if (!cerrar)
+            if (MenuPrincipal.Logeado) { }
+            else
             {
-                e.Cancel = true;
-            }
-            else{
+                bool cerrar = true;
+                cerrar = Cerrar(cerrar);
+                if (!cerrar)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+                }
             }
         }
 
