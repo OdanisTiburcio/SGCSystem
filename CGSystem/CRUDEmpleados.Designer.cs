@@ -106,6 +106,7 @@
             this.btneliminarempleado.TabIndex = 32;
             this.btneliminarempleado.Text = "Eliminar";
             this.btneliminarempleado.UseVisualStyleBackColor = false;
+            this.btneliminarempleado.Click += new System.EventHandler(this.btneliminarempleado_Click);
             // 
             // btnactualizarempleado
             // 
@@ -118,6 +119,7 @@
             this.btnactualizarempleado.TabIndex = 31;
             this.btnactualizarempleado.Text = "Actualizar";
             this.btnactualizarempleado.UseVisualStyleBackColor = false;
+            this.btnactualizarempleado.Click += new System.EventHandler(this.btnactualizarempleado_Click);
             // 
             // groupBox2
             // 

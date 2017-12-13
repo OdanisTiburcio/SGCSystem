@@ -17,7 +17,25 @@ namespace CGSystem
         {
             InitializeComponent();
         }
-
+        public void limpiarcampos()
+        {
+            cbposicion.Text = "";
+            cbdepartamento.Text = "";
+            tbsueldo.Clear();
+            tbcedulaempleado.Clear();
+            tbnombreempleado.Clear();
+            tbapellidoempleado.Clear();
+            dtpingresoempleado.Value = DateTime.Now;
+            dtpnacimientoempleado.Value = DateTime.Now;
+            tbdireccionempleado.Clear();
+            cbsector.Text = "";
+            cbciudad.Text = "";
+            tbtelefonoempleado.Clear();
+            tbcelularempleado.Clear();
+            cbestadoempleado.Text = "";
+            cbsexoempleado.Text = "";
+            pictureBox1.Image = null;
+        }
         private void bncargarfotoempleado_Click(object sender, EventArgs e)
         {
             OpenFileDialog CargarFoto = new OpenFileDialog();
@@ -35,7 +53,7 @@ namespace CGSystem
 
         private void CRUDEmpleados_Load(object sender, EventArgs e)
         {
-            tbnumeroempleado.ReadOnly = true;
+            tbnumeroempleado.ReadOnly = false;
             dtpingresoempleado.Value = DateTime.Now;
             dtpnacimientoempleado.Value = DateTime.Now;
             SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\SGCSystemBD.db;Version=3;");
@@ -79,7 +97,7 @@ namespace CGSystem
             }
         }
 
-        public bool ReadOnly {get; set;}
+        public bool ReadOnly { get; set; }
         private void btnguardarempleado_Click(object sender, EventArgs e)
         {
             string codigodepart;
@@ -102,28 +120,61 @@ namespace CGSystem
 
             if (tbnombreempleado.Text != "" && tbapellidoempleado.Text != "" && tbcedulaempleado.Text != "" && dtpnacimientoempleado.Text != "" && cbsexoempleado.Text != "" && dtpingresoempleado.Text != "" && tbsueldo.Text != "" && cbposicion.Text != "" && cbdepartamento.Text != "" && cbestadoempleado.Text != "" && tbRutaFoto.Text != "")
             {
-                oper.ConsultaSinResultado("INSERT INTO empleado (codigo_posicion, codigo_departamento, sueldo, cedula_empleado, nombre, apellido, fecha_nacimineto, fecha_ingreso, direccion, codigo_sector, codigo_ciudad, telefono_casa, celular, codigo_estado, foto, sexo) VALUES ('" + codigoposicion + "','" + codigodepart + "','" + tbsueldo.Text + "','" + tbcedulaempleado.Text.ToString() + "','" + tbnombreempleado.Text.ToString().ToUpper() + "','" + tbapellidoempleado.Text.ToString().ToUpper() + "','" + dtpnacimientoempleado.Text.ToString() + "','" + dtpingresoempleado.Text.ToString() + "','" + tbdireccionempleado.Text.ToString().ToUpper() + "','" + codigosector + "','" + codigociudad + "','" + tbtelefonoempleado.Text.ToString() + "','" + tbcelularempleado.Text.ToString() + "','" + codigoestado + "','" + tbRutaFoto.Text.ToString() + "','" + cbsexoempleado.Text.ToString() + "')");
-                cbposicion.Text = "";
-                cbdepartamento.Text = "";
-                tbsueldo.Clear();
-                tbcedulaempleado.Clear();
-                tbnombreempleado.Clear();
-                tbapellidoempleado.Clear();
-                dtpingresoempleado.Value = DateTime.Now;
-                dtpnacimientoempleado.Value = DateTime.Now;
-                tbdireccionempleado.Clear();
-                cbsector.Text = "";
-                cbciudad.Text = "";
-                tbtelefonoempleado.Clear();
-                tbcelularempleado.Clear();
-                cbestadoempleado.Text = "";
-                cbsexoempleado.Text = "";
-                pictureBox1.Image = null;
+                oper.ConsultaSinResultado("INSERT INTO empleado (codigo_posicion, codigo_departamento, sueldo, cedula_empleado, nombre, apellido, fecha_nacimiento, fecha_ingreso, direccion, codigo_sector, codigo_ciudad, telefono_casa, celular, codigo_estado, foto, sexo) VALUES ('" + codigoposicion + "','" + codigodepart + "','" + tbsueldo.Text + "','" + tbcedulaempleado.Text.ToString() + "','" + tbnombreempleado.Text.ToString().ToUpper() + "','" + tbapellidoempleado.Text.ToString().ToUpper() + "','" + dtpnacimientoempleado.Text.ToString() + "','" + dtpingresoempleado.Text.ToString() + "','" + tbdireccionempleado.Text.ToString().ToUpper() + "','" + codigosector + "','" + codigociudad + "','" + tbtelefonoempleado.Text.ToString() + "','" + tbcelularempleado.Text.ToString() + "','" + codigoestado + "','" + tbRutaFoto.Text.ToString() + "','" + cbsexoempleado.Text.ToString() + "')");
+                limpiarcampos();
                 MessageBox.Show("Datos registrados satisfactoriamente!");
             }
             else
             {
                 MessageBox.Show("Faltan datos por registrar! ");
+            }
+        }
+
+        private void btnactualizarempleado_Click(object sender, EventArgs e)
+        {
+            string codigodepart;
+            string codigoposicion;
+            string codigosector;
+            string codigociudad;
+            string codigoestado;
+            operacion oper = new operacion();
+            DataSet ds = new DataSet();
+            ds = oper.ConsultaConResultado("SELECT codigo_posicion FROM posicion WHERE descripcion_posicion = '" + cbposicion.Text + "'");
+            codigoposicion = ds.Tables[0].Rows[0][0].ToString();
+            ds = oper.ConsultaConResultado("SELECT codigo_departamento FROM departamento WHERE descripcion_departamento = '" + cbdepartamento.Text + "'");
+            codigodepart = ds.Tables[0].Rows[0][0].ToString();
+            ds = oper.ConsultaConResultado("SELECT codigo_sector FROM sector WHERE descripcion_sector = '" + cbsector.Text + "'");
+            codigosector = ds.Tables[0].Rows[0][0].ToString();
+            ds = oper.ConsultaConResultado("SELECT codigo_ciudad FROM ciudad WHERE descripcion_ciudad = '" + cbciudad.Text + "'");
+            codigociudad = ds.Tables[0].Rows[0][0].ToString();
+            ds = oper.ConsultaConResultado("SELECT codigo_estado FROM estado WHERE descripcion_estado = '" + cbestadoempleado.Text + "'");
+            codigoestado = ds.Tables[0].Rows[0][0].ToString();
+
+            if (tbnombreempleado.Text != "" && tbapellidoempleado.Text != "" && tbcedulaempleado.Text != "" && dtpnacimientoempleado.Text != "" && cbsexoempleado.Text != "" && dtpingresoempleado.Text != "" && tbsueldo.Text != "" && cbposicion.Text != "" && cbdepartamento.Text != "" && cbestadoempleado.Text != "" && tbRutaFoto.Text != "")
+            {
+                oper.ConsultaSinResultado("UPDATE empleado SET codigo_posicion = '" + codigoposicion + "', codigo_departamento = '" + codigodepart + "', sueldo = '" + tbsueldo.Text + "', cedula_empleado = '" + tbcedulaempleado.Text.ToString() + "', nombre = '" + tbnombreempleado.Text.ToString().ToUpper() + "', apellido = '" + tbapellidoempleado.Text.ToString().ToUpper() + "', fecha_nacimiento = '" + dtpnacimientoempleado.Text.ToString() + "', fecha_ingreso = '" + dtpingresoempleado.Text.ToString() + "', direccion = '" + tbdireccionempleado.Text.ToString().ToUpper() + "', codigo_sector = '" + codigosector + "', codigo_ciudad = '" + codigociudad + "', telefono_casa = '" + tbtelefonoempleado.Text.ToString() + "', celular = '" + tbcelularempleado.Text.ToString() + "', codigo_estado = '" + codigoestado + "', foto = '" + tbRutaFoto.Text.ToString() + "', sexo = '" + cbsexoempleado.Text.ToString() + "' WHERE numero_empleado = '" + tbnumeroempleado.Text + "'");
+                limpiarcampos();
+                MessageBox.Show("Datos actualizados satisfactoriamente!");
+            }
+            else
+            {
+                MessageBox.Show("Faltan datos por registrar! ");
+            }
+        }
+
+        private void btneliminarempleado_Click(object sender, EventArgs e)
+        {
+            if (tbnumeroempleado.Text != "")
+            {
+                operacion oper = new operacion();
+                oper.ConsultaSinResultado("DELETE FROM empleado WHERE numero_empleado ='" + tbnumeroempleado.Text + "'");
+                limpiarcampos();
+                MessageBox.Show("Empleado borrado correctamente! ");
+            }
+            else
+            {
+                MessageBox.Show("Por favor colocar un número de empleado válido!");
+                tbnumeroempleado.Select();
             }
         }
     }
