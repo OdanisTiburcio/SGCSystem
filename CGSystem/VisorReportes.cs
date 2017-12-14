@@ -15,7 +15,6 @@ namespace CGSystem
 {
     public partial class VisorReportes : Form
     {
-        private ServiciosVencidos ServiciosVencidos1;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
 
         public VisorReportes(string nombre_reporte)
