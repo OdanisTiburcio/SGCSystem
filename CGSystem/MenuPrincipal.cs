@@ -97,19 +97,20 @@ namespace CGSystem
             {
             }
 
-            try
-            {
+            //try
+            //{
                 DateTime fechahoy = DateTime.Today;
                 string fecha = oper.FormatearFecha(fechahoy);
                 DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, foto FROM cliente WHERE fin_periodo < '" + fecha + "';");// WHERE fin_periodo < '" + fechahoy + "'");
                 ds.WriteXml("C:\\CGSystem\\CGSystem\\Clientes con Servicios Vencidos.xml");
-                VisorReportes f = new VisorReportes("C:\\CGSystem\\CGSystem\\ServiciosVencidos.rpt");//"C:\\CGSystem\\CGSystem\\ServiciosVencidos.rpt"
-                f.Show();
-            }
-            catch
-            {
-                MessageBox.Show("No hay clientes activos con servicios vencidos!");
-            }
+                Form f = new VisorReportes("ServiciosVencidos.rpt");//"C:\\CGSystem\\CGSystem\\ServiciosVencidos.rpt"
+                f.ShowDialog();
+            //}
+            //catch (Exception ex)
+            //{
+            //    throw ex;
+            //    MessageBox.Show("No hay clientes activos con servicios vencidos!");
+            //}
         }
 
         private void facturarToolStripMenuItem_Click(object sender, EventArgs e)

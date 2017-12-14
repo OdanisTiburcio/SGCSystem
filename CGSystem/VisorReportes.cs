@@ -16,6 +16,7 @@ namespace CGSystem
     public partial class VisorReportes : Form
     {
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        public static string NombreDelReporte = "";
 
         public VisorReportes(string nombre_reporte)
         {
@@ -41,6 +42,7 @@ namespace CGSystem
             this.crystalReportViewer1.Name = "crystalReportViewer1";
             this.crystalReportViewer1.Size = new System.Drawing.Size(708, 471);
             this.crystalReportViewer1.TabIndex = 0;
+            this.crystalReportViewer1.TabStop = false;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
             // VisorReportes
