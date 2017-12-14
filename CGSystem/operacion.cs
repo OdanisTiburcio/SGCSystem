@@ -99,5 +99,22 @@ namespace CGSystem
 
         }
 
+        public string FormatearFecha(DateTime fechaDT)
+        {
+            string fechaform;
+            int mes = fechaDT.Month;
+            int dia = fechaDT.Day;
+            string Ddia = "";
+            string Mmes = "";
+            string Aaño = fechaDT.Year.ToString();
+
+            //Comprobar que el més o el día sea mayor que 10 para si no agregarle el cero delante
+            if (mes < 10) { Mmes = "0" + mes.ToString(); } else { Mmes = mes.ToString(); }
+            if (dia < 10) { Ddia = "0" + dia.ToString(); } else { Ddia = dia.ToString(); }
+            fechaform = Aaño + "-" + Mmes + "-" + Ddia;
+
+            return fechaform; //Retornar al la llamada del método; la fecha formateada
+        }
+
     }
 }
