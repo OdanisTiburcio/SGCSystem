@@ -81,11 +81,7 @@ namespace CGSystem
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult Result = MessageBox.Show("¿Está seguro que desea salir del sistema?", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
-            if (Result == DialogResult.OK)
-            {
-                this.Close();
-            }
+            Cerrar();
         }
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
@@ -175,6 +171,40 @@ namespace CGSystem
             {
                 MessageBox.Show("No hay clientes activos con servicios vencidos!");
             }
+        }
+
+        private void MenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (!SalirDelSistema)
+            {
+                Cerrar();
+                if (!SalirDelSistema)
+                {
+                    e.Cancel = true;
+                }
+                else
+                {
+
+                }
+            }
+            else { }
+        }
+
+        public void Cerrar()
+        {
+            if (!SalirDelSistema)
+            {
+                DialogResult Result = MessageBox.Show("¿Está seguro que desea salir del sistema?", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+                if (Result == DialogResult.OK)
+                {
+                    SalirDelSistema = true;
+                    this.Close();
+                }
+            }else
+            {
+                this.Close();
+            }
+
         }
 
     }
