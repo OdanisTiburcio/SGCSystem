@@ -42,28 +42,27 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btbuscar1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1update)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btbuscar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.Control;
-            this.label4.Font = new System.Drawing.Font("Tahoma", 14.75F, System.Drawing.FontStyle.Bold);
+            this.label4.Font = new System.Drawing.Font("Goudy Old Style", 18F, System.Drawing.FontStyle.Bold);
             this.label4.Location = new System.Drawing.Point(477, 330);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 24);
+            this.label4.Size = new System.Drawing.Size(63, 28);
             this.label4.TabIndex = 116;
             this.label4.Text = "Total";
             // 
             // tbtotal
             // 
+            this.tbtotal.Enabled = false;
             this.tbtotal.Font = new System.Drawing.Font("Calisto MT", 10F, System.Drawing.FontStyle.Bold);
             this.tbtotal.ForeColor = System.Drawing.Color.Red;
-            this.tbtotal.Location = new System.Drawing.Point(543, 330);
+            this.tbtotal.Location = new System.Drawing.Point(543, 332);
             this.tbtotal.Name = "tbtotal";
             this.tbtotal.Size = new System.Drawing.Size(126, 23);
             this.tbtotal.TabIndex = 115;
@@ -72,6 +71,7 @@
             // 
             // dataGridView1update
             // 
+            this.dataGridView1update.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1update.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1update.Enabled = false;
             this.dataGridView1update.Location = new System.Drawing.Point(12, 133);
@@ -81,56 +81,61 @@
             // 
             // textBox1
             // 
+            this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.textBox1.Location = new System.Drawing.Point(213, 98);
+            this.textBox1.Location = new System.Drawing.Point(213, 100);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(82, 23);
             this.textBox1.TabIndex = 112;
             // 
             // btnbuscar
             // 
-            this.btnbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnbuscar.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnbuscar.Font = new System.Drawing.Font("Goudy Old Style", 18F, System.Drawing.FontStyle.Bold);
             this.btnbuscar.Location = new System.Drawing.Point(12, 319);
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(156, 34);
             this.btnbuscar.TabIndex = 110;
             this.btnbuscar.Text = "Pagar Factura";
-            this.btnbuscar.UseVisualStyleBackColor = true;
+            this.btnbuscar.UseVisualStyleBackColor = false;
             // 
             // btcnew
             // 
-            this.btcnew.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btcnew.Location = new System.Drawing.Point(140, 357);
+            this.btcnew.BackColor = System.Drawing.Color.Cornsilk;
+            this.btcnew.Font = new System.Drawing.Font("Goudy Old Style", 18F, System.Drawing.FontStyle.Bold);
+            this.btcnew.Location = new System.Drawing.Point(12, 357);
             this.btcnew.Name = "btcnew";
-            this.btcnew.Size = new System.Drawing.Size(162, 34);
+            this.btcnew.Size = new System.Drawing.Size(290, 41);
             this.btcnew.TabIndex = 106;
             this.btcnew.Text = "Imprimir Ingreso";
-            this.btcnew.UseVisualStyleBackColor = true;
+            this.btcnew.UseVisualStyleBackColor = false;
             // 
             // btimprimir
             // 
+            this.btimprimir.BackColor = System.Drawing.Color.Cornsilk;
             this.btimprimir.Enabled = false;
-            this.btimprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btimprimir.Location = new System.Drawing.Point(323, 321);
+            this.btimprimir.Font = new System.Drawing.Font("Goudy Old Style", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btimprimir.Location = new System.Drawing.Point(309, 325);
             this.btimprimir.Name = "btimprimir";
-            this.btimprimir.Size = new System.Drawing.Size(148, 70);
+            this.btimprimir.Size = new System.Drawing.Size(163, 70);
             this.btimprimir.TabIndex = 105;
             this.btimprimir.Text = "Imprimir Estado de Cuenta";
-            this.btimprimir.UseVisualStyleBackColor = true;
+            this.btimprimir.UseVisualStyleBackColor = false;
             // 
             // btcsave
             // 
-            this.btcsave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-            this.btcsave.Location = new System.Drawing.Point(529, 360);
+            this.btcsave.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btcsave.Font = new System.Drawing.Font("Goudy Old Style", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btcsave.Location = new System.Drawing.Point(482, 360);
             this.btcsave.Name = "btcsave";
-            this.btcsave.Size = new System.Drawing.Size(140, 38);
+            this.btcsave.Size = new System.Drawing.Size(187, 38);
             this.btcsave.TabIndex = 104;
             this.btcsave.Text = "Pagar Total";
-            this.btcsave.UseVisualStyleBackColor = true;
+            this.btcsave.UseVisualStyleBackColor = false;
             // 
             // tbdetalle
             // 
-            this.tbdetalle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.tbdetalle.Font = new System.Drawing.Font("Goudy Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbdetalle.Location = new System.Drawing.Point(174, 325);
             this.tbdetalle.MaxLength = 175;
             this.tbdetalle.Multiline = true;
@@ -144,17 +149,17 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Tahoma", 14.75F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(132, 95);
+            this.label2.Font = new System.Drawing.Font("Goudy Old Style", 18F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(135, 95);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 24);
+            this.label2.Size = new System.Drawing.Size(82, 28);
             this.label2.TabIndex = 109;
             this.label2.Text = "Código";
             // 
             // tbnombre
             // 
             this.tbnombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.tbnombre.Location = new System.Drawing.Point(213, 74);
+            this.tbnombre.Location = new System.Drawing.Point(213, 69);
             this.tbnombre.Name = "tbnombre";
             this.tbnombre.Size = new System.Drawing.Size(321, 23);
             this.tbnombre.TabIndex = 102;
@@ -162,10 +167,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 14.75F, System.Drawing.FontStyle.Bold);
-            this.label1.Location = new System.Drawing.Point(8, 71);
+            this.label1.Font = new System.Drawing.Font("Goudy Old Style", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 67);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(203, 24);
+            this.label1.Size = new System.Drawing.Size(205, 28);
             this.label1.TabIndex = 108;
             this.label1.Text = "Nombre del Cliente";
             // 
@@ -184,23 +189,12 @@
             // 
             this.btbuscar1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btbuscar1.Image = global::CGSystem.Properties.Resources.lupa_psd_468x468;
-            this.btbuscar1.Location = new System.Drawing.Point(527, 73);
+            this.btbuscar1.Location = new System.Drawing.Point(527, 68);
             this.btbuscar1.Name = "btbuscar1";
             this.btbuscar1.Size = new System.Drawing.Size(53, 30);
             this.btbuscar1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btbuscar1.TabIndex = 111;
             this.btbuscar1.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::CGSystem.Properties.Resources.lupa_psd_468x468;
-            this.pictureBox1.Location = new System.Drawing.Point(288, 97);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(53, 30);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 113;
-            this.pictureBox1.TabStop = false;
             // 
             // CXC
             // 
@@ -221,12 +215,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btbuscar1);
-            this.Controls.Add(this.pictureBox1);
             this.Name = "CXC";
-            this.Text = "CXC";
+            this.Text = "Cuenta por Cobrar";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1update)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btbuscar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,6 +240,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox btbuscar1;
-        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

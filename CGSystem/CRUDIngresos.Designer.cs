@@ -36,13 +36,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.dtpIngresohasta = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbseleccion = new System.Windows.Forms.TextBox();
             this.dtpIngresodesde = new System.Windows.Forms.DateTimePicker();
             this.rbfechadesdeingresos = new System.Windows.Forms.RadioButton();
             this.rbtodosingresos = new System.Windows.Forms.RadioButton();
             this.rbnumerofact = new System.Windows.Forms.RadioButton();
             this.rbcodigoingreso = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
-            this.tbseleccion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdetalleingresos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -139,6 +139,14 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalle de Ingresos";
             // 
+            // tbseleccion
+            // 
+            this.tbseleccion.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbseleccion.Location = new System.Drawing.Point(398, 23);
+            this.tbseleccion.Name = "tbseleccion";
+            this.tbseleccion.Size = new System.Drawing.Size(53, 21);
+            this.tbseleccion.TabIndex = 42;
+            // 
             // dtpIngresodesde
             // 
             this.dtpIngresodesde.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -165,7 +173,7 @@
             // 
             this.rbtodosingresos.AutoSize = true;
             this.rbtodosingresos.Checked = true;
-            this.rbtodosingresos.Location = new System.Drawing.Point(127, 25);
+            this.rbtodosingresos.Location = new System.Drawing.Point(127, 23);
             this.rbtodosingresos.Name = "rbtodosingresos";
             this.rbtodosingresos.Size = new System.Drawing.Size(65, 21);
             this.rbtodosingresos.TabIndex = 3;
@@ -187,7 +195,7 @@
             // rbcodigoingreso
             // 
             this.rbcodigoingreso.AutoSize = true;
-            this.rbcodigoingreso.Location = new System.Drawing.Point(201, 25);
+            this.rbcodigoingreso.Location = new System.Drawing.Point(201, 23);
             this.rbcodigoingreso.Name = "rbcodigoingreso";
             this.rbcodigoingreso.Size = new System.Drawing.Size(67, 21);
             this.rbcodigoingreso.TabIndex = 2;
@@ -199,19 +207,11 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Modern No. 20", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(40, 25);
+            this.label1.Location = new System.Drawing.Point(40, 23);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Buscar por:";
-            // 
-            // tbseleccion
-            // 
-            this.tbseleccion.Font = new System.Drawing.Font("Modern No. 20", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbseleccion.Location = new System.Drawing.Point(398, 23);
-            this.tbseleccion.Name = "tbseleccion";
-            this.tbseleccion.Size = new System.Drawing.Size(53, 21);
-            this.tbseleccion.TabIndex = 42;
             // 
             // CRUDIngresos
             // 
