@@ -43,14 +43,16 @@
             this.tbid = new System.Windows.Forms.TextBox();
             this.tbnombre = new System.Windows.Forms.TextBox();
             this.btnguardar = new System.Windows.Forms.Button();
+            this.btbuscar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ptbfotoempleado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btbuscar)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(32, 120);
+            this.label7.Location = new System.Drawing.Point(17, 121);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(46, 13);
             this.label7.TabIndex = 45;
@@ -58,7 +60,7 @@
             // 
             // tbcedula
             // 
-            this.tbcedula.Location = new System.Drawing.Point(79, 117);
+            this.tbcedula.Location = new System.Drawing.Point(64, 118);
             this.tbcedula.Name = "tbcedula";
             this.tbcedula.Size = new System.Drawing.Size(115, 20);
             this.tbcedula.TabIndex = 23;
@@ -130,7 +132,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(20, 94);
+            this.label3.Location = new System.Drawing.Point(5, 95);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 34;
@@ -138,7 +140,7 @@
             // 
             // tbapellidos
             // 
-            this.tbapellidos.Location = new System.Drawing.Point(79, 91);
+            this.tbapellidos.Location = new System.Drawing.Point(64, 92);
             this.tbapellidos.Name = "tbapellidos";
             this.tbapellidos.Size = new System.Drawing.Size(123, 20);
             this.tbapellidos.TabIndex = 21;
@@ -147,7 +149,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(59, 42);
+            this.label2.Location = new System.Drawing.Point(44, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(20, 13);
             this.label2.TabIndex = 28;
@@ -157,7 +159,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(29, 68);
+            this.label1.Location = new System.Drawing.Point(14, 69);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 26;
@@ -166,14 +168,14 @@
             // tbid
             // 
             this.tbid.Enabled = false;
-            this.tbid.Location = new System.Drawing.Point(79, 39);
+            this.tbid.Location = new System.Drawing.Point(64, 40);
             this.tbid.Name = "tbid";
             this.tbid.Size = new System.Drawing.Size(61, 20);
             this.tbid.TabIndex = 22;
             // 
             // tbnombre
             // 
-            this.tbnombre.Location = new System.Drawing.Point(79, 65);
+            this.tbnombre.Location = new System.Drawing.Point(64, 66);
             this.tbnombre.Name = "tbnombre";
             this.tbnombre.Size = new System.Drawing.Size(115, 20);
             this.tbnombre.TabIndex = 20;
@@ -184,8 +186,20 @@
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(126, 59);
             this.btnguardar.TabIndex = 38;
-            this.btnguardar.Text = "Entrada";
+            this.btnguardar.Text = "Registrar Entrada";
             this.btnguardar.UseVisualStyleBackColor = true;
+            // 
+            // btbuscar
+            // 
+            this.btbuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btbuscar.Image = global::CGSystem.Properties.Resources.lupa_psd_468x468;
+            this.btbuscar.Location = new System.Drawing.Point(182, 63);
+            this.btbuscar.Name = "btbuscar";
+            this.btbuscar.Size = new System.Drawing.Size(27, 32);
+            this.btbuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btbuscar.TabIndex = 127;
+            this.btbuscar.TabStop = false;
+            this.btbuscar.Click += new System.EventHandler(this.btbuscar_Click);
             // 
             // CheckIn
             // 
@@ -207,12 +221,15 @@
             this.Controls.Add(this.tbid);
             this.Controls.Add(this.tbnombre);
             this.Controls.Add(this.btnguardar);
+            this.Controls.Add(this.btbuscar);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CheckIn";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CheckIn";
+            this.Load += new System.EventHandler(this.CheckIn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ptbfotoempleado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btbuscar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,5 +252,6 @@
         private System.Windows.Forms.TextBox tbid;
         private System.Windows.Forms.TextBox tbnombre;
         private System.Windows.Forms.Button btnguardar;
+        private System.Windows.Forms.PictureBox btbuscar;
     }
 }

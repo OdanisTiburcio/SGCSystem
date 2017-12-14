@@ -37,16 +37,16 @@
             this.btnimprimir = new System.Windows.Forms.Button();
             this.btnbuscar = new System.Windows.Forms.Button();
             this.btnagregar = new System.Windows.Forms.Button();
-            this.datanomina = new System.Windows.Forms.DataGridView();
+            this.dgvListaEmpleados = new System.Windows.Forms.DataGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sueldobruto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ahorros = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.datanomina)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
             // tbbuscar
@@ -110,6 +110,7 @@
             this.btnmostrartodo.TabIndex = 36;
             this.btnmostrartodo.Text = "Mostrar Todo";
             this.btnmostrartodo.UseVisualStyleBackColor = false;
+            this.btnmostrartodo.Click += new System.EventHandler(this.btnmostrartodo_Click);
             // 
             // btnimprimir
             // 
@@ -122,6 +123,7 @@
             this.btnimprimir.TabIndex = 37;
             this.btnimprimir.Text = "Imprimir";
             this.btnimprimir.UseVisualStyleBackColor = false;
+            this.btnimprimir.Click += new System.EventHandler(this.btnimprimir_Click);
             // 
             // btnbuscar
             // 
@@ -144,29 +146,50 @@
             this.btnagregar.Text = "Agregar Cliente (+)";
             this.btnagregar.UseVisualStyleBackColor = false;
             // 
-            // datanomina
+            // dgvListaEmpleados
             // 
-            this.datanomina.AllowUserToAddRows = false;
-            this.datanomina.AllowUserToDeleteRows = false;
-            this.datanomina.AllowUserToResizeColumns = false;
-            this.datanomina.AllowUserToResizeRows = false;
-            this.datanomina.BackgroundColor = System.Drawing.Color.Azure;
-            this.datanomina.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.datanomina.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvListaEmpleados.AllowUserToAddRows = false;
+            this.dgvListaEmpleados.AllowUserToDeleteRows = false;
+            this.dgvListaEmpleados.AllowUserToResizeColumns = false;
+            this.dgvListaEmpleados.AllowUserToResizeRows = false;
+            this.dgvListaEmpleados.BackgroundColor = System.Drawing.Color.Azure;
+            this.dgvListaEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cedula,
             this.Nombre,
             this.sueldobruto,
             this.cargo,
             this.ahorros,
             this.isr});
-            this.datanomina.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.datanomina.Location = new System.Drawing.Point(12, 59);
-            this.datanomina.Name = "datanomina";
-            this.datanomina.ReadOnly = true;
-            this.datanomina.RowHeadersVisible = false;
-            this.datanomina.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datanomina.Size = new System.Drawing.Size(683, 319);
-            this.datanomina.TabIndex = 38;
+            this.dgvListaEmpleados.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvListaEmpleados.Location = new System.Drawing.Point(12, 59);
+            this.dgvListaEmpleados.Name = "dgvListaEmpleados";
+            this.dgvListaEmpleados.ReadOnly = true;
+            this.dgvListaEmpleados.RowHeadersVisible = false;
+            this.dgvListaEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListaEmpleados.Size = new System.Drawing.Size(683, 319);
+            this.dgvListaEmpleados.TabIndex = 38;
+            this.dgvListaEmpleados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaEmpleados_CellDoubleClick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Mistral", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 29);
+            this.label1.TabIndex = 44;
+            this.label1.Text = "Buscar Por";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Mistral", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(19, 1);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 29);
+            this.label2.TabIndex = 45;
+            this.label2.Text = "Clientes";
             // 
             // cedula
             // 
@@ -191,43 +214,23 @@
             // 
             // cargo
             // 
-            this.cargo.HeaderText = "Cargo";
+            this.cargo.HeaderText = "Teléfono";
             this.cargo.Name = "cargo";
             this.cargo.ReadOnly = true;
             this.cargo.Width = 120;
             // 
             // ahorros
             // 
-            this.ahorros.HeaderText = "Departamento";
+            this.ahorros.HeaderText = "Inicio Periodo";
             this.ahorros.Name = "ahorros";
             this.ahorros.ReadOnly = true;
             this.ahorros.Width = 120;
             // 
             // isr
             // 
-            this.isr.HeaderText = "Fecha Ing.";
+            this.isr.HeaderText = "Fin Periodo";
             this.isr.Name = "isr";
             this.isr.ReadOnly = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Mistral", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 29);
-            this.label1.TabIndex = 44;
-            this.label1.Text = "Buscar Por";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Mistral", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(19, 1);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 29);
-            this.label2.TabIndex = 45;
-            this.label2.Text = "Clientes";
             // 
             // ListaDeClientes
             // 
@@ -244,14 +247,15 @@
             this.Controls.Add(this.btnimprimir);
             this.Controls.Add(this.btnbuscar);
             this.Controls.Add(this.btnagregar);
-            this.Controls.Add(this.datanomina);
+            this.Controls.Add(this.dgvListaEmpleados);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ListaDeClientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Clientes";
-            ((System.ComponentModel.ISupportInitialize)(this.datanomina)).EndInit();
+            this.Load += new System.EventHandler(this.ListaDeClientes_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaEmpleados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,14 +272,14 @@
         private System.Windows.Forms.Button btnimprimir;
         private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.Button btnagregar;
-        private System.Windows.Forms.DataGridView datanomina;
+        private System.Windows.Forms.DataGridView dgvListaEmpleados;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn cedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn sueldobruto;
         private System.Windows.Forms.DataGridViewTextBoxColumn cargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ahorros;
         private System.Windows.Forms.DataGridViewTextBoxColumn isr;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
     }
 }
