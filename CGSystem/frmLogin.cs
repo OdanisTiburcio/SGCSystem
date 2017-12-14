@@ -33,7 +33,7 @@ namespace CGSystem
         public void Entrar()
         {
             //Validar Inicio de Sesión
-            if (cbusuario.Text == "Adanis Tiburcio" && tbcontraseña.Text == "bros")
+            if (cbusuario.Text == "Adanis Tiburcio" || cbusuario.Text == "Jeffry Marte" && tbcontraseña.Text == "bros")
             {
                 MenuPrincipal.Logeado = true;
                 MenuPrincipal.SalirDelSistema = false;

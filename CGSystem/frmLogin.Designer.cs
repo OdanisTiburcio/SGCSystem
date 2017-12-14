@@ -102,7 +102,8 @@
             this.cbusuario.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbusuario.FormattingEnabled = true;
             this.cbusuario.Items.AddRange(new object[] {
-            "Adanis Tiburcio"});
+            "Adanis Tiburcio",
+            "Jeffry Marte"});
             this.cbusuario.Location = new System.Drawing.Point(157, 28);
             this.cbusuario.Name = "cbusuario";
             this.cbusuario.Size = new System.Drawing.Size(197, 26);

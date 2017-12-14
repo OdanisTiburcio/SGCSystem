@@ -21,6 +21,11 @@ namespace CGSystem
         public static bool Logeado = false; //Para confirmar que la sesión esté iniciada
         public static bool SalirDelSistema = false;
 
+        //Clases Reutilizables
+        operacion oper = new operacion();
+        DataSet ds = new DataSet();
+        DataTable dt = new DataTable();
+
         public MenuPrincipal()
         {
             InitializeComponent();
@@ -79,9 +84,11 @@ namespace CGSystem
             try
             {
                 Actualizar();
-                if (SalirDelSistema) {
+                if (SalirDelSistema)
+                {
                     this.Close();
-                } else
+                }
+                else
                 {
 
                 }
@@ -90,19 +97,19 @@ namespace CGSystem
             {
             }
 
-            //try
-            //{
-                //DateTime fechahoy = DateTime.Today;
-                operacion oper = new operacion();
-                DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, foto FROM cliente");// WHERE fin_periodo < '" + fechahoy + "'");
+            try
+            {
+                DateTime fechahoy = DateTime.Today;
+                string fecha = oper.FormatearFecha(fechahoy);
+                DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, foto FROM cliente WHERE fin_periodo < '" + fecha + "';");// WHERE fin_periodo < '" + fechahoy + "'");
                 ds.WriteXml("C:\\CGSystem\\CGSystem\\Clientes con Servicios Vencidos.xml");
                 VisorReportes f = new VisorReportes("C:\\CGSystem\\CGSystem\\ServiciosVencidos.rpt");//"C:\\CGSystem\\CGSystem\\ServiciosVencidos.rpt"
-            f.Show();
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show("No hay clientes activos con servicios vencidos!");
-            //}
+                f.Show();
+            }
+            catch
+            {
+                MessageBox.Show("No hay clientes activos con servicios vencidos!");
+            }
         }
 
         private void facturarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -125,7 +132,7 @@ namespace CGSystem
         private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CRUDEmpleados f = new CRUDEmpleados();
-            f.ShowDialog(); 
+            f.ShowDialog();
         }
 
         private void serviciosToolStripMenuItem_Click(object sender, EventArgs e)
