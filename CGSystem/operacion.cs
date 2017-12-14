@@ -116,5 +116,18 @@ namespace CGSystem
             return fechaform; //Retornar al la llamada del método; la fecha formateada
         }
 
+        public bool CajaDeMensaje(string cuerpo, string titulo)
+        {
+            bool aceptar = false;
+
+            DialogResult Result = MessageBox.Show(cuerpo, titulo, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (Result == DialogResult.OK)
+            {
+                aceptar = true;
+            }
+
+            return aceptar;
+        }
+
     }
 }

@@ -39,6 +39,15 @@ namespace CGSystem
                 {
                     Form F = new frmLogin();
                     F.ShowDialog();
+
+                    if (SalirDelSistema)
+                    {
+                        this.Close();
+                        return;
+                    }
+                    else
+                    {
+                    }
                 }
                 else { }
             }
@@ -81,36 +90,18 @@ namespace CGSystem
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
-            try
-            {
-                Actualizar();
-                if (SalirDelSistema)
-                {
-                    this.Close();
-                }
-                else
-                {
 
-                }
+            Actualizar();
+            if (SalirDelSistema)
+            {
+                return;
             }
-            catch
+            else
             {
             }
 
-            //try
-            //{
-                DateTime fechahoy = DateTime.Today;
-                string fecha = oper.FormatearFecha(fechahoy);
-                DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, foto FROM cliente WHERE fin_periodo < '" + fecha + "';");// WHERE fin_periodo < '" + fechahoy + "'");
-                ds.WriteXml("C:\\CGSystem\\CGSystem\\Clientes con Servicios Vencidos.xml");
-                Form f = new VisorReportes("ServiciosVencidos.rpt");//"C:\\CGSystem\\CGSystem\\ServiciosVencidos.rpt"
-                f.ShowDialog();
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw ex;
-            //    MessageBox.Show("No hay clientes activos con servicios vencidos!");
-            //}
+            MostrarCLientesVencidos();
+
         }
 
         private void facturarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -152,5 +143,39 @@ namespace CGSystem
             Departamentos f = new Departamentos();
             f.ShowDialog();
         }
+
+        private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool salir = oper.CajaDeMensaje("Seguro que desea Cerrar Sesión", "Aviso");
+            if (salir)
+            {
+                Logeado = false;
+                Actualizar();
+            }
+            else { }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MostrarCLientesVencidos();
+        }
+
+        public void MostrarCLientesVencidos()
+        {
+            try
+            {
+                DateTime fechahoy = DateTime.Today;
+                string fecha = oper.FormatearFecha(fechahoy);
+                DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, foto FROM cliente WHERE fin_periodo < '" + fecha + "';");// WHERE fin_periodo < '" + fechahoy + "'");
+                ds.WriteXml("C:\\CGSystem\\CGSystem\\Clientes con Servicios Vencidos.xml");
+                Form f = new VisorReportes("ServiciosVencidos.rpt");//"C:\\CGSystem\\CGSystem\\ServiciosVencidos.rpt"
+                f.ShowDialog();
+            }
+            catch
+            {
+                MessageBox.Show("No hay clientes activos con servicios vencidos!");
+            }
+        }
+
     }
 }
