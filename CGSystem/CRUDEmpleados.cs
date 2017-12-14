@@ -13,6 +13,7 @@ namespace CGSystem
 {
     public partial class CRUDEmpleados : Form
     {
+        operacion oper = new operacion();
         public CRUDEmpleados()
         {
             InitializeComponent();
@@ -105,7 +106,10 @@ namespace CGSystem
             string codigosector;
             string codigociudad;
             string codigoestado;
-            operacion oper = new operacion();
+            DateTime Fechanac = dtpnacimientoempleado.Value;
+            string fechanacimiento = oper.FormatearFecha(dtpnacimientoempleado.Value);
+            DateTime FechaIng = dtpingresoempleado.Value;
+            string fechaingreso = oper.FormatearFecha(dtpingresoempleado.Value);
             DataSet ds = new DataSet();
             ds = oper.ConsultaConResultado("SELECT codigo_posicion FROM posicion WHERE descripcion_posicion = '" + cbposicion.Text + "'");
             codigoposicion = ds.Tables[0].Rows[0][0].ToString();
@@ -120,7 +124,7 @@ namespace CGSystem
 
             if (tbnombreempleado.Text != "" && tbapellidoempleado.Text != "" && tbcedulaempleado.Text != "" && dtpnacimientoempleado.Text != "" && cbsexoempleado.Text != "" && dtpingresoempleado.Text != "" && tbsueldo.Text != "" && cbposicion.Text != "" && cbdepartamento.Text != "" && cbestadoempleado.Text != "" && tbRutaFoto.Text != "")
             {
-                oper.ConsultaSinResultado("INSERT INTO empleado (codigo_posicion, codigo_departamento, sueldo, cedula_empleado, nombre, apellido, fecha_nacimiento, fecha_ingreso, direccion, codigo_sector, codigo_ciudad, telefono_casa, celular, codigo_estado, foto, sexo) VALUES ('" + codigoposicion + "','" + codigodepart + "','" + tbsueldo.Text + "','" + tbcedulaempleado.Text.ToString() + "','" + tbnombreempleado.Text.ToString().ToUpper() + "','" + tbapellidoempleado.Text.ToString().ToUpper() + "','" + dtpnacimientoempleado.Text.ToString() + "','" + dtpingresoempleado.Text.ToString() + "','" + tbdireccionempleado.Text.ToString().ToUpper() + "','" + codigosector + "','" + codigociudad + "','" + tbtelefonoempleado.Text.ToString() + "','" + tbcelularempleado.Text.ToString() + "','" + codigoestado + "','" + tbRutaFoto.Text.ToString() + "','" + cbsexoempleado.Text.ToString() + "')");
+                oper.ConsultaSinResultado("INSERT INTO empleado (codigo_posicion, codigo_departamento, sueldo, cedula_empleado, nombre, apellido, fecha_nacimiento, fecha_ingreso, direccion, codigo_sector, codigo_ciudad, telefono_casa, celular, codigo_estado, foto, sexo) VALUES ('" + codigoposicion + "','" + codigodepart + "','" + tbsueldo.Text + "','" + tbcedulaempleado.Text.ToString() + "','" + tbnombreempleado.Text.ToString().ToUpper() + "','" + tbapellidoempleado.Text.ToString().ToUpper() + "','" + fechanacimiento + "','" + fechaingreso + "','" + tbdireccionempleado.Text.ToString().ToUpper() + "','" + codigosector + "','" + codigociudad + "','" + tbtelefonoempleado.Text.ToString() + "','" + tbcelularempleado.Text.ToString() + "','" + codigoestado + "','" + tbRutaFoto.Text.ToString() + "','" + cbsexoempleado.Text.ToString() + "')");
                 limpiarcampos();
                 MessageBox.Show("Datos registrados satisfactoriamente!");
             }
@@ -137,7 +141,10 @@ namespace CGSystem
             string codigosector;
             string codigociudad;
             string codigoestado;
-            operacion oper = new operacion();
+            DateTime Fechanac = dtpnacimientoempleado.Value;
+            string fechanacimiento = oper.FormatearFecha(dtpnacimientoempleado.Value);
+            DateTime FechaIng = dtpingresoempleado.Value;
+            string fechaingreso = oper.FormatearFecha(dtpingresoempleado.Value);
             DataSet ds = new DataSet();
             ds = oper.ConsultaConResultado("SELECT codigo_posicion FROM posicion WHERE descripcion_posicion = '" + cbposicion.Text + "'");
             codigoposicion = ds.Tables[0].Rows[0][0].ToString();
@@ -152,7 +159,7 @@ namespace CGSystem
 
             if (tbnombreempleado.Text != "" && tbapellidoempleado.Text != "" && tbcedulaempleado.Text != "" && dtpnacimientoempleado.Text != "" && cbsexoempleado.Text != "" && dtpingresoempleado.Text != "" && tbsueldo.Text != "" && cbposicion.Text != "" && cbdepartamento.Text != "" && cbestadoempleado.Text != "" && tbRutaFoto.Text != "")
             {
-                oper.ConsultaSinResultado("UPDATE empleado SET codigo_posicion = '" + codigoposicion + "', codigo_departamento = '" + codigodepart + "', sueldo = '" + tbsueldo.Text + "', cedula_empleado = '" + tbcedulaempleado.Text.ToString() + "', nombre = '" + tbnombreempleado.Text.ToString().ToUpper() + "', apellido = '" + tbapellidoempleado.Text.ToString().ToUpper() + "', fecha_nacimiento = '" + dtpnacimientoempleado.Text.ToString() + "', fecha_ingreso = '" + dtpingresoempleado.Text.ToString() + "', direccion = '" + tbdireccionempleado.Text.ToString().ToUpper() + "', codigo_sector = '" + codigosector + "', codigo_ciudad = '" + codigociudad + "', telefono_casa = '" + tbtelefonoempleado.Text.ToString() + "', celular = '" + tbcelularempleado.Text.ToString() + "', codigo_estado = '" + codigoestado + "', foto = '" + tbRutaFoto.Text.ToString() + "', sexo = '" + cbsexoempleado.Text.ToString() + "' WHERE numero_empleado = '" + tbnumeroempleado.Text + "'");
+                oper.ConsultaSinResultado("UPDATE empleado SET codigo_posicion = '" + codigoposicion + "', codigo_departamento = '" + codigodepart + "', sueldo = '" + tbsueldo.Text + "', cedula_empleado = '" + tbcedulaempleado.Text.ToString() + "', nombre = '" + tbnombreempleado.Text.ToString().ToUpper() + "', apellido = '" + tbapellidoempleado.Text.ToString().ToUpper() + "', fecha_nacimiento = '" + fechanacimiento + "', fecha_ingreso = '" + fechaingreso + "', direccion = '" + tbdireccionempleado.Text.ToString().ToUpper() + "', codigo_sector = '" + codigosector + "', codigo_ciudad = '" + codigociudad + "', telefono_casa = '" + tbtelefonoempleado.Text.ToString() + "', celular = '" + tbcelularempleado.Text.ToString() + "', codigo_estado = '" + codigoestado + "', foto = '" + tbRutaFoto.Text.ToString() + "', sexo = '" + cbsexoempleado.Text.ToString() + "' WHERE numero_empleado = '" + tbnumeroempleado.Text + "'");
                 limpiarcampos();
                 MessageBox.Show("Datos actualizados satisfactoriamente!");
             }
@@ -166,7 +173,6 @@ namespace CGSystem
         {
             if (tbnumeroempleado.Text != "")
             {
-                operacion oper = new operacion();
                 oper.ConsultaSinResultado("DELETE FROM empleado WHERE numero_empleado ='" + tbnumeroempleado.Text + "'");
                 limpiarcampos();
                 MessageBox.Show("Empleado borrado correctamente! ");

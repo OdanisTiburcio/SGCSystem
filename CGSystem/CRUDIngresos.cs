@@ -13,6 +13,7 @@ namespace CGSystem
 {
     public partial class CRUDIngresos : Form
     {
+        operacion oper = new operacion();
         public CRUDIngresos()
         {
             InitializeComponent();
@@ -32,8 +33,6 @@ namespace CGSystem
         {
             try
             {
-                //string seleccion = cbTipoBusqueda.SelectedItem.ToString();
-                operacion oper = new operacion();
                 SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\SGCSystemBD.db;Version=3;");
                 cnx.Open();
                 if (rbtodosingresos.Checked)

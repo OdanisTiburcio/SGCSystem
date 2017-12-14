@@ -6,4 +6,10 @@
     <apellido_cliente>SPRING</apellido_cliente>
     <foto>C:\CGSystem\FotosClientes\2.jpg</foto>
   </Table>
+  <Table>
+    <numero_cliente>3</numero_cliente>
+    <nombre_cliente>CARL</nombre_cliente>
+    <apellido_cliente>SMITH</apellido_cliente>
+    <foto>C:\CGSystem\FotosClientes\3.jpg</foto>
+  </Table>
 </NewDataSet>
