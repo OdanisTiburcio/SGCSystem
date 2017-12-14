@@ -21,10 +21,7 @@ namespace CGSystem
         public VisorReportes(string nombre_reporte)
         {
             InitializeComponent();
-            ReportDocument cryRpt = new ReportDocument();
-            cryRpt.Load(nombre_reporte);
-            crystalReportViewer1.ReportSource = cryRpt;
-            crystalReportViewer1.Refresh();
+            NombreDelReporte = nombre_reporte;
         }
 
         private void InitializeComponent()
@@ -44,14 +41,32 @@ namespace CGSystem
             this.crystalReportViewer1.TabIndex = 0;
             this.crystalReportViewer1.TabStop = false;
             this.crystalReportViewer1.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            this.crystalReportViewer1.Load += new System.EventHandler(this.crystalReportViewer1_Load);
             // 
             // VisorReportes
             // 
             this.ClientSize = new System.Drawing.Size(708, 471);
             this.Controls.Add(this.crystalReportViewer1);
             this.Name = "VisorReportes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.ResumeLayout(false);
 
+        }
+
+        private void crystalReportViewer1_Load(object sender, EventArgs e)
+        {
+            try
+            {
+                ReportDocument cryRpt = new ReportDocument();
+                cryRpt.Load(NombreDelReporte);
+                crystalReportViewer1.ReportSource = cryRpt;
+                crystalReportViewer1.Refresh();
+            }
+            catch
+            {
+                MessageBox.Show("Hubo un error al cargar el reporte", "Aviso");
+            }
         }
     }
 }
