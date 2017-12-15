@@ -36,6 +36,15 @@ namespace CGSystem
 
         //Para el Guardado y Nueva Factura
         public bool FacturaGuardada = false;
+        public string TipoFactura = "CONTADO";
+
+        //Para el guardado del detalle
+        public string codigo = "";
+        public string descripcion = "";
+        public string precio = "";
+        public string dias = "";
+        public string cantidad = "";
+        public string total = "";
 
         public Facturación()
         {
@@ -142,13 +151,29 @@ namespace CGSystem
                 }
                 else
                 {
-                    tbcliente.Enabled = false;
-                    tbcliente.Text = "";
-                    tbidcliente.Text = "";
-                    if (tbidcliente.Text != "0" && tbidcliente.Text != "") {
+                    //Validar si hay un cliente válido seleccionado, en caso contrario abrir el formulario de selección de cliente.
+                    try
+                    {
+                        if (tbidcliente.Text != "0" && Convert.ToInt32(tbidcliente.Text) < 1)
+                        {
+                            tbcliente.Text = "";
+                            tbidcliente.Text = "";
+                            BuscarCliente();
+                        }
+                        else
+                        {
+                        }
+                    }
+                    catch
+                    {
+                        tbcliente.Text = "";
+                        tbidcliente.Text = "";
                         BuscarCliente();
-                    } else {
-                    }                   
+                    }
+
+
+
+                    tbcliente.Enabled = false;
                 }
                 contador++;
             }
@@ -231,9 +256,9 @@ namespace CGSystem
         {
             try
             {
-                if(dgvListaServicios.RowCount > 0 && !FacturaGuardada)
+                if (dgvListaServicios.RowCount > 0 && !FacturaGuardada)
                 {
-                    bool ReiniciarFactura = oper.CajaDeMensaje("La factura actual no ha sido guardada ¿Desea desecharla?","Aviso");
+                    bool ReiniciarFactura = oper.CajaDeMensaje("La factura actual no ha sido guardada ¿Desea desecharla?", "Aviso");
                     if (ReiniciarFactura)
                     {
 
@@ -276,7 +301,59 @@ namespace CGSystem
 
         public void GuardarFactura()
         {
+            try
+            {
+                //Método para realizar el guardado de la factura...
 
+                //Establecer si es a Crédito o al Contado
+                TipoFactura = SaberTipoFactura();
+                //Obtener el código del tipo de factura actual
+                ds = oper.ConsultaConResultado("SELECT codigo_tipo_factura FROM tipo_factura WHERE descripcion_tipo_factura = '" + TipoFactura + "';");
+                TipoFactura = ds.Tables[0].Rows[0][0].ToString();
+
+                //Primero Guardamos la cabecera de la factura
+                //oper.ConsultaSinResultado("INSERT INTO factura (numero_factura, codigo_tipo_factura, numero_cliente, fecha_factura," +
+                //    "total_factura, codigo_tipo_ingreso) VALUES ('" + NumeroDeFactura + "', '" + TipoFactura + "'," +
+                //    "'" + IdCliente + "', '" + fechaHoy + "', '" + TotalFactura.ToString() + "', 'EFECTIVO');");
+
+                //Ahora guardamos el detalle de la facutra con el bucle siguiente
+                for (int i = 0; i < dgvListaServicios.RowCount; i++)
+                {
+
+                    codigo = dgvListaServicios.Rows[i].Cells[0].Value.ToString();
+                    descripcion = dgvListaServicios.Rows[i].Cells[1].Value.ToString();
+                    precio = dgvListaServicios.Rows[i].Cells[2].Value.ToString();
+                    dias = dgvListaServicios.Rows[i].Cells[3].Value.ToString();
+                    cantidad = dgvListaServicios.Rows[i].Cells[4].Value.ToString();
+                    total = dgvListaServicios.Rows[i].Cells[5].Value.ToString();
+
+                    oper.ConsultaSinResultado("INSERT INTO detalle_factura (id_factura, codigo, descripcion, precio, dias, cantidad, total) " +
+                        "VALUES ('" + NumeroDeFactura + "', '" + codigo + "', '" + descripcion + "', '" + precio + "'" +
+                        ", '" + dias + "', '" + cantidad + "', '" + total + "');");
+                }
+
+            }
+            catch
+            {
+                MessageBox.Show("Hubo un error al tratar de guardar la factura, contacte al " +
+                    "encargado de mantenimiento del sistema, disculpe los inconvenientes...", "Aviso");
+            }
+        }
+
+        public string SaberTipoFactura()
+        {
+            string tipo;
+
+            if (rdContado.Checked)
+            {
+                tipo = "CONTADO";
+            }
+            else
+            {
+                tipo = "CREDITO";
+            }
+
+            return tipo;
         }
 
     }

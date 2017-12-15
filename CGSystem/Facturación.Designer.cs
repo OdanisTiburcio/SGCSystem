@@ -326,9 +326,9 @@
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Cross;
             this.pictureBox1.Image = global::CGSystem.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(516, 163);
+            this.pictureBox1.Location = new System.Drawing.Point(521, 173);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(218, 201);
+            this.pictureBox1.Size = new System.Drawing.Size(198, 182);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 149;
             this.pictureBox1.TabStop = false;
