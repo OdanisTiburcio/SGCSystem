@@ -104,7 +104,7 @@
             // 
             this.btnmostrartodo.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnmostrartodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnmostrartodo.Location = new System.Drawing.Point(411, 384);
+            this.btnmostrartodo.Location = new System.Drawing.Point(404, 374);
             this.btnmostrartodo.Name = "btnmostrartodo";
             this.btnmostrartodo.Size = new System.Drawing.Size(220, 46);
             this.btnmostrartodo.TabIndex = 36;
@@ -115,9 +115,8 @@
             // btnimprimir
             // 
             this.btnimprimir.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnimprimir.Enabled = false;
             this.btnimprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnimprimir.Location = new System.Drawing.Point(68, 384);
+            this.btnimprimir.Location = new System.Drawing.Point(68, 374);
             this.btnimprimir.Name = "btnimprimir";
             this.btnimprimir.Size = new System.Drawing.Size(220, 46);
             this.btnimprimir.TabIndex = 37;

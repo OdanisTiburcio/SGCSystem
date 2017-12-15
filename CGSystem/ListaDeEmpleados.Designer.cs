@@ -115,7 +115,6 @@
             // btnimprimir
             // 
             this.btnimprimir.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.btnimprimir.Enabled = false;
             this.btnimprimir.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnimprimir.Location = new System.Drawing.Point(68, 382);
             this.btnimprimir.Name = "btnimprimir";
@@ -123,6 +122,7 @@
             this.btnimprimir.TabIndex = 37;
             this.btnimprimir.Text = "Imprimir";
             this.btnimprimir.UseVisualStyleBackColor = false;
+            this.btnimprimir.Click += new System.EventHandler(this.btnimprimir_Click);
             // 
             // btnbuscar
             // 

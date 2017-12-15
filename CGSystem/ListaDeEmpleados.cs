@@ -7,6 +7,7 @@ using System.Data.SQLite;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CrystalDecisions.CrystalReports.Engine;
 using System.Windows.Forms;
 
 namespace CGSystem
@@ -99,6 +100,53 @@ namespace CGSystem
             dt = ds.Tables[0];
             dataGridView1.DataSource = dt;
             cnx.Close();
+        }
+
+        private void btnimprimir_Click(object sender, EventArgs e)
+        {
+            //try
+            //{
+                if (rdbnombre.Checked)
+                {
+                    DataSet ds = oper.ConsultaConResultado("SELECT emp.numero_empleado, emp.nombre, emp.apellido, emp.cedula_empleado, pos.descripcion_posicion, dep.descripcion_departamento, emp.sueldo, emp.foto FROM empleado emp INNER JOIN posicion pos on pos.codigo_posicion = emp.codigo_posicion INNER JOIN departamento dep on dep.codigo_departamento = emp.codigo_departamento WHERE nombre LIKE '%" + tbbuscar.Text + "%'");
+                    ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaEmpleado.xml");
+                    Form f = new VisorReportes("Reporte de Empleados.rpt");
+                    f.ShowDialog();
+                }
+                else if (rdbid.Checked)
+                {
+                    DataSet ds = oper.ConsultaConResultado("SELECT emp.numero_empleado, emp.nombre, emp.apellido, emp.cedula_empleado, pos.descripcion_posicion, dep.descripcion_departamento, emp.sueldo, emp.foto FROM empleado emp INNER JOIN posicion pos on pos.codigo_posicion = emp.codigo_posicion INNER JOIN departamento dep on dep.codigo_departamento = emp.codigo_departamento WHERE numero_empleado = '" + tbbuscar.Text + "'");
+                    ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaEmpleado.xml");
+                    Form f = new VisorReportes("Reporte de Empleados.rpt");
+                    f.ShowDialog();
+                }
+                else if (rdbapellido.Checked)
+                {
+                    DataSet ds = oper.ConsultaConResultado("SELECT emp.numero_empleado, emp.nombre, emp.apellido, emp.cedula_empleado, pos.descripcion_posicion, dep.descripcion_departamento, emp.sueldo, emp.foto FROM empleado emp INNER JOIN posicion pos on pos.codigo_posicion = emp.codigo_posicion INNER JOIN departamento dep on dep.codigo_departamento = emp.codigo_departamento WHERE apellido LIKE '%" + tbbuscar.Text + "%'");
+                    ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaEmpleado.xml");
+                    Form f = new VisorReportes("Reporte de Empleados.rpt");
+                    f.ShowDialog();
+                }
+                else if (rdbcedula.Checked)
+                {
+                    DataSet ds = oper.ConsultaConResultado("SELECT emp.numero_empleado, emp.nombre, emp.apellido, emp.cedula_empleado, pos.descripcion_posicion, dep.descripcion_departamento, emp.sueldo, emp.foto FROM empleado emp INNER JOIN posicion pos on pos.codigo_posicion = emp.codigo_posicion INNER JOIN departamento dep on dep.codigo_departamento = emp.codigo_departamento WHERE cedula_empleado = '" + tbbuscar.Text + "'");
+                    ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaEmpleado.xml");
+                    Form f = new VisorReportes("Reporte de Empleados.rpt");
+                    f.ShowDialog();
+                }
+                else if (tbbuscar.Text == "")
+                {
+                    DataSet ds = oper.ConsultaConResultado("SELECT emp.numero_empleado, emp.nombre, emp.apellido, emp.cedula_empleado, pos.descripcion_posicion, dep.descripcion_departamento, emp.sueldo, emp.foto FROM empleado emp INNER JOIN posicion pos on pos.codigo_posicion = emp.codigo_posicion INNER JOIN departamento dep on dep.codigo_departamento = emp.codigo_departamento");
+                    ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaEmpleado.xml");
+                    Form f = new VisorReportes("Todos los empleados.rpt");
+                    f.ShowDialog();
+                }
+                else MessageBox.Show("Favor realizar una selección!");
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Antes debe seleccionar una de las opciones y digitar el valor a buscar!");
+            //}
         }
     }
 }
