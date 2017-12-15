@@ -59,6 +59,8 @@
             this.tbbuscar.Name = "tbbuscar";
             this.tbbuscar.Size = new System.Drawing.Size(161, 30);
             this.tbbuscar.TabIndex = 33;
+            this.tbbuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbbuscar_KeyPress);
+            this.tbbuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbbuscar_KeyUp);
             // 
             // rdbcedula
             // 
@@ -93,10 +95,12 @@
             // rdbnombre
             // 
             this.rdbnombre.AutoSize = true;
+            this.rdbnombre.Checked = true;
             this.rdbnombre.Location = new System.Drawing.Point(124, 14);
             this.rdbnombre.Name = "rdbnombre";
             this.rdbnombre.Size = new System.Drawing.Size(62, 17);
             this.rdbnombre.TabIndex = 42;
+            this.rdbnombre.TabStop = true;
             this.rdbnombre.Text = "Nombre";
             this.rdbnombre.UseVisualStyleBackColor = true;
             // 
@@ -163,12 +167,12 @@
             this.ahorros,
             this.isr});
             this.dgvListaClientes.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvListaClientes.Location = new System.Drawing.Point(586, 275);
+            this.dgvListaClientes.Location = new System.Drawing.Point(595, 262);
             this.dgvListaClientes.Name = "dgvListaClientes";
             this.dgvListaClientes.ReadOnly = true;
             this.dgvListaClientes.RowHeadersVisible = false;
             this.dgvListaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaClientes.Size = new System.Drawing.Size(89, 77);
+            this.dgvListaClientes.Size = new System.Drawing.Size(75, 78);
             this.dgvListaClientes.TabIndex = 38;
             this.dgvListaClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaClientes_CellContentClick);
             this.dgvListaClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaEmpleados_CellDoubleClick);
@@ -237,9 +241,9 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 68);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 58);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(683, 295);
+            this.dataGridView1.Size = new System.Drawing.Size(683, 310);
             this.dataGridView1.TabIndex = 46;
             // 
             // ListaDeClientes

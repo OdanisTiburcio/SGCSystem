@@ -104,8 +104,8 @@ namespace CGSystem
 
         private void btnimprimir_Click(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 if (rdbnombre.Checked)
                 {
                     DataSet ds = oper.ConsultaConResultado("SELECT emp.numero_empleado, emp.nombre, emp.apellido, emp.cedula_empleado, pos.descripcion_posicion, dep.descripcion_departamento, emp.sueldo, emp.foto FROM empleado emp INNER JOIN posicion pos on pos.codigo_posicion = emp.codigo_posicion INNER JOIN departamento dep on dep.codigo_departamento = emp.codigo_departamento WHERE nombre LIKE '%" + tbbuscar.Text + "%'");
@@ -142,11 +142,11 @@ namespace CGSystem
                     f.ShowDialog();
                 }
                 else MessageBox.Show("Favor realizar una selección!");
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("Antes debe seleccionar una de las opciones y digitar el valor a buscar!");
-            //}
+            }
+            catch
+            {
+                MessageBox.Show("Antes debe seleccionar una de las opciones y digitar el valor a buscar!");
+            }
         }
     }
 }

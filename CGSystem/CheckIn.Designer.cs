@@ -60,6 +60,7 @@
             // 
             // tbcedula
             // 
+            this.tbcedula.Enabled = false;
             this.tbcedula.Location = new System.Drawing.Point(64, 118);
             this.tbcedula.Name = "tbcedula";
             this.tbcedula.Size = new System.Drawing.Size(115, 20);
@@ -71,6 +72,7 @@
             this.ptbfotoempleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ptbfotoempleado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ptbfotoempleado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbfotoempleado.Image = global::CGSystem.Properties.Resources.Logo;
             this.ptbfotoempleado.Location = new System.Drawing.Point(218, 12);
             this.ptbfotoempleado.Name = "ptbfotoempleado";
             this.ptbfotoempleado.Size = new System.Drawing.Size(191, 177);
@@ -81,6 +83,7 @@
             // rdbinactivo
             // 
             this.rdbinactivo.AutoSize = true;
+            this.rdbinactivo.Enabled = false;
             this.rdbinactivo.Location = new System.Drawing.Point(108, 172);
             this.rdbinactivo.Name = "rdbinactivo";
             this.rdbinactivo.Size = new System.Drawing.Size(64, 17);
@@ -92,6 +95,7 @@
             // 
             this.rdbactivo.AutoSize = true;
             this.rdbactivo.Checked = true;
+            this.rdbactivo.Enabled = false;
             this.rdbactivo.Location = new System.Drawing.Point(41, 172);
             this.rdbactivo.Name = "rdbactivo";
             this.rdbactivo.Size = new System.Drawing.Size(61, 17);
@@ -140,6 +144,7 @@
             // 
             // tbapellidos
             // 
+            this.tbapellidos.Enabled = false;
             this.tbapellidos.Location = new System.Drawing.Point(64, 92);
             this.tbapellidos.Name = "tbapellidos";
             this.tbapellidos.Size = new System.Drawing.Size(123, 20);
@@ -175,6 +180,7 @@
             // 
             // tbnombre
             // 
+            this.tbnombre.Enabled = false;
             this.tbnombre.Location = new System.Drawing.Point(64, 66);
             this.tbnombre.Name = "tbnombre";
             this.tbnombre.Size = new System.Drawing.Size(115, 20);
@@ -222,6 +228,7 @@
             this.Controls.Add(this.tbnombre);
             this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.btbuscar);
+            this.Enabled = false;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CheckIn";
