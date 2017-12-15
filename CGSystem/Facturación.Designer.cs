@@ -30,9 +30,7 @@
         {
             this.btneliminiar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.chkbcredito = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.chkbcontado = new System.Windows.Forms.CheckBox();
             this.label5 = new System.Windows.Forms.Label();
             this.tbtotal = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,6 +56,8 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnsearch = new System.Windows.Forms.PictureBox();
             this.btbuscar = new System.Windows.Forms.PictureBox();
+            this.rdContado = new System.Windows.Forms.RadioButton();
+            this.rdCredito = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaServicios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnsearch)).BeginInit();
@@ -86,15 +86,6 @@
             this.button1.Text = "Nueva Factura";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // chkbcredito
-            // 
-            this.chkbcredito.AutoSize = true;
-            this.chkbcredito.Location = new System.Drawing.Point(674, 62);
-            this.chkbcredito.Name = "chkbcredito";
-            this.chkbcredito.Size = new System.Drawing.Size(15, 14);
-            this.chkbcredito.TabIndex = 123;
-            this.chkbcredito.UseVisualStyleBackColor = true;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -104,18 +95,6 @@
             this.label6.Size = new System.Drawing.Size(69, 19);
             this.label6.TabIndex = 141;
             this.label6.Text = "Crédito";
-            // 
-            // chkbcontado
-            // 
-            this.chkbcontado.AutoSize = true;
-            this.chkbcontado.Checked = true;
-            this.chkbcontado.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkbcontado.Location = new System.Drawing.Point(567, 62);
-            this.chkbcontado.Name = "chkbcontado";
-            this.chkbcontado.Size = new System.Drawing.Size(15, 14);
-            this.chkbcontado.TabIndex = 122;
-            this.chkbcontado.UseVisualStyleBackColor = true;
-            this.chkbcontado.CheckedChanged += new System.EventHandler(this.chkbcontado_CheckedChanged);
             // 
             // label5
             // 
@@ -151,11 +130,12 @@
             // 
             // tbcliente
             // 
-            this.tbcliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbcliente.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbcliente.Location = new System.Drawing.Point(547, 96);
             this.tbcliente.Name = "tbcliente";
             this.tbcliente.Size = new System.Drawing.Size(167, 22);
             this.tbcliente.TabIndex = 135;
+            this.tbcliente.Text = "Cliente";
             // 
             // lbidcliente
             // 
@@ -171,7 +151,7 @@
             // tbidcliente
             // 
             this.tbidcliente.Enabled = false;
-            this.tbidcliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbidcliente.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbidcliente.Location = new System.Drawing.Point(547, 124);
             this.tbidcliente.Name = "tbidcliente";
             this.tbidcliente.Size = new System.Drawing.Size(83, 22);
@@ -360,7 +340,7 @@
             this.btnsearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btnsearch.TabIndex = 136;
             this.btnsearch.TabStop = false;
-            this.btnsearch.Visible = false;
+            this.btnsearch.Click += new System.EventHandler(this.btnsearch_Click);
             // 
             // btbuscar
             // 
@@ -374,19 +354,41 @@
             this.btbuscar.TabStop = false;
             this.btbuscar.Click += new System.EventHandler(this.btbuscar_Click);
             // 
+            // rdContado
+            // 
+            this.rdContado.AutoSize = true;
+            this.rdContado.Checked = true;
+            this.rdContado.Location = new System.Drawing.Point(571, 62);
+            this.rdContado.Name = "rdContado";
+            this.rdContado.Size = new System.Drawing.Size(14, 13);
+            this.rdContado.TabIndex = 150;
+            this.rdContado.TabStop = true;
+            this.rdContado.UseVisualStyleBackColor = true;
+            this.rdContado.CheckedChanged += new System.EventHandler(this.rdContado_CheckedChanged);
+            // 
+            // rdCredito
+            // 
+            this.rdCredito.AutoSize = true;
+            this.rdCredito.Location = new System.Drawing.Point(679, 62);
+            this.rdCredito.Name = "rdCredito";
+            this.rdCredito.Size = new System.Drawing.Size(14, 13);
+            this.rdCredito.TabIndex = 150;
+            this.rdCredito.UseVisualStyleBackColor = true;
+            this.rdCredito.CheckedChanged += new System.EventHandler(this.chkbcontado_CheckedChanged);
+            // 
             // Facturación
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(764, 464);
+            this.Controls.Add(this.rdCredito);
+            this.Controls.Add(this.rdContado);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.dgvListaServicios);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btneliminiar);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.chkbcredito);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.chkbcontado);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.tbtotal);
             this.Controls.Add(this.label4);
@@ -420,9 +422,7 @@
 
         private System.Windows.Forms.Button btneliminiar;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.CheckBox chkbcredito;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox chkbcontado;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbtotal;
         private System.Windows.Forms.Label label4;
@@ -448,5 +448,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ahorros;
         private System.Windows.Forms.DataGridViewTextBoxColumn isr;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.RadioButton rdContado;
+        private System.Windows.Forms.RadioButton rdCredito;
     }
 }

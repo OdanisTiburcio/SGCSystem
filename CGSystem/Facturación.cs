@@ -16,6 +16,7 @@ namespace CGSystem
         //Variables Estáticas necesarias
         public static string ServicioBuscarID = "0";
         public static bool SeleccionDeServicio = false; //Para confirmar si se seleccionó un servicio o si solo se cerró el formulario.
+        public static bool SelecciónDeCliente = false; //Para confirmar si se seleccionó un cliente o si solo se cerró el formulario.
 
 
         //Clases Reutilizables
@@ -25,6 +26,8 @@ namespace CGSystem
         public int NuevaFila = 0;
         public double TotalFactura = 0;
         public bool ClienteSeleccionado = false;
+        public static string NombreCliente = "";
+        public static string IdCliente = "";
 
         public Facturación()
         {
@@ -114,7 +117,7 @@ namespace CGSystem
 
         public void ActualizarCheckBox()
         {
-            if (chkbcontado.Checked)
+            if (rdContado.Checked)
             {
                 tbcliente.Enabled = true;
                 tbcliente.Text = "";
@@ -126,7 +129,46 @@ namespace CGSystem
                 tbcliente.Enabled = false;
                 tbcliente.Text = "";
                 tbidcliente.Text = "";
+                BuscarCliente();
             }
         }
+
+
+        private void rdContado_CheckedChanged(object sender, EventArgs e)
+        {
+            ActualizarCheckBox();
+        }
+
+        private void btnsearch_Click(object sender, EventArgs e)
+        {
+            BuscarCliente();
+        }
+
+        public void BuscarCliente()
+        {
+            //Buscar un cliente mostrando el formulario de selección
+            ListaDeClientes.Seleccionando = true;
+            Form f = new ListaDeClientes();
+            f.ShowDialog();
+
+            try
+            {
+                if (SelecciónDeCliente)
+                {
+                    tbcliente.Text = NombreCliente;
+                    tbidcliente.Text = IdCliente;
+                    SelecciónDeCliente = false;
+                }
+                else
+                {
+                    rdContado.PerformClick();
+                }
+            }
+            catch
+            {
+            }
+        }
+
     }
+
 }
