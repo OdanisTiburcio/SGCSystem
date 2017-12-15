@@ -312,9 +312,9 @@ namespace CGSystem
                 TipoFactura = ds.Tables[0].Rows[0][0].ToString();
 
                 //Primero Guardamos la cabecera de la factura
-                //oper.ConsultaSinResultado("INSERT INTO factura (numero_factura, codigo_tipo_factura, numero_cliente, fecha_factura," +
-                //    "total_factura, codigo_tipo_ingreso) VALUES ('" + NumeroDeFactura + "', '" + TipoFactura + "'," +
-                //    "'" + IdCliente + "', '" + fechaHoy + "', '" + TotalFactura.ToString() + "', 'EFECTIVO');");
+                oper.ConsultaSinResultado("INSERT INTO factura (id_factura, id_tipo_factura, id_cliente, fecha," +
+                    "total, id_tipo_ingreso) VALUES ('" + NumeroDeFactura + "', '" + TipoFactura + "'," +
+                    "'" + IdCliente + "', '" + fechaHoy + "', '" + TotalFactura.ToString() + "', 'EFECTIVO');");
 
                 //Ahora guardamos el detalle de la facutra con el bucle siguiente
                 for (int i = 0; i < dgvListaServicios.RowCount; i++)
