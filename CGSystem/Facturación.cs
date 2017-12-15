@@ -38,6 +38,14 @@ namespace CGSystem
         public bool FacturaGuardada = false;
         public string TipoFactura = "CONTADO";
 
+        //Para el guardado del detalle
+        public string codigo = "";
+        public string descripcion = "";
+        public string precio = "";
+        public string dias = "";
+        public string cantidad = "";
+        public string total = "";
+
         public Facturación()
         {
             InitializeComponent();
@@ -304,10 +312,25 @@ namespace CGSystem
                 TipoFactura = ds.Tables[0].Rows[0][0].ToString();
 
                 //Primero Guardamos la cabecera de la factura
-                oper.ConsultaSinResultado("INSERT INTO factura (numero_factura, codigo_tipo_factura, numero_cliente, fecha_factura," +
-                    "total_factura, codigo_tipo_ingreso) VALUES ('" + NumeroDeFactura + "', '" + TipoFactura + "'," +
-                    "'" + IdCliente + "', '" + fechaHoy + "', '" + TotalFactura.ToString() + "', 'EFECTIVO');");
+                //oper.ConsultaSinResultado("INSERT INTO factura (numero_factura, codigo_tipo_factura, numero_cliente, fecha_factura," +
+                //    "total_factura, codigo_tipo_ingreso) VALUES ('" + NumeroDeFactura + "', '" + TipoFactura + "'," +
+                //    "'" + IdCliente + "', '" + fechaHoy + "', '" + TotalFactura.ToString() + "', 'EFECTIVO');");
 
+                //Ahora guardamos el detalle de la facutra con el bucle siguiente
+                for (int i = 0; i < dgvListaServicios.RowCount; i++)
+                {
+
+                    codigo = dgvListaServicios.Rows[i].Cells[0].Value.ToString();
+                    descripcion = dgvListaServicios.Rows[i].Cells[1].Value.ToString();
+                    precio = dgvListaServicios.Rows[i].Cells[2].Value.ToString();
+                    dias = dgvListaServicios.Rows[i].Cells[3].Value.ToString();
+                    cantidad = dgvListaServicios.Rows[i].Cells[4].Value.ToString();
+                    total = dgvListaServicios.Rows[i].Cells[5].Value.ToString();
+
+                    oper.ConsultaSinResultado("INSERT INTO detalle_factura (id_factura, codigo, descripcion, precio, dias, cantidad, total) " +
+                        "VALUES ('" + NumeroDeFactura + "', '" + codigo + "', '" + descripcion + "', '" + precio + "'" +
+                        ", '" + dias + "', '" + cantidad + "', '" + total + "');");
+                }
 
             }
             catch

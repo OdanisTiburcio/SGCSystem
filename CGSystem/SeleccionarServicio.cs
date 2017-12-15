@@ -148,6 +148,14 @@ namespace CGSystem
             Seleccionar();
         }
 
-
+        private void dgvListaServicios_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                Seleccionar();
+            }
+            else { }
+        }
     }
 }

@@ -213,6 +213,9 @@
     <EmbeddedResource Include="Sectores.resx">
       <DependentUpon>Sectores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SeleccionarServicio.resx">
+      <DependentUpon>SeleccionarServicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VisorReportes.Designer.cs">
       <DependentUpon>VisorReportes.cs</DependentUpon>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
