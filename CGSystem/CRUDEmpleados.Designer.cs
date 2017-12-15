@@ -507,11 +507,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button bncargarfotoempleado;
         public System.Windows.Forms.TextBox tbRutaFoto;
-        private System.Windows.Forms.Button btneliminarempleado;
-        private System.Windows.Forms.Button btnactualizarempleado;
         private System.Windows.Forms.GroupBox groupBox2;
         public System.Windows.Forms.ComboBox cbciudad;
         private System.Windows.Forms.Label label9;
@@ -532,9 +528,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label12;
         public System.Windows.Forms.TextBox tbdireccionempleado;
-        private System.Windows.Forms.TextBox tbcelularempleado;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox tbtelefonoempleado;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.ComboBox cbsexoempleado;
         private System.Windows.Forms.Label label7;
@@ -543,11 +537,16 @@
         private System.Windows.Forms.Label label10;
         public System.Windows.Forms.DateTimePicker dtpingresoempleado;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox tbsueldo;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox cbposicion;
-        private System.Windows.Forms.ComboBox cbdepartamento;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label11;
+        public System.Windows.Forms.Button bncargarfotoempleado;
+        public System.Windows.Forms.Button btneliminarempleado;
+        public System.Windows.Forms.Button btnactualizarempleado;
+        public System.Windows.Forms.TextBox tbcelularempleado;
+        public System.Windows.Forms.TextBox tbtelefonoempleado;
+        public System.Windows.Forms.TextBox tbsueldo;
+        public System.Windows.Forms.ComboBox cbposicion;
+        public System.Windows.Forms.ComboBox cbdepartamento;
     }
 }

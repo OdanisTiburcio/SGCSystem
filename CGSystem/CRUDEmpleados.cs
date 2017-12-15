@@ -173,14 +173,17 @@ namespace CGSystem
         {
             if (tbnumeroempleado.Text != "")
             {
+                DialogResult Result = MessageBox.Show("¿Está seguro que desea eliminar este empleado de la base de datos?", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
+                if (Result == DialogResult.OK)
+                {
                 oper.ConsultaSinResultado("DELETE FROM empleado WHERE numero_empleado ='" + tbnumeroempleado.Text + "'");
                 limpiarcampos();
                 MessageBox.Show("Empleado borrado correctamente! ");
+                }
             }
             else
             {
-                MessageBox.Show("Por favor colocar un número de empleado válido!");
-                tbnumeroempleado.Select();
+                this.Close();
             }
         }
     }

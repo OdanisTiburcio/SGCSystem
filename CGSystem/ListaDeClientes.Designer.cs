@@ -85,10 +85,12 @@
             // rdbid
             // 
             this.rdbid.AutoSize = true;
+            this.rdbid.Checked = true;
             this.rdbid.Location = new System.Drawing.Point(183, 14);
             this.rdbid.Name = "rdbid";
             this.rdbid.Size = new System.Drawing.Size(34, 17);
             this.rdbid.TabIndex = 41;
+            this.rdbid.TabStop = true;
             this.rdbid.Text = "Id";
             this.rdbid.UseVisualStyleBackColor = true;
             // 
@@ -243,6 +245,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(683, 310);
             this.dataGridView1.TabIndex = 46;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ListaDeClientes
             // 

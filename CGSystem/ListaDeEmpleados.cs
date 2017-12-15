@@ -34,7 +34,7 @@ namespace CGSystem
                 cnx.Open();
                 if (rdbnombre.Checked)
                 {
-                    string consulta = "SELECT emp.numero_empleado Numero, emp.nombre Nombre, emp.apellido Apellido, emp.cedula_empleado Cedula, pos.descripcion_posicion Cargo, dep.descripcion_departamento Departamentos, emp.sueldo Salario, emp.fecha_ingreso Fecha_Entrada, emp.celular Celular, est.descripcion_estado Estados FROM empleado emp INNER JOIN posicion pos on pos.codigo_posicion = emp.codigo_posicion INNER JOIN departamento dep on dep.codigo_departamento = emp.codigo_departamento INNER JOIN estado est ON est.codigo_estado = emp.codigo_estado WHERE nombre LIKE '%" + tbbuscar.Text + "%'";
+                    string consulta = "SELECT cte.numero_cliente Numero, cte.nombre_cliente Nombre, cte.apellido_cliente Apellido, cte.cedula_cliente Cedula, cte.fecha_nacimiento Nacimiento, cte.direccion_cliente, sec.descripcion_sector Sectores, ciu.descripcion_ciudad Ciudades, cte.telefono Telefono, inicio_periodo Desde, fin_periodo Hasta, est.descripcion_estado Estados, foto FROM cliente cte INNER JOIN sector sec ON sec.codigo_sector = cte.codigo_sector INNER JOIN ciudad ciu ON ciu.codigo_ciudad = cte.codigo_ciudad INNER JOIN estado est ON est.codigo_estado = cte.codigo_estado WHERE cte.nombre_cliente LIKE '%" + tbbuscar.Text + "%'";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -46,7 +46,7 @@ namespace CGSystem
                 }
                 else if (rdbid.Checked)
                 {
-                    string consulta = "SELECT emp.numero_empleado Numero, emp.nombre Nombre, emp.apellido Apellido, emp.cedula_empleado Cedula, pos.descripcion_posicion Cargo, dep.descripcion_departamento Departamentos, emp.sueldo Salario, emp.fecha_ingreso Fecha_Entrada, emp.celular Celular, est.descripcion_estado Estados FROM empleado emp INNER JOIN posicion pos on pos.codigo_posicion = emp.codigo_posicion INNER JOIN departamento dep on dep.codigo_departamento = emp.codigo_departamento INNER JOIN estado est ON est.codigo_estado = emp.codigo_estado WHERE numero_empleado = '" + tbbuscar.Text + "'";
+                    string consulta = "SELECT emp.numero_empleado Numero, emp.nombre Nombre, emp.apellido Apellido, emp.cedula_empleado Cedula, pos.descripcion_posicion Cargo, dep.descripcion_departamento Departamentos, emp.sueldo Salario, emp.fecha_ingreso Fecha_Entrada, emp.fecha_nacimiento Nacimiento, emp.celular Celular, emp.direccion Direcciones, sec.descripcion_sector Sectores, ciu.descripcion_ciudad Ciudades, emp.telefono_casa Tel_Casa, emp.sexo Genero, est.descripcion_estado Estados, emp.foto FROM empleado emp INNER JOIN posicion pos ON pos.codigo_posicion = emp.codigo_posicion INNER JOIN departamento dep ON dep.codigo_departamento = emp.codigo_departamento INNER JOIN estado est ON est.codigo_estado = emp.codigo_estado INNER JOIN sector sec ON sec.codigo_sector = emp.codigo_sector INNER JOIN ciudad ciu ON ciu.codigo_ciudad = emp.codigo_ciudad WHERE numero_empleado = '" + tbbuscar.Text + "'";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -58,7 +58,7 @@ namespace CGSystem
                 }
                 else if (rdbapellido.Checked)
                 {
-                    string consulta = "SELECT emp.numero_empleado Numero, emp.nombre Nombre, emp.apellido Apellido, emp.cedula_empleado Cedula, pos.descripcion_posicion Cargo, dep.descripcion_departamento Departamentos, emp.sueldo Salario, emp.fecha_ingreso Fecha_Entrada, emp.celular Celular, est.descripcion_estado Estados FROM empleado emp INNER JOIN posicion pos on pos.codigo_posicion = emp.codigo_posicion INNER JOIN departamento dep on dep.codigo_departamento = emp.codigo_departamento INNER JOIN estado est ON est.codigo_estado = emp.codigo_estado WHERE apellido LIKE '%" + tbbuscar.Text + "%'";
+                    string consulta = "SELECT emp.numero_empleado Numero, emp.nombre Nombre, emp.apellido Apellido, emp.cedula_empleado Cedula, pos.descripcion_posicion Cargo, dep.descripcion_departamento Departamentos, emp.sueldo Salario, emp.fecha_ingreso Fecha_Entrada, emp.fecha_nacimiento Nacimiento, emp.celular Celular, emp.direccion Direcciones, sec.descripcion_sector Sectores, ciu.descripcion_ciudad Ciudades, emp.telefono_casa Tel_Casa, emp.sexo Genero, est.descripcion_estado Estados, emp.foto FROM empleado emp INNER JOIN posicion pos ON pos.codigo_posicion = emp.codigo_posicion INNER JOIN departamento dep ON dep.codigo_departamento = emp.codigo_departamento INNER JOIN estado est ON est.codigo_estado = emp.codigo_estado INNER JOIN sector sec ON sec.codigo_sector = emp.codigo_sector INNER JOIN ciudad ciu ON ciu.codigo_ciudad = emp.codigo_ciudad WHERE apellido LIKE '%" + tbbuscar.Text + "%'";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -70,7 +70,7 @@ namespace CGSystem
                 }
                 else if (rdbcedula.Checked)
                 {
-                    string consulta = "SELECT emp.numero_empleado Numero, emp.nombre Nombre, emp.apellido Apellido, emp.cedula_empleado Cedula, pos.descripcion_posicion Cargo, dep.descripcion_departamento Departamentos, emp.sueldo Salario, emp.fecha_ingreso Fecha_Entrada, emp.celular Celular, est.descripcion_estado Estados FROM empleado emp INNER JOIN posicion pos on pos.codigo_posicion = emp.codigo_posicion INNER JOIN departamento dep on dep.codigo_departamento = emp.codigo_departamento INNER JOIN estado est ON est.codigo_estado = emp.codigo_estado WHERE cedula_empleado = '" + tbbuscar.Text + "'";
+                    string consulta = "SELECT emp.numero_empleado Numero, emp.nombre Nombre, emp.apellido Apellido, emp.cedula_empleado Cedula, pos.descripcion_posicion Cargo, dep.descripcion_departamento Departamentos, emp.sueldo Salario, emp.fecha_ingreso Fecha_Entrada, emp.fecha_nacimiento Nacimiento, emp.celular Celular, emp.direccion Direcciones, sec.descripcion_sector Sectores, ciu.descripcion_ciudad Ciudades, emp.telefono_casa Tel_Casa, emp.sexo Genero, est.descripcion_estado Estados, emp.foto FROM empleado emp INNER JOIN posicion pos ON pos.codigo_posicion = emp.codigo_posicion INNER JOIN departamento dep ON dep.codigo_departamento = emp.codigo_departamento INNER JOIN estado est ON est.codigo_estado = emp.codigo_estado INNER JOIN sector sec ON sec.codigo_sector = emp.codigo_sector INNER JOIN ciudad ciu ON ciu.codigo_ciudad = emp.codigo_ciudad WHERE cedula_empleado = '" + tbbuscar.Text + "'";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -91,7 +91,7 @@ namespace CGSystem
 
         private void btnmostrartodo_Click(object sender, EventArgs e)
         {
-            string consulta = "SELECT emp.numero_empleado Numero, emp.nombre Nombre, emp.apellido Apellido, emp.cedula_empleado Cedula, pos.descripcion_posicion Cargo, dep.descripcion_departamento Departamentos, emp.sueldo Salario, emp.fecha_ingreso Fecha_Entrada, emp.celular Celular, est.descripcion_estado Estados FROM empleado emp INNER JOIN posicion pos on pos.codigo_posicion = emp.codigo_posicion INNER JOIN departamento dep on dep.codigo_departamento = emp.codigo_departamento INNER JOIN estado est ON est.codigo_estado = emp.codigo_estado";
+            string consulta = "SELECT emp.numero_empleado Numero, emp.nombre Nombre, emp.apellido Apellido, emp.cedula_empleado Cedula, pos.descripcion_posicion Cargo, dep.descripcion_departamento Departamentos, emp.sueldo Salario, emp.fecha_ingreso Fecha_Entrada, emp.fecha_nacimiento Nacimiento, emp.celular Celular, emp.direccion Direcciones, sec.descripcion_sector Sectores, ciu.descripcion_ciudad Ciudades, emp.telefono_casa Tel_Casa, emp.sexo Genero, est.descripcion_estado Estados, emp.foto FROM empleado emp INNER JOIN posicion pos ON pos.codigo_posicion = emp.codigo_posicion INNER JOIN departamento dep ON dep.codigo_departamento = emp.codigo_departamento INNER JOIN estado est ON est.codigo_estado = emp.codigo_estado INNER JOIN sector sec ON sec.codigo_sector = emp.codigo_sector INNER JOIN ciudad ciu ON ciu.codigo_ciudad = emp.codigo_ciudad";
             SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
             DataSet ds = new DataSet();
             ds.Reset();
@@ -134,7 +134,7 @@ namespace CGSystem
                     Form f = new VisorReportes("Reporte de Empleados.rpt");
                     f.ShowDialog();
                 }
-                else if (tbbuscar.Text == "")
+                else if (tbbuscar.Text == "Todos")
                 {
                     DataSet ds = oper.ConsultaConResultado("SELECT emp.numero_empleado, emp.nombre, emp.apellido, emp.cedula_empleado, pos.descripcion_posicion, dep.descripcion_departamento, emp.sueldo, emp.foto FROM empleado emp INNER JOIN posicion pos on pos.codigo_posicion = emp.codigo_posicion INNER JOIN departamento dep on dep.codigo_departamento = emp.codigo_departamento");
                     ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaEmpleado.xml");
@@ -147,6 +147,31 @@ namespace CGSystem
             {
                 MessageBox.Show("Antes debe seleccionar una de las opciones y digitar el valor a buscar!");
             }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CRUDEmpleados forempleados = new CRUDEmpleados();
+            forempleados.tbnumeroempleado.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            forempleados.tbnombreempleado.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            forempleados.tbapellidoempleado.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            forempleados.tbcedulaempleado.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            forempleados.cbposicion.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            forempleados.cbdepartamento.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            forempleados.tbsueldo.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+            forempleados.dtpingresoempleado.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+            forempleados.dtpnacimientoempleado.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+            forempleados.tbcelularempleado.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
+            forempleados.tbdireccionempleado.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
+            forempleados.cbsector.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
+            forempleados.cbciudad.Text = dataGridView1.CurrentRow.Cells[12].Value.ToString();
+            forempleados.tbtelefonoempleado.Text = dataGridView1.CurrentRow.Cells[13].Value.ToString();
+            forempleados.cbsexoempleado.Text = dataGridView1.CurrentRow.Cells[14].Value.ToString();
+            forempleados.cbestadoempleado.Text = dataGridView1.CurrentRow.Cells[15].Value.ToString();
+            forempleados.tbRutaFoto.Text = dataGridView1.CurrentRow.Cells[16].Value.ToString();
+            forempleados.Show();
+            forempleados.tbnumeroempleado.Enabled = false;
+            forempleados.btnguardarempleado.Enabled = false;
         }
     }
 }

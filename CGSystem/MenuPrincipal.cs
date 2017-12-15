@@ -162,7 +162,7 @@ namespace CGSystem
             {
                 DateTime fechahoy = DateTime.Today;
                 string fecha = oper.FormatearFecha(fechahoy);
-                DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE fin_periodo < '" + fecha + "';");
+                DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE fin_periodo < '" + fecha + "'");
                 ds.WriteXml("C:\\CGSystem\\CGSystem\\Clientes con Servicios Vencidos.xml");
                 Form f = new VisorReportes("ServiciosVencidos.rpt");
                 f.ShowDialog();

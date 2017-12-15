@@ -534,12 +534,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button btncargarfotocliente;
         public System.Windows.Forms.TextBox tbRutaFoto;
-        private System.Windows.Forms.Button btnimprimircliente;
-        private System.Windows.Forms.Button btneliminarcliente;
-        private System.Windows.Forms.Button btnactualizarcliente;
         private System.Windows.Forms.GroupBox groupBox2;
         public System.Windows.Forms.ComboBox cbestadocliente;
         private System.Windows.Forms.Label label10;
@@ -564,16 +559,20 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label12;
         public System.Windows.Forms.TextBox tbdireccioncliente;
-        private System.Windows.Forms.TextBox tbtelefonocliente;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox gbservicioscliente;
         public System.Windows.Forms.DateTimePicker dtpfinfactura;
         private System.Windows.Forms.Label label13;
         public System.Windows.Forms.DateTimePicker dtpiniciofactura;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.RadioButton rbservicionovencido;
-        private System.Windows.Forms.RadioButton rbserviciovencido;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Button btnnuevocliente;
+        public System.Windows.Forms.TextBox tbtelefonocliente;
+        public System.Windows.Forms.RadioButton rbservicionovencido;
+        public System.Windows.Forms.RadioButton rbserviciovencido;
+        public System.Windows.Forms.Button btnimprimircliente;
+        public System.Windows.Forms.Button btneliminarcliente;
+        public System.Windows.Forms.Button btnactualizarcliente;
+        public System.Windows.Forms.Button btnnuevocliente;
+        public System.Windows.Forms.Button btncargarfotocliente;
     }
 }

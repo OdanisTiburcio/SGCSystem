@@ -83,10 +83,12 @@
             // rdbid
             // 
             this.rdbid.AutoSize = true;
+            this.rdbid.Checked = true;
             this.rdbid.Location = new System.Drawing.Point(192, 13);
             this.rdbid.Name = "rdbid";
             this.rdbid.Size = new System.Drawing.Size(34, 17);
             this.rdbid.TabIndex = 41;
+            this.rdbid.TabStop = true;
             this.rdbid.Text = "Id";
             this.rdbid.UseVisualStyleBackColor = true;
             // 
@@ -239,6 +241,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(688, 317);
             this.dataGridView1.TabIndex = 48;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ListaDeEmpleados
             // 

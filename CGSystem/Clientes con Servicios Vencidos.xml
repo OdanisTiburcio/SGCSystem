@@ -5,15 +5,7 @@
     <nombre_cliente>RAMON</nombre_cliente>
     <apellido_cliente>CARDENAS</apellido_cliente>
     <telefono>(829)586-8547</telefono>
-    <fin_periodo>2017-11-18T00:00:00-04:00</fin_periodo>
+    <fin_periodo>2017-12-14T00:00:00-04:00</fin_periodo>
     <foto>C:\CGSystem\FotosClientes\1.jpg</foto>
-  </Table>
-  <Table>
-    <numero_cliente>3</numero_cliente>
-    <nombre_cliente>CARL</nombre_cliente>
-    <apellido_cliente>SMITH</apellido_cliente>
-    <telefono>(809)587-5687</telefono>
-    <fin_periodo>2017-11-17T00:00:00-04:00</fin_periodo>
-    <foto>C:\CGSystem\FotosClientes\3.jpg</foto>
   </Table>
 </NewDataSet>
