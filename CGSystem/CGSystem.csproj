@@ -175,6 +175,12 @@
     <Compile Include="Sectores.Designer.cs">
       <DependentUpon>Sectores.cs</DependentUpon>
     </Compile>
+    <Compile Include="SeleccionarServicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeleccionarServicio.Designer.cs">
+      <DependentUpon>SeleccionarServicio.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServiciosEmitidos.cs">
       <SubType>Form</SubType>
     </Compile>
