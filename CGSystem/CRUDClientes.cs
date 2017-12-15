@@ -171,5 +171,22 @@ namespace CGSystem
                 tbnumerocliente.Select();
             }
         }
+
+        private void btnimprimircliente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime fechahoy = DateTime.Today;
+                string fecha = oper.FormatearFecha(fechahoy);
+                DataSet ds = oper.ConsultaConResultado("SELECT * FROM cliente WHERE numero_cliente = '" + tbnumerocliente.Text + "';");
+                ds.WriteXml("C:\\CGSystem\\CGSystem\\Cliente Individual.xml");
+                //Form f = new VisorReportes("ServiciosVencidos.rpt");
+                //f.ShowDialog();
+            }
+            catch
+            {
+                MessageBox.Show("No hay clientes activos con servicios vencidos!");
+            }
+        }
     }
 }

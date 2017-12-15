@@ -34,6 +34,8 @@
             this.btneliminarcliente = new System.Windows.Forms.Button();
             this.btnactualizarcliente = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbtelefonocliente = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tbdireccioncliente = new System.Windows.Forms.TextBox();
             this.cbestadocliente = new System.Windows.Forms.ComboBox();
@@ -58,15 +60,13 @@
             this.btnguardarcliente = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.gbservicioscliente = new System.Windows.Forms.GroupBox();
+            this.rbservicionovencido = new System.Windows.Forms.RadioButton();
+            this.rbserviciovencido = new System.Windows.Forms.RadioButton();
+            this.label14 = new System.Windows.Forms.Label();
             this.dtpfinfactura = new System.Windows.Forms.DateTimePicker();
             this.label13 = new System.Windows.Forms.Label();
             this.dtpiniciofactura = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tbtelefonocliente = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.rbserviciovencido = new System.Windows.Forms.RadioButton();
-            this.rbservicionovencido = new System.Windows.Forms.RadioButton();
             this.btnnuevocliente = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -107,6 +107,7 @@
             this.btnimprimircliente.TabIndex = 33;
             this.btnimprimircliente.Text = "Imprimir";
             this.btnimprimircliente.UseVisualStyleBackColor = false;
+            this.btnimprimircliente.Click += new System.EventHandler(this.btnimprimircliente_Click);
             // 
             // btneliminarcliente
             // 
@@ -153,6 +154,23 @@
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Geográficos:";
+            // 
+            // tbtelefonocliente
+            // 
+            this.tbtelefonocliente.Enabled = false;
+            this.tbtelefonocliente.Location = new System.Drawing.Point(10, 148);
+            this.tbtelefonocliente.Name = "tbtelefonocliente";
+            this.tbtelefonocliente.Size = new System.Drawing.Size(100, 20);
+            this.tbtelefonocliente.TabIndex = 21;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(14, 130);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(52, 13);
+            this.label11.TabIndex = 20;
+            this.label11.Text = "Teléfono:";
             // 
             // label12
             // 
@@ -395,6 +413,42 @@
             this.gbservicioscliente.TabStop = false;
             this.gbservicioscliente.Text = "Servicios";
             // 
+            // rbservicionovencido
+            // 
+            this.rbservicionovencido.AutoSize = true;
+            this.rbservicionovencido.Enabled = false;
+            this.rbservicionovencido.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbservicionovencido.Location = new System.Drawing.Point(79, 109);
+            this.rbservicionovencido.Name = "rbservicionovencido";
+            this.rbservicionovencido.Size = new System.Drawing.Size(37, 16);
+            this.rbservicionovencido.TabIndex = 28;
+            this.rbservicionovencido.TabStop = true;
+            this.rbservicionovencido.Text = "NO";
+            this.rbservicionovencido.UseVisualStyleBackColor = true;
+            // 
+            // rbserviciovencido
+            // 
+            this.rbserviciovencido.AutoSize = true;
+            this.rbserviciovencido.Enabled = false;
+            this.rbserviciovencido.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbserviciovencido.Location = new System.Drawing.Point(79, 92);
+            this.rbserviciovencido.Name = "rbserviciovencido";
+            this.rbserviciovencido.Size = new System.Drawing.Size(32, 16);
+            this.rbserviciovencido.TabIndex = 27;
+            this.rbserviciovencido.TabStop = true;
+            this.rbserviciovencido.Text = "SI";
+            this.rbserviciovencido.UseVisualStyleBackColor = true;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(9, 103);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(67, 13);
+            this.label14.TabIndex = 26;
+            this.label14.Text = "¿Vencido?";
+            // 
             // dtpfinfactura
             // 
             this.dtpfinfactura.Enabled = false;
@@ -432,59 +486,6 @@
             this.label4.Size = new System.Drawing.Size(74, 13);
             this.label4.TabIndex = 22;
             this.label4.Text = "Inicio Factura:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(14, 130);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(52, 13);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "Teléfono:";
-            // 
-            // tbtelefonocliente
-            // 
-            this.tbtelefonocliente.Enabled = false;
-            this.tbtelefonocliente.Location = new System.Drawing.Point(10, 148);
-            this.tbtelefonocliente.Name = "tbtelefonocliente";
-            this.tbtelefonocliente.Size = new System.Drawing.Size(100, 20);
-            this.tbtelefonocliente.TabIndex = 21;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(9, 103);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(67, 13);
-            this.label14.TabIndex = 26;
-            this.label14.Text = "¿Vencido?";
-            // 
-            // rbserviciovencido
-            // 
-            this.rbserviciovencido.AutoSize = true;
-            this.rbserviciovencido.Enabled = false;
-            this.rbserviciovencido.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbserviciovencido.Location = new System.Drawing.Point(79, 92);
-            this.rbserviciovencido.Name = "rbserviciovencido";
-            this.rbserviciovencido.Size = new System.Drawing.Size(32, 16);
-            this.rbserviciovencido.TabIndex = 27;
-            this.rbserviciovencido.TabStop = true;
-            this.rbserviciovencido.Text = "SI";
-            this.rbserviciovencido.UseVisualStyleBackColor = true;
-            // 
-            // rbservicionovencido
-            // 
-            this.rbservicionovencido.AutoSize = true;
-            this.rbservicionovencido.Enabled = false;
-            this.rbservicionovencido.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbservicionovencido.Location = new System.Drawing.Point(79, 109);
-            this.rbservicionovencido.Name = "rbservicionovencido";
-            this.rbservicionovencido.Size = new System.Drawing.Size(37, 16);
-            this.rbservicionovencido.TabIndex = 28;
-            this.rbservicionovencido.TabStop = true;
-            this.rbservicionovencido.Text = "NO";
-            this.rbservicionovencido.UseVisualStyleBackColor = true;
             // 
             // btnnuevocliente
             // 

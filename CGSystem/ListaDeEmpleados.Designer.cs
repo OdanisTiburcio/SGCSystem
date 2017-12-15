@@ -46,7 +46,9 @@
             this.isr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.datanomina)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbbuscar
@@ -91,12 +93,10 @@
             // rdbnombre
             // 
             this.rdbnombre.AutoSize = true;
-            this.rdbnombre.Checked = true;
             this.rdbnombre.Location = new System.Drawing.Point(133, 13);
             this.rdbnombre.Name = "rdbnombre";
             this.rdbnombre.Size = new System.Drawing.Size(62, 17);
             this.rdbnombre.TabIndex = 42;
-            this.rdbnombre.TabStop = true;
             this.rdbnombre.Text = "Nombre";
             this.rdbnombre.UseVisualStyleBackColor = true;
             // 
@@ -110,6 +110,7 @@
             this.btnmostrartodo.TabIndex = 36;
             this.btnmostrartodo.Text = "Mostrar Todo";
             this.btnmostrartodo.UseVisualStyleBackColor = false;
+            this.btnmostrartodo.Click += new System.EventHandler(this.btnmostrartodo_Click);
             // 
             // btnimprimir
             // 
@@ -133,6 +134,7 @@
             this.btnbuscar.TabIndex = 34;
             this.btnbuscar.Text = "Buscar";
             this.btnbuscar.UseVisualStyleBackColor = false;
+            this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
             // 
             // btnagregar
             // 
@@ -143,6 +145,7 @@
             this.btnagregar.TabIndex = 35;
             this.btnagregar.Text = "Agregar Empleado (+)";
             this.btnagregar.UseVisualStyleBackColor = false;
+            this.btnagregar.Click += new System.EventHandler(this.btnagregar_Click);
             // 
             // datanomina
             // 
@@ -160,12 +163,12 @@
             this.ahorros,
             this.isr});
             this.datanomina.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.datanomina.Location = new System.Drawing.Point(12, 57);
+            this.datanomina.Location = new System.Drawing.Point(528, 262);
             this.datanomina.Name = "datanomina";
             this.datanomina.ReadOnly = true;
             this.datanomina.RowHeadersVisible = false;
             this.datanomina.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datanomina.Size = new System.Drawing.Size(683, 319);
+            this.datanomina.Size = new System.Drawing.Size(170, 77);
             this.datanomina.TabIndex = 38;
             // 
             // cedula
@@ -229,11 +232,20 @@
             this.label1.TabIndex = 46;
             this.label1.Text = "Buscar Por";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(10, 59);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(688, 317);
+            this.dataGridView1.TabIndex = 48;
+            // 
             // ListaDeEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 433);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbbuscar);
@@ -252,6 +264,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Empleados";
             ((System.ComponentModel.ISupportInitialize)(this.datanomina)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -277,5 +290,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn isr;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

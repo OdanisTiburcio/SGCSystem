@@ -32,8 +32,8 @@
             this.tbpsearchcode = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btpdelete = new System.Windows.Forms.Button();
-            this.btpsave = new System.Windows.Forms.Button();
-            this.tbpexistencia = new System.Windows.Forms.TextBox();
+            this.btnactualizarservicio = new System.Windows.Forms.Button();
+            this.tbdias = new System.Windows.Forms.TextBox();
             this.lbdías = new System.Windows.Forms.Label();
             this.tbpprecio = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -56,6 +56,7 @@
             this.btpnew.TabIndex = 48;
             this.btpnew.Text = "Nuevo";
             this.btpnew.UseVisualStyleBackColor = true;
+            this.btpnew.Click += new System.EventHandler(this.btpnew_Click);
             // 
             // tbpsearchcode
             // 
@@ -85,23 +86,23 @@
             this.btpdelete.Text = "Eliminar";
             this.btpdelete.UseVisualStyleBackColor = true;
             // 
-            // btpsave
+            // btnactualizarservicio
             // 
-            this.btpsave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btpsave.Location = new System.Drawing.Point(125, 201);
-            this.btpsave.Name = "btpsave";
-            this.btpsave.Size = new System.Drawing.Size(87, 33);
-            this.btpsave.TabIndex = 46;
-            this.btpsave.Text = "Guardar";
-            this.btpsave.UseVisualStyleBackColor = true;
+            this.btnactualizarservicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnactualizarservicio.Location = new System.Drawing.Point(125, 201);
+            this.btnactualizarservicio.Name = "btnactualizarservicio";
+            this.btnactualizarservicio.Size = new System.Drawing.Size(87, 33);
+            this.btnactualizarservicio.TabIndex = 46;
+            this.btnactualizarservicio.Text = "Actualizar";
+            this.btnactualizarservicio.UseVisualStyleBackColor = true;
             // 
-            // tbpexistencia
+            // tbdias
             // 
-            this.tbpexistencia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.tbpexistencia.Location = new System.Drawing.Point(181, 163);
-            this.tbpexistencia.Name = "tbpexistencia";
-            this.tbpexistencia.Size = new System.Drawing.Size(112, 23);
-            this.tbpexistencia.TabIndex = 44;
+            this.tbdias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.tbdias.Location = new System.Drawing.Point(181, 163);
+            this.tbdias.Name = "tbdias";
+            this.tbdias.Size = new System.Drawing.Size(112, 23);
+            this.tbdias.TabIndex = 44;
             // 
             // lbdías
             // 
@@ -178,6 +179,7 @@
             this.btpsearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btpsearch.TabIndex = 56;
             this.btpsearch.TabStop = false;
+            this.btpsearch.Click += new System.EventHandler(this.btpsearch_Click);
             // 
             // pictureBox1
             // 
@@ -200,8 +202,8 @@
             this.Controls.Add(this.tbpsearchcode);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.btpdelete);
-            this.Controls.Add(this.btpsave);
-            this.Controls.Add(this.tbpexistencia);
+            this.Controls.Add(this.btnactualizarservicio);
+            this.Controls.Add(this.tbdias);
             this.Controls.Add(this.lbdías);
             this.Controls.Add(this.tbpprecio);
             this.Controls.Add(this.label5);
@@ -226,8 +228,8 @@
         private System.Windows.Forms.TextBox tbpsearchcode;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btpdelete;
-        private System.Windows.Forms.Button btpsave;
-        private System.Windows.Forms.TextBox tbpexistencia;
+        private System.Windows.Forms.Button btnactualizarservicio;
+        private System.Windows.Forms.TextBox tbdias;
         private System.Windows.Forms.Label lbdías;
         private System.Windows.Forms.TextBox tbpprecio;
         private System.Windows.Forms.Label label5;

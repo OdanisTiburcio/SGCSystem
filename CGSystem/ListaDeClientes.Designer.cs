@@ -37,16 +37,18 @@
             this.btnimprimir = new System.Windows.Forms.Button();
             this.btnbuscar = new System.Windows.Forms.Button();
             this.btnagregar = new System.Windows.Forms.Button();
-            this.dgvListaEmpleados = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.dgvListaClientes = new System.Windows.Forms.DataGridView();
             this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sueldobruto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ahorros = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.isr = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaEmpleados)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaClientes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // tbbuscar
@@ -91,12 +93,10 @@
             // rdbnombre
             // 
             this.rdbnombre.AutoSize = true;
-            this.rdbnombre.Checked = true;
             this.rdbnombre.Location = new System.Drawing.Point(124, 14);
             this.rdbnombre.Name = "rdbnombre";
             this.rdbnombre.Size = new System.Drawing.Size(62, 17);
             this.rdbnombre.TabIndex = 42;
-            this.rdbnombre.TabStop = true;
             this.rdbnombre.Text = "Nombre";
             this.rdbnombre.UseVisualStyleBackColor = true;
             // 
@@ -135,6 +135,7 @@
             this.btnbuscar.TabIndex = 34;
             this.btnbuscar.Text = "Buscar";
             this.btnbuscar.UseVisualStyleBackColor = false;
+            this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
             // 
             // btnagregar
             // 
@@ -145,51 +146,33 @@
             this.btnagregar.TabIndex = 35;
             this.btnagregar.Text = "Agregar Cliente (+)";
             this.btnagregar.UseVisualStyleBackColor = false;
+            this.btnagregar.Click += new System.EventHandler(this.btnagregar_Click);
             // 
-            // dgvListaEmpleados
+            // dgvListaClientes
             // 
-            this.dgvListaEmpleados.AllowUserToAddRows = false;
-            this.dgvListaEmpleados.AllowUserToDeleteRows = false;
-            this.dgvListaEmpleados.AllowUserToResizeColumns = false;
-            this.dgvListaEmpleados.AllowUserToResizeRows = false;
-            this.dgvListaEmpleados.BackgroundColor = System.Drawing.Color.Azure;
-            this.dgvListaEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvListaEmpleados.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvListaClientes.AllowUserToAddRows = false;
+            this.dgvListaClientes.AllowUserToDeleteRows = false;
+            this.dgvListaClientes.AllowUserToResizeColumns = false;
+            this.dgvListaClientes.AllowUserToResizeRows = false;
+            this.dgvListaClientes.BackgroundColor = System.Drawing.Color.Azure;
+            this.dgvListaClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cedula,
             this.Nombre,
             this.sueldobruto,
             this.cargo,
             this.ahorros,
             this.isr});
-            this.dgvListaEmpleados.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvListaEmpleados.Location = new System.Drawing.Point(12, 59);
-            this.dgvListaEmpleados.Name = "dgvListaEmpleados";
-            this.dgvListaEmpleados.ReadOnly = true;
-            this.dgvListaEmpleados.RowHeadersVisible = false;
-            this.dgvListaEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvListaEmpleados.Size = new System.Drawing.Size(683, 319);
-            this.dgvListaEmpleados.TabIndex = 38;
-            this.dgvListaEmpleados.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaEmpleados_CellDoubleClick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Mistral", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(19, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 29);
-            this.label1.TabIndex = 44;
-            this.label1.Text = "Buscar Por";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Mistral", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(19, 1);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(74, 29);
-            this.label2.TabIndex = 45;
-            this.label2.Text = "Clientes";
+            this.dgvListaClientes.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvListaClientes.Location = new System.Drawing.Point(586, 275);
+            this.dgvListaClientes.Name = "dgvListaClientes";
+            this.dgvListaClientes.ReadOnly = true;
+            this.dgvListaClientes.RowHeadersVisible = false;
+            this.dgvListaClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListaClientes.Size = new System.Drawing.Size(89, 77);
+            this.dgvListaClientes.TabIndex = 38;
+            this.dgvListaClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaClientes_CellContentClick);
+            this.dgvListaClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaEmpleados_CellDoubleClick);
             // 
             // cedula
             // 
@@ -232,11 +215,40 @@
             this.isr.Name = "isr";
             this.isr.ReadOnly = true;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Mistral", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(19, 26);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 29);
+            this.label1.TabIndex = 44;
+            this.label1.Text = "Buscar Por";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Mistral", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(19, 1);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(74, 29);
+            this.label2.TabIndex = 45;
+            this.label2.Text = "Clientes";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(12, 68);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(683, 295);
+            this.dataGridView1.TabIndex = 46;
+            // 
             // ListaDeClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 432);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbbuscar);
             this.Controls.Add(this.rdbcedula);
@@ -247,7 +259,7 @@
             this.Controls.Add(this.btnimprimir);
             this.Controls.Add(this.btnbuscar);
             this.Controls.Add(this.btnagregar);
-            this.Controls.Add(this.dgvListaEmpleados);
+            this.Controls.Add(this.dgvListaClientes);
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -255,7 +267,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Clientes";
             this.Load += new System.EventHandler(this.ListaDeClientes_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvListaEmpleados)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaClientes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -272,7 +285,7 @@
         private System.Windows.Forms.Button btnimprimir;
         private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.Button btnagregar;
-        private System.Windows.Forms.DataGridView dgvListaEmpleados;
+        private System.Windows.Forms.DataGridView dgvListaClientes;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewTextBoxColumn cedula;
@@ -281,5 +294,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ahorros;
         private System.Windows.Forms.DataGridViewTextBoxColumn isr;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

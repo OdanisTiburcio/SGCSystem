@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MenuPrincipal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.facturarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmcheckin = new System.Windows.Forms.ToolStripMenuItem();
             this.facturarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeClientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listaDeEmpleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,7 +73,7 @@
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.facturarToolStripMenuItem,
+            this.tsmcheckin,
             this.facturarToolStripMenuItem1,
             this.listaDeClientesToolStripMenuItem,
             this.listaDeEmpleadosToolStripMenuItem});
@@ -82,13 +82,13 @@
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.consultasToolStripMenuItem.Text = "Operaciones";
             // 
-            // facturarToolStripMenuItem
+            // tsmcheckin
             // 
-            this.facturarToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("facturarToolStripMenuItem.Image")));
-            this.facturarToolStripMenuItem.Name = "facturarToolStripMenuItem";
-            this.facturarToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
-            this.facturarToolStripMenuItem.Text = "Check-In";
-            this.facturarToolStripMenuItem.Click += new System.EventHandler(this.btncheckin_Click);
+            this.tsmcheckin.Image = ((System.Drawing.Image)(resources.GetObject("tsmcheckin.Image")));
+            this.tsmcheckin.Name = "tsmcheckin";
+            this.tsmcheckin.Size = new System.Drawing.Size(175, 22);
+            this.tsmcheckin.Text = "Check-In";
+            this.tsmcheckin.Click += new System.EventHandler(this.facturarToolStripMenuItem_Click_1);
             // 
             // facturarToolStripMenuItem1
             // 
@@ -309,7 +309,7 @@
         private System.Windows.Forms.Button btnfacturar;
         private System.Windows.Forms.Button btncheckin;
         private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem facturarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmcheckin;
         private System.Windows.Forms.ToolStripMenuItem facturarToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem listaDeClientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem listaDeEmpleadosToolStripMenuItem;

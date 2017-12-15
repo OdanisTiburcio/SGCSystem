@@ -64,8 +64,8 @@ namespace CGSystem
 
         private void btncheckin_Click(object sender, EventArgs e)
         {
-            CheckIn f = new CheckIn();
-            f.ShowDialog();
+            CheckIn check = new CheckIn();
+            check.Show();
         }
 
         private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -207,5 +207,10 @@ namespace CGSystem
 
         }
 
+        private void facturarToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            CheckIn f = new CheckIn();
+            f.Show();
+        }
     }
 }
