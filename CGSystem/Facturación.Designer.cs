@@ -74,6 +74,7 @@
             this.btneliminiar.TabIndex = 121;
             this.btneliminiar.Text = "ELIMINAR SERVICIO";
             this.btneliminiar.UseVisualStyleBackColor = true;
+            this.btneliminiar.Click += new System.EventHandler(this.btneliminiar_Click);
             // 
             // button1
             // 
@@ -255,7 +256,6 @@
             // dgvListaServicios
             // 
             this.dgvListaServicios.AllowUserToAddRows = false;
-            this.dgvListaServicios.AllowUserToDeleteRows = false;
             this.dgvListaServicios.AllowUserToResizeColumns = false;
             this.dgvListaServicios.AllowUserToResizeRows = false;
             this.dgvListaServicios.BackgroundColor = System.Drawing.Color.Azure;
@@ -270,11 +270,12 @@
             this.dgvListaServicios.GridColor = System.Drawing.SystemColors.ControlDarkDark;
             this.dgvListaServicios.Location = new System.Drawing.Point(6, 58);
             this.dgvListaServicios.Name = "dgvListaServicios";
-            this.dgvListaServicios.ReadOnly = true;
             this.dgvListaServicios.RowHeadersVisible = false;
             this.dgvListaServicios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaServicios.Size = new System.Drawing.Size(463, 319);
             this.dgvListaServicios.TabIndex = 148;
+            this.dgvListaServicios.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaServicios_CellValueChanged);
+            this.dgvListaServicios.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvListaServicios_UserDeletedRow);
             // 
             // cedula
             // 
@@ -374,7 +375,7 @@
             this.rdCredito.Size = new System.Drawing.Size(14, 13);
             this.rdCredito.TabIndex = 150;
             this.rdCredito.UseVisualStyleBackColor = true;
-            this.rdCredito.CheckedChanged += new System.EventHandler(this.chkbcontado_CheckedChanged);
+            this.rdCredito.CheckedChanged += new System.EventHandler(this.rdCredito_CheckedChanged);
             // 
             // Facturación
             // 

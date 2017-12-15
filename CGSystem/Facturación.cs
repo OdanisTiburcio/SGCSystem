@@ -15,8 +15,9 @@ namespace CGSystem
 
         //Variables Estáticas necesarias
         public static string ServicioBuscarID = "0";
-        public static bool SeleccionDeServicio = false; //Para confirmar si se seleccionó un servicio o si solo se cerró el formulario.
-        public static bool SelecciónDeCliente = false; //Para confirmar si se seleccionó un cliente o si solo se cerró el formulario.
+        public static bool SeleccionDeServicio = false; //Para confirmar si se seleccionó un servicio o si solo se cerró el formulario...
+        public static bool SelecciónDeCliente = false; //Para confirmar si se seleccionó un cliente o si solo se cerró el formulario...
+        public int contador = 0; //Para controlar algunos métodos...
 
 
         //Clases Reutilizables
@@ -53,7 +54,12 @@ namespace CGSystem
 
         private void Facturación_Load(object sender, EventArgs e)
         {
-
+            dgvListaServicios.Columns[0].ReadOnly = true;
+            dgvListaServicios.Columns[1].ReadOnly = true;
+            dgvListaServicios.Columns[2].ReadOnly = true;
+            dgvListaServicios.Columns[3].ReadOnly = true;
+            dgvListaServicios.Columns[4].ReadOnly = false;
+            dgvListaServicios.Columns[5].ReadOnly = true;
         }
 
         public void AñadirServicioSeleccionado()
@@ -117,19 +123,27 @@ namespace CGSystem
 
         public void ActualizarCheckBox()
         {
-            if (rdContado.Checked)
+            if (contador < 1)
             {
-                tbcliente.Enabled = true;
-                tbcliente.Text = "";
-                tbidcliente.Text = "";
-                ClienteSeleccionado = false;
+                if (rdContado.Checked)
+                {
+                    tbcliente.Enabled = true;
+                    tbcliente.Text = "";
+                    tbidcliente.Text = "";
+                    ClienteSeleccionado = false;
+                }
+                else
+                {
+                    tbcliente.Enabled = false;
+                    tbcliente.Text = "";
+                    tbidcliente.Text = "";
+                    BuscarCliente();
+                }
+                contador++;
             }
             else
             {
-                tbcliente.Enabled = false;
-                tbcliente.Text = "";
-                tbidcliente.Text = "";
-                BuscarCliente();
+                contador = 0; //Para reiniciar el contador y así funcione la próxima vez...
             }
         }
 
@@ -153,7 +167,7 @@ namespace CGSystem
 
             try
             {
-                if (SelecciónDeCliente)
+                if (SelecciónDeCliente || tbidcliente.Text != "0" || tbidcliente.Text != "")
                 {
                     tbcliente.Text = NombreCliente;
                     tbidcliente.Text = IdCliente;
@@ -169,6 +183,37 @@ namespace CGSystem
             }
         }
 
+        private void rdCredito_CheckedChanged(object sender, EventArgs e)
+        {
+            ActualizarCheckBox();
+        }
+
+        private void btneliminiar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dgvListaServicios.Rows.RemoveAt(dgvListaServicios.CurrentRow.Index);
+                Actualizar();
+            }
+            catch
+            {
+            }
+        }
+
+        private void dgvListaServicios_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            Actualizar();
+        }
+
+        private void dgvListaServicios_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
+        {
+            Actualizar();
+        }
+
+        private void dgvListaServicios_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            Actualizar();
+        }
     }
 
 }
