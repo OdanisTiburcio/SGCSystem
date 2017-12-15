@@ -86,6 +86,7 @@
             this.button1.TabIndex = 125;
             this.button1.Text = "Nueva Factura";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label6
             // 
@@ -210,6 +211,7 @@
             this.btnguardar.TabIndex = 120;
             this.btnguardar.Text = "GUARDAR";
             this.btnguardar.UseVisualStyleBackColor = true;
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
             // tbproducto
             // 

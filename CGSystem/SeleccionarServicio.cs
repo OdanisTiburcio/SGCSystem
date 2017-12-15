@@ -17,6 +17,8 @@ namespace CGSystem
         DataSet ds = new DataSet();
         DataTable dt = new DataTable();
         public static string NombreABuscar = "";
+        public DateTime fechaDT = DateTime.Now;
+        public string fechaHoy = "";
 
         public SeleccionarServicio()
         {
@@ -145,5 +147,7 @@ namespace CGSystem
         {
             Seleccionar();
         }
+
+
     }
 }

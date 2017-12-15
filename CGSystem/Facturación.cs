@@ -19,7 +19,6 @@ namespace CGSystem
         public static bool SelecciónDeCliente = false; //Para confirmar si se seleccionó un cliente o si solo se cerró el formulario...
         public int contador = 0; //Para controlar algunos métodos...
 
-
         //Clases Reutilizables
         operacion oper = new operacion();
         DataSet ds = new DataSet();
@@ -29,10 +28,19 @@ namespace CGSystem
         public bool ClienteSeleccionado = false;
         public static string NombreCliente = "";
         public static string IdCliente = "";
+        public static string NumeroDeFactura = "";
+
+        //Para la fecha
+        public DateTime fechaDT = DateTime.Now;
+        public string fechaHoy = "";
+
+        //Para el Guardado y Nueva Factura
+        public bool FacturaGuardada = false;
 
         public Facturación()
         {
             InitializeComponent();
+            NuevaFactura();
         }
 
         private void btbuscar_Click(object sender, EventArgs e)
@@ -137,7 +145,10 @@ namespace CGSystem
                     tbcliente.Enabled = false;
                     tbcliente.Text = "";
                     tbidcliente.Text = "";
-                    BuscarCliente();
+                    if (tbidcliente.Text != "0" && tbidcliente.Text != "") {
+                        BuscarCliente();
+                    } else {
+                    }                   
                 }
                 contador++;
             }
@@ -214,6 +225,60 @@ namespace CGSystem
         {
             Actualizar();
         }
+
+
+        public void NuevaFactura()
+        {
+            try
+            {
+                if(dgvListaServicios.RowCount > 0 && !FacturaGuardada)
+                {
+                    bool ReiniciarFactura = oper.CajaDeMensaje("La factura actual no ha sido guardada ¿Desea desecharla?","Aviso");
+                    if (ReiniciarFactura)
+                    {
+
+                    }
+                    else { return; }
+                }
+
+
+                //Vaciar todo y dejar la factura como nueva...
+                fechaDT = DateTime.Now;
+                fechaHoy = oper.FormatearFecha(fechaDT);
+                lbfecha.Text = fechaHoy;
+                dgvListaServicios.Rows.Clear();
+                rdContado.PerformClick();
+                tbproducto.Clear();
+                FacturaGuardada = false;
+                Actualizar();
+
+                //Conseguir el mayor número de factura y asignarlo a la factura actual
+                ds = oper.ConsultaConResultado("SELECT MAX(numero_factura) value FROM factura;");
+                NumeroDeFactura = (Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1).ToString();
+                lbnumfactura.Text = "No. Factura: " + NumeroDeFactura;
+            }
+            catch
+            {
+                MessageBox.Show("Error al crear nueva factura, contacte al técnico del sistema, disculpe los inconvenientes", "Aviso");
+            }
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            NuevaFactura();
+        }
+
+        private void btnguardar_Click(object sender, EventArgs e)
+        {
+            GuardarFactura();
+        }
+
+        public void GuardarFactura()
+        {
+
+        }
+
     }
 
 }
