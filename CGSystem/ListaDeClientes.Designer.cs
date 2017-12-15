@@ -95,12 +95,10 @@
             // rdbnombre
             // 
             this.rdbnombre.AutoSize = true;
-            this.rdbnombre.Checked = true;
             this.rdbnombre.Location = new System.Drawing.Point(124, 14);
             this.rdbnombre.Name = "rdbnombre";
             this.rdbnombre.Size = new System.Drawing.Size(62, 17);
             this.rdbnombre.TabIndex = 42;
-            this.rdbnombre.TabStop = true;
             this.rdbnombre.Text = "Nombre";
             this.rdbnombre.UseVisualStyleBackColor = true;
             // 

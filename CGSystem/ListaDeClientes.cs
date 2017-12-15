@@ -81,35 +81,35 @@ namespace CGSystem
             {
                 if (rdbnombre.Checked)
                 {
-                    DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo FROM cliente WHERE nombre_cliente LIKE '%" + tbbuscar.Text + "%'");
+                    DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE nombre_cliente LIKE '%" + tbbuscar.Text + "%'");
                     ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
                     Form f = new VisorReportes("Reporte de Clientes.rpt");
                     f.ShowDialog();
                 }
                 else if (rdbid.Checked)
                 {
-                    DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo FROM cliente WHERE numero_cliente = '" + tbbuscar.Text + "'");
+                    DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE numero_cliente = '" + tbbuscar.Text + "'");
                     ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
                     Form f = new VisorReportes("Reporte de Clientes.rpt");
                     f.ShowDialog();
                 }
                 else if (rdbapellido.Checked)
                 {
-                    DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo FROM cliente WHERE apellido_cliente LIKE '%" + tbbuscar.Text + "%'");
+                    DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE apellido_cliente LIKE '%" + tbbuscar.Text + "%'");
                     ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
                     Form f = new VisorReportes("Reporte de Clientes.rpt");
                     f.ShowDialog();
                 }
                 else if (rdbcedula.Checked)
                 {
-                    DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo FROM cliente WHERE cedula_empleado = '" + tbbuscar.Text + "'");
+                    DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE cedula_empleado = '" + tbbuscar.Text + "'");
                     ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
                     Form f = new VisorReportes("Reporte de Clientes.rpt");
                     f.ShowDialog();
                 }
                 else if (tbbuscar.Text == "")
                 {
-                    DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo FROM cliente");
+                    DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente");
                     ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
                     Form f = new VisorReportes("Todos los clientes.rpt");
                     f.ShowDialog();
