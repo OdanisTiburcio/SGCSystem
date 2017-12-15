@@ -1,0 +1,13 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <numero_empleado>2</numero_empleado>
+    <nombre>SUPERMAN</nombre>
+    <apellido>CAPA ROJA</apellido>
+    <cedula_empleado>031-0589760-8</cedula_empleado>
+    <descripcion_posicion>ENCARGADO DE BASE DE DATOS</descripcion_posicion>
+    <descripcion_departamento>GERENCIA DE MERCADEO</descripcion_departamento>
+    <sueldo>37500</sueldo>
+    <foto>C:\CGSystem\FotosEmpleados\1.jpg</foto>
+  </Table>
+</NewDataSet>
