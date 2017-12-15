@@ -72,6 +72,7 @@
             this.ptbfotoempleado.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ptbfotoempleado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ptbfotoempleado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ptbfotoempleado.Image = global::CGSystem.Properties.Resources.Logo;
             this.ptbfotoempleado.Location = new System.Drawing.Point(218, 12);
             this.ptbfotoempleado.Name = "ptbfotoempleado";
             this.ptbfotoempleado.Size = new System.Drawing.Size(191, 177);

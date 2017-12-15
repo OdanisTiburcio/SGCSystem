@@ -366,7 +366,7 @@
             // 
             this.btbuscar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btbuscar.Image = global::CGSystem.Properties.Resources.lupa_psd_468x468;
-            this.btbuscar.Location = new System.Drawing.Point(470, 14);
+            this.btbuscar.Location = new System.Drawing.Point(469, 14);
             this.btbuscar.Name = "btbuscar";
             this.btbuscar.Size = new System.Drawing.Size(55, 36);
             this.btbuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
