@@ -16,7 +16,7 @@ namespace CGSystem
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ListaDeClientes());
+            Application.Run(new MenuPrincipal());
         }
     }
 }
