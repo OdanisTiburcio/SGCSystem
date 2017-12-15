@@ -37,7 +37,6 @@
             this.tbtotal = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tbcliente = new System.Windows.Forms.TextBox();
-            this.btnsearch = new System.Windows.Forms.PictureBox();
             this.lbidcliente = new System.Windows.Forms.Label();
             this.tbidcliente = new System.Windows.Forms.TextBox();
             this.btnimprimir = new System.Windows.Forms.Button();
@@ -47,17 +46,21 @@
             this.btnguardar = new System.Windows.Forms.Button();
             this.tbproducto = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridView1detalle = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
-            this.btbuscar = new System.Windows.Forms.PictureBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.dgvListaServicios = new System.Windows.Forms.DataGridView();
+            this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sueldobruto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ahorros = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isr = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnsearch = new System.Windows.Forms.PictureBox();
+            this.btbuscar = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaServicios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnsearch)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1detalle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btbuscar)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +72,7 @@
             this.btneliminiar.Name = "btneliminiar";
             this.btneliminiar.Size = new System.Drawing.Size(158, 72);
             this.btneliminiar.TabIndex = 121;
-            this.btneliminiar.Text = "ELIMINAR PRODUCTO";
+            this.btneliminiar.Text = "ELIMINAR SERVICIO";
             this.btneliminiar.UseVisualStyleBackColor = true;
             // 
             // button1
@@ -112,6 +115,7 @@
             this.chkbcontado.Size = new System.Drawing.Size(15, 14);
             this.chkbcontado.TabIndex = 122;
             this.chkbcontado.UseVisualStyleBackColor = true;
+            this.chkbcontado.CheckedChanged += new System.EventHandler(this.chkbcontado_CheckedChanged);
             // 
             // label5
             // 
@@ -153,18 +157,6 @@
             this.tbcliente.Size = new System.Drawing.Size(167, 22);
             this.tbcliente.TabIndex = 135;
             // 
-            // btnsearch
-            // 
-            this.btnsearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnsearch.Image = global::CGSystem.Properties.Resources.lupa_psd_468x468;
-            this.btnsearch.Location = new System.Drawing.Point(717, 88);
-            this.btnsearch.Name = "btnsearch";
-            this.btnsearch.Size = new System.Drawing.Size(43, 38);
-            this.btnsearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btnsearch.TabIndex = 136;
-            this.btnsearch.TabStop = false;
-            this.btnsearch.Visible = false;
-            // 
             // lbidcliente
             // 
             this.lbidcliente.AutoSize = true;
@@ -184,7 +176,6 @@
             this.tbidcliente.Name = "tbidcliente";
             this.tbidcliente.Size = new System.Drawing.Size(83, 22);
             this.tbidcliente.TabIndex = 133;
-            this.tbidcliente.Visible = false;
             // 
             // btnimprimir
             // 
@@ -242,83 +233,22 @@
             // tbproducto
             // 
             this.tbproducto.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbproducto.Location = new System.Drawing.Point(287, 22);
+            this.tbproducto.Location = new System.Drawing.Point(286, 25);
             this.tbproducto.Name = "tbproducto";
-            this.tbproducto.Size = new System.Drawing.Size(187, 22);
+            this.tbproducto.Size = new System.Drawing.Size(182, 22);
             this.tbproducto.TabIndex = 118;
+            this.tbproducto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbproducto_KeyPress);
+            this.tbproducto.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbproducto_KeyUp);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Times New Roman", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(184, 16);
+            this.label1.Font = new System.Drawing.Font("Gabriola", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(202, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(109, 31);
+            this.label1.Size = new System.Drawing.Size(93, 50);
             this.label1.TabIndex = 128;
             this.label1.Text = "Servicio";
-            // 
-            // total
-            // 
-            this.total.Frozen = true;
-            this.total.HeaderText = "Total";
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            // 
-            // precio
-            // 
-            this.precio.Frozen = true;
-            this.precio.HeaderText = "Precio";
-            this.precio.Name = "precio";
-            this.precio.Width = 70;
-            // 
-            // cantidad
-            // 
-            this.cantidad.Frozen = true;
-            this.cantidad.HeaderText = "Cantidad";
-            this.cantidad.MaxInputLength = 6;
-            this.cantidad.Name = "cantidad";
-            this.cantidad.Width = 60;
-            // 
-            // nombre
-            // 
-            this.nombre.Frozen = true;
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            this.nombre.Width = 180;
-            // 
-            // id
-            // 
-            this.id.Frozen = true;
-            this.id.HeaderText = "Código";
-            this.id.MaxInputLength = 25;
-            this.id.MinimumWidth = 3;
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.id.Width = 50;
-            // 
-            // dataGridView1detalle
-            // 
-            this.dataGridView1detalle.AllowUserToAddRows = false;
-            this.dataGridView1detalle.AllowUserToDeleteRows = false;
-            this.dataGridView1detalle.AllowUserToResizeColumns = false;
-            this.dataGridView1detalle.AllowUserToResizeRows = false;
-            this.dataGridView1detalle.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1detalle.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.dataGridView1detalle.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1detalle.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.id,
-            this.nombre,
-            this.cantidad,
-            this.precio,
-            this.total});
-            this.dataGridView1detalle.Location = new System.Drawing.Point(7, 58);
-            this.dataGridView1detalle.Name = "dataGridView1detalle";
-            this.dataGridView1detalle.RowHeadersVisible = false;
-            this.dataGridView1detalle.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1detalle.Size = new System.Drawing.Size(461, 317);
-            this.dataGridView1detalle.TabIndex = 119;
             // 
             // label11
             // 
@@ -331,17 +261,6 @@
             this.label11.TabIndex = 146;
             this.label11.Text = "Facturar";
             // 
-            // btbuscar
-            // 
-            this.btbuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btbuscar.Image = global::CGSystem.Properties.Resources.lupa_psd_468x468;
-            this.btbuscar.Location = new System.Drawing.Point(470, 14);
-            this.btbuscar.Name = "btbuscar";
-            this.btbuscar.Size = new System.Drawing.Size(55, 36);
-            this.btbuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btbuscar.TabIndex = 126;
-            this.btbuscar.TabStop = false;
-            // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Impact", 18.25F);
@@ -353,11 +272,115 @@
             this.button2.Text = "Modificar";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // dgvListaServicios
+            // 
+            this.dgvListaServicios.AllowUserToAddRows = false;
+            this.dgvListaServicios.AllowUserToDeleteRows = false;
+            this.dgvListaServicios.AllowUserToResizeColumns = false;
+            this.dgvListaServicios.AllowUserToResizeRows = false;
+            this.dgvListaServicios.BackgroundColor = System.Drawing.Color.Azure;
+            this.dgvListaServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaServicios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cedula,
+            this.dataGridViewTextBoxColumn1,
+            this.sueldobruto,
+            this.cargo,
+            this.ahorros,
+            this.isr});
+            this.dgvListaServicios.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvListaServicios.Location = new System.Drawing.Point(6, 58);
+            this.dgvListaServicios.Name = "dgvListaServicios";
+            this.dgvListaServicios.ReadOnly = true;
+            this.dgvListaServicios.RowHeadersVisible = false;
+            this.dgvListaServicios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvListaServicios.Size = new System.Drawing.Size(463, 319);
+            this.dgvListaServicios.TabIndex = 148;
+            // 
+            // cedula
+            // 
+            this.cedula.HeaderText = "Código";
+            this.cedula.Name = "cedula";
+            this.cedula.ReadOnly = true;
+            this.cedula.Width = 45;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Descripción";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // sueldobruto
+            // 
+            this.sueldobruto.HeaderText = "Precio";
+            this.sueldobruto.Name = "sueldobruto";
+            this.sueldobruto.ReadOnly = true;
+            this.sueldobruto.Width = 60;
+            // 
+            // cargo
+            // 
+            this.cargo.HeaderText = "Días (+)";
+            this.cargo.Name = "cargo";
+            this.cargo.ReadOnly = true;
+            this.cargo.Width = 70;
+            // 
+            // ahorros
+            // 
+            this.ahorros.HeaderText = "Cantidad";
+            this.ahorros.Name = "ahorros";
+            this.ahorros.ReadOnly = true;
+            this.ahorros.Width = 60;
+            // 
+            // isr
+            // 
+            this.isr.HeaderText = "Total";
+            this.isr.Name = "isr";
+            this.isr.ReadOnly = true;
+            this.isr.Width = 75;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.pictureBox1.Image = global::CGSystem.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(516, 163);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(218, 201);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 149;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnsearch
+            // 
+            this.btnsearch.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnsearch.Image = global::CGSystem.Properties.Resources.lupa_psd_468x468;
+            this.btnsearch.Location = new System.Drawing.Point(717, 88);
+            this.btnsearch.Name = "btnsearch";
+            this.btnsearch.Size = new System.Drawing.Size(43, 38);
+            this.btnsearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btnsearch.TabIndex = 136;
+            this.btnsearch.TabStop = false;
+            this.btnsearch.Visible = false;
+            // 
+            // btbuscar
+            // 
+            this.btbuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btbuscar.Image = global::CGSystem.Properties.Resources.lupa_psd_468x468;
+            this.btbuscar.Location = new System.Drawing.Point(470, 14);
+            this.btbuscar.Name = "btbuscar";
+            this.btbuscar.Size = new System.Drawing.Size(55, 36);
+            this.btbuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btbuscar.TabIndex = 126;
+            this.btbuscar.TabStop = false;
+            this.btbuscar.Click += new System.EventHandler(this.btbuscar_Click);
+            // 
             // Facturación
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(764, 464);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.dgvListaServicios);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btneliminiar);
             this.Controls.Add(this.button1);
@@ -378,14 +401,15 @@
             this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.tbproducto);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1detalle);
             this.Controls.Add(this.btbuscar);
             this.Controls.Add(this.label11);
             this.Name = "Facturación";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Facturación";
+            this.Load += new System.EventHandler(this.Facturación_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaServicios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnsearch)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1detalle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btbuscar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -413,14 +437,16 @@
         private System.Windows.Forms.Button btnguardar;
         private System.Windows.Forms.TextBox tbproducto;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn total;
-        private System.Windows.Forms.DataGridViewTextBoxColumn precio;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cantidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridView dataGridView1detalle;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox btbuscar;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView dgvListaServicios;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cedula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn sueldobruto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cargo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ahorros;
+        private System.Windows.Forms.DataGridViewTextBoxColumn isr;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
