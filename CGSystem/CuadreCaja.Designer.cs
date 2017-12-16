@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CuadreCaja));
             this.dtvcuadrecaja = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.tbventacredito = new System.Windows.Forms.TextBox();
             this.tbventacontado = new System.Windows.Forms.TextBox();
@@ -40,9 +43,6 @@
             this.pbimprimircuadre = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbmescuadre = new System.Windows.Forms.ComboBox();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtvcuadrecaja)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbimprimircuadre)).BeginInit();
@@ -68,6 +68,27 @@
             this.dtvcuadrecaja.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtvcuadrecaja.Size = new System.Drawing.Size(314, 394);
             this.dtvcuadrecaja.TabIndex = 0;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 60;
+            // 
+            // cliente
+            // 
+            this.cliente.HeaderText = "Tipo";
+            this.cliente.Name = "cliente";
+            this.cliente.ReadOnly = true;
+            this.cliente.Width = 130;
+            // 
+            // tipo
+            // 
+            this.tipo.HeaderText = "Total (RD$)";
+            this.tipo.Name = "tipo";
+            this.tipo.ReadOnly = true;
+            this.tipo.Width = 121;
             // 
             // label1
             // 
@@ -127,9 +148,9 @@
             // 
             this.btncuadrehoy.BackColor = System.Drawing.Color.Cornsilk;
             this.btncuadrehoy.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncuadrehoy.Location = new System.Drawing.Point(352, 13);
+            this.btncuadrehoy.Location = new System.Drawing.Point(333, 13);
             this.btncuadrehoy.Name = "btncuadrehoy";
-            this.btncuadrehoy.Size = new System.Drawing.Size(106, 47);
+            this.btncuadrehoy.Size = new System.Drawing.Size(80, 47);
             this.btncuadrehoy.TabIndex = 4;
             this.btncuadrehoy.Text = "Hoy";
             this.btncuadrehoy.UseVisualStyleBackColor = false;
@@ -139,11 +160,11 @@
             // 
             this.btncuadremes.BackColor = System.Drawing.Color.Cornsilk;
             this.btncuadremes.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncuadremes.Location = new System.Drawing.Point(352, 69);
+            this.btncuadremes.Location = new System.Drawing.Point(354, 124);
             this.btncuadremes.Name = "btncuadremes";
             this.btncuadremes.Size = new System.Drawing.Size(106, 47);
             this.btncuadremes.TabIndex = 4;
-            this.btncuadremes.Text = "Últ. mes";
+            this.btncuadremes.Text = "Mes";
             this.btncuadremes.UseVisualStyleBackColor = false;
             this.btncuadremes.Click += new System.EventHandler(this.btncuadremes_Click);
             // 
@@ -162,7 +183,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(352, 129);
+            this.label3.Location = new System.Drawing.Point(353, 73);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 22);
             this.label3.TabIndex = 6;
@@ -185,31 +206,10 @@
             "Octubre",
             "Noviembre",
             "Diciembre"});
-            this.cbmescuadre.Location = new System.Drawing.Point(352, 154);
+            this.cbmescuadre.Location = new System.Drawing.Point(356, 96);
             this.cbmescuadre.Name = "cbmescuadre";
             this.cbmescuadre.Size = new System.Drawing.Size(101, 21);
             this.cbmescuadre.TabIndex = 7;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 60;
-            // 
-            // cliente
-            // 
-            this.cliente.HeaderText = "Tipo";
-            this.cliente.Name = "cliente";
-            this.cliente.ReadOnly = true;
-            this.cliente.Width = 130;
-            // 
-            // tipo
-            // 
-            this.tipo.HeaderText = "Total (RD$)";
-            this.tipo.Name = "tipo";
-            this.tipo.ReadOnly = true;
-            this.tipo.Width = 121;
             // 
             // CuadreCaja
             // 
