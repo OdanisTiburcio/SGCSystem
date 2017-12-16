@@ -292,6 +292,15 @@ namespace CGSystem
                     else { return; }
                 }
 
+                //Devolver a la actividad los botones desactivados por el guardado de factura...
+                dgvListaServicios.Columns[5].ReadOnly = false;
+                btnsearch.Enabled = true;
+                btbuscar.Enabled = true;
+                rdContado.Enabled = true;
+                rdCredito.Enabled = true;
+                tbproducto.Enabled = true;
+                btnguardar.Enabled = true;
+                btnimprimir.Enabled = false;
 
                 //Vaciar todo y dejar la factura como nueva...
                 fechaDT = DateTime.Now;
@@ -426,6 +435,40 @@ namespace CGSystem
             {
                 MessageBox.Show("Hubo un problema al tratar de generar la Cuenta Por Cobrar de la factura actual", "Error");
             }
+
+        }
+
+        public void CerrarFactura()
+        {
+            //Cerrar la factura generada para que quede inmodificable, a excepción de los usuarios con permisos por medio del botón modificar...
+            dgvListaServicios.Columns[5].ReadOnly = true;
+            btnsearch.Enabled = false;
+            btbuscar.Enabled = false;
+            rdContado.Enabled = false;
+            rdCredito.Enabled = false;
+            tbproducto.Enabled = false;
+            btnguardar.Enabled = false;
+            btnimprimir.Enabled = true;
+
+            bool aceptar = oper.CajaDeMensaje("¿Desea Imprimir la Factura Actual?", "Facturar"); //Ver si el cliente imprimirá el bolante...
+            if (aceptar)
+            {
+                Imprimir();
+            }
+            else
+            {
+            }
+
+        }
+
+        private void btnimprimir_Click(object sender, EventArgs e)
+        {
+            Imprimir();
+        }
+
+        public void Imprimir()
+        {
+            //Abrir el Formulario visor de reporte de Impresión de Factura....
 
         }
 
