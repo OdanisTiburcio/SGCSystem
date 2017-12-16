@@ -78,6 +78,7 @@ namespace CGSystem
 
         private void Facturación_Load(object sender, EventArgs e)
         {
+            NuevaFactura();
             dgvListaServicios.Columns[0].ReadOnly = true;
             dgvListaServicios.Columns[1].ReadOnly = true;
             dgvListaServicios.Columns[2].ReadOnly = true;
@@ -301,6 +302,7 @@ namespace CGSystem
                 tbproducto.Enabled = true;
                 btnguardar.Enabled = true;
                 btnimprimir.Enabled = false;
+                FacturaGuardada = false;
 
                 //Vaciar todo y dejar la factura como nueva...
                 fechaDT = DateTime.Now;
@@ -316,7 +318,7 @@ namespace CGSystem
                 Actualizar();
 
                 //Conseguir el mayor número de factura y asignarlo a la factura actual
-                ds = oper.ConsultaConResultado("SELECT MAX(numero_factura) value FROM factura;");
+                ds = oper.ConsultaConResultado("SELECT MAX(id_factura) value FROM cabecera_factura;");
                 NumeroDeFactura = (Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1).ToString();
                 lbnumfactura.Text = "No. Factura: " + NumeroDeFactura;
             }
@@ -398,7 +400,7 @@ namespace CGSystem
                     GenerarCXC();
                 }
                 else { }
-
+                CerrarFactura(); //Método para activar y desactivar los botonoes necesarios hasta la próxima factura...
             }
             catch
             {
@@ -450,7 +452,9 @@ namespace CGSystem
             btnguardar.Enabled = false;
             btnimprimir.Enabled = true;
 
-            bool aceptar = oper.CajaDeMensaje("¿Desea Imprimir la Factura Actual?", "Facturar"); //Ver si el cliente imprimirá el bolante...
+            FacturaGuardada = true;//Para afirmar que la factura actual ya ha sido guardada
+
+            bool aceptar = oper.CajaDeMensaje("Factura Guardada Exitosamente, ¿Desea Imprimir la Factura Actual?", "Facturar"); //Ver si el cliente imprimirá el bolante...
             if (aceptar)
             {
                 Imprimir();
