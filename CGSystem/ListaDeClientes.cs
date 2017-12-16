@@ -30,14 +30,14 @@ namespace CGSystem
 
         private void ListaDeClientes_Load(object sender, EventArgs e)
         {
-            if (Seleccionando)
-            {
-                btnimprimir.Text = "Seleccionar";
-                btnimprimir.Enabled = true;
-            }
-            else { btnimprimir.Text = "Imprimir"; }
+            //if (Seleccionando)
+            //{
+            //    btnimprimir.Text = "Seleccionar";
+            //    btnimprimir.Enabled = true;
+            //}
+            //else { btnimprimir.Text = "Imprimir"; }
 
-            MostrarTodo();
+            //MostrarTodo();
 
         }
 
@@ -78,49 +78,49 @@ namespace CGSystem
         private void btnimprimir_Click(object sender, EventArgs e)
         {
             //ImprimirSel();
-            try
-            {
-                if (rdbnombre.Checked)
-                {
-                    DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE nombre_cliente LIKE '%" + tbbuscar.Text + "%'");
-                    ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
-                    Form f = new VisorReportes("Reporte de Clientes.rpt");
-                    f.ShowDialog();
-                }
-                else if (rdbid.Checked)
-                {
-                    DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE numero_cliente = '" + tbbuscar.Text + "'");
-                    ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
-                    Form f = new VisorReportes("Reporte de Clientes.rpt");
-                    f.ShowDialog();
-                }
-                else if (rdbapellido.Checked)
-                {
-                    DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE apellido_cliente LIKE '%" + tbbuscar.Text + "%'");
-                    ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
-                    Form f = new VisorReportes("Reporte de Clientes.rpt");
-                    f.ShowDialog();
-                }
-                else if (rdbcedula.Checked)
-                {
-                    DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE cedula_empleado = '" + tbbuscar.Text + "'");
-                    ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
-                    Form f = new VisorReportes("Reporte de Clientes.rpt");
-                    f.ShowDialog();
-                }
-                else if (tbbuscar.Text == "")
-                {
-                    DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente");
-                    ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
-                    Form f = new VisorReportes("Todos los clientes.rpt");
-                    f.ShowDialog();
-                }
-                else MessageBox.Show("Favor realizar una selección!");
-            }
-            catch
-            {
-                MessageBox.Show("Antes debe seleccionar una de las opciones y digitar el valor a buscar!");
-            }
+            //try
+            //{
+            //    if (rdbnombre.Checked)
+            //    {
+            //        DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE nombre_cliente LIKE '%" + tbbuscar.Text + "%'");
+            //        ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
+            //        Form f = new VisorReportes("Reporte de Clientes.rpt");
+            //        f.ShowDialog();
+            //    }
+            //    else if (rdbid.Checked)
+            //    {
+            //        DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE numero_cliente = '" + tbbuscar.Text + "'");
+            //        ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
+            //        Form f = new VisorReportes("Reporte de Clientes.rpt");
+            //        f.ShowDialog();
+            //    }
+            //    else if (rdbapellido.Checked)
+            //    {
+            //        DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE apellido_cliente LIKE '%" + tbbuscar.Text + "%'");
+            //        ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
+            //        Form f = new VisorReportes("Reporte de Clientes.rpt");
+            //        f.ShowDialog();
+            //    }
+            //    else if (rdbcedula.Checked)
+            //    {
+            //        DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE cedula_empleado = '" + tbbuscar.Text + "'");
+            //        ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
+            //        Form f = new VisorReportes("Reporte de Clientes.rpt");
+            //        f.ShowDialog();
+            //    }
+            //    else if (tbbuscar.Text == "")
+            //    {
+            //        DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente");
+            //        ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
+            //        Form f = new VisorReportes("Todos los clientes.rpt");
+            //        f.ShowDialog();
+            //    }
+            //    else MessageBox.Show("Favor realizar una selección!");
+            //}
+            //catch
+            //{
+            //    MessageBox.Show("Antes debe seleccionar una de las opciones y digitar el valor a buscar!");
+            //}
         }
 
         private void dgvListaEmpleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -223,7 +223,7 @@ namespace CGSystem
                 }
                 else if (rdbcedula.Checked)
                 {
-                    string consulta = "SELECT cte.numero_cliente Numero, cte.nombre_cliente Nombre, cte.apellido_cliente Apellido, cte.cedula_cliente Cedula, cte.fecha_nacimiento Nacimiento, cte.direccion_cliente Direccion, sec.descripcion_sector Sectores, ciu.descripcion_ciudad Ciudades, cte.telefono Telefono, inicio_periodo Desde, fin_periodo Hasta, est.descripcion_estado Estados, cte.sexo, cte.foto FROM cliente cte INNER JOIN sector sec ON sec.codigo_sector = cte.codigo_sector INNER JOIN ciudad ciu ON ciu.codigo_ciudad = cte.codigo_ciudad INNER JOIN estado est ON est.codigo_estado = cte.codigo_estado WHERE cte.cedula_cliente = '" + tbbuscar.Text + "'";
+                    string consulta = "SELECT cte.numero_cliente Numero, cte.nombre_cliente Nombre, cte.apellido_cliente Apellido, cte.cedula_cliente Cedula, cte.fecha_nacimiento Nacimiento, cte.direccion_cliente Direccion, sec.descripcion_sector Sectores, ciu.descripcion_ciudad Ciudades, cte.telefono Telefono, inicio_periodo Desde, fin_periodo Hasta, est.descripcion_estado Estados, cte.sexo, cte.foto FROM cliente cte INNER JOIN sector sec ON sec.codigo_sector = cte.codigo_sector INNER JOIN ciudad ciu ON ciu.codigo_ciudad = cte.codigo_ciudad INNER JOIN estado est ON est.codigo_estado = cte.codigo_estado";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -349,8 +349,47 @@ namespace CGSystem
             forclientes.btnnuevocliente.Enabled = false;
             forclientes.btnactualizarcliente.Enabled = true;
             forclientes.btneliminarcliente.Enabled = true;
-            forclientes.btnimprimircliente.Enabled = true;
             forclientes.btncargarfotocliente.Enabled = true;
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (rdbnombre.Checked)
+                {
+                    DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE nombre_cliente LIKE '%" + tbbuscar.Text + "%'");
+                    ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
+                    Form f = new VisorReportes("Reporte de Clientes.rpt");
+                    f.ShowDialog();
+                }
+                else if (rdbid.Checked)
+                {
+                    DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE numero_cliente = '" + tbbuscar.Text + "'");
+                    ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
+                    Form f = new VisorReportes("Reporte de Clientes.rpt");
+                    f.ShowDialog();
+                }
+                else if (rdbapellido.Checked)
+                {
+                    DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE apellido_cliente LIKE '%" + tbbuscar.Text + "%'");
+                    ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
+                    Form f = new VisorReportes("Reporte de Clientes.rpt");
+                    f.ShowDialog();
+                }
+                else if (rdbcedula.Checked)
+                {
+                    DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente");
+                    ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
+                    Form f = new VisorReportes("Todos los clientes.rpt");
+                    f.ShowDialog();
+                }
+                else MessageBox.Show("Favor realizar una selección!");
+            }
+            catch
+            {
+                MessageBox.Show("Antes debe seleccionar una de las opciones y digitar el valor a buscar!");
+            }
         }
     }
 }

@@ -30,7 +30,6 @@
         {
             this.btncargarfotocliente = new System.Windows.Forms.Button();
             this.tbRutaFoto = new System.Windows.Forms.TextBox();
-            this.btnimprimircliente = new System.Windows.Forms.Button();
             this.btneliminarcliente = new System.Windows.Forms.Button();
             this.btnactualizarcliente = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -96,25 +95,12 @@
             this.tbRutaFoto.TabIndex = 34;
             this.tbRutaFoto.Visible = false;
             // 
-            // btnimprimircliente
-            // 
-            this.btnimprimircliente.BackColor = System.Drawing.Color.Cornsilk;
-            this.btnimprimircliente.Enabled = false;
-            this.btnimprimircliente.Font = new System.Drawing.Font("Mistral", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnimprimircliente.Location = new System.Drawing.Point(397, 338);
-            this.btnimprimircliente.Name = "btnimprimircliente";
-            this.btnimprimircliente.Size = new System.Drawing.Size(124, 49);
-            this.btnimprimircliente.TabIndex = 33;
-            this.btnimprimircliente.Text = "Imprimir";
-            this.btnimprimircliente.UseVisualStyleBackColor = false;
-            this.btnimprimircliente.Click += new System.EventHandler(this.btnimprimircliente_Click);
-            // 
             // btneliminarcliente
             // 
             this.btneliminarcliente.BackColor = System.Drawing.Color.Cornsilk;
             this.btneliminarcliente.Enabled = false;
             this.btneliminarcliente.Font = new System.Drawing.Font("Mistral", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btneliminarcliente.Location = new System.Drawing.Point(397, 286);
+            this.btneliminarcliente.Location = new System.Drawing.Point(394, 309);
             this.btneliminarcliente.Name = "btneliminarcliente";
             this.btneliminarcliente.Size = new System.Drawing.Size(124, 49);
             this.btneliminarcliente.TabIndex = 32;
@@ -128,7 +114,7 @@
             this.btnactualizarcliente.CausesValidation = false;
             this.btnactualizarcliente.Enabled = false;
             this.btnactualizarcliente.Font = new System.Drawing.Font("Mistral", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnactualizarcliente.Location = new System.Drawing.Point(397, 234);
+            this.btnactualizarcliente.Location = new System.Drawing.Point(394, 257);
             this.btnactualizarcliente.Name = "btnactualizarcliente";
             this.btnactualizarcliente.Size = new System.Drawing.Size(124, 49);
             this.btnactualizarcliente.TabIndex = 31;
@@ -379,7 +365,7 @@
             this.btnguardarcliente.BackColor = System.Drawing.Color.Cornsilk;
             this.btnguardarcliente.Enabled = false;
             this.btnguardarcliente.Font = new System.Drawing.Font("Mistral", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnguardarcliente.Location = new System.Drawing.Point(397, 182);
+            this.btnguardarcliente.Location = new System.Drawing.Point(394, 205);
             this.btnguardarcliente.Name = "btnguardarcliente";
             this.btnguardarcliente.Size = new System.Drawing.Size(124, 49);
             this.btnguardarcliente.TabIndex = 27;
@@ -491,7 +477,7 @@
             // 
             this.btnnuevocliente.BackColor = System.Drawing.Color.Cornsilk;
             this.btnnuevocliente.Font = new System.Drawing.Font("Mistral", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnnuevocliente.Location = new System.Drawing.Point(397, 131);
+            this.btnnuevocliente.Location = new System.Drawing.Point(394, 154);
             this.btnnuevocliente.Name = "btnnuevocliente";
             this.btnnuevocliente.Size = new System.Drawing.Size(124, 49);
             this.btnnuevocliente.TabIndex = 36;
@@ -508,7 +494,6 @@
             this.Controls.Add(this.gbservicioscliente);
             this.Controls.Add(this.btncargarfotocliente);
             this.Controls.Add(this.tbRutaFoto);
-            this.Controls.Add(this.btnimprimircliente);
             this.Controls.Add(this.btneliminarcliente);
             this.Controls.Add(this.btnactualizarcliente);
             this.Controls.Add(this.groupBox2);
@@ -569,7 +554,6 @@
         public System.Windows.Forms.TextBox tbtelefonocliente;
         public System.Windows.Forms.RadioButton rbservicionovencido;
         public System.Windows.Forms.RadioButton rbserviciovencido;
-        public System.Windows.Forms.Button btnimprimircliente;
         public System.Windows.Forms.Button btneliminarcliente;
         public System.Windows.Forms.Button btnactualizarcliente;
         public System.Windows.Forms.Button btnnuevocliente;
