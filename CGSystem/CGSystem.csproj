@@ -136,6 +136,13 @@
     <Compile Include="Departamentos.Designer.cs">
       <DependentUpon>Departamentos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Factura.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Factura.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="Facturación.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +259,11 @@
     </Compile>
     <EmbeddedResource Include="Ciudades.resx">
       <DependentUpon>Ciudades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Factura.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Factura.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Posiciones.resx">
       <DependentUpon>Posiciones.cs</DependentUpon>

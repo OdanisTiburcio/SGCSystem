@@ -454,7 +454,7 @@ namespace CGSystem
 
             FacturaGuardada = true;//Para afirmar que la factura actual ya ha sido guardada
 
-            bool aceptar = oper.CajaDeMensaje("Factura Guardada Exitosamente, ¿Desea Imprimir la Factura Actual?", "Facturar"); //Ver si el cliente imprimirá el bolante...
+            bool aceptar = oper.CajaDeMensaje("¡Guardada Exitosamente! ¿Desea Imprimir la Factura Actual?", "Facturar"); //Ver si el cliente imprimirá el bolante...
             if (aceptar)
             {
                 Imprimir();
@@ -472,7 +472,20 @@ namespace CGSystem
 
         public void Imprimir()
         {
-            //Abrir el Formulario visor de reporte de Impresión de Factura....
+            try
+            {
+                //Abrir el Formulario visor de reporte de Impresión de Factura....
+                ds = oper.ConsultaConResultado("SELECT * FROM cabecera_factura WHERE id_factura = '" + NumeroDeFactura + "'");
+                ds.WriteXml("C:\\CGSystem\\CGSystem\\CabeceraFactura.xml");
+                ds = oper.ConsultaConResultado("SELECT * FROM detalle_factura WHERE id_factura = '" + NumeroDeFactura + "'");
+                ds.WriteXml("C:\\CGSystem\\CGSystem\\detalle_factura.xml");
+                Form f = new VisorReportes("Factura.rpt");
+                f.ShowDialog();
+            }
+            catch
+            {
+                MessageBox.Show("Hubo un error al intentar guardar la factura", "Aviso");
+            }
 
         }
 
