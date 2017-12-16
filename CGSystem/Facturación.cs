@@ -31,6 +31,7 @@ namespace CGSystem
         public static string IdCliente = "";
         public static string NumeroDeFactura = "";
         public bool Actualizando = false;
+        public static bool modificandofactura = false;
 
         //Para la fecha
         public DateTime fechaDT = DateTime.Now;
