@@ -133,9 +133,9 @@ namespace CGSystem
         {
             string fechasumada = fecha;
             //Método para quitarle las Sumarle dias a una fecha (0, 10 = ejemplo: "2017-12-07")
-            int año = Convert.ToInt32(fecha.Substring(6, 4));
-            int mes = Convert.ToInt32(fecha.Substring(3, 2));
-            int dia = Convert.ToInt32(fecha.Substring(0, 2));
+            int año = Convert.ToInt32(fecha.Substring(0, 4));
+            int mes = Convert.ToInt32(fecha.Substring(5, 2));
+            int dia = Convert.ToInt32(fecha.Substring(8, 2));
 
             for (int i = 0; i < diassumar; i++)
             {

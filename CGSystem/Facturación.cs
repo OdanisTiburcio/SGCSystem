@@ -422,10 +422,10 @@ namespace CGSystem
                 string estado = ds.Tables[0].Rows[0][0].ToString();
                 if (estado == "1") //Validar la vigencia del servicio... si no está vigente, se genera a partir de ahora...
                 {
-                    ds = oper.ConsultaConResultado("SELECT fin_periodo FROM cliente WHERE numero_cliente = '" + IdCliente + "';");
+                    ds = oper.ConsultaConResultado("SELECT strftime('%Y-%m-%d', fin_periodo) FROM cliente WHERE numero_cliente = '" + IdCliente + "';");
                     string FinPeriodoAnterior = ds.Tables[0].Rows[0][0].ToString();
                     string FechaFinPeriodo = oper.SumarAlaFecha(FinPeriodoAnterior, DiasASumar);
-                    oper.ConsultaSinResultado("INSERT INTO cliente (fin_periodo) VALUES ('" + FechaFinPeriodo + "');");
+                    oper.ConsultaSinResultado("UPDATE cliente SET fin_periodo = '" + FechaFinPeriodo + "' WHERE numero_cliente = '" + IdCliente + "';");
                 }
                 else //No Vigente, a partir del día de hoy...
                 {
@@ -433,7 +433,7 @@ namespace CGSystem
                     fechaHoy = oper.FormatearFecha(fechaDT);
 
                     string FechaFinPeriodo = oper.SumarAlaFecha(fechaHoy, DiasASumar);
-                    oper.ConsultaSinResultado("INSERT INTO cliente (inicio_periodo, fin_periodo) VALUES ('" + fechaHoy + "','" + FechaFinPeriodo + "');");
+                    oper.ConsultaSinResultado("UPDATE cliente SET inicio_periodo = '" + fechaHoy + "', fin_periodo = '" + FechaFinPeriodo + "' WHERE numero_cliente = '" + IdCliente + "';");
                 }
             }
             catch
@@ -480,7 +480,7 @@ namespace CGSystem
             try
             {
                 //Abrir el Formulario visor de reporte de Impresión de Factura....
-                ds = oper.ConsultaConResultado("SELECT * FROM cabecera_factura WHERE id_factura = '" + NumeroDeFactura + "'");
+                ds = oper.ConsultaConResultado("SELECT id_factura, id_tipo_factura, id_cliente, id_empleado, strftime('%Y-%m-%d', fecha),total,estado FROM cabecera_factura WHERE id_factura = '" + NumeroDeFactura + "'");
                 ds.WriteXml("C:\\CGSystem\\CGSystem\\CabeceraFactura.xml");
                 ds = oper.ConsultaConResultado("SELECT * FROM detalle_factura WHERE id_factura = '" + NumeroDeFactura + "'");
                 ds.WriteXml("C:\\CGSystem\\CGSystem\\detalle_factura.xml");
@@ -489,7 +489,7 @@ namespace CGSystem
             }
             catch
             {
-                MessageBox.Show("Hubo un error al intentar guardar la factura", "Aviso");
+                MessageBox.Show("Hubo un error al intentar Imprimir la factura", "Aviso");
             }
 
         }
