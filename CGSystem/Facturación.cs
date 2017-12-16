@@ -186,7 +186,7 @@ namespace CGSystem
 
         private void rdContado_CheckedChanged(object sender, EventArgs e)
         {
-            ActualizarCheckBox();
+            //ActualizarCheckBox();
         }
 
         private void btnsearch_Click(object sender, EventArgs e)
@@ -221,7 +221,7 @@ namespace CGSystem
 
         private void rdCredito_CheckedChanged(object sender, EventArgs e)
         {
-            ActualizarCheckBox();
+           //ActualizarCheckBox();
         }
 
         private void btneliminiar_Click(object sender, EventArgs e)
@@ -301,6 +301,20 @@ namespace CGSystem
 
         public void GuardarFactura()
         {
+
+            //Confirmar que hay un cliente seleccionado
+            if(tbidcliente.Text  == "" && tbcliente.Text == "Cliente")
+            {
+                BuscarCliente();
+                if (tbidcliente.Text == "" && tbcliente.Text == "Cliente")
+                {
+                    MessageBox.Show("Debe seleccionar un cliente para poder procesar los servicios", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                else { }
+            }
+            else { }
+
             try
             {
                 //Método para realizar el guardado de la factura...

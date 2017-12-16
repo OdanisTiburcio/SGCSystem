@@ -132,6 +132,7 @@
             // 
             // tbcliente
             // 
+            this.tbcliente.Enabled = false;
             this.tbcliente.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbcliente.Location = new System.Drawing.Point(547, 96);
             this.tbcliente.Name = "tbcliente";
