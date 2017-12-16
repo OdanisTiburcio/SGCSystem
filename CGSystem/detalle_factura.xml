@@ -2,12 +2,12 @@
 <NewDataSet>
   <Table>
     <id_detalle>1</id_detalle>
-    <id_factura>23</id_factura>
+    <id_factura>28</id_factura>
     <codigo>1</codigo>
     <descripcion>UN DIA DE USO</descripcion>
     <precio>40</precio>
     <dias>1</dias>
-    <cantidad>40</cantidad>
-    <total>1600</total>
+    <cantidad>13</cantidad>
+    <total>520</total>
   </Table>
 </NewDataSet>
