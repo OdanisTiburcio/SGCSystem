@@ -12,6 +12,8 @@ namespace CGSystem
 {
     public partial class MantenimientoDeServicios : Form
     {
+        DataSet ds = new DataSet();
+
         operacion oper = new operacion();
         public MantenimientoDeServicios()
         {
@@ -20,14 +22,38 @@ namespace CGSystem
 
         private void btpnew_Click(object sender, EventArgs e)
         {
+            Nuevo();
+        }
+
+        private void btpsearch_Click(object sender, EventArgs e)
+        {
+            Buscar();
+        }
+
+        private void MantenimientoDeServicios_Load(object sender, EventArgs e)
+        {
+            ds = oper.ConsultaConResultado("SELECT MAX(codigo_servicio) value FROM servicio;");
+            tbpcodigo.Text = ds.Tables[0].Rows[0][0].ToString();
+        }
+
+        private void btnactualizarservicio_Click(object sender, EventArgs e)
+        {
+            oper.ConsultaSinResultado("UPDATE servicio SET descripcion_servicio = '"+tbpnombre.Text+"', precio_servicio = '"+tbpprecio.Text+"', dias = '"+tbdias.Text+"' WHERE codigo_servicio = '"+tbpcodigo.Text+"'");
+        }
+
+        public void Guardar()
+        {
             if (tbpnombre.Text != "" && tbpprecio.Text != "" && tbdias.Text != "")
             {
-                oper.ConsultaSinResultado("INSERT INTO servicio (descripcion_servicio, precio_servicio, dias) VALUES ('" + tbpnombre.Text.ToString() + "','" + tbpprecio.Text + "','" + tbdias.Text + "')");
+                oper.ConsultaSinResultado("INSERT INTO servicio (descripcion_servicio, precio_servicio, dias, estado) VALUES ('" + tbpnombre.Text.ToString() + "','" + tbpprecio.Text + "','" + tbdias.Text + "', 'ACTIVO')");
                 tbpnombre.Clear();
                 tbpprecio.Clear();
                 tbdias.Clear();
                 tbpcodigo.Clear();
                 MessageBox.Show("Datos registrados satisfactoriamente!");
+
+                ds = oper.ConsultaConResultado("SELECT MAX(codigo_servicio) value FROM servicio;");
+                tbpcodigo.Text = ds.Tables[0].Rows[0][0].ToString();
             }
             else
             {
@@ -35,8 +61,25 @@ namespace CGSystem
             }
         }
 
-        private void btpsearch_Click(object sender, EventArgs e)
+        private void btpdelete_Click(object sender, EventArgs e)
         {
+            oper.ConsultaSinResultado("UPDATE servicio SET estado = 'DESACTIVADO' WHERE codigo_servicio = '"+tbpcodigo.Text+"'");
+        }
+
+        public void Nuevo()
+        {
+            ds = oper.ConsultaConResultado("SELECT MAX(codigo_servicio) value FROM servicio;");
+            tbpcodigo.Text = ds.Tables[0].Rows[0][0].ToString();
+
+            tbpnombre.Text = "";
+            tbpsearchcode.Text = "";
+            tbdias.Text = "";
+            tbpprecio.Text = "";
+        }
+
+        public void Buscar()
+        {
+            //ds = oper.ConsultaConResultado("SELECT * FROM servicio WHERE codigo_servicio = '"+btpsearch.ResetText+"';")
 
         }
     }

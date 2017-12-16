@@ -48,6 +48,8 @@
             this.lblrango = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbtotal = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtvcuadrecaja)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbimprimircuadre)).BeginInit();
@@ -72,7 +74,7 @@
             this.dtvcuadrecaja.ReadOnly = true;
             this.dtvcuadrecaja.RowHeadersVisible = false;
             this.dtvcuadrecaja.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtvcuadrecaja.Size = new System.Drawing.Size(314, 394);
+            this.dtvcuadrecaja.Size = new System.Drawing.Size(314, 437);
             this.dtvcuadrecaja.TabIndex = 0;
             // 
             // ID
@@ -138,14 +140,16 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbtotal);
             this.groupBox1.Controls.Add(this.tbventacontado);
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.tbventacredito);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(333, 271);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(149, 136);
+            this.groupBox1.Size = new System.Drawing.Size(149, 179);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Totales";
@@ -206,6 +210,7 @@
             this.cbmescuadre.Name = "cbmescuadre";
             this.cbmescuadre.Size = new System.Drawing.Size(97, 21);
             this.cbmescuadre.TabIndex = 7;
+            this.cbmescuadre.TextChanged += new System.EventHandler(this.cbmescuadre_TextChanged);
             // 
             // dtpinicio
             // 
@@ -214,6 +219,7 @@
             this.dtpinicio.Name = "dtpinicio";
             this.dtpinicio.Size = new System.Drawing.Size(89, 20);
             this.dtpinicio.TabIndex = 8;
+            this.dtpinicio.ValueChanged += new System.EventHandler(this.dtpinicio_ValueChanged);
             // 
             // pictureBox1
             // 
@@ -233,6 +239,7 @@
             this.dtpfin.Name = "dtpfin";
             this.dtpfin.Size = new System.Drawing.Size(89, 20);
             this.dtpfin.TabIndex = 8;
+            this.dtpfin.ValueChanged += new System.EventHandler(this.dtpfin_ValueChanged);
             // 
             // lblrango
             // 
@@ -264,11 +271,31 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Fecha:";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(6, 129);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 17);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Total";
+            // 
+            // tbtotal
+            // 
+            this.tbtotal.BackColor = System.Drawing.Color.Cornsilk;
+            this.tbtotal.Enabled = false;
+            this.tbtotal.Location = new System.Drawing.Point(6, 149);
+            this.tbtotal.Name = "tbtotal";
+            this.tbtotal.Size = new System.Drawing.Size(137, 25);
+            this.tbtotal.TabIndex = 2;
+            this.tbtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
             // CuadreCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(494, 415);
+            this.ClientSize = new System.Drawing.Size(494, 462);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblrango);
@@ -318,5 +345,7 @@
         private System.Windows.Forms.Label lblrango;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox tbtotal;
+        private System.Windows.Forms.Label label6;
     }
 }
