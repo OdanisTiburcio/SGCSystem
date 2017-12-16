@@ -39,6 +39,7 @@ namespace CGSystem
         public string TipoFactura = "CONTADO";
 
         //Para el guardado del detalle
+        public string codigodetalle = "";
         public string codigo = "";
         public string descripcion = "";
         public string precio = "";
@@ -61,9 +62,11 @@ namespace CGSystem
         {
             //Método para actualizar el Data Grid View
             TotalFactura = 0;
+            contador = 0;
             for (int i = 0; i < dgvListaServicios.RowCount; i++)
             {
-                dgvListaServicios.Rows[i].Cells[5].Value = Convert.ToInt32(dgvListaServicios.Rows[i].Cells[2].Value) * Convert.ToInt32(dgvListaServicios.Rows[i].Cells[4].Value);
+                dgvListaServicios.Rows[i].Cells[0].Value = (contador + 1).ToString(); //Asignar la numeración al detalle
+                dgvListaServicios.Rows[i].Cells[6].Value = Convert.ToInt32(dgvListaServicios.Rows[i].Cells[3].Value) * Convert.ToInt32(dgvListaServicios.Rows[i].Cells[5].Value);
                 TotalFactura += Convert.ToInt32(dgvListaServicios.Rows[i].Cells[5].Value);
             }
             tbtotal.Text = "RD$ " + TotalFactura.ToString();
@@ -91,9 +94,9 @@ namespace CGSystem
             dgvListaServicios.Rows.Add();
             for (int k = 0; k < 4; k++)
             {
-                dgvListaServicios.Rows[NuevaFila].Cells[k].Value = ds.Tables[0].Rows[0][k].ToString();
+                dgvListaServicios.Rows[NuevaFila].Cells[k+1].Value = ds.Tables[0].Rows[0][k].ToString();
             }
-            dgvListaServicios.Rows[NuevaFila].Cells[4].Value = "1"; //Asignar cantidad 1 como predeterminada...
+            dgvListaServicios.Rows[NuevaFila].Cells[5].Value = "1"; //Asignar cantidad 1 como predeterminada...
             Actualizar();
         }
 
@@ -135,52 +138,52 @@ namespace CGSystem
 
         private void chkbcontado_CheckedChanged(object sender, EventArgs e)
         {
-            ActualizarCheckBox();
+            //ActualizarCheckBox();
         }
 
         public void ActualizarCheckBox()
         {
-            if (contador < 1)
-            {
-                if (rdContado.Checked)
-                {
-                    tbcliente.Enabled = true;
-                    tbcliente.Text = "";
-                    tbidcliente.Text = "";
-                    ClienteSeleccionado = false;
-                }
-                else
-                {
-                    //Validar si hay un cliente válido seleccionado, en caso contrario abrir el formulario de selección de cliente.
-                    try
-                    {
-                        if (tbidcliente.Text != "0" && Convert.ToInt32(tbidcliente.Text) < 1)
-                        {
-                            tbcliente.Text = "";
-                            tbidcliente.Text = "";
-                            BuscarCliente();
-                        }
-                        else
-                        {
-                        }
-                    }
-                    catch
-                    {
-                        tbcliente.Text = "";
-                        tbidcliente.Text = "";
-                        BuscarCliente();
-                    }
+            //if (contador < 1)
+            //{
+            //    if (rdContado.Checked)
+            //    {
+            //        tbcliente.Enabled = true;
+            //        tbcliente.Text = "Cliente";
+            //        tbidcliente.Text = "";
+            //        ClienteSeleccionado = false;
+            //    }
+            //    else
+            //    {
+            //        //Validar si hay un cliente válido seleccionado, en caso contrario abrir el formulario de selección de cliente.
+            //        try
+            //        {
+            //            if (tbidcliente.Text != "0" && Convert.ToInt32(tbidcliente.Text) < 1)
+            //            {
+            //                tbcliente.Text = "Cliente";
+            //                tbidcliente.Text = "";
+            //                BuscarCliente();
+            //            }
+            //            else
+            //            {
+            //            }
+            //        }
+            //        catch
+            //        {
+            //            tbcliente.Text = "Cliente";
+            //            tbidcliente.Text = "";
+            //            BuscarCliente();
+            //        }
 
 
 
-                    tbcliente.Enabled = false;
-                }
-                contador++;
-            }
-            else
-            {
-                contador = 0; //Para reiniciar el contador y así funcione la próxima vez...
-            }
+            //        tbcliente.Enabled = false;
+            //    }
+            //    contador++;
+            //}
+            //else
+            //{
+            //    contador = 0; //Para reiniciar el contador y así funcione la próxima vez...
+            //}
         }
 
 
@@ -202,7 +205,7 @@ namespace CGSystem
 
             try
             {
-                if (SelecciónDeCliente || tbidcliente.Text != "0" || tbidcliente.Text != "")
+                if (SelecciónDeCliente)
                 {
                     tbcliente.Text = NombreCliente;
                     tbidcliente.Text = IdCliente;
@@ -210,7 +213,6 @@ namespace CGSystem
                 }
                 else
                 {
-                    rdContado.PerformClick();
                 }
             }
             catch
@@ -221,7 +223,7 @@ namespace CGSystem
 
         private void rdCredito_CheckedChanged(object sender, EventArgs e)
         {
-           //ActualizarCheckBox();
+            //ActualizarCheckBox();
         }
 
         private void btneliminiar_Click(object sender, EventArgs e)
@@ -275,6 +277,9 @@ namespace CGSystem
                 rdContado.PerformClick();
                 tbproducto.Clear();
                 FacturaGuardada = false;
+                tbcliente.Text = "Cliente";
+                tbidcliente.Clear();
+                contador = 0;
                 Actualizar();
 
                 //Conseguir el mayor número de factura y asignarlo a la factura actual
@@ -302,13 +307,21 @@ namespace CGSystem
         public void GuardarFactura()
         {
 
+            //Validar que hallan datos para facturar
+            if (dgvListaServicios.RowCount == 0)
+            {
+                MessageBox.Show("No hay nada para guardar", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            else { }
+
             //Confirmar que hay un cliente seleccionado
-            if(tbidcliente.Text  == "" && tbcliente.Text == "Cliente")
+            if (tbidcliente.Text == "" && tbcliente.Text == "Cliente")
             {
                 BuscarCliente();
                 if (tbidcliente.Text == "" && tbcliente.Text == "Cliente")
                 {
-                    MessageBox.Show("Debe seleccionar un cliente para poder procesar los servicios", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Debe seleccionar un cliente para poder procesar los servicios", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 else { }
@@ -326,25 +339,32 @@ namespace CGSystem
                 TipoFactura = ds.Tables[0].Rows[0][0].ToString();
 
                 //Primero Guardamos la cabecera de la factura
-                oper.ConsultaSinResultado("INSERT INTO factura (id_factura, id_tipo_factura, id_cliente, fecha," +
-                    "total, id_tipo_ingreso) VALUES ('" + NumeroDeFactura + "', '" + TipoFactura + "'," +
-                    "'" + IdCliente + "', '" + fechaHoy + "', '" + TotalFactura.ToString() + "', 'EFECTIVO');");
+                oper.ConsultaSinResultado("INSERT INTO cabecera_factura (id_factura, id_tipo_factura, id_cliente, id_empleado, fecha," +
+                    "total, estado) VALUES ('" + NumeroDeFactura + "', '" + TipoFactura + "'," +
+                    "'" + IdCliente + "', '" + MenuPrincipal.UsuarioID.ToString() + "', '" + fechaHoy + "', '" + TotalFactura.ToString() + "', 'ACTIVO');");
 
                 //Ahora guardamos el detalle de la facutra con el bucle siguiente
                 for (int i = 0; i < dgvListaServicios.RowCount; i++)
                 {
 
-                    codigo = dgvListaServicios.Rows[i].Cells[0].Value.ToString();
-                    descripcion = dgvListaServicios.Rows[i].Cells[1].Value.ToString();
-                    precio = dgvListaServicios.Rows[i].Cells[2].Value.ToString();
-                    dias = dgvListaServicios.Rows[i].Cells[3].Value.ToString();
-                    cantidad = dgvListaServicios.Rows[i].Cells[4].Value.ToString();
-                    total = dgvListaServicios.Rows[i].Cells[5].Value.ToString();
+                    codigodetalle = dgvListaServicios.Rows[i].Cells[0].Value.ToString();
+                    codigo = dgvListaServicios.Rows[i].Cells[1].Value.ToString();
+                    descripcion = dgvListaServicios.Rows[i].Cells[2].Value.ToString();
+                    precio = dgvListaServicios.Rows[i].Cells[3].Value.ToString();
+                    dias = dgvListaServicios.Rows[i].Cells[4].Value.ToString();
+                    cantidad = dgvListaServicios.Rows[i].Cells[5].Value.ToString();
+                    total = dgvListaServicios.Rows[i].Cells[6].Value.ToString();
 
-                    oper.ConsultaSinResultado("INSERT INTO detalle_factura (id_factura, codigo, descripcion, precio, dias, cantidad, total) " +
-                        "VALUES ('" + NumeroDeFactura + "', '" + codigo + "', '" + descripcion + "', '" + precio + "'" +
+                    oper.ConsultaSinResultado("INSERT INTO detalle_factura (id_detalle, id_factura, codigo, descripcion, precio, dias, cantidad, total) " +
+                        "VALUES ('" + codigodetalle + "', '" + NumeroDeFactura + "', '" + codigo + "', '" + descripcion + "', '" + precio + "'" +
                         ", '" + dias + "', '" + cantidad + "', '" + total + "');");
                 }
+
+                if (rdCredito.Checked)
+                {
+                    GenerarCXC();
+                }
+                else { }
 
             }
             catch
@@ -368,6 +388,21 @@ namespace CGSystem
             }
 
             return tipo;
+        }
+
+
+        public void GenerarCXC()
+        {
+            try
+            {
+                oper.ConsultaSinResultado("INSERT INTO cxc (id_factura, total_factura, restante, estado_cxc) VALUES ('" + NumeroDeFactura + "'," +
+                    "'" + TotalFactura.ToString() + "', '" + TotalFactura.ToString() + "', 'ACTIVO');");
+            }
+            catch
+            {
+                MessageBox.Show("Hubo un problema al tratar de generar la Cuenta Por Cobrar de la factura actual","Error");
+            }
+
         }
 
     }

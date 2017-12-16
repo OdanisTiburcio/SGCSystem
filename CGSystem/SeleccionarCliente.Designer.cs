@@ -116,7 +116,6 @@
             // btnagregar
             // 
             this.btnagregar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnagregar.Enabled = false;
             this.btnagregar.Location = new System.Drawing.Point(545, 8);
             this.btnagregar.Name = "btnagregar";
             this.btnagregar.Size = new System.Drawing.Size(147, 39);
