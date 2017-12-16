@@ -20,6 +20,7 @@ namespace CGSystem
         public static string NombreUsuario = "Adanis Tiburcio";
         public static bool Logeado = false; //Para confirmar que la sesión esté iniciada
         public static bool SalirDelSistema = false;
+        public static int TipoUsuario = 0; //usuario 1 igual a administrador y usuario 2 igual a empleado...
 
         //Clases Reutilizables
         operacion oper = new operacion();
@@ -50,6 +51,31 @@ namespace CGSystem
                     }
                 }
                 else { }
+
+                //Desactivar los Campos para usuarios específicos...
+                if(TipoUsuario == 1) //Administrador
+                {
+                    //Activar
+                    consultasToolStripMenuItem.DropDownItems[3].Enabled = true;
+                    contabilidadToolStripMenuItem.DropDownItems[0].Enabled = true;
+                    archivoToolStripMenuItem.DropDownItems[1].Enabled = true;
+                    archivoToolStripMenuItem.DropDownItems[2].Enabled = true;
+                    archivoToolStripMenuItem.DropDownItems[3].Enabled = true;
+                    archivoToolStripMenuItem.DropDownItems[6].Enabled = true;
+
+                }
+                else //Empleado
+                {
+                    //Desactivar
+                    consultasToolStripMenuItem.DropDownItems[3].Enabled = false;
+                    contabilidadToolStripMenuItem.DropDownItems[0].Enabled = false;
+                    archivoToolStripMenuItem.DropDownItems[1].Enabled = false;
+                    archivoToolStripMenuItem.DropDownItems[2].Enabled = false;
+                    archivoToolStripMenuItem.DropDownItems[3].Enabled = false;
+                    archivoToolStripMenuItem.DropDownItems[6].Enabled = false;
+
+                }
+
             }
             catch
             {

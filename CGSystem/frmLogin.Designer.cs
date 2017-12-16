@@ -79,7 +79,7 @@
             this.tbcontraseña.PasswordChar = '*';
             this.tbcontraseña.Size = new System.Drawing.Size(197, 25);
             this.tbcontraseña.TabIndex = 1;
-            this.tbcontraseña.Text = "bros";
+            this.tbcontraseña.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbcontraseña_KeyPress);
             // 
             // groupBox1
             // 
@@ -108,7 +108,6 @@
             this.cbusuario.Name = "cbusuario";
             this.cbusuario.Size = new System.Drawing.Size(197, 26);
             this.cbusuario.TabIndex = 4;
-            this.cbusuario.Text = "Adanis Tiburcio";
             // 
             // btnCancelar
             // 
