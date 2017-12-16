@@ -280,5 +280,11 @@ namespace CGSystem
             Posiciones f = new Posiciones();
             f.Show();
         }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form f = new MantenimientoUsuario();
+            f.ShowDialog();
+        }
     }
 }
