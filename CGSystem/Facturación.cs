@@ -197,8 +197,7 @@ namespace CGSystem
         public void BuscarCliente()
         {
             //Buscar un cliente mostrando el formulario de selección
-            ListaDeClientes.Seleccionando = true;
-            Form f = new ListaDeClientes();
+            Form f = new SeleccionarCliente();
             f.ShowDialog();
 
             try
@@ -217,6 +216,7 @@ namespace CGSystem
             catch
             {
             }
+
         }
 
         private void rdCredito_CheckedChanged(object sender, EventArgs e)
