@@ -18,6 +18,7 @@ namespace CGSystem
         public static bool SeleccionDeServicio = false; //Para confirmar si se seleccionó un servicio o si solo se cerró el formulario...
         public static bool SelecciónDeCliente = false; //Para confirmar si se seleccionó un cliente o si solo se cerró el formulario...
         public int contador = 0; //Para controlar algunos métodos...
+        public int DiasASumar = 0;
 
         //Clases Reutilizables
         operacion oper = new operacion();
@@ -65,12 +66,14 @@ namespace CGSystem
             Actualizando = true;
             TotalFactura = 0;
             contador = 0;
+            DiasASumar = 0;
             for (int i = 0; i < dgvListaServicios.RowCount; i++)
             {
                 dgvListaServicios.Rows[i].Cells[0].Value = (contador + 1).ToString(); //Asignar la numeración al detalle
                 contador++;
-                dgvListaServicios.Rows[i].Cells[6].Value = Convert.ToInt32(dgvListaServicios.Rows[i].Cells[3].Value) * Convert.ToInt32(dgvListaServicios.Rows[i].Cells[5].Value);
+                dgvListaServicios.Rows[i].Cells[6].Value = Convert.ToInt32(dgvListaServicios.Rows[i].Cells[3].Value) * Convert.ToInt32(dgvListaServicios.Rows[i].Cells[5].Value);//Precio por Cantidad =  Total
                 TotalFactura += Convert.ToInt32(dgvListaServicios.Rows[i].Cells[6].Value);
+                DiasASumar += (Convert.ToInt32(dgvListaServicios.Rows[i].Cells[4].Value) * Convert.ToInt32(dgvListaServicios.Rows[i].Cells[5].Value)); //días por cantidad = total dias a sumar del detalle actual...
             }
             tbtotal.Text = "RD$ " + TotalFactura.ToString();
             Actualizando = false;
@@ -78,6 +81,11 @@ namespace CGSystem
 
         private void Facturación_Load(object sender, EventArgs e)
         {
+            ////string test1 = oper.SumarAlaFecha("2017-07-12", 55);
+            //ds = oper.ConsultaConResultado("SELECT fin_periodo FROM cliente WHERE numero_cliente = '2';");
+            //string FinPeriodoAnterior = ds.Tables[0].Rows[0][0].ToString();
+            //FinPeriodoAnterior = oper.SumarAlaFecha(FinPeriodoAnterior, 55);
+
             NuevaFactura();
             dgvListaServicios.Columns[0].ReadOnly = true;
             dgvListaServicios.Columns[1].ReadOnly = true;
@@ -148,47 +156,7 @@ namespace CGSystem
 
         public void ActualizarCheckBox()
         {
-            //if (contador < 1)
-            //{
-            //    if (rdContado.Checked)
-            //    {
-            //        tbcliente.Enabled = true;
-            //        tbcliente.Text = "Cliente";
-            //        tbidcliente.Text = "";
-            //        ClienteSeleccionado = false;
-            //    }
-            //    else
-            //    {
-            //        //Validar si hay un cliente válido seleccionado, en caso contrario abrir el formulario de selección de cliente.
-            //        try
-            //        {
-            //            if (tbidcliente.Text != "0" && Convert.ToInt32(tbidcliente.Text) < 1)
-            //            {
-            //                tbcliente.Text = "Cliente";
-            //                tbidcliente.Text = "";
-            //                BuscarCliente();
-            //            }
-            //            else
-            //            {
-            //            }
-            //        }
-            //        catch
-            //        {
-            //            tbcliente.Text = "Cliente";
-            //            tbidcliente.Text = "";
-            //            BuscarCliente();
-            //        }
-
-
-
-            //        tbcliente.Enabled = false;
-            //    }
-            //    contador++;
-            //}
-            //else
-            //{
-            //    contador = 0; //Para reiniciar el contador y así funcione la próxima vez...
-            //}
+            //Método Descontinuado
         }
 
 
@@ -303,6 +271,7 @@ namespace CGSystem
                 btnguardar.Enabled = true;
                 btnimprimir.Enabled = false;
                 FacturaGuardada = false;
+                btneliminiar.Enabled = true;
 
                 //Vaciar todo y dejar la factura como nueva...
                 fechaDT = DateTime.Now;
@@ -367,6 +336,9 @@ namespace CGSystem
             {
                 //Método para realizar el guardado de la factura...
 
+                //Actualizar DataGridView para Corroborar los valores...
+                Actualizar();
+
                 //Establecer si es a Crédito o al Contado
                 TipoFactura = SaberTipoFactura();
                 //Obtener el código del tipo de factura actual
@@ -400,6 +372,7 @@ namespace CGSystem
                     GenerarCXC();
                 }
                 else { }
+                ActualizarPeriodoDeCliente();
                 CerrarFactura(); //Método para activar y desactivar los botonoes necesarios hasta la próxima factura...
             }
             catch
@@ -440,6 +413,37 @@ namespace CGSystem
 
         }
 
+        public void ActualizarPeriodoDeCliente()
+        {
+            try
+            {
+                //Sumar los días adquiridos al fin de periodo del cliente
+                ds = oper.ConsultaConResultado("SELECT codigo_estado FROM cliente WHERE numero_cliente = '" + IdCliente + "'");
+                string estado = ds.Tables[0].Rows[0][0].ToString();
+                if (estado == "1") //Validar la vigencia del servicio... si no está vigente, se genera a partir de ahora...
+                {
+                    ds = oper.ConsultaConResultado("SELECT fin_periodo FROM cliente WHERE numero_cliente = '" + IdCliente + "';");
+                    string FinPeriodoAnterior = ds.Tables[0].Rows[0][0].ToString();
+                    string FechaFinPeriodo = oper.SumarAlaFecha(FinPeriodoAnterior, DiasASumar);
+                    oper.ConsultaSinResultado("INSERT INTO cliente (fin_periodo) VALUES ('" + FechaFinPeriodo + "');");
+                }
+                else //No Vigente, a partir del día de hoy...
+                {
+                    fechaDT = DateTime.Now;
+                    fechaHoy = oper.FormatearFecha(fechaDT);
+
+                    string FechaFinPeriodo = oper.SumarAlaFecha(fechaHoy, DiasASumar);
+                    oper.ConsultaSinResultado("INSERT INTO cliente (inicio_periodo, fin_periodo) VALUES ('" + fechaHoy + "','" + FechaFinPeriodo + "');");
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Hubo un error al generar el mantenimiento al periodo del cliente, contacte al servicio técnico...", "Error");
+            }
+
+
+        }
+
         public void CerrarFactura()
         {
             //Cerrar la factura generada para que quede inmodificable, a excepción de los usuarios con permisos por medio del botón modificar...
@@ -451,6 +455,7 @@ namespace CGSystem
             tbproducto.Enabled = false;
             btnguardar.Enabled = false;
             btnimprimir.Enabled = true;
+            btneliminiar.Enabled = false;
 
             FacturaGuardada = true;//Para afirmar que la factura actual ya ha sido guardada
 
@@ -488,7 +493,6 @@ namespace CGSystem
             }
 
         }
-
     }
 
 }

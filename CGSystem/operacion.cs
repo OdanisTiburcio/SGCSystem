@@ -129,5 +129,119 @@ namespace CGSystem
             return aceptar;
         }
 
+        public string SumarAlaFecha(string fecha, int diassumar)
+        {
+            string fechasumada = fecha;
+            //Método para quitarle las Sumarle dias a una fecha (0, 10 = ejemplo: "2017-12-07")
+            int año = Convert.ToInt32(fecha.Substring(6, 4));
+            int mes = Convert.ToInt32(fecha.Substring(3, 2));
+            int dia = Convert.ToInt32(fecha.Substring(0, 2));
+
+            for (int i = 0; i < diassumar; i++)
+            {
+                if (mes == 2)
+                {
+                    if ((año % 4) == 0)//Año bisiesto de 29 días
+                    {
+                        if (dia == 29)
+                        {
+                            if (mes == 12)
+                            {
+                                año++;//aumenta un año
+                                mes = 1;
+                                dia = 1;
+                            }
+                            else
+                            {
+                                mes++;//aumenta un mes
+                                dia = 1;
+                            }
+                        }
+                        else
+                        {
+                            dia++;//Solo aumenta un día
+                        }
+                    }
+                    else //año normal de 28 días
+                    {
+                        if (dia == 28)
+                        {
+                            if (mes == 12)
+                            {
+                                año++;//aumenta un año
+                                mes = 1;
+                                dia = 1;
+                            }
+                            else
+                            {
+                                mes++;//aumenta un mes
+                                dia = 1;
+                            }
+                        }
+                        else
+                        {
+                            dia++;//Solo aumenta un día
+                        }
+                    }
+                }
+                else
+                {
+                    if (mes == 1 || mes == 3 || mes == 5 || mes == 7 || mes == 8 || mes == 10 || mes == 12) //Meses de 31 días
+                    {
+                        if (dia == 31)
+                        {
+                            if (mes == 12)
+                            {
+                                año++;//aumenta un año
+                                mes = 1;
+                                dia = 1;
+                            }
+                            else
+                            {
+                                mes++;//aumenta un mes
+                                dia = 1;
+                            }
+                        }
+                        else
+                        {
+                            dia++;//Solo aumenta un día
+                        }
+                    }
+                    else
+                    {
+                        //Meses restantes de 30 días
+                        if (dia == 30)
+                        {
+                            if (mes == 12)
+                            {
+                                año++;//aumenta un año
+                                mes = 1;
+                                dia = 1;
+                            }
+                            else
+                            {
+                                mes++;//aumenta un mes
+                                dia = 1;
+                            }
+                        }
+                        else
+                        {
+                            dia++;//Solo aumenta un día
+                        }
+                    }
+                }
+            }
+
+            //Formatear fecha a tipo DATE
+            string Mmes;
+            string Ddia;
+
+            if (mes < 10) { Mmes = "0" + mes.ToString(); } else { Mmes = mes.ToString(); }
+            if (dia < 10) { Ddia = "0" + dia.ToString(); } else { Ddia = dia.ToString(); }
+            fechasumada = año.ToString() + "-" + Mmes + "-" + Ddia;
+
+            return fechasumada;
+        }
+
     }
 }
