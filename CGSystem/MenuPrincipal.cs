@@ -231,5 +231,23 @@ namespace CGSystem
             CXC f = new CXC();
             f.Show();
         }
+
+        private void ciudadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Ciudades f = new Ciudades();
+            f.Show();
+        }
+
+        private void sectoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Sectores f = new Sectores();
+            f.Show();
+        }
+
+        private void posicionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Posiciones f = new Posiciones();
+            f.Show();
+        }
     }
 }

@@ -52,6 +52,9 @@
             this.btncheckin = new System.Windows.Forms.Button();
             this.btnlistaclientes = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.ciudadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sectoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.posicionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -164,7 +167,10 @@
             this.clientesToolStripMenuItem,
             this.empleadosToolStripMenuItem,
             this.serviciosToolStripMenuItem,
-            this.departamentosToolStripMenuItem});
+            this.departamentosToolStripMenuItem,
+            this.ciudadesToolStripMenuItem,
+            this.sectoresToolStripMenuItem,
+            this.posicionesToolStripMenuItem});
             this.archivoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("archivoToolStripMenuItem.Image")));
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
@@ -277,6 +283,30 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // ciudadesToolStripMenuItem
+            // 
+            this.ciudadesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ciudadesToolStripMenuItem.Image")));
+            this.ciudadesToolStripMenuItem.Name = "ciudadesToolStripMenuItem";
+            this.ciudadesToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.ciudadesToolStripMenuItem.Text = "Ciudades";
+            this.ciudadesToolStripMenuItem.Click += new System.EventHandler(this.ciudadesToolStripMenuItem_Click);
+            // 
+            // sectoresToolStripMenuItem
+            // 
+            this.sectoresToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sectoresToolStripMenuItem.Image")));
+            this.sectoresToolStripMenuItem.Name = "sectoresToolStripMenuItem";
+            this.sectoresToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.sectoresToolStripMenuItem.Text = "Sectores";
+            this.sectoresToolStripMenuItem.Click += new System.EventHandler(this.sectoresToolStripMenuItem_Click);
+            // 
+            // posicionesToolStripMenuItem
+            // 
+            this.posicionesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("posicionesToolStripMenuItem.Image")));
+            this.posicionesToolStripMenuItem.Name = "posicionesToolStripMenuItem";
+            this.posicionesToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.posicionesToolStripMenuItem.Text = "Posiciones";
+            this.posicionesToolStripMenuItem.Click += new System.EventHandler(this.posicionesToolStripMenuItem_Click);
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,5 +360,8 @@
         private System.Windows.Forms.ToolStripMenuItem departamentosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem ciudadesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sectoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem posicionesToolStripMenuItem;
     }
 }
