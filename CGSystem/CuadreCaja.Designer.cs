@@ -82,18 +82,20 @@
             // tbventacredito
             // 
             this.tbventacredito.BackColor = System.Drawing.Color.Cornsilk;
+            this.tbventacredito.Enabled = false;
             this.tbventacredito.Location = new System.Drawing.Point(6, 47);
             this.tbventacredito.Name = "tbventacredito";
-            this.tbventacredito.Size = new System.Drawing.Size(87, 25);
+            this.tbventacredito.Size = new System.Drawing.Size(137, 25);
             this.tbventacredito.TabIndex = 2;
             this.tbventacredito.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // tbventacontado
             // 
             this.tbventacontado.BackColor = System.Drawing.Color.Cornsilk;
+            this.tbventacontado.Enabled = false;
             this.tbventacontado.Location = new System.Drawing.Point(6, 101);
             this.tbventacontado.Name = "tbventacontado";
-            this.tbventacontado.Size = new System.Drawing.Size(87, 25);
+            this.tbventacontado.Size = new System.Drawing.Size(137, 25);
             this.tbventacontado.TabIndex = 2;
             this.tbventacontado.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
@@ -116,7 +118,7 @@
             this.groupBox1.Font = new System.Drawing.Font("Bookman Old Style", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(333, 271);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(110, 136);
+            this.groupBox1.Size = new System.Drawing.Size(149, 136);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Totales";
@@ -125,30 +127,32 @@
             // 
             this.btncuadrehoy.BackColor = System.Drawing.Color.Cornsilk;
             this.btncuadrehoy.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncuadrehoy.Location = new System.Drawing.Point(334, 13);
+            this.btncuadrehoy.Location = new System.Drawing.Point(352, 13);
             this.btncuadrehoy.Name = "btncuadrehoy";
             this.btncuadrehoy.Size = new System.Drawing.Size(106, 47);
             this.btncuadrehoy.TabIndex = 4;
             this.btncuadrehoy.Text = "Hoy";
             this.btncuadrehoy.UseVisualStyleBackColor = false;
+            this.btncuadrehoy.Click += new System.EventHandler(this.btncuadrehoy_Click);
             // 
             // btncuadremes
             // 
             this.btncuadremes.BackColor = System.Drawing.Color.Cornsilk;
             this.btncuadremes.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncuadremes.Location = new System.Drawing.Point(334, 69);
+            this.btncuadremes.Location = new System.Drawing.Point(352, 69);
             this.btncuadremes.Name = "btncuadremes";
             this.btncuadremes.Size = new System.Drawing.Size(106, 47);
             this.btncuadremes.TabIndex = 4;
             this.btncuadremes.Text = "Últ. mes";
             this.btncuadremes.UseVisualStyleBackColor = false;
+            this.btncuadremes.Click += new System.EventHandler(this.btncuadremes_Click);
             // 
             // pbimprimircuadre
             // 
             this.pbimprimircuadre.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbimprimircuadre.BackgroundImage")));
             this.pbimprimircuadre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbimprimircuadre.InitialImage = null;
-            this.pbimprimircuadre.Location = new System.Drawing.Point(334, 184);
+            this.pbimprimircuadre.Location = new System.Drawing.Point(352, 184);
             this.pbimprimircuadre.Name = "pbimprimircuadre";
             this.pbimprimircuadre.Size = new System.Drawing.Size(109, 81);
             this.pbimprimircuadre.TabIndex = 5;
@@ -158,7 +162,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(334, 129);
+            this.label3.Location = new System.Drawing.Point(352, 129);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 22);
             this.label3.TabIndex = 6;
@@ -166,6 +170,7 @@
             // 
             // cbmescuadre
             // 
+            this.cbmescuadre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbmescuadre.FormattingEnabled = true;
             this.cbmescuadre.Items.AddRange(new object[] {
             "Enero",
@@ -180,11 +185,10 @@
             "Octubre",
             "Noviembre",
             "Diciembre"});
-            this.cbmescuadre.Location = new System.Drawing.Point(334, 154);
+            this.cbmescuadre.Location = new System.Drawing.Point(352, 154);
             this.cbmescuadre.Name = "cbmescuadre";
             this.cbmescuadre.Size = new System.Drawing.Size(101, 21);
             this.cbmescuadre.TabIndex = 7;
-            this.cbmescuadre.Text = "Mayo";
             // 
             // ID
             // 
@@ -211,7 +215,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(455, 415);
+            this.ClientSize = new System.Drawing.Size(494, 415);
             this.Controls.Add(this.cbmescuadre);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pbimprimircuadre);
