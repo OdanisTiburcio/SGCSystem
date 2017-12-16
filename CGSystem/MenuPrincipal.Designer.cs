@@ -132,6 +132,7 @@
             this.ingresosToolStripMenuItem.Name = "ingresosToolStripMenuItem";
             this.ingresosToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.ingresosToolStripMenuItem.Text = "Ingresos";
+            this.ingresosToolStripMenuItem.Click += new System.EventHandler(this.ingresosToolStripMenuItem_Click);
             // 
             // cuadreCajaToolStripMenuItem
             // 
@@ -139,6 +140,7 @@
             this.cuadreCajaToolStripMenuItem.Name = "cuadreCajaToolStripMenuItem";
             this.cuadreCajaToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.cuadreCajaToolStripMenuItem.Text = "Cuadre Caja";
+            this.cuadreCajaToolStripMenuItem.Click += new System.EventHandler(this.cuadreCajaToolStripMenuItem_Click);
             // 
             // cuentasPorCobrarToolStripMenuItem
             // 
@@ -146,6 +148,7 @@
             this.cuentasPorCobrarToolStripMenuItem.Name = "cuentasPorCobrarToolStripMenuItem";
             this.cuentasPorCobrarToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.cuentasPorCobrarToolStripMenuItem.Text = "Cuentas por Cobrar";
+            this.cuentasPorCobrarToolStripMenuItem.Click += new System.EventHandler(this.cuentasPorCobrarToolStripMenuItem_Click);
             // 
             // listaDeServiciosToolStripMenuItem
             // 

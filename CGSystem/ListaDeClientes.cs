@@ -77,50 +77,6 @@ namespace CGSystem
 
         private void btnimprimir_Click(object sender, EventArgs e)
         {
-            //ImprimirSel();
-            //try
-            //{
-            //    if (rdbnombre.Checked)
-            //    {
-            //        DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE nombre_cliente LIKE '%" + tbbuscar.Text + "%'");
-            //        ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
-            //        Form f = new VisorReportes("Reporte de Clientes.rpt");
-            //        f.ShowDialog();
-            //    }
-            //    else if (rdbid.Checked)
-            //    {
-            //        DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE numero_cliente = '" + tbbuscar.Text + "'");
-            //        ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
-            //        Form f = new VisorReportes("Reporte de Clientes.rpt");
-            //        f.ShowDialog();
-            //    }
-            //    else if (rdbapellido.Checked)
-            //    {
-            //        DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE apellido_cliente LIKE '%" + tbbuscar.Text + "%'");
-            //        ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
-            //        Form f = new VisorReportes("Reporte de Clientes.rpt");
-            //        f.ShowDialog();
-            //    }
-            //    else if (rdbcedula.Checked)
-            //    {
-            //        DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE cedula_empleado = '" + tbbuscar.Text + "'");
-            //        ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
-            //        Form f = new VisorReportes("Reporte de Clientes.rpt");
-            //        f.ShowDialog();
-            //    }
-            //    else if (tbbuscar.Text == "")
-            //    {
-            //        DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente");
-            //        ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
-            //        Form f = new VisorReportes("Todos los clientes.rpt");
-            //        f.ShowDialog();
-            //    }
-            //    else MessageBox.Show("Favor realizar una selección!");
-            //}
-            //catch
-            //{
-            //    MessageBox.Show("Antes debe seleccionar una de las opciones y digitar el valor a buscar!");
-            //}
         }
 
         private void dgvListaEmpleados_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -165,7 +121,7 @@ namespace CGSystem
         private void btnmostrartodo_Click(object sender, EventArgs e)
         {
             //MostrarTodo();
-            //cnx.Open();
+           
             string consulta = "SELECT numero_cliente Numero, nombre_cliente Nombre, apellido_cliente Apellido, cedula_cliente Cedula, fecha_nacimiento Nacimiento, telefono Telefonos, inicio_periodo Desde, fin_periodo Hasta FROM cliente";
             SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
             DataSet ds = new DataSet();

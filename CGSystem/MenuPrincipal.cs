@@ -212,5 +212,23 @@ namespace CGSystem
             CheckIn f = new CheckIn();
             f.Show();
         }
+
+        private void cuadreCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CuadreCaja f = new CuadreCaja();
+            f.Show();
+        }
+
+        private void ingresosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CRUDIngresos f = new CRUDIngresos();
+            f.Show();
+        }
+
+        private void cuentasPorCobrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CXC f = new CXC();
+            f.Show();
+        }
     }
 }
