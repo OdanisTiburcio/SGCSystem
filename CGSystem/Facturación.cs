@@ -29,6 +29,7 @@ namespace CGSystem
         public static string NombreCliente = "";
         public static string IdCliente = "";
         public static string NumeroDeFactura = "";
+        public bool Actualizando = false;
 
         //Para la fecha
         public DateTime fechaDT = DateTime.Now;
@@ -61,15 +62,18 @@ namespace CGSystem
         public void Actualizar()
         {
             //Método para actualizar el Data Grid View
+            Actualizando = true;
             TotalFactura = 0;
             contador = 0;
             for (int i = 0; i < dgvListaServicios.RowCount; i++)
             {
                 dgvListaServicios.Rows[i].Cells[0].Value = (contador + 1).ToString(); //Asignar la numeración al detalle
+                contador++;
                 dgvListaServicios.Rows[i].Cells[6].Value = Convert.ToInt32(dgvListaServicios.Rows[i].Cells[3].Value) * Convert.ToInt32(dgvListaServicios.Rows[i].Cells[5].Value);
-                TotalFactura += Convert.ToInt32(dgvListaServicios.Rows[i].Cells[5].Value);
+                TotalFactura += Convert.ToInt32(dgvListaServicios.Rows[i].Cells[6].Value);
             }
             tbtotal.Text = "RD$ " + TotalFactura.ToString();
+            Actualizando = false;
         }
 
         private void Facturación_Load(object sender, EventArgs e)
@@ -78,8 +82,9 @@ namespace CGSystem
             dgvListaServicios.Columns[1].ReadOnly = true;
             dgvListaServicios.Columns[2].ReadOnly = true;
             dgvListaServicios.Columns[3].ReadOnly = true;
-            dgvListaServicios.Columns[4].ReadOnly = false;
-            dgvListaServicios.Columns[5].ReadOnly = true;
+            dgvListaServicios.Columns[4].ReadOnly = true;
+            dgvListaServicios.Columns[5].ReadOnly = false;
+            dgvListaServicios.Columns[6].ReadOnly = true;
         }
 
         public void AñadirServicioSeleccionado()
@@ -88,13 +93,12 @@ namespace CGSystem
             //Cargar la Tabla de todos los servicios activos
             ds = oper.ConsultaConResultado("SELECT * FROM servicio WHERE codigo_servicio = '" + ServicioBuscarID + "';");
 
-
             NuevaFila = dgvListaServicios.RowCount; //Escribir sobre la última fila mas uno(+1)...
 
             dgvListaServicios.Rows.Add();
             for (int k = 0; k < 4; k++)
             {
-                dgvListaServicios.Rows[NuevaFila].Cells[k+1].Value = ds.Tables[0].Rows[0][k].ToString();
+                dgvListaServicios.Rows[NuevaFila].Cells[k + 1].Value = ds.Tables[0].Rows[0][k].ToString();
             }
             dgvListaServicios.Rows[NuevaFila].Cells[5].Value = "1"; //Asignar cantidad 1 como predeterminada...
             Actualizar();
@@ -240,17 +244,37 @@ namespace CGSystem
 
         private void dgvListaServicios_ControlRemoved(object sender, ControlEventArgs e)
         {
-            Actualizar();
+
+            if (!Actualizando) //Comprobar que no se esté actualizando ya...
+            {
+                Actualizar();
+            }
+            else
+            {
+            }
+
         }
 
         private void dgvListaServicios_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
         {
-            Actualizar();
+            if (!Actualizando) //Comprobar que no se esté actualizando ya...
+            {
+                Actualizar();
+            }
+            else
+            {
+            }
         }
 
         private void dgvListaServicios_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            Actualizar();
+            if (!Actualizando) //Comprobar que no se esté actualizando ya...
+            {
+                Actualizar();
+            }
+            else
+            {
+            }
         }
 
 
@@ -400,7 +424,7 @@ namespace CGSystem
             }
             catch
             {
-                MessageBox.Show("Hubo un problema al tratar de generar la Cuenta Por Cobrar de la factura actual","Error");
+                MessageBox.Show("Hubo un problema al tratar de generar la Cuenta Por Cobrar de la factura actual", "Error");
             }
 
         }

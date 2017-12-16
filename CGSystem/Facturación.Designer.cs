@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btneliminiar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -250,7 +252,7 @@
             // 
             this.button2.Font = new System.Drawing.Font("Impact", 18.25F);
             this.button2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.button2.Location = new System.Drawing.Point(564, 421);
+            this.button2.Location = new System.Drawing.Point(564, 419);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(171, 41);
             this.button2.TabIndex = 147;
@@ -342,12 +344,17 @@
             // 
             // iddetalle
             // 
-            this.iddetalle.HeaderText = "#Num";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iddetalle.DefaultCellStyle = dataGridViewCellStyle1;
+            this.iddetalle.HeaderText = "#";
             this.iddetalle.Name = "iddetalle";
-            this.iddetalle.Width = 45;
+            this.iddetalle.Width = 25;
             // 
             // cedula
             // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopRight;
+            this.cedula.DefaultCellStyle = dataGridViewCellStyle2;
             this.cedula.HeaderText = "Código";
             this.cedula.Name = "cedula";
             this.cedula.ReadOnly = true;
@@ -358,21 +365,21 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Descripción";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 150;
+            this.dataGridViewTextBoxColumn1.Width = 185;
             // 
             // sueldobruto
             // 
             this.sueldobruto.HeaderText = "Precio";
             this.sueldobruto.Name = "sueldobruto";
             this.sueldobruto.ReadOnly = true;
-            this.sueldobruto.Width = 60;
+            this.sueldobruto.Width = 65;
             // 
             // cargo
             // 
-            this.cargo.HeaderText = "Días (+)";
+            this.cargo.HeaderText = "Días(+)";
             this.cargo.Name = "cargo";
             this.cargo.ReadOnly = true;
-            this.cargo.Width = 70;
+            this.cargo.Width = 50;
             // 
             // ahorros
             // 
