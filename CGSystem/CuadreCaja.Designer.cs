@@ -40,6 +40,9 @@
             this.pbimprimircuadre = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbmescuadre = new System.Windows.Forms.ComboBox();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtvcuadrecaja)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbimprimircuadre)).BeginInit();
@@ -47,10 +50,22 @@
             // 
             // dtvcuadrecaja
             // 
+            this.dtvcuadrecaja.AllowUserToAddRows = false;
+            this.dtvcuadrecaja.AllowUserToDeleteRows = false;
+            this.dtvcuadrecaja.AllowUserToOrderColumns = true;
+            this.dtvcuadrecaja.AllowUserToResizeColumns = false;
+            this.dtvcuadrecaja.AllowUserToResizeRows = false;
             this.dtvcuadrecaja.BackgroundColor = System.Drawing.Color.White;
             this.dtvcuadrecaja.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtvcuadrecaja.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.cliente,
+            this.tipo});
             this.dtvcuadrecaja.Location = new System.Drawing.Point(13, 13);
             this.dtvcuadrecaja.Name = "dtvcuadrecaja";
+            this.dtvcuadrecaja.ReadOnly = true;
+            this.dtvcuadrecaja.RowHeadersVisible = false;
+            this.dtvcuadrecaja.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtvcuadrecaja.Size = new System.Drawing.Size(314, 394);
             this.dtvcuadrecaja.TabIndex = 0;
             // 
@@ -152,10 +167,45 @@
             // cbmescuadre
             // 
             this.cbmescuadre.FormattingEnabled = true;
+            this.cbmescuadre.Items.AddRange(new object[] {
+            "Enero",
+            "Febrero",
+            "Marzo",
+            "Abril",
+            "Mayo",
+            "Junio",
+            "Julio",
+            "Agosto",
+            "Septiembre",
+            "Octubre",
+            "Noviembre",
+            "Diciembre"});
             this.cbmescuadre.Location = new System.Drawing.Point(334, 154);
             this.cbmescuadre.Name = "cbmescuadre";
             this.cbmescuadre.Size = new System.Drawing.Size(101, 21);
             this.cbmescuadre.TabIndex = 7;
+            this.cbmescuadre.Text = "Mayo";
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 60;
+            // 
+            // cliente
+            // 
+            this.cliente.HeaderText = "Tipo";
+            this.cliente.Name = "cliente";
+            this.cliente.ReadOnly = true;
+            this.cliente.Width = 130;
+            // 
+            // tipo
+            // 
+            this.tipo.HeaderText = "Total (RD$)";
+            this.tipo.Name = "tipo";
+            this.tipo.ReadOnly = true;
+            this.tipo.Width = 121;
             // 
             // CuadreCaja
             // 
@@ -174,6 +224,7 @@
             this.Name = "CuadreCaja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cuadre de Caja";
+            this.Load += new System.EventHandler(this.CuadreCaja_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtvcuadrecaja)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -196,5 +247,8 @@
         private System.Windows.Forms.PictureBox pbimprimircuadre;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbmescuadre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
     }
 }

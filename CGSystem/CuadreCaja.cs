@@ -16,5 +16,10 @@ namespace CGSystem
         {
             InitializeComponent();
         }
+
+        private void CuadreCaja_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

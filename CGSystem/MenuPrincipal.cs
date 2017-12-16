@@ -125,7 +125,8 @@ namespace CGSystem
 
         private void serviciosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form f = new MantenimientoDeServicios();
+            f.ShowDialog();
         }
 
         private void listaDeServiciosToolStripMenuItem_Click(object sender, EventArgs e)
