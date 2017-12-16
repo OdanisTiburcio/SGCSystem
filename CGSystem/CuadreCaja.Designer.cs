@@ -39,13 +39,19 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btncuadrehoy = new System.Windows.Forms.Button();
-            this.btncuadremes = new System.Windows.Forms.Button();
             this.pbimprimircuadre = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbmescuadre = new System.Windows.Forms.ComboBox();
+            this.dtpinicio = new System.Windows.Forms.DateTimePicker();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dtpfin = new System.Windows.Forms.DateTimePicker();
+            this.lblrango = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtvcuadrecaja)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbimprimircuadre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // dtvcuadrecaja
@@ -150,40 +156,29 @@
             this.btncuadrehoy.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btncuadrehoy.Location = new System.Drawing.Point(333, 13);
             this.btncuadrehoy.Name = "btncuadrehoy";
-            this.btncuadrehoy.Size = new System.Drawing.Size(80, 47);
+            this.btncuadrehoy.Size = new System.Drawing.Size(149, 47);
             this.btncuadrehoy.TabIndex = 4;
             this.btncuadrehoy.Text = "Hoy";
             this.btncuadrehoy.UseVisualStyleBackColor = false;
             this.btncuadrehoy.Click += new System.EventHandler(this.btncuadrehoy_Click);
-            // 
-            // btncuadremes
-            // 
-            this.btncuadremes.BackColor = System.Drawing.Color.Cornsilk;
-            this.btncuadremes.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btncuadremes.Location = new System.Drawing.Point(354, 124);
-            this.btncuadremes.Name = "btncuadremes";
-            this.btncuadremes.Size = new System.Drawing.Size(106, 47);
-            this.btncuadremes.TabIndex = 4;
-            this.btncuadremes.Text = "Mes";
-            this.btncuadremes.UseVisualStyleBackColor = false;
-            this.btncuadremes.Click += new System.EventHandler(this.btncuadremes_Click);
             // 
             // pbimprimircuadre
             // 
             this.pbimprimircuadre.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbimprimircuadre.BackgroundImage")));
             this.pbimprimircuadre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pbimprimircuadre.InitialImage = null;
-            this.pbimprimircuadre.Location = new System.Drawing.Point(352, 184);
+            this.pbimprimircuadre.Location = new System.Drawing.Point(351, 169);
             this.pbimprimircuadre.Name = "pbimprimircuadre";
-            this.pbimprimircuadre.Size = new System.Drawing.Size(109, 81);
+            this.pbimprimircuadre.Size = new System.Drawing.Size(124, 97);
             this.pbimprimircuadre.TabIndex = 5;
             this.pbimprimircuadre.TabStop = false;
+            this.pbimprimircuadre.Click += new System.EventHandler(this.pbimprimircuadre_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bookman Old Style", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(353, 73);
+            this.label3.Location = new System.Drawing.Point(335, 63);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(107, 22);
             this.label3.TabIndex = 6;
@@ -194,6 +189,7 @@
             this.cbmescuadre.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbmescuadre.FormattingEnabled = true;
             this.cbmescuadre.Items.AddRange(new object[] {
+            "Rango...",
             "Enero",
             "Febrero",
             "Marzo",
@@ -206,20 +202,82 @@
             "Octubre",
             "Noviembre",
             "Diciembre"});
-            this.cbmescuadre.Location = new System.Drawing.Point(356, 96);
+            this.cbmescuadre.Location = new System.Drawing.Point(333, 88);
             this.cbmescuadre.Name = "cbmescuadre";
-            this.cbmescuadre.Size = new System.Drawing.Size(101, 21);
+            this.cbmescuadre.Size = new System.Drawing.Size(97, 21);
             this.cbmescuadre.TabIndex = 7;
+            // 
+            // dtpinicio
+            // 
+            this.dtpinicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpinicio.Location = new System.Drawing.Point(387, 117);
+            this.dtpinicio.Name = "dtpinicio";
+            this.dtpinicio.Size = new System.Drawing.Size(89, 20);
+            this.dtpinicio.TabIndex = 8;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
+            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Location = new System.Drawing.Point(436, 82);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(40, 30);
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
+            // dtpfin
+            // 
+            this.dtpfin.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpfin.Location = new System.Drawing.Point(387, 143);
+            this.dtpfin.Name = "dtpfin";
+            this.dtpfin.Size = new System.Drawing.Size(89, 20);
+            this.dtpfin.TabIndex = 8;
+            // 
+            // lblrango
+            // 
+            this.lblrango.AutoSize = true;
+            this.lblrango.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblrango.Location = new System.Drawing.Point(339, 117);
+            this.lblrango.Name = "lblrango";
+            this.lblrango.Size = new System.Drawing.Size(45, 16);
+            this.lblrango.TabIndex = 10;
+            this.lblrango.Text = "Rango";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(350, 133);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(22, 16);
+            this.label4.TabIndex = 11;
+            this.label4.Text = "de";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(340, 147);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 16);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Fecha:";
             // 
             // CuadreCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(494, 415);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.lblrango);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.dtpfin);
+            this.Controls.Add(this.dtpinicio);
             this.Controls.Add(this.cbmescuadre);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.pbimprimircuadre);
-            this.Controls.Add(this.btncuadremes);
             this.Controls.Add(this.btncuadrehoy);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dtvcuadrecaja);
@@ -233,6 +291,7 @@
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbimprimircuadre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -247,12 +306,17 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btncuadrehoy;
-        private System.Windows.Forms.Button btncuadremes;
         private System.Windows.Forms.PictureBox pbimprimircuadre;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbmescuadre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn cliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
+        private System.Windows.Forms.DateTimePicker dtpinicio;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DateTimePicker dtpfin;
+        private System.Windows.Forms.Label lblrango;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
     }
 }

@@ -118,6 +118,13 @@
     <Compile Include="CRUDIngresos.Designer.cs">
       <DependentUpon>CRUDIngresos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Reporte de cuadre.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reporte de cuadre.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="CuadreCaja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -259,6 +266,11 @@
     </Compile>
     <EmbeddedResource Include="Ciudades.resx">
       <DependentUpon>Ciudades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte de cuadre.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Reporte de cuadre.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Factura.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
