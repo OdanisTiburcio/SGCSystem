@@ -268,7 +268,7 @@
             // 
             // btnfacturar
             // 
-            this.btnfacturar.BackColor = System.Drawing.Color.Azure;
+            this.btnfacturar.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btnfacturar.Font = new System.Drawing.Font("Bookman Old Style", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.btnfacturar.ForeColor = System.Drawing.Color.Black;
             this.btnfacturar.Location = new System.Drawing.Point(10, 161);
@@ -281,7 +281,7 @@
             // 
             // btncheckin
             // 
-            this.btncheckin.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.btncheckin.BackColor = System.Drawing.Color.Khaki;
             this.btncheckin.Font = new System.Drawing.Font("Bookman Old Style", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
             this.btncheckin.ForeColor = System.Drawing.Color.Black;
             this.btncheckin.Location = new System.Drawing.Point(10, 65);
@@ -294,7 +294,7 @@
             // 
             // btnlistaclientes
             // 
-            this.btnlistaclientes.BackColor = System.Drawing.Color.Honeydew;
+            this.btnlistaclientes.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btnlistaclientes.Font = new System.Drawing.Font("Bookman Old Style", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlistaclientes.Location = new System.Drawing.Point(10, 255);
             this.btnlistaclientes.Name = "btnlistaclientes";
@@ -306,9 +306,9 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.button1.Font = new System.Drawing.Font("Bookman Old Style", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.BackColor = System.Drawing.Color.Red;
+            this.button1.Font = new System.Drawing.Font("Bookman Old Style", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.Transparent;
             this.button1.Location = new System.Drawing.Point(10, 349);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(222, 89);
