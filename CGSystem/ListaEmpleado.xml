@@ -1,13 +1,13 @@
 <?xml version="1.0" standalone="yes"?>
 <NewDataSet>
   <Table>
-    <numero_empleado>2</numero_empleado>
-    <nombre>SUPERMAN</nombre>
-    <apellido>CAPA ROJA</apellido>
-    <cedula_empleado>031-0589760-8</cedula_empleado>
+    <numero_empleado>3</numero_empleado>
+    <nombre>LEO</nombre>
+    <apellido>MESSI</apellido>
+    <cedula_empleado>051-0568792-5</cedula_empleado>
     <descripcion_posicion>ENCARGADO DE BASE DE DATOS</descripcion_posicion>
     <descripcion_departamento>GERENCIA DE MERCADEO</descripcion_departamento>
-    <sueldo>37500</sueldo>
-    <foto>C:\CGSystem\FotosEmpleados\1.jpg</foto>
+    <sueldo>27580</sueldo>
+    <foto>C:\CGSystem\FotosEmpleados\2.jpg</foto>
   </Table>
 </NewDataSet>

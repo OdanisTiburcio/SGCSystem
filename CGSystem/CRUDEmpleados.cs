@@ -173,15 +173,39 @@ namespace CGSystem
         {
             if (tbnumeroempleado.Text != "")
             {
-                oper.ConsultaSinResultado("DELETE FROM empleado WHERE numero_empleado ='" + tbnumeroempleado.Text + "'");
-                limpiarcampos();
-                MessageBox.Show("Empleado borrado correctamente! ");
+                DialogResult Result = MessageBox.Show("¿Está seguro que desea eliminar este empleado de la base de datos?", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
+                if (Result == DialogResult.OK)
+                {
+                    oper.ConsultaSinResultado("DELETE FROM empleado WHERE numero_empleado ='" + tbnumeroempleado.Text + "'");
+                    limpiarcampos();
+                    MessageBox.Show("Empleado borrado correctamente! ");
+                }
             }
             else
             {
-                MessageBox.Show("Por favor colocar un número de empleado válido!");
-                tbnumeroempleado.Select();
+                this.Close();
             }
+        }
+
+        private void btnnuevoempleado_Click(object sender, EventArgs e)
+        {
+            cbsexoempleado.Enabled = true;
+            tbnombreempleado.Enabled = true;
+            tbapellidoempleado.Enabled = true;
+            tbcedulaempleado.Enabled = true;
+            dtpnacimientoempleado.Enabled = true;
+            cbdepartamento.Enabled = true;
+            cbposicion.Enabled = true;
+            tbsueldo.Enabled = true;
+            dtpingresoempleado.Enabled = true;
+            cbestadoempleado.Enabled = true;
+            tbdireccionempleado.Enabled = true;
+            cbsector.Enabled = true;
+            cbciudad.Enabled = true;
+            tbtelefonoempleado.Enabled = true;
+            tbcelularempleado.Enabled = true;
+            btnguardarempleado.Enabled = true;
+            bncargarfotoempleado.Enabled = true;
         }
     }
 }

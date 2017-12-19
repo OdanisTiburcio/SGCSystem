@@ -45,6 +45,10 @@
             this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.departamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ciudadesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sectoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.posicionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -132,6 +136,7 @@
             this.ingresosToolStripMenuItem.Name = "ingresosToolStripMenuItem";
             this.ingresosToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.ingresosToolStripMenuItem.Text = "Ingresos";
+            this.ingresosToolStripMenuItem.Click += new System.EventHandler(this.ingresosToolStripMenuItem_Click);
             // 
             // cuadreCajaToolStripMenuItem
             // 
@@ -139,6 +144,7 @@
             this.cuadreCajaToolStripMenuItem.Name = "cuadreCajaToolStripMenuItem";
             this.cuadreCajaToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.cuadreCajaToolStripMenuItem.Text = "Cuadre Caja";
+            this.cuadreCajaToolStripMenuItem.Click += new System.EventHandler(this.cuadreCajaToolStripMenuItem_Click);
             // 
             // cuentasPorCobrarToolStripMenuItem
             // 
@@ -146,6 +152,7 @@
             this.cuentasPorCobrarToolStripMenuItem.Name = "cuentasPorCobrarToolStripMenuItem";
             this.cuentasPorCobrarToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.cuentasPorCobrarToolStripMenuItem.Text = "Cuentas por Cobrar";
+            this.cuentasPorCobrarToolStripMenuItem.Click += new System.EventHandler(this.cuentasPorCobrarToolStripMenuItem_Click);
             // 
             // listaDeServiciosToolStripMenuItem
             // 
@@ -161,7 +168,11 @@
             this.clientesToolStripMenuItem,
             this.empleadosToolStripMenuItem,
             this.serviciosToolStripMenuItem,
-            this.departamentosToolStripMenuItem});
+            this.departamentosToolStripMenuItem,
+            this.ciudadesToolStripMenuItem,
+            this.sectoresToolStripMenuItem,
+            this.posicionesToolStripMenuItem,
+            this.usuariosToolStripMenuItem});
             this.archivoToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("archivoToolStripMenuItem.Image")));
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             this.archivoToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
@@ -199,6 +210,38 @@
             this.departamentosToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.departamentosToolStripMenuItem.Text = "Departamentos";
             this.departamentosToolStripMenuItem.Click += new System.EventHandler(this.departamentosToolStripMenuItem_Click);
+            // 
+            // ciudadesToolStripMenuItem
+            // 
+            this.ciudadesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ciudadesToolStripMenuItem.Image")));
+            this.ciudadesToolStripMenuItem.Name = "ciudadesToolStripMenuItem";
+            this.ciudadesToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.ciudadesToolStripMenuItem.Text = "Ciudades";
+            this.ciudadesToolStripMenuItem.Click += new System.EventHandler(this.ciudadesToolStripMenuItem_Click);
+            // 
+            // sectoresToolStripMenuItem
+            // 
+            this.sectoresToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("sectoresToolStripMenuItem.Image")));
+            this.sectoresToolStripMenuItem.Name = "sectoresToolStripMenuItem";
+            this.sectoresToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.sectoresToolStripMenuItem.Text = "Sectores";
+            this.sectoresToolStripMenuItem.Click += new System.EventHandler(this.sectoresToolStripMenuItem_Click);
+            // 
+            // posicionesToolStripMenuItem
+            // 
+            this.posicionesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("posicionesToolStripMenuItem.Image")));
+            this.posicionesToolStripMenuItem.Name = "posicionesToolStripMenuItem";
+            this.posicionesToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.posicionesToolStripMenuItem.Text = "Posiciones";
+            this.posicionesToolStripMenuItem.Click += new System.EventHandler(this.posicionesToolStripMenuItem_Click);
+            // 
+            // usuariosToolStripMenuItem
+            // 
+            this.usuariosToolStripMenuItem.Image = global::CGSystem.Properties.Resources.login;
+            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // ayudaToolStripMenuItem
             // 
@@ -327,5 +370,9 @@
         private System.Windows.Forms.ToolStripMenuItem departamentosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cerrarSesiónToolStripMenuItem;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem ciudadesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sectoresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem posicionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
     }
 }

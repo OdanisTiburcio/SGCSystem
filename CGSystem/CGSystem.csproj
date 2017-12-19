@@ -35,10 +35,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CrystalDecisions.CrystalReports.Engine.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CrystalDecisions.ReportSource.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CrystalDecisions.Shared.dll</HintPath>
+    </Reference>
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\Debug\CrystalDecisions.Windows.Forms.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
       <Private>True</Private>
@@ -106,6 +118,25 @@
     <Compile Include="CRUDIngresos.Designer.cs">
       <DependentUpon>CRUDIngresos.cs</DependentUpon>
     </Compile>
+    <Compile Include="CRUDUSUARIO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CRUDUSUARIO.Designer.cs">
+      <DependentUpon>CRUDUSUARIO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MantenimientoUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenimientoUsuario.Designer.cs">
+      <DependentUpon>MantenimientoUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reporte de cuadre.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reporte de cuadre.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Include="CuadreCaja.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +154,13 @@
     </Compile>
     <Compile Include="Departamentos.Designer.cs">
       <DependentUpon>Departamentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Factura.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Factura.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Facturación.cs">
       <SubType>Form</SubType>
@@ -189,6 +227,18 @@
     <Compile Include="Sectores.Designer.cs">
       <DependentUpon>Sectores.cs</DependentUpon>
     </Compile>
+    <Compile Include="SeleccionarCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeleccionarCliente.Designer.cs">
+      <DependentUpon>SeleccionarCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SeleccionarNumeroDeFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeleccionarNumeroDeFactura.Designer.cs">
+      <DependentUpon>SeleccionarNumeroDeFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="SeleccionarServicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +285,22 @@
     <EmbeddedResource Include="Ciudades.resx">
       <DependentUpon>Ciudades.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CRUDUSUARIO.resx">
+      <DependentUpon>CRUDUSUARIO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantenimientoUsuario.resx">
+      <DependentUpon>MantenimientoUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reporte de cuadre.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Reporte de cuadre.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Factura.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Factura.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Posiciones.resx">
       <DependentUpon>Posiciones.cs</DependentUpon>
     </EmbeddedResource>
@@ -250,6 +316,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sectores.resx">
       <DependentUpon>Sectores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeleccionarCliente.resx">
+      <DependentUpon>SeleccionarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeleccionarNumeroDeFactura.resx">
+      <DependentUpon>SeleccionarNumeroDeFactura.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Todos los clientes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

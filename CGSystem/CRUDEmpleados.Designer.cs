@@ -69,6 +69,7 @@
             this.label14 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnnuevoempleado = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -77,6 +78,7 @@
             // 
             // bncargarfotoempleado
             // 
+            this.bncargarfotoempleado.Enabled = false;
             this.bncargarfotoempleado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bncargarfotoempleado.Location = new System.Drawing.Point(6, 172);
             this.bncargarfotoempleado.Name = "bncargarfotoempleado";
@@ -99,8 +101,9 @@
             // btneliminarempleado
             // 
             this.btneliminarempleado.BackColor = System.Drawing.Color.Cornsilk;
+            this.btneliminarempleado.Enabled = false;
             this.btneliminarempleado.Font = new System.Drawing.Font("Mistral", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btneliminarempleado.Location = new System.Drawing.Point(640, 234);
+            this.btneliminarempleado.Location = new System.Drawing.Point(576, 266);
             this.btneliminarempleado.Name = "btneliminarempleado";
             this.btneliminarempleado.Size = new System.Drawing.Size(124, 49);
             this.btneliminarempleado.TabIndex = 32;
@@ -112,8 +115,9 @@
             // 
             this.btnactualizarempleado.BackColor = System.Drawing.Color.Cornsilk;
             this.btnactualizarempleado.CausesValidation = false;
+            this.btnactualizarempleado.Enabled = false;
             this.btnactualizarempleado.Font = new System.Drawing.Font("Mistral", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnactualizarempleado.Location = new System.Drawing.Point(514, 233);
+            this.btnactualizarempleado.Location = new System.Drawing.Point(446, 266);
             this.btnactualizarempleado.Name = "btnactualizarempleado";
             this.btnactualizarempleado.Size = new System.Drawing.Size(124, 49);
             this.btnactualizarempleado.TabIndex = 31;
@@ -142,6 +146,7 @@
             // 
             // tbcelularempleado
             // 
+            this.tbcelularempleado.Enabled = false;
             this.tbcelularempleado.Location = new System.Drawing.Point(119, 150);
             this.tbcelularempleado.Name = "tbcelularempleado";
             this.tbcelularempleado.Size = new System.Drawing.Size(100, 20);
@@ -158,6 +163,7 @@
             // 
             // tbtelefonoempleado
             // 
+            this.tbtelefonoempleado.Enabled = false;
             this.tbtelefonoempleado.Location = new System.Drawing.Point(10, 150);
             this.tbtelefonoempleado.Name = "tbtelefonoempleado";
             this.tbtelefonoempleado.Size = new System.Drawing.Size(100, 20);
@@ -183,6 +189,7 @@
             // 
             // tbdireccionempleado
             // 
+            this.tbdireccionempleado.Enabled = false;
             this.tbdireccionempleado.Location = new System.Drawing.Point(10, 41);
             this.tbdireccionempleado.Multiline = true;
             this.tbdireccionempleado.Name = "tbdireccionempleado";
@@ -191,6 +198,7 @@
             // 
             // cbciudad
             // 
+            this.cbciudad.Enabled = false;
             this.cbciudad.FormattingEnabled = true;
             this.cbciudad.Location = new System.Drawing.Point(188, 106);
             this.cbciudad.Name = "cbciudad";
@@ -208,6 +216,7 @@
             // 
             // cbsector
             // 
+            this.cbsector.Enabled = false;
             this.cbsector.FormattingEnabled = true;
             this.cbsector.Location = new System.Drawing.Point(10, 106);
             this.cbsector.Name = "cbsector";
@@ -247,6 +256,7 @@
             // 
             // cbsexoempleado
             // 
+            this.cbsexoempleado.Enabled = false;
             this.cbsexoempleado.FormattingEnabled = true;
             this.cbsexoempleado.Items.AddRange(new object[] {
             "Femenino",
@@ -285,6 +295,7 @@
             // 
             // tbcedulaempleado
             // 
+            this.tbcedulaempleado.Enabled = false;
             this.tbcedulaempleado.Location = new System.Drawing.Point(9, 164);
             this.tbcedulaempleado.Name = "tbcedulaempleado";
             this.tbcedulaempleado.Size = new System.Drawing.Size(96, 20);
@@ -292,6 +303,7 @@
             // 
             // tbapellidoempleado
             // 
+            this.tbapellidoempleado.Enabled = false;
             this.tbapellidoempleado.Location = new System.Drawing.Point(9, 120);
             this.tbapellidoempleado.Name = "tbapellidoempleado";
             this.tbapellidoempleado.Size = new System.Drawing.Size(211, 20);
@@ -299,6 +311,7 @@
             // 
             // tbnumeroempleado
             // 
+            this.tbnumeroempleado.Enabled = false;
             this.tbnumeroempleado.Location = new System.Drawing.Point(9, 36);
             this.tbnumeroempleado.Name = "tbnumeroempleado";
             this.tbnumeroempleado.Size = new System.Drawing.Size(96, 20);
@@ -315,6 +328,7 @@
             // 
             // tbnombreempleado
             // 
+            this.tbnombreempleado.Enabled = false;
             this.tbnombreempleado.Location = new System.Drawing.Point(9, 78);
             this.tbnombreempleado.Name = "tbnombreempleado";
             this.tbnombreempleado.Size = new System.Drawing.Size(211, 20);
@@ -350,8 +364,9 @@
             // btnguardarempleado
             // 
             this.btnguardarempleado.BackColor = System.Drawing.Color.Cornsilk;
+            this.btnguardarempleado.Enabled = false;
             this.btnguardarempleado.Font = new System.Drawing.Font("Mistral", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnguardarempleado.Location = new System.Drawing.Point(387, 233);
+            this.btnguardarempleado.Location = new System.Drawing.Point(576, 211);
             this.btnguardarempleado.Name = "btnguardarempleado";
             this.btnguardarempleado.Size = new System.Drawing.Size(124, 49);
             this.btnguardarempleado.TabIndex = 27;
@@ -380,6 +395,7 @@
             // 
             // cbestadoempleado
             // 
+            this.cbestadoempleado.Enabled = false;
             this.cbestadoempleado.FormattingEnabled = true;
             this.cbestadoempleado.Location = new System.Drawing.Point(221, 78);
             this.cbestadoempleado.Name = "cbestadoempleado";
@@ -397,6 +413,7 @@
             // 
             // dtpingresoempleado
             // 
+            this.dtpingresoempleado.Enabled = false;
             this.dtpingresoempleado.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpingresoempleado.Location = new System.Drawing.Point(106, 78);
             this.dtpingresoempleado.Name = "dtpingresoempleado";
@@ -415,6 +432,7 @@
             // 
             // tbsueldo
             // 
+            this.tbsueldo.Enabled = false;
             this.tbsueldo.Location = new System.Drawing.Point(6, 78);
             this.tbsueldo.Name = "tbsueldo";
             this.tbsueldo.Size = new System.Drawing.Size(94, 20);
@@ -432,6 +450,7 @@
             // 
             // cbposicion
             // 
+            this.cbposicion.Enabled = false;
             this.cbposicion.FormattingEnabled = true;
             this.cbposicion.Location = new System.Drawing.Point(207, 36);
             this.cbposicion.Name = "cbposicion";
@@ -440,6 +459,7 @@
             // 
             // cbdepartamento
             // 
+            this.cbdepartamento.Enabled = false;
             this.cbdepartamento.FormattingEnabled = true;
             this.cbdepartamento.Location = new System.Drawing.Point(6, 36);
             this.cbdepartamento.Name = "cbdepartamento";
@@ -474,11 +494,24 @@
             this.pictureBox1.TabIndex = 26;
             this.pictureBox1.TabStop = false;
             // 
+            // btnnuevoempleado
+            // 
+            this.btnnuevoempleado.BackColor = System.Drawing.Color.Cornsilk;
+            this.btnnuevoempleado.Font = new System.Drawing.Font("Mistral", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnnuevoempleado.Location = new System.Drawing.Point(447, 211);
+            this.btnnuevoempleado.Name = "btnnuevoempleado";
+            this.btnnuevoempleado.Size = new System.Drawing.Size(124, 49);
+            this.btnnuevoempleado.TabIndex = 36;
+            this.btnnuevoempleado.Text = "Nuevo";
+            this.btnnuevoempleado.UseVisualStyleBackColor = false;
+            this.btnnuevoempleado.Click += new System.EventHandler(this.btnnuevoempleado_Click);
+            // 
             // CRUDEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(773, 321);
+            this.Controls.Add(this.btnnuevoempleado);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.bncargarfotoempleado);
             this.Controls.Add(this.tbRutaFoto);
@@ -507,11 +540,7 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button bncargarfotoempleado;
         public System.Windows.Forms.TextBox tbRutaFoto;
-        private System.Windows.Forms.Button btneliminarempleado;
-        private System.Windows.Forms.Button btnactualizarempleado;
         private System.Windows.Forms.GroupBox groupBox2;
         public System.Windows.Forms.ComboBox cbciudad;
         private System.Windows.Forms.Label label9;
@@ -532,9 +561,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label12;
         public System.Windows.Forms.TextBox tbdireccionempleado;
-        private System.Windows.Forms.TextBox tbcelularempleado;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox tbtelefonoempleado;
         private System.Windows.Forms.Label label4;
         public System.Windows.Forms.ComboBox cbsexoempleado;
         private System.Windows.Forms.Label label7;
@@ -543,11 +570,17 @@
         private System.Windows.Forms.Label label10;
         public System.Windows.Forms.DateTimePicker dtpingresoempleado;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox tbsueldo;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox cbposicion;
-        private System.Windows.Forms.ComboBox cbdepartamento;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label11;
+        public System.Windows.Forms.Button bncargarfotoempleado;
+        public System.Windows.Forms.Button btneliminarempleado;
+        public System.Windows.Forms.Button btnactualizarempleado;
+        public System.Windows.Forms.TextBox tbcelularempleado;
+        public System.Windows.Forms.TextBox tbtelefonoempleado;
+        public System.Windows.Forms.TextBox tbsueldo;
+        public System.Windows.Forms.ComboBox cbposicion;
+        public System.Windows.Forms.ComboBox cbdepartamento;
+        private System.Windows.Forms.Button btnnuevoempleado;
     }
 }

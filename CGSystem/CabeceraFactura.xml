@@ -1,0 +1,12 @@
+<?xml version="1.0" standalone="yes"?>
+<NewDataSet>
+  <Table>
+    <id_factura>33</id_factura>
+    <id_tipo_factura>1</id_tipo_factura>
+    <id_cliente>1</id_cliente>
+    <id_empleado>3</id_empleado>
+    <fecha>2017-12-17T00:00:00-04:00</fecha>
+    <total>3500</total>
+    <estado>ACTIVO</estado>
+  </Table>
+</NewDataSet>

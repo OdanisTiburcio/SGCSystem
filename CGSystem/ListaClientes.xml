@@ -1,11 +1,11 @@
 <?xml version="1.0" standalone="yes"?>
 <NewDataSet>
   <Table>
-    <numero_cliente>2</numero_cliente>
-    <nombre_cliente>JHON</nombre_cliente>
-    <apellido_cliente>SPRING</apellido_cliente>
-    <telefono>(809)570-5867</telefono>
-    <fin_periodo>2017-12-18T00:00:00-04:00</fin_periodo>
-    <foto>C:\CGSystem\FotosClientes\2.jpg</foto>
+    <numero_cliente>3</numero_cliente>
+    <nombre_cliente>CARL</nombre_cliente>
+    <apellido_cliente>SMITH</apellido_cliente>
+    <telefono>(809)570-8697</telefono>
+    <fin_periodo>2019-07-01T00:00:00-04:00</fin_periodo>
+    <foto>C:\CGSystem\FotosClientes\3.jpg</foto>
   </Table>
 </NewDataSet>

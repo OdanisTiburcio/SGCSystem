@@ -20,6 +20,7 @@ namespace CGSystem
         public static string NombreUsuario = "Adanis Tiburcio";
         public static bool Logeado = false; //Para confirmar que la sesión esté iniciada
         public static bool SalirDelSistema = false;
+        public static int TipoUsuario = 0; //usuario 1 igual a administrador y usuario 2 igual a empleado...
 
         //Clases Reutilizables
         operacion oper = new operacion();
@@ -50,6 +51,31 @@ namespace CGSystem
                     }
                 }
                 else { }
+
+                //Desactivar los Campos para usuarios específicos...
+                if(TipoUsuario == 1) //Administrador
+                {
+                    //Activar
+                    consultasToolStripMenuItem.DropDownItems[3].Enabled = true;
+                    contabilidadToolStripMenuItem.DropDownItems[0].Enabled = true;
+                    archivoToolStripMenuItem.DropDownItems[1].Enabled = true;
+                    archivoToolStripMenuItem.DropDownItems[2].Enabled = true;
+                    archivoToolStripMenuItem.DropDownItems[3].Enabled = true;
+                    archivoToolStripMenuItem.DropDownItems[6].Enabled = true;
+
+                }
+                else //Empleado
+                {
+                    //Desactivar
+                    consultasToolStripMenuItem.DropDownItems[3].Enabled = false;
+                    contabilidadToolStripMenuItem.DropDownItems[0].Enabled = false;
+                    archivoToolStripMenuItem.DropDownItems[1].Enabled = false;
+                    archivoToolStripMenuItem.DropDownItems[2].Enabled = false;
+                    archivoToolStripMenuItem.DropDownItems[3].Enabled = false;
+                    archivoToolStripMenuItem.DropDownItems[6].Enabled = false;
+
+                }
+
             }
             catch
             {
@@ -125,7 +151,8 @@ namespace CGSystem
 
         private void serviciosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Form f = new MantenimientoDeServicios();
+            f.ShowDialog();
         }
 
         private void listaDeServiciosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -162,7 +189,12 @@ namespace CGSystem
             {
                 DateTime fechahoy = DateTime.Today;
                 string fecha = oper.FormatearFecha(fechahoy);
-                DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE fin_periodo < '" + fecha + "';");
+                DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE fin_periodo < '" + fecha + "' AND codigo_estado = '1'");
+                if (ds.Tables[0].Rows[0][0].ToString() == "")
+                {
+                    MessageBox.Show("No hay clientes activos con servicios vencidos!");
+                    return;
+                }
                 ds.WriteXml("C:\\CGSystem\\CGSystem\\Clientes con Servicios Vencidos.xml");
                 Form f = new VisorReportes("ServiciosVencidos.rpt");
                 f.ShowDialog();
@@ -211,6 +243,48 @@ namespace CGSystem
         {
             CheckIn f = new CheckIn();
             f.Show();
+        }
+
+        private void cuadreCajaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CuadreCaja f = new CuadreCaja();
+            f.Show();
+        }
+
+        private void ingresosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CRUDIngresos f = new CRUDIngresos();
+            f.Show();
+        }
+
+        private void cuentasPorCobrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CXC f = new CXC();
+            f.Show();
+        }
+
+        private void ciudadesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Ciudades f = new Ciudades();
+            f.Show();
+        }
+
+        private void sectoresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Sectores f = new Sectores();
+            f.Show();
+        }
+
+        private void posicionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Posiciones f = new Posiciones();
+            f.Show();
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form f = new MantenimientoUsuario();
+            f.ShowDialog();
         }
     }
 }

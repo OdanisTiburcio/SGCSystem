@@ -6,6 +6,7 @@ using System.Data.SQLite;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Xml;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -56,13 +57,13 @@ namespace CGSystem
                 DialogResult Result = MessageBox.Show("Desea conservar las fechas de servicios para este cliente", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (Result == DialogResult.OK)
                 {
-                    oper.ConsultaSinResultado("INSERT INTO cliente (cedula_cliente, nombre_cliente, apellido_cliente, fecha_nacimiento, direccion_cliente, codigo_sector, codigo_ciudad, telefono, inicio_periodo, fin_periodo, codigo_estado, foto) VALUES ('" + tbcedulacliente.Text.ToString() + "','" + tbnombrecliente.Text.ToString().ToUpper() + "','" + tbapellidocliente.Text.ToString().ToUpper() + "','" + fechanacimiento + "','" + tbdireccioncliente.Text.ToString().ToUpper() + "','" + codigosector + "','" + codigociudad + "','" + tbtelefonocliente.Text.ToString() + "','" + fechainicio + "','" + fechafinal + "','" + codigoestado + "', '" + tbRutaFoto.Text.ToString() + "')");
+                    oper.ConsultaSinResultado("INSERT INTO cliente (cedula_cliente, nombre_cliente, apellido_cliente, fecha_nacimiento, direccion_cliente, codigo_sector, codigo_ciudad, telefono, inicio_periodo, fin_periodo, codigo_estado, foto, sexo) VALUES ('" + tbcedulacliente.Text.ToString() + "','" + tbnombrecliente.Text.ToString().ToUpper() + "','" + tbapellidocliente.Text.ToString().ToUpper() + "','" + fechanacimiento + "','" + tbdireccioncliente.Text.ToString().ToUpper() + "','" + codigosector + "','" + codigociudad + "','" + tbtelefonocliente.Text.ToString() + "','" + fechainicio + "','" + fechafinal + "','" + codigoestado + "', '" + tbRutaFoto.Text.ToString() + "','" + cbsexocliente.Text.ToString().ToUpper() + "')");
                     limpiarcampos();
                     MessageBox.Show("Datos registrados satisfactoriamente!");
                 }
                 else
                 {
-                    oper.ConsultaSinResultado("INSERT INTO cliente (cedula_cliente, nombre_cliente, apellido_cliente, fecha_nacimiento, direccion_cliente, codigo_sector, codigo_ciudad, telefono, inicio_periodo, fin_periodo, codigo_estado, foto) VALUES ('" + tbcedulacliente.Text.ToString() + "','" + tbnombrecliente.Text.ToString().ToUpper() + "','" + tbapellidocliente.Text.ToString().ToUpper() + "','" + fechanacimiento + "','" + tbdireccioncliente.Text.ToString().ToUpper() + "','" + codigosector + "','" + codigociudad + "','" + tbtelefonocliente.Text.ToString() + "','" + null + "','" + null + "','" + codigoestado + "', '" + tbRutaFoto.Text.ToString() + "')");
+                    oper.ConsultaSinResultado("INSERT INTO cliente (cedula_cliente, nombre_cliente, apellido_cliente, fecha_nacimiento, direccion_cliente, codigo_sector, codigo_ciudad, telefono, inicio_periodo, fin_periodo, codigo_estado, foto, sexo) VALUES ('" + tbcedulacliente.Text.ToString() + "','" + tbnombrecliente.Text.ToString().ToUpper() + "','" + tbapellidocliente.Text.ToString().ToUpper() + "','" + fechanacimiento + "','" + tbdireccioncliente.Text.ToString().ToUpper() + "','" + codigosector + "','" + codigociudad + "','" + tbtelefonocliente.Text.ToString() + "','" + null + "','" + null + "','" + codigoestado + "', '" + tbRutaFoto.Text.ToString() + "','" + cbsexocliente.Text.ToString().ToUpper() + "')");
                     limpiarcampos();
                     MessageBox.Show("Datos registrados satisfactoriamente!");
                 } 
@@ -176,16 +177,14 @@ namespace CGSystem
         {
             try
             {
-                DateTime fechahoy = DateTime.Today;
-                string fecha = oper.FormatearFecha(fechahoy);
-                DataSet ds = oper.ConsultaConResultado("SELECT * FROM cliente WHERE numero_cliente = '" + tbnumerocliente.Text + "';");
-                ds.WriteXml("C:\\CGSystem\\CGSystem\\Cliente Individual.xml");
-                //Form f = new VisorReportes("ServiciosVencidos.rpt");
-                //f.ShowDialog();
+                DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE numero_cliente = '" + tbnumerocliente.Text + "'");
+                ds.WriteXml("C:\\CGSystem\\CGSystem\\ListaClientes.xml");
+                Form f = new VisorReportes("Reporte de Clientes.rpt");
+                f.ShowDialog();
             }
             catch
             {
-                MessageBox.Show("No hay clientes activos con servicios vencidos!");
+                
             }
         }
     }

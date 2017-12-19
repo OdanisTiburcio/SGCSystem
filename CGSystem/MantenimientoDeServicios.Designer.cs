@@ -60,6 +60,7 @@
             // 
             // tbpsearchcode
             // 
+            this.tbpsearchcode.Enabled = false;
             this.tbpsearchcode.Font = new System.Drawing.Font("Modern No. 20", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbpsearchcode.Location = new System.Drawing.Point(382, 9);
             this.tbpsearchcode.Name = "tbpsearchcode";
@@ -70,11 +71,11 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Tahoma", 16.75F, System.Drawing.FontStyle.Bold);
-            this.label8.Location = new System.Drawing.Point(56, 9);
+            this.label8.Location = new System.Drawing.Point(44, 9);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(320, 28);
+            this.label8.Size = new System.Drawing.Size(215, 28);
             this.label8.TabIndex = 55;
-            this.label8.Text = "Buscar Servicio por Código";
+            this.label8.Text = "Agregar Servicios";
             // 
             // btpdelete
             // 
@@ -85,16 +86,18 @@
             this.btpdelete.TabIndex = 47;
             this.btpdelete.Text = "Eliminar";
             this.btpdelete.UseVisualStyleBackColor = true;
+            this.btpdelete.Click += new System.EventHandler(this.btpdelete_Click);
             // 
             // btnactualizarservicio
             // 
             this.btnactualizarservicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnactualizarservicio.Location = new System.Drawing.Point(125, 201);
+            this.btnactualizarservicio.Location = new System.Drawing.Point(106, 201);
             this.btnactualizarservicio.Name = "btnactualizarservicio";
-            this.btnactualizarservicio.Size = new System.Drawing.Size(87, 33);
+            this.btnactualizarservicio.Size = new System.Drawing.Size(106, 33);
             this.btnactualizarservicio.TabIndex = 46;
-            this.btnactualizarservicio.Text = "Actualizar";
+            this.btnactualizarservicio.Text = "Guardar";
             this.btnactualizarservicio.UseVisualStyleBackColor = true;
+            this.btnactualizarservicio.Click += new System.EventHandler(this.btnactualizarservicio_Click);
             // 
             // tbdias
             // 
@@ -214,6 +217,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Name = "MantenimientoDeServicios";
             this.Text = "MantenimientoDeServicios";
+            this.Load += new System.EventHandler(this.MantenimientoDeServicios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btpsearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
