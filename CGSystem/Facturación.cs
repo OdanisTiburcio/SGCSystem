@@ -483,7 +483,7 @@ namespace CGSystem
             try
             {
                 //Abrir el Formulario visor de reporte de Impresión de Factura....
-                ds = oper.ConsultaConResultado("SELECT id_factura, id_tipo_factura, id_cliente, id_empleado, fecha,total,estado FROM cabecera_factura WHERE id_factura = '" + NumeroDeFactura + "'");
+                ds = oper.ConsultaConResultado("SELECT cabecera_factura.id_factura, tipo_factura.descripcion_tipo_factura as id_tipo_factura, cliente.nombre_cliente as id_cliente, empleado.nombre as id_empleado, cabecera_factura.fecha, cabecera_factura.total, cabecera_factura.estado FROM cabecera_factura left join tipo_factura, cliente, empleado on cabecera_factura.id_tipo_factura = tipo_factura.codigo_tipo_factura and cabecera_factura.id_cliente = cliente.numero_cliente and cabecera_factura.id_empleado = empleado.numero_empleado WHERE id_factura = '" + NumeroDeFactura + "'");
                 ds.WriteXml("C:\\CGSystem\\CGSystem\\CabeceraFactura.xml");
                 ds = oper.ConsultaConResultado("SELECT * FROM detalle_factura WHERE id_factura = '" + NumeroDeFactura + "'");
                 ds.WriteXml("C:\\CGSystem\\CGSystem\\detalle_factura.xml");
