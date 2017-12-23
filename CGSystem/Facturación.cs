@@ -342,6 +342,7 @@ namespace CGSystem
 
                 //Establecer si es a Crédito o al Contado
                 TipoFactura = SaberTipoFactura();
+
                 //Obtener el código del tipo de factura actual
                 ds = oper.ConsultaConResultado("SELECT codigo_tipo_factura FROM tipo_factura WHERE descripcion_tipo_factura = '" + TipoFactura + "';");
                 TipoFactura = ds.Tables[0].Rows[0][0].ToString();
@@ -368,18 +369,19 @@ namespace CGSystem
                         ", '" + dias + "', '" + cantidad + "', '" + total + "');");
                 }
 
-                if (rdCredito.Checked)
+                if (rdCredito.Checked)//Si la factura es a crédito, generar una cuenta por cobrar de la factura actual al cliente correspondiente...
                 {
                     GenerarCXC();
                 }
                 else { }
-                ActualizarPeriodoDeCliente();
+
+                ActualizarPeriodoDeCliente();//Sumarle los días facturados a la membresía del cliente.
                 CerrarFactura(); //Método para activar y desactivar los botonoes necesarios hasta la próxima factura...
             }
             catch
             {
                 MessageBox.Show("Hubo un error al tratar de guardar la factura, contacte al " +
-                    "encargado de mantenimiento del sistema, disculpe los inconvenientes...", "Aviso");
+                    "encargado de mantenimiento del sistema, disculpe los inconvenientes...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -434,7 +436,7 @@ namespace CGSystem
                     fechaHoy = oper.FormatearFecha(fechaDT);
 
                     string FechaFinPeriodo = oper.SumarAlaFecha(fechaHoy, DiasASumar);
-                    oper.ConsultaSinResultado("UPDATE cliente SET inicio_periodo = '" + fechaHoy + "', fin_periodo = '" + FechaFinPeriodo + "' WHERE numero_cliente = '" + IdCliente + "';");
+                    oper.ConsultaSinResultado("UPDATE cliente SET inicio_periodo = '" + fechaHoy + "', fin_periodo = '" + FechaFinPeriodo + "', codigo_estado = '1' WHERE numero_cliente = '" + IdCliente + "';");
                 }
             }
             catch
