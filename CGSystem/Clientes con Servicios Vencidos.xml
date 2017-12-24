@@ -16,4 +16,12 @@
     <fin_periodo>2017-11-23T00:00:00-04:00</fin_periodo>
     <foto>C:\CGSystem\FotosClientes\4.jpg</foto>
   </Table>
+  <Table>
+    <numero_cliente>11</numero_cliente>
+    <nombre_cliente>KIKO</nombre_cliente>
+    <apellido_cliente>DE LA VECINDAD</apellido_cliente>
+    <telefono>(829)577-5894</telefono>
+    <fin_periodo>2017-12-03T00:00:00-04:00</fin_periodo>
+    <foto>C:\CGSystem\FotosClientes\5.jpg</foto>
+  </Table>
 </NewDataSet>

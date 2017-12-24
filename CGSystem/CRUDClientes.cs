@@ -38,7 +38,6 @@ namespace CGSystem
             string codigosector;
             string codigociudad;
             string codigoestado;
-            string cedula;
             DateTime Fechanac = dtpnacimientocliente.Value;
             string fechanacimiento = oper.FormatearFecha(dtpnacimientocliente.Value);
             DateTime Fechaini = dtpiniciofactura.Value;
@@ -52,16 +51,18 @@ namespace CGSystem
             codigociudad = ds.Tables[0].Rows[0][0].ToString();
             ds = oper.ConsultaConResultado("SELECT codigo_estado FROM estado WHERE descripcion_estado = '" + cbestadocliente.Text + "'");
             codigoestado = ds.Tables[0].Rows[0][0].ToString();
-            ds = oper.ConsultaConResultado("SELECT cedula_cliente FROM cliente WHERE cedula_cliente = '" + tbcedulacliente.Text + "'");
-            cedula = ds.Tables[0].Rows[0][0].ToString();
-            if (cedula == tbcedulacliente.Text)
-                MessageBox.Show("Este número de cédula ya ha sido registrado anteriormente, favor revisar");
-            return;
+
             if (tbnombrecliente.Text != "" && tbapellidocliente.Text != "" && tbcedulacliente.Text != "" && dtpnacimientocliente.Text != "" && cbsexocliente.Text != "" && tbdireccioncliente.Text != "" && cbsectorcliente.Text != "" && cbciudadcliente.Text != "" && cbestadocliente.Text != "" && tbRutaFoto.Text != "" && dtpfinfactura.Text != "" && dtpiniciofactura.Text != "")
             {
                 DialogResult Result = MessageBox.Show("Desea conservar las fechas de servicios para este cliente", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (Result == DialogResult.OK)
                 {
+                    ds = oper.ConsultaConResultado("SELECT cedula_cliente FROM cliente WHERE cedula_cliente = '" + tbcedulacliente.Text + "'");
+                    string cedula = ds.Tables[0].Rows[0][0].ToString();
+                    if (cedula == tbcedulacliente.Text)
+
+                        MessageBox.Show("Este número de cédula ya ha sido registrado anteriormente, favor revisar");
+                    return;
                     oper.ConsultaSinResultado("INSERT INTO cliente (cedula_cliente, nombre_cliente, apellido_cliente, fecha_nacimiento, direccion_cliente, codigo_sector, codigo_ciudad, telefono, inicio_periodo, fin_periodo, codigo_estado, foto, sexo) VALUES ('" + tbcedulacliente.Text.ToString() + "','" + tbnombrecliente.Text.ToString().ToUpper() + "','" + tbapellidocliente.Text.ToString().ToUpper() + "','" + fechanacimiento + "','" + tbdireccioncliente.Text.ToString().ToUpper() + "','" + codigosector + "','" + codigociudad + "','" + tbtelefonocliente.Text.ToString() + "','" + fechainicio + "','" + fechafinal + "','" + codigoestado + "', '" + tbRutaFoto.Text.ToString() + "','" + cbsexocliente.Text.ToString().ToUpper() + "')");
                     limpiarcampos();
                     MessageBox.Show("Datos registrados satisfactoriamente!");
@@ -75,6 +76,7 @@ namespace CGSystem
             }
             else MessageBox.Show("Faltan datos por registrar! ");
         }
+
         private void btncargarfotocliente_Click_1(object sender, EventArgs e)
         {
             OpenFileDialog CargarFoto = new OpenFileDialog();
