@@ -39,6 +39,9 @@ namespace CGSystem
             string codigociudad;
             string codigoestado;
             string cedula;
+            DateTime DTfechahoy = DateTime.Now;
+            string fechaHoy = oper.FormatearFecha(DTfechahoy); ;
+            
             DateTime Fechanac = dtpnacimientocliente.Value;
             string fechanacimiento = oper.FormatearFecha(dtpnacimientocliente.Value);
             DateTime Fechaini = dtpiniciofactura.Value;
@@ -52,29 +55,50 @@ namespace CGSystem
             codigociudad = ds.Tables[0].Rows[0][0].ToString();
             ds = oper.ConsultaConResultado("SELECT codigo_estado FROM estado WHERE descripcion_estado = '" + cbestadocliente.Text + "'");
             codigoestado = ds.Tables[0].Rows[0][0].ToString();
-            oper.ConsultaConResultado("SELECT * FROM cliente WHERE cedula_cliente = '" + tbcedulacliente.Text + "'");
-            cedula = ds.Tables[0].Rows[0][0].ToString();
+            ds = oper.ConsultaConResultado("SELECT cedula_cliente FROM cliente WHERE cedula_cliente = '" + tbcedulacliente.Text + "'");
+            try
+            {
+                cedula = ds.Tables[0].Rows[0][0].ToString();
+            }
+            catch
+            {
+                cedula = "Cliente Nuevo";
+            }
+            
             if (tbnombrecliente.Text != "" && tbapellidocliente.Text != "" && tbcedulacliente.Text != "" && dtpnacimientocliente.Text != "" && cbsexocliente.Text != "" && tbdireccioncliente.Text != "" && cbsectorcliente.Text != "" && cbciudadcliente.Text != "" && cbestadocliente.Text != "" && tbRutaFoto.Text != "" && dtpfinfactura.Text != "" && dtpiniciofactura.Text != "")
             {
                 DialogResult Result = MessageBox.Show("Desea conservar las fechas de servicios para este cliente", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
                 if (Result == DialogResult.OK)
                 {
                     if (cedula == tbcedulacliente.Text)
+                    {
                         MessageBox.Show("Este número de cédula ya ha sido registrado anteriormente, favor revisar");
-                    return;
-                    oper.ConsultaSinResultado("INSERT INTO cliente (cedula_cliente, nombre_cliente, apellido_cliente, fecha_nacimiento, direccion_cliente, codigo_sector, codigo_ciudad, telefono, inicio_periodo, fin_periodo, codigo_estado, foto, sexo) VALUES ('" + tbcedulacliente.Text.ToString() + "','" + tbnombrecliente.Text.ToString().ToUpper() + "','" + tbapellidocliente.Text.ToString().ToUpper() + "','" + fechanacimiento + "','" + tbdireccioncliente.Text.ToString().ToUpper() + "','" + codigosector + "','" + codigociudad + "','" + tbtelefonocliente.Text.ToString() + "','" + fechainicio + "','" + fechafinal + "','" + codigoestado + "', '" + tbRutaFoto.Text.ToString() + "','" + cbsexocliente.Text.ToString().ToUpper() + "')");
-                    limpiarcampos();
-                    MessageBox.Show("Datos registrados satisfactoriamente!");
+                        return;
+                    }
+                    else
+                    {
+                        oper.ConsultaSinResultado("INSERT INTO cliente (cedula_cliente, nombre_cliente, apellido_cliente, fecha_nacimiento, direccion_cliente, codigo_sector, codigo_ciudad, telefono, inicio_periodo, fin_periodo, codigo_estado, foto, sexo) VALUES ('" + tbcedulacliente.Text.ToString() + "','" + tbnombrecliente.Text.ToString().ToUpper() + "','" + tbapellidocliente.Text.ToString().ToUpper() + "','" + fechanacimiento + "','" + tbdireccioncliente.Text.ToString().ToUpper() + "','" + codigosector + "','" + codigociudad + "','" + tbtelefonocliente.Text.ToString() + "','" + fechainicio + "','" + fechafinal + "','" + codigoestado + "', '" + tbRutaFoto.Text.ToString() + "','" + cbsexocliente.Text.ToString().ToUpper() + "')");
+                        limpiarcampos();
+                        MessageBox.Show("Datos registrados satisfactoriamente!");
+                    }
                 }
                 else
                 {
-                    oper.ConsultaSinResultado("INSERT INTO cliente (cedula_cliente, nombre_cliente, apellido_cliente, fecha_nacimiento, direccion_cliente, codigo_sector, codigo_ciudad, telefono, inicio_periodo, fin_periodo, codigo_estado, foto, sexo) VALUES ('" + tbcedulacliente.Text.ToString() + "','" + tbnombrecliente.Text.ToString().ToUpper() + "','" + tbapellidocliente.Text.ToString().ToUpper() + "','" + fechanacimiento + "','" + tbdireccioncliente.Text.ToString().ToUpper() + "','" + codigosector + "','" + codigociudad + "','" + tbtelefonocliente.Text.ToString() + "','" + null + "','" + null + "','" + codigoestado + "', '" + tbRutaFoto.Text.ToString() + "','" + cbsexocliente.Text.ToString().ToUpper() + "')");
-                    limpiarcampos();
-                    MessageBox.Show("Datos registrados satisfactoriamente!");
+                    if (cedula == tbcedulacliente.Text)
+                    {
+                        MessageBox.Show("Este número de cédula ya ha sido registrado anteriormente, favor revisar");
+                        return;
+                    }
+                    else
+                    {
+                        oper.ConsultaSinResultado("INSERT INTO cliente (cedula_cliente, nombre_cliente, apellido_cliente, fecha_nacimiento, direccion_cliente, codigo_sector, codigo_ciudad, telefono, inicio_periodo, fin_periodo, codigo_estado, foto, sexo) VALUES ('" + tbcedulacliente.Text.ToString() + "','" + tbnombrecliente.Text.ToString().ToUpper() + "','" + tbapellidocliente.Text.ToString().ToUpper() + "','" + fechanacimiento + "','" + tbdireccioncliente.Text.ToString().ToUpper() + "','" + codigosector + "','" + codigociudad + "','" + tbtelefonocliente.Text.ToString() + "','" + fechaHoy + "','" + fechaHoy + "','" + codigoestado + "', '" + tbRutaFoto.Text.ToString() + "','" + cbsexocliente.Text.ToString().ToUpper() + "')");
+                        limpiarcampos();
+                        MessageBox.Show("Datos registrados satisfactoriamente!");
+                    }
                 }
             }
               else {
-                    MessageBox.Show("Faltan datos por registrar! ");
+                    MessageBox.Show("Rellene todos los campos...");
                     }
         }
 

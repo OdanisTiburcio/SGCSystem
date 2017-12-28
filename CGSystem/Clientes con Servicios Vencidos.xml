@@ -16,4 +16,12 @@
     <fin_periodo>2017-11-23T00:00:00-04:00</fin_periodo>
     <foto>C:\CGSystem\FotosClientes\4.jpg</foto>
   </Table>
+  <Table>
+    <numero_cliente>14</numero_cliente>
+    <nombre_cliente>WILLIAM</nombre_cliente>
+    <apellido_cliente>SHAKESPEARE</apellido_cliente>
+    <telefono>080-808-8546</telefono>
+    <fin_periodo>2017-11-16T00:00:00-04:00</fin_periodo>
+    <foto>C:\CGSystem\FotosClientes\3.jpg</foto>
+  </Table>
 </NewDataSet>

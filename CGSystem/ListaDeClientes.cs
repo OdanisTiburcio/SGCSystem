@@ -30,15 +30,8 @@ namespace CGSystem
 
         private void ListaDeClientes_Load(object sender, EventArgs e)
         {
-            //if (Seleccionando)
-            //{
-            //    btnimprimir.Text = "Seleccionar";
-            //    btnimprimir.Enabled = true;
-            //}
-            //else { btnimprimir.Text = "Imprimir"; }
 
-            //MostrarTodo();
-
+            Buscar(); // Para Mostrar todo en el load del formulario
         }
 
         public void ImprimirSel()
@@ -135,9 +128,14 @@ namespace CGSystem
 
         private void btnbuscar_Click(object sender, EventArgs e)
         {
+            Buscar();
+        }
 
-            //BuscarPor();
 
+        public void Buscar()
+        {
+
+            //Buscar
             try
             {
                 cnx.Open();
@@ -202,6 +200,7 @@ namespace CGSystem
         {
             CRUDClientes f = new CRUDClientes();
             f.Show();
+            Buscar();
         }
 
         private void dgvListaClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -291,6 +290,7 @@ namespace CGSystem
             forclientes.cbsexocliente.Text = dataGridView1.CurrentRow.Cells[12].Value.ToString();
             forclientes.tbRutaFoto.Text = dataGridView1.CurrentRow.Cells[13].Value.ToString();
             forclientes.Show();
+            Buscar();
             forclientes.tbnombrecliente.Enabled = true;
             forclientes.tbapellidocliente.Enabled = true;
             forclientes.tbcedulacliente.Enabled = true;
@@ -306,6 +306,7 @@ namespace CGSystem
             forclientes.btnactualizarcliente.Enabled = true;
             forclientes.btneliminarcliente.Enabled = true;
             forclientes.btncargarfotocliente.Enabled = true;
+            Buscar();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
