@@ -39,9 +39,9 @@ namespace CGSystem
             string codigociudad;
             string codigoestado;
             string cedula;
-            DateTime DTfechahoy = DateTime.Now;
+            DateTime DTfechahoy = DateTime.Today;
             string fechaHoy = oper.FormatearFecha(DTfechahoy); ;
-            
+
             DateTime Fechanac = dtpnacimientocliente.Value;
             string fechanacimiento = oper.FormatearFecha(dtpnacimientocliente.Value);
             DateTime Fechaini = dtpiniciofactura.Value;
@@ -64,7 +64,7 @@ namespace CGSystem
             {
                 cedula = "Cliente Nuevo";
             }
-            
+
             if (tbnombrecliente.Text != "" && tbapellidocliente.Text != "" && tbcedulacliente.Text != "" && dtpnacimientocliente.Text != "" && cbsexocliente.Text != "" && tbdireccioncliente.Text != "" && cbsectorcliente.Text != "" && cbciudadcliente.Text != "" && cbestadocliente.Text != "" && tbRutaFoto.Text != "" && dtpfinfactura.Text != "" && dtpiniciofactura.Text != "")
             {
                 DialogResult Result = MessageBox.Show("Desea conservar las fechas de servicios para este cliente", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
@@ -97,9 +97,10 @@ namespace CGSystem
                     }
                 }
             }
-              else {
-                    MessageBox.Show("Rellene todos los campos...");
-                    }
+            else
+            {
+                MessageBox.Show("Rellene todos los campos...");
+            }
         }
 
         private void btncargarfotocliente_Click_1(object sender, EventArgs e)
@@ -121,19 +122,19 @@ namespace CGSystem
         {
             SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\SGCSystemBD.db;Version=3;");
             DataSet ds = new DataSet();
-            SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT descripcion_sector FROM sector", cnx);
+            SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT descripcion_sector FROM sector ORDER BY descripcion_sector ", cnx);
             da.Fill(ds, "sector");
             cbsectorcliente.DataSource = ds.Tables[0].DefaultView;
             cbsectorcliente.ValueMember = "descripcion_sector";
 
             DataSet ds1 = new DataSet();
-            SQLiteDataAdapter de = new SQLiteDataAdapter("SELECT descripcion_ciudad FROM ciudad", cnx);
+            SQLiteDataAdapter de = new SQLiteDataAdapter("SELECT descripcion_ciudad FROM ciudad ORDER BY descripcion_ciudad", cnx);
             de.Fill(ds1, "ciudad");
             cbciudadcliente.DataSource = ds1.Tables[0].DefaultView;
             cbciudadcliente.ValueMember = "descripcion_ciudad";
 
             DataSet ds2 = new DataSet();
-            SQLiteDataAdapter df = new SQLiteDataAdapter("SELECT descripcion_estado FROM estado", cnx);
+            SQLiteDataAdapter df = new SQLiteDataAdapter("SELECT descripcion_estado FROM estado ORDER BY descripcion_estado DESC", cnx);
             df.Fill(ds2, "estado");
             cbestadocliente.DataSource = ds2.Tables[0].DefaultView;
             cbestadocliente.ValueMember = "descripcion_estado";
@@ -146,6 +147,8 @@ namespace CGSystem
             {
 
             }
+            cbciudadcliente.Text = "";
+            cbsectorcliente.Text = "";
         }
 
         private void btnactualizarcliente_Click(object sender, EventArgs e)
@@ -193,16 +196,39 @@ namespace CGSystem
 
         private void btneliminarcliente_Click(object sender, EventArgs e)
         {
+            DataSet ds = new DataSet();
+            string conregistro;
             if (tbnumerocliente.Text != "")
             {
-                oper.ConsultaSinResultado("DELETE FROM cliente WHERE numero_cliente ='" + tbnumerocliente.Text + "'");
-                limpiarcampos();
-                MessageBox.Show("Cliente eliminado correctamente!");
-            }
-            else
-            {
-                MessageBox.Show("Por favor colocar un número de cliente válido!");
-                tbnumerocliente.Select();
+                ds = oper.ConsultaConResultado("SELECT id_cliente FROM cabecera_factura WHERE id_cliente = '" + tbnumerocliente.Text + "'");
+                try
+                {
+                    conregistro = ds.Tables[0].Rows[0][0].ToString();
+                }
+                catch
+                {
+                    conregistro = "No tiene registros";
+                }
+                if (conregistro == tbnumerocliente.Text)
+                {
+                    MessageBox.Show("Este cliente no puede ser eliminado, verifique el número", "Aviso!");
+                    return;
+                }
+                else
+                {
+                    DialogResult Result = MessageBox.Show("¿Está seguro que desea eliminar este cliente de la base de datos?", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
+                    if (Result == DialogResult.OK)
+                    {
+                        oper.ConsultaSinResultado("DELETE FROM cliente WHERE numero_cliente ='" + tbnumerocliente.Text + "'");
+                        limpiarcampos();
+                        MessageBox.Show("Cliente eliminado correctamente!");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Por favor colocar un número de cliente válido!");
+                        tbnumerocliente.Select();
+                    }
+                }
             }
         }
 

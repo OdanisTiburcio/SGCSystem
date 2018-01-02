@@ -171,19 +171,38 @@ namespace CGSystem
 
         private void btneliminarempleado_Click(object sender, EventArgs e)
         {
+            DataSet ds = new DataSet();
+            string conclave;
             if (tbnumeroempleado.Text != "")
             {
-                DialogResult Result = MessageBox.Show("¿Está seguro que desea eliminar este empleado de la base de datos?", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
-                if (Result == DialogResult.OK)
+                ds = oper.ConsultaConResultado("SELECT numero_empleado FROM login WHERE  = '" + tbnumeroempleado.Text + "'");
+                try
                 {
-                    oper.ConsultaSinResultado("DELETE FROM empleado WHERE numero_empleado ='" + tbnumeroempleado.Text + "'");
-                    limpiarcampos();
-                    MessageBox.Show("Empleado borrado correctamente! ");
+                    conclave = ds.Tables[0].Rows[0][0].ToString();
                 }
-            }
-            else
-            {
-                this.Close();
+                catch
+                {
+                    conclave = "No tiene acceso";
+                }
+                if (conclave == tbnumeroempleado.Text)
+                {
+                    MessageBox.Show("Este empleado no puede ser eliminado, verifique el número", "Aviso!");
+                    return;
+                }
+                else
+                {
+                    DialogResult Result = MessageBox.Show("¿Está seguro que desea eliminar este empleado de la base de datos?", "Alerta!", MessageBoxButtons.OKCancel, MessageBoxIcon.Stop);
+                    if (Result == DialogResult.OK)
+                    {
+                        oper.ConsultaSinResultado("DELETE FROM empleado WHERE numero_empleado ='" + tbnumeroempleado.Text + "'");
+                        limpiarcampos();
+                        MessageBox.Show("Empleado borrado correctamente! ");
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
+                }
             }
         }
 

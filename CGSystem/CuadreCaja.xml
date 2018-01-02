@@ -55,4 +55,19 @@
     <id_tipo_factura>1</id_tipo_factura>
     <total>520</total>
   </Table>
+  <Table>
+    <id_factura>29</id_factura>
+    <id_tipo_factura>1</id_tipo_factura>
+    <total>680</total>
+  </Table>
+  <Table>
+    <id_factura>30</id_factura>
+    <id_tipo_factura>2</id_tipo_factura>
+    <total>200</total>
+  </Table>
+  <Table>
+    <id_factura>31</id_factura>
+    <id_tipo_factura>1</id_tipo_factura>
+    <total>320</total>
+  </Table>
 </NewDataSet>
