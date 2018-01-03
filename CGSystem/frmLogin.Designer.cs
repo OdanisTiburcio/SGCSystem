@@ -37,6 +37,7 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.tbRutaFoto = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -108,6 +109,7 @@
             this.cbusuario.Name = "cbusuario";
             this.cbusuario.Size = new System.Drawing.Size(197, 26);
             this.cbusuario.TabIndex = 4;
+            this.cbusuario.SelectedIndexChanged += new System.EventHandler(this.cbusuario_SelectedIndexChanged);
             // 
             // btnCancelar
             // 
@@ -133,19 +135,29 @@
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Image = global::CGSystem.Properties.Resources.login;
-            this.pictureBox1.Location = new System.Drawing.Point(355, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(355, 4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(164, 127);
+            this.pictureBox1.Size = new System.Drawing.Size(170, 147);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
+            // 
+            // tbRutaFoto
+            // 
+            this.tbRutaFoto.Enabled = false;
+            this.tbRutaFoto.Location = new System.Drawing.Point(402, 110);
+            this.tbRutaFoto.Name = "tbRutaFoto";
+            this.tbRutaFoto.ReadOnly = true;
+            this.tbRutaFoto.Size = new System.Drawing.Size(114, 20);
+            this.tbRutaFoto.TabIndex = 35;
+            this.tbRutaFoto.Visible = false;
             // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(566, 258);
+            this.Controls.Add(this.tbRutaFoto);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
@@ -161,6 +173,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -175,6 +188,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.PictureBox pictureBox2;
+        public System.Windows.Forms.TextBox tbRutaFoto;
     }
 }
 

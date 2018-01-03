@@ -39,14 +39,14 @@ namespace CGSystem
 
             try
             {
-                ds = oper.ConsultaConResultado("SELECT clave_usuario, numero_empleado, codigo_tipo_usuario FROM login WHERE alias_usuario = '"+cbusuario.Text+"'");
+                ds = oper.ConsultaConResultado("SELECT clave_usuario, numero_empleado, codigo_tipo_usuario FROM login WHERE alias_usuario = '" + cbusuario.Text + "'");
                 string clave = ds.Tables[0].Rows[0][0].ToString();
-                if(clave == tbcontraseña.Text)
+                if (clave == tbcontraseña.Text)
                 {
                     MenuPrincipal.Logeado = true;
                     MenuPrincipal.UsuarioID = Convert.ToInt32(ds.Tables[0].Rows[0][1].ToString());
                     MenuPrincipal.TipoUsuario = Convert.ToInt32(ds.Tables[0].Rows[0][2].ToString());
-                    ds = oper.ConsultaConResultado("SELECT nombre, apellido FROM empleado WHERE numero_empleado = '"+MenuPrincipal.UsuarioID.ToString()+"'");
+                    ds = oper.ConsultaConResultado("SELECT nombre, apellido FROM empleado WHERE numero_empleado = '" + MenuPrincipal.UsuarioID.ToString() + "'");
                     MenuPrincipal.SalirDelSistema = false;
                     this.Close();
                 }
@@ -135,6 +135,19 @@ namespace CGSystem
                 Entrar();
                 e.Handled = true;
             }
+        }
+
+        private void cbusuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataSet ds = new DataSet();
+            ds = oper.ConsultaConResultado("SELECT numero_empleado FROM login WHERE alias_usuario = '" + cbusuario.Text + "'");
+            string codigoempleado = ds.Tables[0].Rows[0][0].ToString();
+            ds = oper.ConsultaConResultado("SELECT e.numero_empleado, l.numero_empleado, l.alias_usuario, e.foto FROM empleado e INNER JOIN login l ON l.numero_empleado = e.numero_empleado WHERE l.numero_empleado = '" + codigoempleado.ToString() + "'");
+            string Ruta = ds.Tables[0].Rows[0][3].ToString();
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            Bitmap Foto = new Bitmap(Ruta);
+            tbRutaFoto.Text = Ruta;
+            pictureBox1.Image = Foto;
         }
     }
 }
