@@ -29,9 +29,14 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.btncrearusuario = new System.Windows.Forms.Button();
+            this.btnbuscarusuario = new System.Windows.Forms.Button();
+            this.rdbusuarios = new System.Windows.Forms.RadioButton();
+            this.rdbaliasusuario = new System.Windows.Forms.RadioButton();
+            this.rdbtipousuario = new System.Windows.Forms.RadioButton();
+            this.rdbnumeroempleado = new System.Windows.Forms.RadioButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.tbbuscarusuarios = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -44,62 +49,131 @@
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 62);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(414, 119);
+            this.dataGridView1.Size = new System.Drawing.Size(414, 140);
             this.dataGridView1.TabIndex = 0;
             // 
-            // button1
+            // btncrearusuario
             // 
-            this.button1.Location = new System.Drawing.Point(25, 188);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 42);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Crear";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btncrearusuario.BackColor = System.Drawing.Color.Cornsilk;
+            this.btncrearusuario.Font = new System.Drawing.Font("Mistral", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btncrearusuario.Location = new System.Drawing.Point(341, 158);
+            this.btncrearusuario.Name = "btncrearusuario";
+            this.btncrearusuario.Size = new System.Drawing.Size(85, 47);
+            this.btncrearusuario.TabIndex = 145;
+            this.btncrearusuario.Text = "Crear";
+            this.btncrearusuario.UseVisualStyleBackColor = false;
+            this.btncrearusuario.Click += new System.EventHandler(this.btncrearingreso_Click);
             // 
-            // button2
+            // btnbuscarusuario
             // 
-            this.button2.Location = new System.Drawing.Point(168, 188);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(108, 42);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Modificar";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnbuscarusuario.BackColor = System.Drawing.Color.Cornsilk;
+            this.btnbuscarusuario.Font = new System.Drawing.Font("Mistral", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnbuscarusuario.Location = new System.Drawing.Point(251, 158);
+            this.btnbuscarusuario.Name = "btnbuscarusuario";
+            this.btnbuscarusuario.Size = new System.Drawing.Size(85, 47);
+            this.btnbuscarusuario.TabIndex = 146;
+            this.btnbuscarusuario.Text = "Buscar";
+            this.btnbuscarusuario.UseVisualStyleBackColor = false;
+            this.btnbuscarusuario.Click += new System.EventHandler(this.btnbuscarusuario_Click);
             // 
-            // button3
+            // rdbusuarios
             // 
-            this.button3.Location = new System.Drawing.Point(306, 188);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(108, 42);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Cerrar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.rdbusuarios.AutoSize = true;
+            this.rdbusuarios.Checked = true;
+            this.rdbusuarios.Location = new System.Drawing.Point(108, 161);
+            this.rdbusuarios.Name = "rdbusuarios";
+            this.rdbusuarios.Size = new System.Drawing.Size(64, 17);
+            this.rdbusuarios.TabIndex = 147;
+            this.rdbusuarios.TabStop = true;
+            this.rdbusuarios.Text = "Todos...";
+            this.rdbusuarios.UseVisualStyleBackColor = true;
+            // 
+            // rdbaliasusuario
+            // 
+            this.rdbaliasusuario.AutoSize = true;
+            this.rdbaliasusuario.Location = new System.Drawing.Point(17, 188);
+            this.rdbaliasusuario.Name = "rdbaliasusuario";
+            this.rdbaliasusuario.Size = new System.Drawing.Size(47, 17);
+            this.rdbaliasusuario.TabIndex = 148;
+            this.rdbaliasusuario.Text = "Alias";
+            this.rdbaliasusuario.UseVisualStyleBackColor = true;
+            // 
+            // rdbtipousuario
+            // 
+            this.rdbtipousuario.AutoSize = true;
+            this.rdbtipousuario.Location = new System.Drawing.Point(70, 188);
+            this.rdbtipousuario.Name = "rdbtipousuario";
+            this.rdbtipousuario.Size = new System.Drawing.Size(46, 17);
+            this.rdbtipousuario.TabIndex = 149;
+            this.rdbtipousuario.Text = "Tipo";
+            this.rdbtipousuario.UseVisualStyleBackColor = true;
+            // 
+            // rdbnumeroempleado
+            // 
+            this.rdbnumeroempleado.AutoSize = true;
+            this.rdbnumeroempleado.Location = new System.Drawing.Point(176, 161);
+            this.rdbnumeroempleado.Name = "rdbnumeroempleado";
+            this.rdbnumeroempleado.Size = new System.Drawing.Size(72, 17);
+            this.rdbnumeroempleado.TabIndex = 150;
+            this.rdbnumeroempleado.Text = "Empleado";
+            this.rdbnumeroempleado.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Mistral", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 158);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(98, 29);
+            this.label1.TabIndex = 151;
+            this.label1.Text = "Buscar Por";
+            // 
+            // tbbuscarusuarios
+            // 
+            this.tbbuscarusuarios.Location = new System.Drawing.Point(116, 185);
+            this.tbbuscarusuarios.Name = "tbbuscarusuarios";
+            this.tbbuscarusuarios.Size = new System.Drawing.Size(129, 20);
+            this.tbbuscarusuarios.TabIndex = 152;
             // 
             // MantenimientoUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(439, 242);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(439, 213);
+            this.Controls.Add(this.tbbuscarusuarios);
+            this.Controls.Add(this.rdbusuarios);
+            this.Controls.Add(this.rdbaliasusuario);
+            this.Controls.Add(this.rdbtipousuario);
+            this.Controls.Add(this.rdbnumeroempleado);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnbuscarusuario);
+            this.Controls.Add(this.btncrearusuario);
             this.Controls.Add(this.dataGridView1);
             this.Name = "MantenimientoUsuario";
-            this.Text = "MantenimientoUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Mantenimiento de Usuarios";
             this.Load += new System.EventHandler(this.MantenimientoUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        public System.Windows.Forms.Button btncrearusuario;
+        public System.Windows.Forms.Button btnbuscarusuario;
+        private System.Windows.Forms.RadioButton rdbusuarios;
+        private System.Windows.Forms.RadioButton rdbaliasusuario;
+        private System.Windows.Forms.RadioButton rdbtipousuario;
+        private System.Windows.Forms.RadioButton rdbnumeroempleado;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbbuscarusuarios;
     }
 }
