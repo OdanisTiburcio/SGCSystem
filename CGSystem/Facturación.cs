@@ -17,6 +17,8 @@ namespace CGSystem
         public static string ServicioBuscarID = "0";
         public static bool SeleccionDeServicio = false; //Para confirmar si se seleccionó un servicio o si solo se cerró el formulario...
         public static bool SelecciónDeCliente = false; //Para confirmar si se seleccionó un cliente o si solo se cerró el formulario...
+        public static bool ModificarFactura = false; //Para confirmar si se seleccionó una factura para modificar...
+        public static int FacturaModificarNum = 0;
         public int contador = 0; //Para controlar algunos métodos...
         public int DiasASumar = 0;
 
@@ -495,6 +497,16 @@ namespace CGSystem
                 MessageBox.Show("Hubo un error al intentar Imprimir la factura", "Aviso");
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Form f = new SeleccionarNumeroDeFactura();
+            f.ShowDialog();
+            if (ModificarFactura)
+            {
+                MessageBox.Show("La Factura seleccionada para modificar fue, la factura Número: " + FacturaModificarNum.ToString());
+            }
         }
     }
 

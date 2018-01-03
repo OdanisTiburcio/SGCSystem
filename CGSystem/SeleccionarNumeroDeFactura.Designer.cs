@@ -53,6 +53,7 @@
             this.tbnumfactura.Name = "tbnumfactura";
             this.tbnumfactura.Size = new System.Drawing.Size(182, 22);
             this.tbnumfactura.TabIndex = 129;
+            this.tbnumfactura.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbnumfactura_KeyDown);
             // 
             // label1
             // 
@@ -85,7 +86,12 @@
             this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.tbnumfactura);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(417, 171);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(417, 171);
             this.Name = "SeleccionarNumeroDeFactura";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SeleccionarNumeroDeFactura";
             this.Load += new System.EventHandler(this.SeleccionarNumeroDeFactura_Load);
             this.ResumeLayout(false);
