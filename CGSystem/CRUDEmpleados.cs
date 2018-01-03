@@ -175,7 +175,7 @@ namespace CGSystem
             string conclave;
             if (tbnumeroempleado.Text != "")
             {
-                ds = oper.ConsultaConResultado("SELECT numero_empleado FROM login WHERE  = '" + tbnumeroempleado.Text + "'");
+                ds = oper.ConsultaConResultado("SELECT numero_empleado FROM login WHERE numero_empleado = '" + tbnumeroempleado.Text + "'");
                 try
                 {
                     conclave = ds.Tables[0].Rows[0][0].ToString();

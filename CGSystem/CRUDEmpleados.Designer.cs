@@ -578,6 +578,6 @@
         public System.Windows.Forms.TextBox tbsueldo;
         public System.Windows.Forms.ComboBox cbposicion;
         public System.Windows.Forms.ComboBox cbdepartamento;
-        private System.Windows.Forms.Button btnnuevoempleado;
+        public System.Windows.Forms.Button btnnuevoempleado;
     }
 }

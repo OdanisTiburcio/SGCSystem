@@ -129,6 +129,7 @@ namespace CGSystem
             forempleados.Show();
             forempleados.tbnumeroempleado.Enabled = false;
             forempleados.btnguardarempleado.Enabled = false;
+            forempleados.btnnuevoempleado.Enabled = false;
         }
 
         private void ListaDeEmpleados_Load(object sender, EventArgs e)
