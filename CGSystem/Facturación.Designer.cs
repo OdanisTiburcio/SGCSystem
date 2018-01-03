@@ -252,13 +252,14 @@
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Impact", 18.25F);
-            this.button2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.button2.ForeColor = System.Drawing.Color.DarkGoldenrod;
             this.button2.Location = new System.Drawing.Point(564, 419);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(171, 41);
             this.button2.TabIndex = 147;
             this.button2.Text = "Modificar";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // dgvListaServicios
             // 
