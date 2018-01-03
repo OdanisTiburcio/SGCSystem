@@ -1,73 +1,15 @@
 <?xml version="1.0" standalone="yes"?>
 <NewDataSet>
   <Table>
-    <id_factura>18</id_factura>
+    <id_factura>35</id_factura>
     <id_tipo_factura>1</id_tipo_factura>
+    <descripcion_tipo_factura>CONTADO</descripcion_tipo_factura>
     <total>80</total>
   </Table>
   <Table>
-    <id_factura>19</id_factura>
+    <id_factura>36</id_factura>
     <id_tipo_factura>1</id_tipo_factura>
-    <total>80</total>
-  </Table>
-  <Table>
-    <id_factura>20</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <total>80</total>
-  </Table>
-  <Table>
-    <id_factura>21</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <total>80</total>
-  </Table>
-  <Table>
-    <id_factura>22</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <total>4000</total>
-  </Table>
-  <Table>
-    <id_factura>23</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <total>1600</total>
-  </Table>
-  <Table>
-    <id_factura>24</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <total>40</total>
-  </Table>
-  <Table>
-    <id_factura>25</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <total>160</total>
-  </Table>
-  <Table>
-    <id_factura>26</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <total>200</total>
-  </Table>
-  <Table>
-    <id_factura>27</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <total>560</total>
-  </Table>
-  <Table>
-    <id_factura>28</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <total>520</total>
-  </Table>
-  <Table>
-    <id_factura>29</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <total>680</total>
-  </Table>
-  <Table>
-    <id_factura>30</id_factura>
-    <id_tipo_factura>2</id_tipo_factura>
-    <total>200</total>
-  </Table>
-  <Table>
-    <id_factura>31</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <total>320</total>
+    <descripcion_tipo_factura>CONTADO</descripcion_tipo_factura>
+    <total>300</total>
   </Table>
 </NewDataSet>

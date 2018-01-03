@@ -25,14 +25,6 @@
     <foto>C:\CGSystem\FotosClientes\4.jpg</foto>
   </Table>
   <Table>
-    <numero_cliente>13</numero_cliente>
-    <nombre_cliente>EMERLYN DE LOS SANTOS</nombre_cliente>
-    <apellido_cliente>AQUILES TRAIGO</apellido_cliente>
-    <telefono>809-000-0000</telefono>
-    <fin_periodo>2017-12-28T00:00:00-04:00</fin_periodo>
-    <foto>C:\CGSystem\FotosClientes\5.jpg</foto>
-  </Table>
-  <Table>
     <numero_cliente>14</numero_cliente>
     <nombre_cliente>WILLIAM</nombre_cliente>
     <apellido_cliente>SHAKESPEARE</apellido_cliente>

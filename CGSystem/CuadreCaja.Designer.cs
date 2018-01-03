@@ -30,14 +30,13 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CuadreCaja));
             this.dtvcuadrecaja = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.tbventacredito = new System.Windows.Forms.TextBox();
             this.tbventacontado = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbtotal = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.btncuadrehoy = new System.Windows.Forms.Button();
             this.pbimprimircuadre = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -48,8 +47,10 @@
             this.lblrango = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tbtotal = new System.Windows.Forms.TextBox();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descrip = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtvcuadrecaja)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbimprimircuadre)).BeginInit();
@@ -68,6 +69,7 @@
             this.dtvcuadrecaja.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.cliente,
+            this.Descrip,
             this.tipo});
             this.dtvcuadrecaja.Location = new System.Drawing.Point(13, 13);
             this.dtvcuadrecaja.Name = "dtvcuadrecaja";
@@ -76,27 +78,6 @@
             this.dtvcuadrecaja.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtvcuadrecaja.Size = new System.Drawing.Size(314, 437);
             this.dtvcuadrecaja.TabIndex = 0;
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 60;
-            // 
-            // cliente
-            // 
-            this.cliente.HeaderText = "Tipo";
-            this.cliente.Name = "cliente";
-            this.cliente.ReadOnly = true;
-            this.cliente.Width = 130;
-            // 
-            // tipo
-            // 
-            this.tipo.HeaderText = "Total (RD$)";
-            this.tipo.Name = "tipo";
-            this.tipo.ReadOnly = true;
-            this.tipo.Width = 121;
             // 
             // label1
             // 
@@ -153,6 +134,26 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Totales";
+            // 
+            // tbtotal
+            // 
+            this.tbtotal.BackColor = System.Drawing.Color.Cornsilk;
+            this.tbtotal.Enabled = false;
+            this.tbtotal.Location = new System.Drawing.Point(6, 149);
+            this.tbtotal.Name = "tbtotal";
+            this.tbtotal.Size = new System.Drawing.Size(137, 25);
+            this.tbtotal.TabIndex = 2;
+            this.tbtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(6, 129);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(46, 17);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Total";
             // 
             // btncuadrehoy
             // 
@@ -271,25 +272,33 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Fecha:";
             // 
-            // label6
+            // ID
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Modern No. 20", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(6, 129);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(46, 17);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Total";
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 50;
             // 
-            // tbtotal
+            // cliente
             // 
-            this.tbtotal.BackColor = System.Drawing.Color.Cornsilk;
-            this.tbtotal.Enabled = false;
-            this.tbtotal.Location = new System.Drawing.Point(6, 149);
-            this.tbtotal.Name = "tbtotal";
-            this.tbtotal.Size = new System.Drawing.Size(137, 25);
-            this.tbtotal.TabIndex = 2;
-            this.tbtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.cliente.HeaderText = "Tipo";
+            this.cliente.Name = "cliente";
+            this.cliente.ReadOnly = true;
+            this.cliente.Width = 50;
+            // 
+            // Descrip
+            // 
+            this.Descrip.HeaderText = "Descripción";
+            this.Descrip.Name = "Descrip";
+            this.Descrip.ReadOnly = true;
+            this.Descrip.Width = 110;
+            // 
+            // tipo
+            // 
+            this.tipo.HeaderText = "Total (RD$)";
+            this.tipo.Name = "tipo";
+            this.tipo.ReadOnly = true;
+            this.tipo.Width = 121;
             // 
             // CuadreCaja
             // 
@@ -336,9 +345,6 @@
         private System.Windows.Forms.PictureBox pbimprimircuadre;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cbmescuadre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cliente;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
         private System.Windows.Forms.DateTimePicker dtpinicio;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DateTimePicker dtpfin;
@@ -347,5 +353,9 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox tbtotal;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Descrip;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
     }
 }

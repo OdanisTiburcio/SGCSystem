@@ -48,23 +48,23 @@ namespace CGSystem
 
             dtvcuadrecaja.Rows.Clear();
             //Cargar la Tabla de todos los clientes activos
-            ds = oper.ConsultaConResultado("SELECT id_factura, id_tipo_factura, total FROM cabecera_factura WHERE fecha between '" + fechaHoy + "' AND '" + fechaHoy + "';");
+            ds = oper.ConsultaConResultado("SELECT c.id_factura, c.id_tipo_factura, t.descripcion_tipo_factura, c.total FROM cabecera_factura c INNER JOIN tipo_factura t ON c.id_tipo_factura = t.codigo_tipo_factura WHERE fecha BETWEEN '" + fechaHoy + "' AND '" + fechaHoy + "';");
 
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
 
                 dtvcuadrecaja.Rows.Add();
-                for (int k = 0; k < 3; k++)
+                for (int k = 0; k < 4; k++)
                 {
                     dtvcuadrecaja.Rows[i].Cells[k].Value = ds.Tables[0].Rows[i][k].ToString();
                 }
                 if (Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[1].Value) == 1)//Al Contado
                 {
-                    TotalContado += Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[2].Value);
+                    TotalContado += Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[3].Value);
                 }
                 else
                 {
-                    TotalCredito += Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[2].Value);
+                    TotalCredito += Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[3].Value);
                 }
 
                 //Pasar Valores a los TextBox
@@ -90,24 +90,24 @@ namespace CGSystem
                 DateTime hasta = dtpfin.Value;
                 string fechadesde = oper.FormatearFecha(dtpinicio.Value);
                 string fechahasta = oper.FormatearFecha(dtpfin.Value);
-                ds = oper.ConsultaConResultado("SELECT id_factura, id_tipo_factura, total FROM cabecera_factura WHERE fecha between '" + fechadesde + "' AND '" + fechahasta + "';");
+                ds = oper.ConsultaConResultado("SELECT c.id_factura, c.id_tipo_factura, t.descripcion_tipo_factura, c.total FROM cabecera_factura c INNER JOIN tipo_factura t ON c.id_tipo_factura = t.codigo_tipo_factura WHERE fecha BETWEEN '" + fechadesde + "' AND '" + fechahasta + "';");
             }
 
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
 
                 dtvcuadrecaja.Rows.Add();
-                for (int k = 0; k < 3; k++)
+                for (int k = 0; k < 4; k++)
                 {
                     dtvcuadrecaja.Rows[i].Cells[k].Value = ds.Tables[0].Rows[i][k].ToString();
                 }
                 if (Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[1].Value) == 1)//Al Contado
                 {
-                    TotalContado += Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[2].Value);
+                    TotalContado += Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[3].Value);
                 }
                 else
                 {
-                    TotalCredito += Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[2].Value);
+                    TotalCredito += Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[3].Value);
                 }
 
                 //Pasar Valores a los TextBox
@@ -140,23 +140,23 @@ namespace CGSystem
 
             dtvcuadrecaja.Rows.Clear();
             //Cargar la Tabla de todos los clientes activos
-            ds = oper.ConsultaConResultado("SELECT id_factura, id_tipo_factura, total FROM cabecera_factura WHERE fecha between '" + fechamesuno + "' AND '" + fechamesdos + "';");
+            ds = oper.ConsultaConResultado("SELECT c.id_factura, c.id_tipo_factura, t.descripcion_tipo_factura, c.total FROM cabecera_factura c INNER JOIN tipo_factura t ON c.id_tipo_factura = t.codigo_tipo_factura WHERE fecha BETWEEN '" + fechamesuno + "' AND '" + fechamesdos + "';");
 
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
 
                 dtvcuadrecaja.Rows.Add();
-                for (int k = 0; k < 3; k++)
+                for (int k = 0; k < 4; k++)
                 {
                     dtvcuadrecaja.Rows[i].Cells[k].Value = ds.Tables[0].Rows[i][k].ToString();
                 }
                 if (Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[1].Value) == 1)//Al Contado
                 {
-                    TotalContado += Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[2].Value);
+                    TotalContado += Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[3].Value);
                 }
                 else
                 {
-                    TotalCredito += Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[2].Value);
+                    TotalCredito += Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[3].Value);
                 }
 
                 //Pasar Valores a los TextBox
@@ -187,7 +187,7 @@ namespace CGSystem
 
             if (dtvcuadrecaja.Rows.Count < 1)
             {
-                MessageBox.Show("No hay nada para imprimir", "Avios", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No hay nada para imprimir", "Aviso!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
             else
@@ -225,7 +225,7 @@ namespace CGSystem
 
                     dtvcuadrecaja.Rows.Clear();
                     //Cargar la Tabla de todos los clientes activos
-                    ds = oper.ConsultaConResultado("SELECT id_factura, id_tipo_factura, total FROM cabecera_factura WHERE fecha between '" + fechaHoy + "' AND '" + fechaHoy + "';");
+                    ds = oper.ConsultaConResultado("SELECT c.id_factura, c.id_tipo_factura, t.descripcion_tipo_factura, c.total FROM cabecera_factura c INNER JOIN tipo_factura t ON c.id_tipo_factura = t.codigo_tipo_factura WHERE fecha BETWEEN '" + fechaHoy + "' AND '" + fechaHoy + "';");
                     ds.WriteXml("C:\\CGSystem\\CGSystem\\CuadreCaja.xml");
                     Form f = new VisorReportes("Reporte de Cuadre.rpt");
                     f.ShowDialog();
@@ -244,7 +244,7 @@ namespace CGSystem
                         dsxml.Tables[0].Rows[0][3] = tbtotal.Text;
                         dsxml.WriteXml("C:\\CGSystem\\CGSystem\\DatosCuadre.xml");
 
-                        ds = oper.ConsultaConResultado("SELECT id_factura, id_tipo_factura, total FROM cabecera_factura WHERE fecha between '" + fechamesuno + "' AND '" + fechamesdos + "';");
+                        ds = oper.ConsultaConResultado("SELECT c.id_factura, c.id_tipo_factura, t.descripcion_tipo_factura, c.total FROM cabecera_factura c INNER JOIN tipo_factura t ON c.id_tipo_factura = t.codigo_tipo_factura WHERE fecha BETWEEN '" + fechamesuno + "' AND '" + fechamesdos + "';");
                         ds.WriteXml("C:\\CGSystem\\CGSystem\\CuadreCaja.xml");
                         Form f = new VisorReportes("Reporte de Cuadre.rpt");
                         f.ShowDialog();
@@ -265,7 +265,7 @@ namespace CGSystem
                         DateTime hasta = dtpfin.Value;
                         string fechadesde = oper.FormatearFecha(dtpinicio.Value);
                         string fechahasta = oper.FormatearFecha(dtpfin.Value);
-                        DataSet ds = oper.ConsultaConResultado("SELECT id_factura, id_tipo_factura, total FROM cabecera_factura WHERE fecha between '" + fechadesde + "' AND '" + fechahasta + "';");
+                        DataSet ds = oper.ConsultaConResultado("SELECT c.id_factura, c.id_tipo_factura, t.descripcion_tipo_factura, c.total FROM cabecera_factura c INNER JOIN tipo_factura t ON c.id_tipo_factura = t.codigo_tipo_factura WHERE fecha BETWEEN '" + fechadesde + "' AND '" + fechahasta + "';");
                         ds.WriteXml("C:\\CGSystem\\CGSystem\\CuadreCaja.xml");
                         Form f = new VisorReportes("Reporte de Cuadre.rpt");
                         f.ShowDialog();
