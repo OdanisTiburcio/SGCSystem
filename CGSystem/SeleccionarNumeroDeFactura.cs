@@ -14,6 +14,8 @@ namespace CGSystem
     {
         public int FacturaModificar = 0;
         public bool TeclaEnter = false;
+        DataSet ds = new DataSet();
+        operacion oper = new operacion();
 
         public SeleccionarNumeroDeFactura()
         {
@@ -53,6 +55,20 @@ namespace CGSystem
                     }
                     else {
                         //Si el código corrió hasta aquí significa que el número de factura es válido...
+                        //Ahora validamos que la factura escrita exista
+                        ds = oper.ConsultaConResultado("SELECT * FROM cabecera_factura WHERE cabecera_factura.id_factura = '"+ tbnumfactura.Text.ToString() + "' AND cabecera_factura.estado = 'ACTIVO';");
+                        try
+                        {
+                            string SELECT = ds.Tables[0].Rows[0][0].ToString();
+                            MessageBox.Show("Factura encontrada exitosamente");
+                            tbnumfactura.Select();
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Esta factura no existe o fue eliminada");
+                            tbnumfactura.Select();
+                            return;
+                        }
                     }
                 }
                 catch

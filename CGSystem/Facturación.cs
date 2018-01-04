@@ -501,13 +501,43 @@ namespace CGSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
+            if (dgvListaServicios.RowCount == 0 || FacturaGuardada)
+            {
+                //Continuar
+            }
+            else
+            {
+                bool Aceptar = oper.CajaDeMensaje("La factura actual no ha sido guardada, ¿desea descartarla?", "Aviso");
+                if (Aceptar)
+                {
+                    //continuar
+                }
+                else
+                {
+                    return;
+                }
+            }
+
+            //Abrir el formulario para elegir la factura que se va a modificar...
             Form f = new SeleccionarNumeroDeFactura();
             f.ShowDialog();
             if (ModificarFactura)
             {
-                MessageBox.Show("La Factura seleccionada para modificar fue, la factura Número: " + FacturaModificarNum.ToString());
+                modificandofactura = true;
+                //MessageBox.Show("La Factura seleccionada para modificar fue, la factura Número: " + FacturaModificarNum.ToString());
+                CargarFacturaSeleccionada();
             }
         }
+
+        public void CargarFacturaSeleccionada()
+        {
+
+            //Cargar la factura seleccionada
+            //oper.
+            return;
+
+        }
+
     }
 
 }

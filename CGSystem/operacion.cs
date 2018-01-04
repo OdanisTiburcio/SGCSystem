@@ -120,7 +120,7 @@ namespace CGSystem
         {
             bool aceptar = false;
 
-            DialogResult Result = MessageBox.Show(cuerpo, titulo, MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult Result = MessageBox.Show(cuerpo, titulo, MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
             if (Result == DialogResult.OK)
             {
                 aceptar = true;
