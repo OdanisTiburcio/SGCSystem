@@ -21,27 +21,20 @@ namespace CGSystem
 
         private void CRUDUSUARIO_Load(object sender, EventArgs e)
         {
-            //DataSet ds = new DataSet();
-            //ds = oper.ConsultaConResultado("SELECT numero_empleado FROM empleado ORDER BY numero_empleado");
-            //cbnumeroempleado.DataSource = ds.Tables[0].Rows[0][0];
-        }
-
-        private void btnnuevoingreso_Click(object sender, EventArgs e)
-        {
-            cbtipocuentausuario.Enabled = true;
-            cbnumeroempleado.Enabled = true;
-            tbaliasusuario.Enabled = true;
-            tbcontrasenausuario.Enabled = true;
-
+            btnguardarusuario.Enabled = false;
+            btnactualizarusuario.Enabled = false;
         }
 
         private void btnguardarusuario_Click(object sender, EventArgs e)
         {
             string tipousuario;
             string idempleado;
+            string estado;
             DataSet ds = new DataSet();
             ds = oper.ConsultaConResultado("SELECT codigo_tipo_usuario FROM tipo_usuario WHERE descripcion_tipo_usuario = '" + cbtipocuentausuario.Text + "'");
             tipousuario = ds.Tables[0].Rows[0][0].ToString();
+            ds = oper.ConsultaConResultado("SELECT codigo_estado_usuario FROM estado WHERE descripcion_estado = '" + cbestadousuario.Text + "'");
+            estado = ds.Tables[0].Rows[0][0].ToString();
             ds = oper.ConsultaConResultado("SELECT numero_empleado FROM login WHERE numero_empleado = '" + cbnumeroempleado.Text + "'");
             try
             {
@@ -64,7 +57,7 @@ namespace CGSystem
                     }
                     else
                     {
-                        oper.ConsultaSinResultado("INSERT INTO login (numero_empleado, alias_usuario, clave_usuario, codigo_tipo_usuario) VALUES ('" + cbnumeroempleado.Text.ToString() + "','" + tbaliasusuario.Text.ToString() + "','" + tbcontrasenausuario.Text.ToString() + "','" + cbtipocuentausuario.Text + "')");
+                        oper.ConsultaSinResultado("INSERT INTO login (numero_empleado, alias_usuario, clave_usuario, codigo_tipo_usuario, codigo_estado) VALUES ('" + cbnumeroempleado.Text.ToString() + "','" + tbaliasusuario.Text.ToString() + "','" + tbcontrasenausuario.Text.ToString() + "','" + tipousuario + "', '" + estado + "')");
                         MessageBox.Show("Se registró el nuevo usuario!");
                     }
                 }
@@ -74,5 +67,27 @@ namespace CGSystem
                 MessageBox.Show("Debe completar todos los campos...");
             }
         }
+
+        private void btnactualizarusuario_Click(object sender, EventArgs e)
+        {
+            string idtipousuario;
+            string idestadousuario;
+            DataSet ds = new DataSet();
+            ds = oper.ConsultaConResultado("SELECT codigo_tipo_usuario FROM tipo_usuario WHERE descripcion_tipo_usuario = '" + cbtipocuentausuario.Text + "'");
+            idtipousuario = ds.Tables[0].Rows[0][0].ToString();
+            ds = oper.ConsultaConResultado("SELECT codigo_estado FROM estado WHERE descripcion_estado = '" + cbestadousuario.Text + "'");
+            idestadousuario = ds.Tables[0].Rows[0][0].ToString();
+            if (cbtipocuentausuario.Text != "" && tbaliasusuario.Text != "" && tbcontrasenausuario.Text != "")
+            {
+                oper.ConsultaSinResultado("UPDATE login SET alias_usuario = '" + tbaliasusuario.Text.ToString() + "', clave_usuario = '" + tbcontrasenausuario.Text.ToString().ToUpper() + "', codigo_tipo_usuario = '" + idtipousuario + "', codigo_estado = '" + idestadousuario + "' WHERE numero_empleado = '" + cbnumeroempleado.Text + "'");
+                cbtipocuentausuario.Text = "";
+                tbaliasusuario.Text = "";
+                tbcontrasenausuario.Text = "";
+                cbnumeroempleado.Text = "";
+                cbestadousuario.Text = "";
+                MessageBox.Show("El usuario fue actualizado correctamente!");
+            }
+            else MessageBox.Show("Debe completar todos los datos!");
+        }
     }
-    }
+}

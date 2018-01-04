@@ -56,6 +56,7 @@
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(414, 140);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // btncrearusuario
             // 
@@ -85,7 +86,7 @@
             // 
             this.rdbusuarios.AutoSize = true;
             this.rdbusuarios.Checked = true;
-            this.rdbusuarios.Location = new System.Drawing.Point(108, 161);
+            this.rdbusuarios.Location = new System.Drawing.Point(104, 161);
             this.rdbusuarios.Name = "rdbusuarios";
             this.rdbusuarios.Size = new System.Drawing.Size(64, 17);
             this.rdbusuarios.TabIndex = 147;
@@ -116,18 +117,18 @@
             // rdbnumeroempleado
             // 
             this.rdbnumeroempleado.AutoSize = true;
-            this.rdbnumeroempleado.Location = new System.Drawing.Point(176, 161);
+            this.rdbnumeroempleado.Location = new System.Drawing.Point(168, 161);
             this.rdbnumeroempleado.Name = "rdbnumeroempleado";
-            this.rdbnumeroempleado.Size = new System.Drawing.Size(72, 17);
+            this.rdbnumeroempleado.Size = new System.Drawing.Size(84, 17);
             this.rdbnumeroempleado.TabIndex = 150;
-            this.rdbnumeroempleado.Text = "Empleado";
+            this.rdbnumeroempleado.Text = "Id Empleado";
             this.rdbnumeroempleado.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Mistral", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 158);
+            this.label1.Location = new System.Drawing.Point(9, 158);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 29);
             this.label1.TabIndex = 151;

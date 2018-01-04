@@ -25,14 +25,20 @@ namespace CGSystem
 
         private void MantenimientoUsuario_Load(object sender, EventArgs e)
         {
-            dt = oper.ConsultaDataTable("SELECT * FROM login;");
-            dataGridView1.DataSource = dt;
-            dataGridView1.Refresh();
+            //dt = oper.ConsultaDataTable("SELECT * FROM login;");
+            //dataGridView1.DataSource = dt;
+            //dataGridView1.Refresh();
         }
 
         private void btncrearingreso_Click(object sender, EventArgs e)
         {
             CRUDUSUARIO f = new CRUDUSUARIO();
+            f.cbtipocuentausuario.Enabled = true;
+            f.cbnumeroempleado.Enabled = true;
+            f.tbaliasusuario.Enabled = true;
+            f.tbcontrasenausuario.Enabled = true;
+            f.cbestadousuario.Enabled = true;
+            f.btnguardarusuario.Enabled = true;
             f.ShowDialog();
         }
 
@@ -48,7 +54,7 @@ namespace CGSystem
                 cnx.Open();
                 if (rdbaliasusuario.Checked)
                 {
-                    string consulta = "SELECT * FROM login WHERE alias_usuario LIKE '%" + tbbuscarusuarios.Text + "%'";
+                    string consulta = "SELECT codigo_login Código, numero_empleado Núm_Empleado, alias_usuario Alias, clave_usuario Clave, codigo_tipo_usuario Tipo, codigo_estado Estado FROM login WHERE alias_usuario LIKE '%" + tbbuscarusuarios.Text + "%'";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -60,7 +66,7 @@ namespace CGSystem
                 }
                 else if (rdbnumeroempleado.Checked)
                 {
-                    string consulta = "SELECT * FROM login WHERE numero_empleado = '" + tbbuscarusuarios.Text + "'";
+                    string consulta = "SELECT codigo_login Código, numero_empleado Núm_Empleado, alias_usuario Alias, clave_usuario Clave, codigo_tipo_usuario Tipo, codigo_estado Estado FROM login WHERE numero_empleado = '" + tbbuscarusuarios.Text + "'";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -72,7 +78,7 @@ namespace CGSystem
                 }
                 else if (rdbtipousuario.Checked)
                 {
-                    string consulta = "SELECT * FROM login WHERE codigo_tipo_usuario = '" + tbbuscarusuarios.Text + "'";
+                    string consulta = "SELECT codigo_login Código, numero_empleado Núm_Empleado, alias_usuario Alias, clave_usuario Clave, codigo_tipo_usuario Tipo FROM login WHERE codigo_tipo_usuario = '" + tbbuscarusuarios.Text + "'";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -84,7 +90,7 @@ namespace CGSystem
                 }
                 else if (rdbusuarios.Checked)
                 {
-                    string consulta = "SELECT * FROM login";
+                    string consulta = "SELECT codigo_login Código, numero_empleado Núm_Empleado, alias_usuario Alias, clave_usuario Clave, codigo_tipo_usuario Tipo, codigo_estado Estado FROM login";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -100,6 +106,36 @@ namespace CGSystem
             {
 
             }
+        }
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            if (dataGridView1.Columns[e.ColumnIndex].Index == 3 && e.Value != null)
+            {
+                dataGridView1.Rows[e.RowIndex].Tag = e.Value;
+                e.Value = new String('*', e.Value.ToString().Length);
+            }
+        }
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            CRUDUSUARIO frmusuarios = new CRUDUSUARIO();
+            string tipousuario;
+            string estadousuario;
+            ds = oper.ConsultaConResultado("SELECT descripcion_tipo_usuario FROM tipo_usuario WHERE codigo_tipo_usuario = '" + dataGridView1.CurrentRow.Cells[4].Value.ToString() + "'");
+            tipousuario = ds.Tables[0].Rows[0][0].ToString();
+            ds = oper.ConsultaConResultado("SELECT descripcion_estado FROM estado WHERE codigo_estado = '" + dataGridView1.CurrentRow.Cells[5].Value.ToString() + "'");
+            estadousuario = ds.Tables[0].Rows[0][0].ToString();
+            frmusuarios.cbnumeroempleado.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            frmusuarios.tbaliasusuario.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            frmusuarios.tbcontrasenausuario.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            frmusuarios.cbtipocuentausuario.Text = tipousuario;
+            frmusuarios.cbestadousuario.Text = estadousuario;
+            frmusuarios.Show();
+            BuscarUsuario();
+            frmusuarios.btnactualizarusuario.Enabled = true;
+            frmusuarios.cbtipocuentausuario.Enabled = true;
+            frmusuarios.tbaliasusuario.Enabled = true;
+            frmusuarios.tbcontrasenausuario.Enabled = true;
+            frmusuarios.cbestadousuario.Enabled = true;
         }
     }
 }
