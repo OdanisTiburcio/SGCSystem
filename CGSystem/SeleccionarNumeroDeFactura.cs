@@ -59,9 +59,8 @@ namespace CGSystem
                         ds = oper.ConsultaConResultado("SELECT * FROM cabecera_factura WHERE cabecera_factura.id_factura = '"+ tbnumfactura.Text.ToString() + "' AND cabecera_factura.estado = 'ACTIVO';");
                         try
                         {
+                            //Factura encontrada exitosamente...
                             string SELECT = ds.Tables[0].Rows[0][0].ToString();
-                            MessageBox.Show("Factura encontrada exitosamente");
-                            tbnumfactura.Select();
                         }
                         catch
                         {
