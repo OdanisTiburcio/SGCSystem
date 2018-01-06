@@ -31,6 +31,9 @@ namespace CGSystem
         public bool SavedTipoFacturaCrédito = false;
         public string CódigoDetalleElim;
         public bool FacturaModificadaGuardada = true;
+        public int ModDiasARestar = 0;
+        public int ModDiasASumar = 0;
+        public bool cargandofactura = false;
 
         //Clases Reutilizables
         operacion oper = new operacion();
@@ -102,14 +105,14 @@ namespace CGSystem
             }
             catch
             {
-                MessageBox.Show("Indique una cantidad válida para el detalle No.: "+ (ErrorControler+1) .ToString()+"...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Indique una cantidad válida para el detalle No.: " + (ErrorControler + 1).ToString() + "...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dgvListaServicios.Rows[ErrorControler].Cells[5].Value = "1";
             }
-
         }
 
         private void Facturación_Load(object sender, EventArgs e)
         {
+            cargandofactura = true;
             ////string test1 = oper.SumarAlaFecha("2017-07-12", 55);
             //ds = oper.ConsultaConResultado("SELECT fin_periodo FROM cliente WHERE numero_cliente = '2';");
             //string FinPeriodoAnterior = ds.Tables[0].Rows[0][0].ToString();
@@ -127,6 +130,7 @@ namespace CGSystem
 
         public void AñadirServicioSeleccionado()
         {
+            cargandofactura = true;
             if (modificandofactura)
             {
                 //Con este método se va a añadir a la factura el servicio buscado y seleccionado (En estado de Modificación de Factura)
@@ -160,6 +164,7 @@ namespace CGSystem
                 dgvListaServicios.Rows[NuevaFila].Cells[5].Value = "1"; //Asignar cantidad 1 como predeterminada...
                 Actualizar();
             }
+            cargandofactura = false;
         }
 
         private void tbproducto_KeyUp(object sender, KeyEventArgs e)
@@ -254,6 +259,25 @@ namespace CGSystem
             {
                 //Código de la Columna que está siendo eliminada actualmente
                 CódigoDetalleElim = dgvListaServicios.CurrentRow.Cells[0].Value.ToString();
+
+                bool EsViejo = true;
+                for (int i = 0; i < 100; i++)
+                {
+                    if (PlusModificando[i] == CódigoDetalleElim)
+                    {
+                        EsViejo = false;
+                        i = 101;
+                    }
+                    else
+                    {
+
+                    }
+                }
+                if (EsViejo)
+                {
+                    ModDiasARestar += (Convert.ToInt32(dgvListaServicios.CurrentRow.Cells[4].Value) * Convert.ToInt32(dgvListaServicios.CurrentRow.Cells[5].Value)); //Dias que se restaran al guardar la factura...
+                }
+
                 dgvListaServicios.Rows.RemoveAt(this.dgvListaServicios.SelectedRows[0].Index);
             }
             catch
@@ -283,9 +307,47 @@ namespace CGSystem
 
         private void dgvListaServicios_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            
             if (!Actualizando) //Comprobar que no se esté actualizando ya...
             {
+                Actualizando = true;
+                if (modificandofactura && !cargandofactura)
+                {
+                    int indexer = dgvListaServicios.CurrentCell.RowIndex;
+                    CódigoDetalleElim = dgvListaServicios.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    bool EsViejo = true;
+                    for (int i = 0; i < 100; i++)
+                    {
+                        if (PlusModificando[i] == CódigoDetalleElim)
+                        {
+                            EsViejo = false;
+                            i = 101;
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                    if (EsViejo)
+                    {
+                        NuevaFila = dgvListaServicios.RowCount; //Escribir sobre la última fila mas uno(+1)...
+
+                        dgvListaServicios.Rows.Add();
+                        for (int k = 0; k < 5; k++)
+                        {
+                            dgvListaServicios.Rows[NuevaFila].Cells[k + 1].Value = dgvListaServicios.Rows[e.RowIndex].Cells[k + 1].Value.ToString();
+                        }
+                        PlusModificando[CountPlus] = (SavedRowCount + CountPlus + 1).ToString();
+                        dgvListaServicios.Rows[NuevaFila].Cells[0].Value = PlusModificando[CountPlus]; //Asignar la numeración adecuada, tomando las consideraciones...
+                        CountPlus++;
+                        Actualizar();
+                        dgvListaServicios.Rows.RemoveAt(e.RowIndex);
+                    }
+                }
+                else { }
+
                 Actualizar();
+                Actualizando = false;
             }
             else
             {
@@ -346,6 +408,8 @@ namespace CGSystem
                 CountDown = 0;
                 CountPlus = 0;
                 SavedRowCount = 0;
+                ModDiasARestar = 0;
+                ModDiasASumar = 0;
 
 
                 //Vaciar todo y dejar la factura como nueva...
@@ -387,9 +451,114 @@ namespace CGSystem
         {
             if (modificandofactura)
             {
+                //Comprobar que existan cambios en la factura...
 
-                FacturaModificadaGuardada = true;
-                CerrarFactura();
+                if (dgvListaServicios.RowCount != SavedRowCount || tbidcliente.Text != SavedIdCliente || SavedTipoFacturaCrédito != rdCredito.Checked)
+                {
+                    //Continuar...
+                }
+                else
+                {
+                    MessageBox.Show("No hay cambios para guardar en esta factura...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return;
+                }
+
+                //Confirmar que hay un cliente seleccionado
+                if (tbidcliente.Text == "" && tbcliente.Text == "Cliente")
+                {
+                    BuscarCliente();
+                    if (tbidcliente.Text == "" && tbcliente.Text == "Cliente")
+                    {
+                        MessageBox.Show("Debe seleccionar un cliente para poder procesar los servicios", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return;
+                    }
+                    else { }
+                }
+                else { }
+
+                try
+                {
+                    //Método para realizar el guardado de la factura modificada...
+
+                    //Actualizar DataGridView para Corroborar los valores...
+                    Actualizar();
+
+                    //Establecer si es a Crédito o al Contado
+                    TipoFactura = SaberTipoFactura();
+
+                    //Obtener el código del tipo de factura actual
+                    ds = oper.ConsultaConResultado("SELECT codigo_tipo_factura FROM tipo_factura WHERE descripcion_tipo_factura = '" + TipoFactura + "';");
+                    TipoFactura = ds.Tables[0].Rows[0][0].ToString();
+
+                    //Primero Actualizamos la cabecera de la factura
+                    oper.ConsultaSinResultado("UPDATE cabecera_factura SET id_tipo_factura = '" + TipoFactura + "', id_cliente = '" + IdCliente + "', " +
+                        "total = '" + TotalFactura.ToString() + "' WHERE id_factura = '" + NumeroDeFactura + "';");
+
+                    DiasASumar = 0;
+
+                    //Ahora insertamos los detalles añadidos...
+                    for (int i = 0; i < CountPlus; i++)
+                    {
+                        codigodetalle = dgvListaServicios.Rows[i].Cells[0].Value.ToString(); //Numeracion de la actual...
+
+                        //Verificar que la fila analizada sea del grupo de las añadidas
+                        for (int k = 0; k < 100; k++)
+                        {
+                            if (PlusModificando[k] == codigodetalle)
+                            {
+                                codigo = dgvListaServicios.Rows[i].Cells[1].Value.ToString();
+                                descripcion = dgvListaServicios.Rows[i].Cells[2].Value.ToString();
+                                precio = dgvListaServicios.Rows[i].Cells[3].Value.ToString();
+                                dias = dgvListaServicios.Rows[i].Cells[4].Value.ToString();
+                                cantidad = dgvListaServicios.Rows[i].Cells[5].Value.ToString();
+                                total = dgvListaServicios.Rows[i].Cells[6].Value.ToString();
+
+                                oper.ConsultaSinResultado("INSERT INTO detalle_factura (id_detalle, id_factura, codigo, descripcion, precio, dias, cantidad, total, estado) " +
+                                    "VALUES ('" + codigodetalle + "', '" + NumeroDeFactura + "', '" + codigo + "', '" + descripcion + "', '" + precio + "'" +
+                                    ", '" + dias + "', '" + cantidad + "', '" + total + "', 'ACTIVO');");
+
+                                k = 101;
+                                ModDiasASumar += (Convert.ToInt32(dias) * Convert.ToInt32(cantidad)); //Solo se sumaran los dias añadidos nuevos 
+                            }
+                            else
+                            {
+
+                            }
+                        }
+                    }
+
+                    //Ahora Desactivamos los detalles eliminados...
+                    for (int i = 0; i < CountDown; i++)
+                    {
+                        oper.ConsultaSinResultado("UPDATE detalle_factura SET estado = 'DESACTIVADO' WHERE detalle_factura.id_detalle = '" + EliminadosModificando[i] + "' AND detalle_factura.id_factura = '" + NumeroDeFactura + "';");
+                    }
+
+                    if (rdCredito.Checked)//Si la factura es a crédito, generar una cuenta por cobrar de la factura actual al cliente correspondiente...
+                    {
+                        GenerarCXC(); //Actualizar el cxc...
+                    }
+                    else
+                    {
+                        if (SavedTipoFacturaCrédito) //Si la factura anteriormente era a credito; desactivar la cuenta por cobrar anteriormente generada...
+                        {
+                            oper.ConsultaSinResultado("UPDATE cxc SET estado_cxc = 'DESACTIVADO' WHERE id_factura = '" + NumeroDeFactura + "';");
+                        }
+                        else
+                        {
+
+                        }
+                    }
+
+                    MessageBox.Show("Dias a sumar: " + ModDiasASumar.ToString() + ". Y los dias a restar son: " + ModDiasARestar.ToString());
+                    ActualizarPeriodoDeClienteModificado();//Sumarle los días facturados a la membresía del cliente y restarle los eliminados.
+                    FacturaModificadaGuardada = true;
+                    CerrarFactura(); //Método para activar y desactivar los botonoes necesarios hasta la próxima factura...
+                }
+                catch
+                {
+                    MessageBox.Show("Hubo un error al tratar de guardar la factura modificada, contacte al " +
+                        "encargado de mantenimiento del sistema, disculpe los inconvenientes...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
 
             }
             else
@@ -492,8 +661,26 @@ namespace CGSystem
         {
             try
             {
-                oper.ConsultaSinResultado("INSERT INTO cxc (id_factura, total_factura, restante, estado_cxc) VALUES ('" + NumeroDeFactura + "'," +
-                    "'" + TotalFactura.ToString() + "', '" + TotalFactura.ToString() + "', 'ACTIVO');");
+                if (modificandofactura)
+                {
+                    if (SavedTipoFacturaCrédito)//Si la factura era a credito, actualizar...
+                    {
+                        ds = oper.ConsultaConResultado("SELECT total_factura, restante FROM cxc WHERE id_factura = '" + NumeroDeFactura + "';");
+                        double Diferencia = Convert.ToDouble(ds.Tables[0].Rows[0][0]) - Convert.ToDouble(ds.Tables[0].Rows[0][1]);
+                        string Restante = (TotalFactura - Convert.ToDouble(Diferencia)).ToString();
+                        oper.ConsultaSinResultado("UPDATE cxc SET total_factura = '" + TotalFactura.ToString() + "', restante = '" + Restante + "' WHERE id_factura = '" + NumeroDeFactura + "';");
+                    }
+                    else //Si era al contado, generar cuenta por cobrar nueva...
+                    {
+                        oper.ConsultaSinResultado("INSERT INTO cxc (id_factura, total_factura, restante, estado_cxc) VALUES ('" + NumeroDeFactura + "'," +
+                        "'" + TotalFactura.ToString() + "', '" + TotalFactura.ToString() + "', 'ACTIVO');");
+                    }
+                }
+                else
+                {
+                    oper.ConsultaSinResultado("INSERT INTO cxc (id_factura, total_factura, restante, estado_cxc) VALUES ('" + NumeroDeFactura + "'," +
+                        "'" + TotalFactura.ToString() + "', '" + TotalFactura.ToString() + "', 'ACTIVO');");
+                }
             }
             catch
             {
@@ -530,8 +717,27 @@ namespace CGSystem
                 MessageBox.Show("Hubo un error al generar el mantenimiento al periodo del cliente, contacte al servicio técnico...", "Error");
             }
 
+        }
+
+        public void ActualizarPeriodoDeClienteModificado()
+        {
+            try
+            {
+
+                //Sumar los días añadidos al fin de periodo del cliente
+                ds = oper.ConsultaConResultado("SELECT strftime('%Y-%m-%d', fin_periodo) FROM cliente WHERE numero_cliente = '" + IdCliente + "';");
+                string FinPeriodoAnterior = ds.Tables[0].Rows[0][0].ToString();
+                string FechaFinPeriodo = oper.SumarAlaFecha(FinPeriodoAnterior, DiasASumar);
+                oper.ConsultaSinResultado("UPDATE cliente SET fin_periodo = '" + FechaFinPeriodo + "' WHERE numero_cliente = '" + IdCliente + "';");
+
+            }
+            catch
+            {
+                MessageBox.Show("Hubo un error al generar el mantenimiento al periodo del cliente, contacte al servicio técnico...", "Error");
+            }
 
         }
+
 
         public void CerrarFactura()
         {
@@ -643,6 +849,7 @@ namespace CGSystem
         {
 
             //Cargar la factura seleccionada
+            cargandofactura = true;
 
             //Cargar el detalle
             ds = oper.ConsultaConResultado("SELECT id_detalle, codigo, descripcion, precio, dias, cantidad, total FROM detalle_factura WHERE detalle_factura.id_factura = '" + FacturaModificarNum.ToString() + "' AND detalle_factura.estado = 'ACTIVO';");
@@ -674,6 +881,7 @@ namespace CGSystem
             }
 
             SavedIdCliente = ds.Tables[0].Rows[0][2].ToString();
+            IdCliente = SavedIdCliente;
             tbidcliente.Text = SavedIdCliente;
 
             //Buscar el nombre
@@ -688,8 +896,9 @@ namespace CGSystem
                 MessageBox.Show("El cliente al que pertenecía esta factura fue eliminado", "Aviso", MessageBoxButtons.AbortRetryIgnore, MessageBoxIcon.Information);
             }
 
+            NumeroDeFactura = FacturaModificarNum.ToString();
             Actualizar();
-
+            cargandofactura = false;
         }
 
         private void dgvListaServicios_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
@@ -698,6 +907,25 @@ namespace CGSystem
             {
                 //Código de la Columna que está siendo eliminada actualmente
                 CódigoDetalleElim = dgvListaServicios.CurrentRow.Cells[0].Value.ToString();
+
+                bool EsViejo = true;
+                for (int i = 0; i < 100; i++)
+                {
+                    if (PlusModificando[i] == CódigoDetalleElim)
+                    {
+                        EsViejo = false;
+                        i = 101;
+                    }
+                    else
+                    {
+
+                    }
+                }
+                if (EsViejo)
+                {
+                    ModDiasARestar += (Convert.ToInt32(dgvListaServicios.CurrentRow.Cells[4].Value) * Convert.ToInt32(dgvListaServicios.CurrentRow.Cells[5].Value)); //Dias que se restaran al guardar la factura...
+                }
+                
             }
             catch
             {
@@ -744,59 +972,83 @@ namespace CGSystem
         {
             try
             {
-                if (dgvListaServicios.RowCount > 0)
+
+                dgvListaServicios.Refresh();
+                //Cuando se está eliminando un detalle (anotarlo para guardarlo...)
+                if (modificandofactura)
                 {
-
-                    dgvListaServicios.Refresh();
-                    //Cuando se está eliminando un detalle (anotarlo para guardarlo...)
-                    if (modificandofactura)
+                    //Comprobar que el servicio eliminado no es uno de los añadidos actualmente 
+                    //En caso de serlo, no habría que hacer ningún cambio...
+                    bool EsActual = false;
+                    for (int i = 0; i < 100; i++)
                     {
-                        //Comprobar que el servicio eliminado no es uno de los añadidos actualmente 
-                        //En caso de serlo, no habría que hacer ningún cambio...
-                        bool EsActual = false;
-                        for (int i = 0; i < 100; i++)
+                        if (PlusModificando[i] == CódigoDetalleElim)
                         {
-                            if (PlusModificando[i] == CódigoDetalleElim)
-                            {
-                                EsActual = true;
-                                i = 101;
-                            }
-                            else
-                            {
-
-                            }
-                        }
-
-                        if (EsActual)
-                        {
-                            CountPlus--;
-
-                            int Filas = dgvListaServicios.RowCount - 1; //Obtener la cantidad de filas actuales
-                            int Numerador = SavedRowCount + 1;
-                            int NewContador = CountPlus;
-
-                            //Actualizarle la numeración a las adiciones actuales
-                            for (int i = 0; i < CountPlus; i++)
-                            {
-                                PlusModificando[i] = (Numerador).ToString();
-                                dgvListaServicios.Rows[Filas - NewContador].Cells[0].Value = Numerador.ToString();
-                                Numerador++;
-                                NewContador--;
-                            }
+                            EsActual = true;
+                            i = 101;
                         }
                         else
                         {
-                            EliminadosModificando[CountDown] = CódigoDetalleElim;
-                            CountDown++;
+
                         }
+                    }
+
+                    if (EsActual)
+                    {
+                        CountPlus--;
+
+                        int Filas = dgvListaServicios.RowCount; //Obtener la cantidad de filas actuales
+                        int Numerador = SavedRowCount + 1;
+                        string[] NuevoCounterNewContador = PlusModificando;
+                        int Contador = 0;
+                        EsActual = false;
+                        int CodigoEliminando = Convert.ToInt32(CódigoDetalleElim);
+                        int Valuefilaactual = 0;
+
+                        //Actualizarle la numeración a las adiciones actuales
+                        for (int i = 0; i < Filas; i++)
+                        {
+                            Valuefilaactual = Convert.ToInt32(dgvListaServicios.Rows[i].Cells[0].Value);
+
+                            for (int k = 0; k < 100; k++)
+                            {
+                                if (Valuefilaactual.ToString() == PlusModificando[k])
+                                {
+                                    //Agregar valores al Array
+                                    NuevoCounterNewContador[Contador] = (Numerador).ToString();
+                                    Numerador++;
+                                    Contador++;
+
+                                    if (Valuefilaactual < CodigoEliminando)
+                                    {
+                                        //Dejar igual...
+                                    }
+                                    else
+                                    {
+                                        //De lo contrario restar uno y asignar...
+                                        dgvListaServicios.Rows[i].Cells[0].Value = (Valuefilaactual - 1).ToString();
+                                    }
+                                    k = 101;
+                                }
+                                else
+                                {
+
+                                }
+                            }
+                        }
+                        PlusModificando = NuevoCounterNewContador;
                     }
                     else
                     {
-
+                        EliminadosModificando[CountDown] = CódigoDetalleElim;
+                        CountDown++;
                     }
-                    FacturaModificadaGuardada = false;
                 }
-                else { }
+                else
+                {
+
+                }
+                FacturaModificadaGuardada = false;
             }
             catch
             {

@@ -2,12 +2,79 @@
 <NewDataSet>
   <Table>
     <id_detalle>1</id_detalle>
-    <id_factura>35</id_factura>
+    <id_factura>8</id_factura>
+    <codigo>1</codigo>
+    <descripcion>UN DIA DE USO</descripcion>
+    <precio>40</precio>
+    <dias>1</dias>
+    <cantidad>5</cantidad>
+    <total>200</total>
+    <estado>DESACTIVADO</estado>
+  </Table>
+  <Table>
+    <id_detalle>2</id_detalle>
+    <id_factura>8</id_factura>
     <codigo>2</codigo>
     <descripcion>DOS DIAS DE USO</descripcion>
     <precio>80</precio>
     <dias>2</dias>
+    <cantidad>3</cantidad>
+    <total>240</total>
+    <estado>DESACTIVADO</estado>
+  </Table>
+  <Table>
+    <id_detalle>3</id_detalle>
+    <id_factura>8</id_factura>
+    <codigo>2</codigo>
+    <descripcion>DOS DIAS DE USO</descripcion>
+    <precio>80</precio>
+    <dias>2</dias>
+    <cantidad>2</cantidad>
+    <total>160</total>
+    <estado>DESACTIVADO</estado>
+  </Table>
+  <Table>
+    <id_detalle>4</id_detalle>
+    <id_factura>8</id_factura>
+    <codigo>1</codigo>
+    <descripcion>UN DIA DE USO</descripcion>
+    <precio>40</precio>
+    <dias>1</dias>
     <cantidad>1</cantidad>
-    <total>80</total>
+    <total>40</total>
+    <estado>ACTIVO</estado>
+  </Table>
+  <Table>
+    <id_detalle>5</id_detalle>
+    <id_factura>8</id_factura>
+    <codigo>4</codigo>
+    <descripcion>QUINCE DIAS</descripcion>
+    <precio>300</precio>
+    <dias>15</dias>
+    <cantidad>1</cantidad>
+    <total>300</total>
+    <estado>ACTIVO</estado>
+  </Table>
+  <Table>
+    <id_detalle>6</id_detalle>
+    <id_factura>8</id_factura>
+    <codigo>4</codigo>
+    <descripcion>QUINCE DIAS</descripcion>
+    <precio>300</precio>
+    <dias>15</dias>
+    <cantidad>1</cantidad>
+    <total>300</total>
+    <estado>ACTIVO</estado>
+  </Table>
+  <Table>
+    <id_detalle>7</id_detalle>
+    <id_factura>8</id_factura>
+    <codigo>4</codigo>
+    <descripcion>QUINCE DIAS</descripcion>
+    <precio>300</precio>
+    <dias>15</dias>
+    <cantidad>1</cantidad>
+    <total>300</total>
+    <estado>ACTIVO</estado>
   </Table>
 </NewDataSet>
