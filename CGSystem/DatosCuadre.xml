@@ -1,9 +1,9 @@
 <?xml version="1.0" standalone="yes"?>
 <NewDataSet>
   <Table1>
-    <Column1>Enero</Column1>
-    <Column2>760</Column2>
-    <Column3>5760</Column3>
-    <Column4>RD$ 6520</Column4>
+    <Column1>2018-01-06 / 2018-01-06</Column1>
+    <Column2>7000</Column2>
+    <Column3>0</Column3>
+    <Column4>RD$ 7000</Column4>
   </Table1>
 </NewDataSet>
