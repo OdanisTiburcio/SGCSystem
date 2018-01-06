@@ -21,6 +21,7 @@ namespace CGSystem
         public static bool Logeado = false; //Para confirmar que la sesión esté iniciada
         public static bool SalirDelSistema = false;
         public static int TipoUsuario = 0; //usuario 1 igual a administrador y usuario 2 igual a empleado...
+        public string estadoreporte;
 
         //Clases Reutilizables
         operacion oper = new operacion();
@@ -30,6 +31,8 @@ namespace CGSystem
         public MenuPrincipal()
         {
             InitializeComponent();
+            ds = oper.ConsultaConResultado("SELECT mostrar_reporte FROM reporte_vencidos WHERE id_reporte = '1'");
+            estadoreporte = ds.Tables[0].Rows[0][0].ToString();
         }
 
         public void Actualizar()
@@ -53,7 +56,7 @@ namespace CGSystem
                 else { }
 
                 //Desactivar los Campos para usuarios específicos...
-                if(TipoUsuario == 1) //Administrador
+                if (TipoUsuario == 1) //Administrador
                 {
                     //Activar
                     consultasToolStripMenuItem.DropDownItems[3].Enabled = true;
@@ -112,7 +115,6 @@ namespace CGSystem
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
-
             Actualizar();
             if (SalirDelSistema)
             {
@@ -121,9 +123,17 @@ namespace CGSystem
             else
             {
             }
-
-            MostrarCLientesVencidos();
-
+            //DataSet dt = new DataSet();
+            //dt = oper.ConsultaConResultado("SELECT mostrar_reporte FROM reporte_vencidos WHERE id_reporte = '1'");
+            //estadoreporte = dt.Tables[0].Rows[0][0].ToString();
+            if (estadoreporte == "si")
+            {
+                MostrarCLientesVencidos();
+            }
+            else
+            {
+                return;
+            }
         }
 
         private void facturarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -232,7 +242,8 @@ namespace CGSystem
                     SalirDelSistema = true;
                     this.Close();
                 }
-            }else
+            }
+            else
             {
                 this.Close();
             }
@@ -285,6 +296,36 @@ namespace CGSystem
         {
             Form f = new MantenimientoUsuario();
             f.ShowDialog();
+        }
+
+        private void reporteVencidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //string mostrar;
+            //string obviar;
+            //if(estadoreporte == "si")
+            //{
+                DialogResult Result = MessageBox.Show("Reporte de clientes activos con servicios vencidos." + Environment.NewLine+""+ Environment.NewLine + "¿Desea mostrar este reporte cada ocasión al iniciar el sistema?", "Aviso!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (Result == DialogResult.Yes)
+                    {
+                    oper.ConsultaSinResultado("UPDATE reporte_vencidos SET mostrar_reporte = 'si' WHERE id_reporte = '1'");
+                }
+                else
+                {
+                    oper.ConsultaSinResultado("UPDATE reporte_vencidos SET mostrar_reporte = 'no' WHERE id_reporte = '1'");
+                }
+            //}
+            //else
+            //{
+            //    DialogResult Result = MessageBox.Show("Tome en cuenta que en este momento el reporte no se mostrará al iniciar sesión." + Environment.NewLine + "" + Environment.NewLine + "¿Desea mostrar este reporte la próxima ocasión que inicie el sistema?", "Aviso!", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //    if (Result == DialogResult.Yes)
+            //    //{
+            //        oper.ConsultaSinResultado("UPDATE reporte_vencidos SET mostrar_reporte = 'si' WHERE id_reporte = '1'");
+            //    //}
+            //    //else
+            //    //{
+            //    //    oper.ConsultaSinResultado("UPDATE reporte_vencidos SET mostrar_reporte = 'no' WHERE id_reporte = '1'");
+            //    //}
+            //}               
         }
     }
 }

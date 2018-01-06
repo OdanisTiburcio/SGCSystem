@@ -12,4 +12,10 @@
     <descripcion_tipo_factura>CONTADO</descripcion_tipo_factura>
     <total>300</total>
   </Table>
+  <Table>
+    <id_factura>37</id_factura>
+    <id_tipo_factura>2</id_tipo_factura>
+    <descripcion_tipo_factura>CREDITO</descripcion_tipo_factura>
+    <total>2880</total>
+  </Table>
 </NewDataSet>
