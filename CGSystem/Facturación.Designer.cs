@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btneliminiar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -284,7 +284,8 @@
             this.dgvListaServicios.Size = new System.Drawing.Size(508, 319);
             this.dgvListaServicios.TabIndex = 148;
             this.dgvListaServicios.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaServicios_CellValueChanged);
-            this.dgvListaServicios.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvListaServicios_UserDeletedRow);
+            this.dgvListaServicios.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvListaServicios_RowsAdded);
+            this.dgvListaServicios.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvListaServicios_RowsRemoved);
             this.dgvListaServicios.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgvListaServicios_UserDeletingRow);
             // 
             // pictureBox1
@@ -347,17 +348,17 @@
             // 
             // iddetalle
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iddetalle.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iddetalle.DefaultCellStyle = dataGridViewCellStyle17;
             this.iddetalle.HeaderText = "#";
             this.iddetalle.Name = "iddetalle";
             this.iddetalle.Width = 25;
             // 
             // cedula
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.cedula.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.cedula.DefaultCellStyle = dataGridViewCellStyle18;
             this.cedula.HeaderText = "Código";
             this.cedula.Name = "cedula";
             this.cedula.ReadOnly = true;
