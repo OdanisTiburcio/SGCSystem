@@ -243,5 +243,94 @@ namespace CGSystem
             return fechasumada;
         }
 
+
+        public string RestarALaFecha(string fecha, int diasarestar)
+        {
+            string fecharestada = fecha;
+            //Método para quitarle las Sumarle dias a una fecha (0, 10 = ejemplo: "2017-12-07")
+            int año = Convert.ToInt32(fecha.Substring(0, 4));
+            int mes = Convert.ToInt32(fecha.Substring(5, 2));
+            int dia = Convert.ToInt32(fecha.Substring(8, 2));
+
+            for (int i = 0; i < diasarestar; i++)
+            {
+                if (mes == 3)
+                {
+                    if ((año % 4) == 0)//Año bisiesto de 29 días
+                    {
+                        if (dia == 1)
+                        {
+                            mes--;//reduce un mes
+                            dia = 29;
+
+                        }
+                        else
+                        {
+                            dia--;//Solo deruce un día
+                        }
+                    }
+                    else //año normal de 28 días
+                    {
+                        if (dia == 1)
+                        {
+                            mes--;//reduce un mes
+                            dia = 28;
+                        }
+                        else
+                        {
+                            dia++;//Solo reduce un día
+                        }
+                    }
+                }
+                else
+                {
+                    if (mes == 1 || mes == 2 || mes == 4 || mes == 6 || mes == 8 || mes == 9 || mes == 11) //Meses anteriores a los de 31 días
+                    {
+                        if (dia == 1)
+                        {
+                            if (mes == 1)
+                            {
+                                año--;//reduce un año
+                                mes = 12;
+                                dia = 31;
+                            }
+                            else
+                            {
+                                mes--;//reduce un mes
+                                dia = 31;
+                            }
+                        }
+                        else
+                        {
+                            dia--;//Solo reduce un día
+                        }
+                    }
+                    else
+                    {
+                        //Meses Anteriores de 30 días
+                        if (dia == 1)
+                        {
+                            mes--;//Reduce un mes
+                            dia = 30;
+                        }
+                        else
+                        {
+                            dia--;//Solo reduce un día
+                        }
+                    }
+                }
+            }
+
+            //Formatear fecha a tipo DATE
+            string Mmes;
+            string Ddia;
+
+            if (mes < 10) { Mmes = "0" + mes.ToString(); } else { Mmes = mes.ToString(); }
+            if (dia < 10) { Ddia = "0" + dia.ToString(); } else { Ddia = dia.ToString(); }
+            fecharestada = año.ToString() + "-" + Mmes + "-" + Ddia;
+
+            return fecharestada;
+        }
+
     }
 }
