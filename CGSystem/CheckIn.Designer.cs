@@ -228,12 +228,11 @@
             this.Controls.Add(this.tbnombre);
             this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.btbuscar);
-            this.Enabled = false;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CheckIn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CheckIn";
+            this.Text = "Check - In";
             this.Load += new System.EventHandler(this.CheckIn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ptbfotoempleado)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btbuscar)).EndInit();

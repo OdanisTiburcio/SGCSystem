@@ -96,6 +96,10 @@ namespace CGSystem
             {
 
             }
+            cbdepartamento.Text = "";
+            cbciudad.Text = "";
+            cbposicion.Text = "";
+            cbsector.Text = "";
         }
 
         public bool ReadOnly { get; set; }

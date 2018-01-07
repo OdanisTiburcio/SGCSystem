@@ -81,7 +81,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(401, 133);
+            this.ClientSize = new System.Drawing.Size(401, 132);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.tbnumfactura);
@@ -92,7 +92,7 @@
             this.MinimumSize = new System.Drawing.Size(417, 171);
             this.Name = "SeleccionarNumeroDeFactura";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SeleccionarNumeroDeFactura";
+            this.Text = "Seleccionar Factura";
             this.Load += new System.EventHandler(this.SeleccionarNumeroDeFactura_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
