@@ -22,7 +22,7 @@ namespace CGSystem
 
         private void CheckIn_Load(object sender, EventArgs e)
         {
-            Buscar();
+            
         }
 
         private void btbuscar_Click(object sender, EventArgs e)

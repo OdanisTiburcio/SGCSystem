@@ -251,8 +251,6 @@ namespace CGSystem
 
         private void facturarToolStripMenuItem_Click_1(object sender, EventArgs e)
         {
-            CheckIn f = new CheckIn();
-            f.Show();
         }
 
         private void cuadreCajaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -309,6 +307,12 @@ namespace CGSystem
             {
                 oper.ConsultaSinResultado("UPDATE reporte_vencidos SET mostrar_reporte = 'no' WHERE id_reporte = '1'");
             }
+        }
+
+        private void tsmcheckin_Click(object sender, EventArgs e)
+        {
+            CheckIn f = new CheckIn();
+            f.Show();
         }
     }
 }

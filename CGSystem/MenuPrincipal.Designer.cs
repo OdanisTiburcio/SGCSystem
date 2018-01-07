@@ -49,6 +49,7 @@
             this.sectoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.posicionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reporteVencidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cerrarSesiónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -56,7 +57,6 @@
             this.btncheckin = new System.Windows.Forms.Button();
             this.btnlistaclientes = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.reporteVencidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -93,7 +93,7 @@
             this.tsmcheckin.Name = "tsmcheckin";
             this.tsmcheckin.Size = new System.Drawing.Size(175, 22);
             this.tsmcheckin.Text = "Check-In";
-            this.tsmcheckin.Click += new System.EventHandler(this.facturarToolStripMenuItem_Click_1);
+            this.tsmcheckin.Click += new System.EventHandler(this.tsmcheckin_Click);
             // 
             // facturarToolStripMenuItem1
             // 
@@ -245,6 +245,14 @@
             this.usuariosToolStripMenuItem.Text = "Usuarios";
             this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
+            // reporteVencidosToolStripMenuItem
+            // 
+            this.reporteVencidosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reporteVencidosToolStripMenuItem.Image")));
+            this.reporteVencidosToolStripMenuItem.Name = "reporteVencidosToolStripMenuItem";
+            this.reporteVencidosToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
+            this.reporteVencidosToolStripMenuItem.Text = "Reporte Vencidos";
+            this.reporteVencidosToolStripMenuItem.Click += new System.EventHandler(this.reporteVencidosToolStripMenuItem_Click);
+            // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("ayudaToolStripMenuItem.Image")));
@@ -318,14 +326,6 @@
             this.button1.Text = "Vencidos";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // reporteVencidosToolStripMenuItem
-            // 
-            this.reporteVencidosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("reporteVencidosToolStripMenuItem.Image")));
-            this.reporteVencidosToolStripMenuItem.Name = "reporteVencidosToolStripMenuItem";
-            this.reporteVencidosToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
-            this.reporteVencidosToolStripMenuItem.Text = "Reporte Vencidos";
-            this.reporteVencidosToolStripMenuItem.Click += new System.EventHandler(this.reporteVencidosToolStripMenuItem_Click);
             // 
             // MenuPrincipal
             // 

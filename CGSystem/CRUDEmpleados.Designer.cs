@@ -33,9 +33,9 @@
             this.btneliminarempleado = new System.Windows.Forms.Button();
             this.btnactualizarempleado = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tbcelularempleado = new System.Windows.Forms.TextBox();
+            this.tbcelularempleado = new System.Windows.Forms.MaskedTextBox();
+            this.tbtelefonoempleado = new System.Windows.Forms.MaskedTextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.tbtelefonoempleado = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tbdireccionempleado = new System.Windows.Forms.TextBox();
@@ -44,11 +44,11 @@
             this.cbsector = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbcedulaempleado = new System.Windows.Forms.MaskedTextBox();
             this.cbsexoempleado = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dtpnacimientoempleado = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.tbcedulaempleado = new System.Windows.Forms.TextBox();
             this.tbapellidoempleado = new System.Windows.Forms.TextBox();
             this.tbnumeroempleado = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -102,7 +102,7 @@
             // 
             this.btneliminarempleado.BackColor = System.Drawing.Color.Cornsilk;
             this.btneliminarempleado.Font = new System.Drawing.Font("Mistral", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btneliminarempleado.Location = new System.Drawing.Point(576, 266);
+            this.btneliminarempleado.Location = new System.Drawing.Point(518, 263);
             this.btneliminarempleado.Name = "btneliminarempleado";
             this.btneliminarempleado.Size = new System.Drawing.Size(124, 49);
             this.btneliminarempleado.TabIndex = 32;
@@ -115,7 +115,7 @@
             this.btnactualizarempleado.BackColor = System.Drawing.Color.Cornsilk;
             this.btnactualizarempleado.CausesValidation = false;
             this.btnactualizarempleado.Font = new System.Drawing.Font("Mistral", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnactualizarempleado.Location = new System.Drawing.Point(446, 266);
+            this.btnactualizarempleado.Location = new System.Drawing.Point(388, 263);
             this.btnactualizarempleado.Name = "btnactualizarempleado";
             this.btnactualizarempleado.Size = new System.Drawing.Size(124, 49);
             this.btnactualizarempleado.TabIndex = 31;
@@ -126,8 +126,8 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.tbcelularempleado);
-            this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.tbtelefonoempleado);
+            this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Controls.Add(this.tbdireccionempleado);
@@ -135,9 +135,9 @@
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.cbsector);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Location = new System.Drawing.Point(388, 2);
+            this.groupBox2.Location = new System.Drawing.Point(359, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(375, 193);
+            this.groupBox2.Size = new System.Drawing.Size(310, 193);
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Geográficos:";
@@ -145,27 +145,29 @@
             // tbcelularempleado
             // 
             this.tbcelularempleado.Enabled = false;
-            this.tbcelularempleado.Location = new System.Drawing.Point(119, 150);
+            this.tbcelularempleado.Location = new System.Drawing.Point(101, 150);
+            this.tbcelularempleado.Mask = "(###)###-####";
             this.tbcelularempleado.Name = "tbcelularempleado";
-            this.tbcelularempleado.Size = new System.Drawing.Size(100, 20);
-            this.tbcelularempleado.TabIndex = 23;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(123, 134);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(42, 13);
-            this.label13.TabIndex = 22;
-            this.label13.Text = "Celular:";
+            this.tbcelularempleado.Size = new System.Drawing.Size(82, 20);
+            this.tbcelularempleado.TabIndex = 37;
             // 
             // tbtelefonoempleado
             // 
             this.tbtelefonoempleado.Enabled = false;
             this.tbtelefonoempleado.Location = new System.Drawing.Point(10, 150);
+            this.tbtelefonoempleado.Mask = "(###)###-####";
             this.tbtelefonoempleado.Name = "tbtelefonoempleado";
-            this.tbtelefonoempleado.Size = new System.Drawing.Size(100, 20);
-            this.tbtelefonoempleado.TabIndex = 21;
+            this.tbtelefonoempleado.Size = new System.Drawing.Size(82, 20);
+            this.tbtelefonoempleado.TabIndex = 37;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(104, 134);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(42, 13);
+            this.label13.TabIndex = 22;
+            this.label13.Text = "Celular:";
             // 
             // label4
             // 
@@ -191,22 +193,22 @@
             this.tbdireccionempleado.Location = new System.Drawing.Point(10, 41);
             this.tbdireccionempleado.Multiline = true;
             this.tbdireccionempleado.Name = "tbdireccionempleado";
-            this.tbdireccionempleado.Size = new System.Drawing.Size(359, 43);
+            this.tbdireccionempleado.Size = new System.Drawing.Size(289, 43);
             this.tbdireccionempleado.TabIndex = 18;
             // 
             // cbciudad
             // 
             this.cbciudad.Enabled = false;
             this.cbciudad.FormattingEnabled = true;
-            this.cbciudad.Location = new System.Drawing.Point(188, 106);
+            this.cbciudad.Location = new System.Drawing.Point(162, 106);
             this.cbciudad.Name = "cbciudad";
-            this.cbciudad.Size = new System.Drawing.Size(181, 21);
+            this.cbciudad.Size = new System.Drawing.Size(137, 21);
             this.cbciudad.TabIndex = 10;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(194, 89);
+            this.label9.Location = new System.Drawing.Point(165, 89);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(43, 13);
             this.label9.TabIndex = 12;
@@ -218,7 +220,7 @@
             this.cbsector.FormattingEnabled = true;
             this.cbsector.Location = new System.Drawing.Point(10, 106);
             this.cbsector.Name = "cbsector";
-            this.cbsector.Size = new System.Drawing.Size(172, 21);
+            this.cbsector.Size = new System.Drawing.Size(146, 21);
             this.cbsector.TabIndex = 8;
             // 
             // label8
@@ -232,11 +234,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbcedulaempleado);
             this.groupBox1.Controls.Add(this.cbsexoempleado);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.dtpnacimientoempleado);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.tbcedulaempleado);
             this.groupBox1.Controls.Add(this.tbapellidoempleado);
             this.groupBox1.Controls.Add(this.tbnumeroempleado);
             this.groupBox1.Controls.Add(this.label5);
@@ -247,10 +249,19 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox1.Location = new System.Drawing.Point(158, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(224, 193);
+            this.groupBox1.Size = new System.Drawing.Size(196, 193);
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Personales";
+            // 
+            // tbcedulaempleado
+            // 
+            this.tbcedulaempleado.Enabled = false;
+            this.tbcedulaempleado.Location = new System.Drawing.Point(9, 164);
+            this.tbcedulaempleado.Mask = "###-#######-#";
+            this.tbcedulaempleado.Name = "tbcedulaempleado";
+            this.tbcedulaempleado.Size = new System.Drawing.Size(81, 20);
+            this.tbcedulaempleado.TabIndex = 37;
             // 
             // cbsexoempleado
             // 
@@ -259,15 +270,15 @@
             this.cbsexoempleado.Items.AddRange(new object[] {
             "Femenino",
             "Masculino"});
-            this.cbsexoempleado.Location = new System.Drawing.Point(122, 36);
+            this.cbsexoempleado.Location = new System.Drawing.Point(104, 36);
             this.cbsexoempleado.Name = "cbsexoempleado";
-            this.cbsexoempleado.Size = new System.Drawing.Size(98, 21);
+            this.cbsexoempleado.Size = new System.Drawing.Size(81, 21);
             this.cbsexoempleado.TabIndex = 2;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(119, 18);
+            this.label7.Location = new System.Drawing.Point(109, 18);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(34, 13);
             this.label7.TabIndex = 10;
@@ -275,36 +286,29 @@
             // 
             // dtpnacimientoempleado
             // 
+            this.dtpnacimientoempleado.Enabled = false;
             this.dtpnacimientoempleado.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpnacimientoempleado.Location = new System.Drawing.Point(111, 164);
+            this.dtpnacimientoempleado.Location = new System.Drawing.Point(96, 164);
             this.dtpnacimientoempleado.Name = "dtpnacimientoempleado";
-            this.dtpnacimientoempleado.Size = new System.Drawing.Size(109, 20);
+            this.dtpnacimientoempleado.Size = new System.Drawing.Size(89, 20);
             this.dtpnacimientoempleado.TabIndex = 6;
             this.dtpnacimientoempleado.Value = new System.DateTime(2017, 11, 16, 0, 0, 0, 0);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(108, 147);
+            this.label6.Location = new System.Drawing.Point(92, 147);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(96, 13);
             this.label6.TabIndex = 8;
             this.label6.Text = "Fecha Nacimiento:";
-            // 
-            // tbcedulaempleado
-            // 
-            this.tbcedulaempleado.Enabled = false;
-            this.tbcedulaempleado.Location = new System.Drawing.Point(9, 164);
-            this.tbcedulaempleado.Name = "tbcedulaempleado";
-            this.tbcedulaempleado.Size = new System.Drawing.Size(96, 20);
-            this.tbcedulaempleado.TabIndex = 5;
             // 
             // tbapellidoempleado
             // 
             this.tbapellidoempleado.Enabled = false;
             this.tbapellidoempleado.Location = new System.Drawing.Point(9, 120);
             this.tbapellidoempleado.Name = "tbapellidoempleado";
-            this.tbapellidoempleado.Size = new System.Drawing.Size(211, 20);
+            this.tbapellidoempleado.Size = new System.Drawing.Size(176, 20);
             this.tbapellidoempleado.TabIndex = 4;
             // 
             // tbnumeroempleado
@@ -312,7 +316,7 @@
             this.tbnumeroempleado.Enabled = false;
             this.tbnumeroempleado.Location = new System.Drawing.Point(9, 36);
             this.tbnumeroempleado.Name = "tbnumeroempleado";
-            this.tbnumeroempleado.Size = new System.Drawing.Size(96, 20);
+            this.tbnumeroempleado.Size = new System.Drawing.Size(78, 20);
             this.tbnumeroempleado.TabIndex = 1;
             // 
             // label5
@@ -329,7 +333,7 @@
             this.tbnombreempleado.Enabled = false;
             this.tbnombreempleado.Location = new System.Drawing.Point(9, 78);
             this.tbnombreempleado.Name = "tbnombreempleado";
-            this.tbnombreempleado.Size = new System.Drawing.Size(211, 20);
+            this.tbnombreempleado.Size = new System.Drawing.Size(176, 20);
             this.tbnombreempleado.TabIndex = 3;
             // 
             // label2
@@ -363,7 +367,7 @@
             // 
             this.btnguardarempleado.BackColor = System.Drawing.Color.Cornsilk;
             this.btnguardarempleado.Font = new System.Drawing.Font("Mistral", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnguardarempleado.Location = new System.Drawing.Point(576, 211);
+            this.btnguardarempleado.Location = new System.Drawing.Point(518, 208);
             this.btnguardarempleado.Name = "btnguardarempleado";
             this.btnguardarempleado.Size = new System.Drawing.Size(124, 49);
             this.btnguardarempleado.TabIndex = 27;
@@ -385,7 +389,7 @@
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Location = new System.Drawing.Point(6, 201);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(376, 114);
+            this.groupBox3.Size = new System.Drawing.Size(348, 114);
             this.groupBox3.TabIndex = 35;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos Organizacionales:";
@@ -394,15 +398,15 @@
             // 
             this.cbestadoempleado.Enabled = false;
             this.cbestadoempleado.FormattingEnabled = true;
-            this.cbestadoempleado.Location = new System.Drawing.Point(221, 78);
+            this.cbestadoempleado.Location = new System.Drawing.Point(202, 78);
             this.cbestadoempleado.Name = "cbestadoempleado";
-            this.cbestadoempleado.Size = new System.Drawing.Size(149, 21);
+            this.cbestadoempleado.Size = new System.Drawing.Size(135, 21);
             this.cbestadoempleado.TabIndex = 13;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(226, 62);
+            this.label10.Location = new System.Drawing.Point(196, 62);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(43, 13);
             this.label10.TabIndex = 14;
@@ -414,7 +418,7 @@
             this.dtpingresoempleado.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpingresoempleado.Location = new System.Drawing.Point(106, 78);
             this.dtpingresoempleado.Name = "dtpingresoempleado";
-            this.dtpingresoempleado.Size = new System.Drawing.Size(109, 20);
+            this.dtpingresoempleado.Size = new System.Drawing.Size(90, 20);
             this.dtpingresoempleado.TabIndex = 8;
             this.dtpingresoempleado.Value = new System.DateTime(2017, 11, 16, 23, 30, 50, 0);
             // 
@@ -449,9 +453,9 @@
             // 
             this.cbposicion.Enabled = false;
             this.cbposicion.FormattingEnabled = true;
-            this.cbposicion.Location = new System.Drawing.Point(207, 36);
+            this.cbposicion.Location = new System.Drawing.Point(193, 36);
             this.cbposicion.Name = "cbposicion";
-            this.cbposicion.Size = new System.Drawing.Size(163, 21);
+            this.cbposicion.Size = new System.Drawing.Size(144, 21);
             this.cbposicion.TabIndex = 3;
             // 
             // cbdepartamento
@@ -460,7 +464,7 @@
             this.cbdepartamento.FormattingEnabled = true;
             this.cbdepartamento.Location = new System.Drawing.Point(6, 36);
             this.cbdepartamento.Name = "cbdepartamento";
-            this.cbdepartamento.Size = new System.Drawing.Size(195, 21);
+            this.cbdepartamento.Size = new System.Drawing.Size(182, 21);
             this.cbdepartamento.TabIndex = 2;
             // 
             // label14
@@ -495,7 +499,7 @@
             // 
             this.btnnuevoempleado.BackColor = System.Drawing.Color.Cornsilk;
             this.btnnuevoempleado.Font = new System.Drawing.Font("Mistral", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnnuevoempleado.Location = new System.Drawing.Point(447, 211);
+            this.btnnuevoempleado.Location = new System.Drawing.Point(389, 208);
             this.btnnuevoempleado.Name = "btnnuevoempleado";
             this.btnnuevoempleado.Size = new System.Drawing.Size(124, 49);
             this.btnnuevoempleado.TabIndex = 36;
@@ -507,7 +511,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(773, 321);
+            this.ClientSize = new System.Drawing.Size(676, 321);
             this.Controls.Add(this.btnnuevoempleado);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.bncargarfotoempleado);
@@ -546,7 +550,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         public System.Windows.Forms.DateTimePicker dtpnacimientoempleado;
         private System.Windows.Forms.Label label6;
-        public System.Windows.Forms.TextBox tbcedulaempleado;
         public System.Windows.Forms.TextBox tbapellidoempleado;
         public System.Windows.Forms.TextBox tbnumeroempleado;
         private System.Windows.Forms.Label label5;
@@ -573,11 +576,12 @@
         public System.Windows.Forms.Button bncargarfotoempleado;
         public System.Windows.Forms.Button btneliminarempleado;
         public System.Windows.Forms.Button btnactualizarempleado;
-        public System.Windows.Forms.TextBox tbcelularempleado;
-        public System.Windows.Forms.TextBox tbtelefonoempleado;
         public System.Windows.Forms.TextBox tbsueldo;
         public System.Windows.Forms.ComboBox cbposicion;
         public System.Windows.Forms.ComboBox cbdepartamento;
         public System.Windows.Forms.Button btnnuevoempleado;
+        public System.Windows.Forms.MaskedTextBox tbtelefonoempleado;
+        public System.Windows.Forms.MaskedTextBox tbcelularempleado;
+        public System.Windows.Forms.MaskedTextBox tbcedulaempleado;
     }
 }

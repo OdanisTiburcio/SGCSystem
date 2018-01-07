@@ -49,6 +49,8 @@ namespace CGSystem
             DateTime Fechafin = dtpfinfactura.Value;
             string fechafinal = oper.FormatearFecha(dtpfinfactura.Value);
             DataSet ds = new DataSet();
+            try
+            {
             ds = oper.ConsultaConResultado("SELECT codigo_sector FROM sector WHERE descripcion_sector = '" + cbsectorcliente.Text + "'");
             codigosector = ds.Tables[0].Rows[0][0].ToString();
             ds = oper.ConsultaConResultado("SELECT codigo_ciudad FROM ciudad WHERE descripcion_ciudad = '" + cbciudadcliente.Text + "'");
@@ -98,6 +100,11 @@ namespace CGSystem
                 }
             }
             else
+            {
+                MessageBox.Show("Rellene todos los campos...");
+            }
+            }
+            catch
             {
                 MessageBox.Show("Rellene todos los campos...");
             }

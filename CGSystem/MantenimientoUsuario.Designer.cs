@@ -157,7 +157,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "MantenimientoUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Mantenimiento de Usuarios";
+            this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.MantenimientoUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

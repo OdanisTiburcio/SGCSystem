@@ -216,7 +216,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "MantenimientoDeServicios";
-            this.Text = "MantenimientoDeServicios";
+            this.Text = "Servicios";
             this.Load += new System.EventHandler(this.MantenimientoDeServicios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btpsearch)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

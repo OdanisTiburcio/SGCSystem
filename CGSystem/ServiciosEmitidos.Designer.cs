@@ -38,12 +38,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.btbuscar = new System.Windows.Forms.PictureBox();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigoc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btbuscar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.btbuscar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btbuscar)).BeginInit();
@@ -160,17 +160,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(510, 317);
             this.dataGridView1.TabIndex = 80;
             // 
-            // btbuscar
-            // 
-            this.btbuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btbuscar.Image = global::CGSystem.Properties.Resources.lupa_psd_468x468;
-            this.btbuscar.Location = new System.Drawing.Point(376, 40);
-            this.btbuscar.Name = "btbuscar";
-            this.btbuscar.Size = new System.Drawing.Size(53, 30);
-            this.btbuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btbuscar.TabIndex = 75;
-            this.btbuscar.TabStop = false;
-            // 
             // id
             // 
             this.id.Frozen = true;
@@ -213,6 +202,17 @@
             this.total.ReadOnly = true;
             this.total.Width = 150;
             // 
+            // btbuscar
+            // 
+            this.btbuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btbuscar.Image = global::CGSystem.Properties.Resources.lupa_psd_468x468;
+            this.btbuscar.Location = new System.Drawing.Point(376, 40);
+            this.btbuscar.Name = "btbuscar";
+            this.btbuscar.Size = new System.Drawing.Size(53, 30);
+            this.btbuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btbuscar.TabIndex = 75;
+            this.btbuscar.TabStop = false;
+            // 
             // ServiciosEmitidos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -230,7 +230,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btbuscar);
             this.Name = "ServiciosEmitidos";
-            this.Text = "ServiciosEmitidos";
+            this.Text = "Servicios Emitidos";
             ((System.ComponentModel.ISupportInitialize)(this.btbuscar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btbuscar)).EndInit();

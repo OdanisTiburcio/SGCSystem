@@ -36,11 +36,11 @@
             this.btnbuscar = new System.Windows.Forms.Button();
             this.btnagregar = new System.Windows.Forms.Button();
             this.dgvListaServicios = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
             this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sueldobruto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaServicios)).BeginInit();
             this.SuspendLayout();
             // 
@@ -148,16 +148,6 @@
             this.dgvListaServicios.TabIndex = 59;
             this.dgvListaServicios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaServicios_CellDoubleClick);
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Mistral", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 29);
-            this.label1.TabIndex = 65;
-            this.label1.Text = "Clientes";
-            // 
             // cedula
             // 
             this.cedula.HeaderText = "Código";
@@ -186,6 +176,16 @@
             this.cargo.ReadOnly = true;
             this.cargo.Width = 220;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Mistral", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 11);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 29);
+            this.label1.TabIndex = 65;
+            this.label1.Text = "Clientes";
+            // 
             // SeleccionarCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -204,7 +204,7 @@
             this.MinimizeBox = false;
             this.Name = "SeleccionarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SeleccionarCliente";
+            this.Text = "Lista de Clientes";
             this.Load += new System.EventHandler(this.SeleccionarCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaServicios)).EndInit();
             this.ResumeLayout(false);

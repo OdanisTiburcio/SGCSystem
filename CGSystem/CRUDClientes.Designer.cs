@@ -33,7 +33,6 @@
             this.btneliminarcliente = new System.Windows.Forms.Button();
             this.btnactualizarcliente = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tbtelefonocliente = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tbdireccioncliente = new System.Windows.Forms.TextBox();
@@ -44,11 +43,11 @@
             this.cbsectorcliente = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tbcedulacliente = new System.Windows.Forms.MaskedTextBox();
             this.cbsexocliente = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dtpnacimientocliente = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.tbcedulacliente = new System.Windows.Forms.TextBox();
             this.tbapellidocliente = new System.Windows.Forms.TextBox();
             this.tbnumerocliente = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -67,6 +66,7 @@
             this.dtpiniciofactura = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.btnnuevocliente = new System.Windows.Forms.Button();
+            this.tbtelefonocliente = new System.Windows.Forms.MaskedTextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -140,14 +140,6 @@
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Geográficos:";
-            // 
-            // tbtelefonocliente
-            // 
-            this.tbtelefonocliente.Enabled = false;
-            this.tbtelefonocliente.Location = new System.Drawing.Point(10, 148);
-            this.tbtelefonocliente.Name = "tbtelefonocliente";
-            this.tbtelefonocliente.Size = new System.Drawing.Size(100, 20);
-            this.tbtelefonocliente.TabIndex = 21;
             // 
             // label11
             // 
@@ -232,11 +224,11 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.tbcedulacliente);
             this.groupBox1.Controls.Add(this.cbsexocliente);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.dtpnacimientocliente);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.tbcedulacliente);
             this.groupBox1.Controls.Add(this.tbapellidocliente);
             this.groupBox1.Controls.Add(this.tbnumerocliente);
             this.groupBox1.Controls.Add(this.label5);
@@ -251,6 +243,15 @@
             this.groupBox1.TabIndex = 29;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Personales";
+            // 
+            // tbcedulacliente
+            // 
+            this.tbcedulacliente.Enabled = false;
+            this.tbcedulacliente.Location = new System.Drawing.Point(9, 164);
+            this.tbcedulacliente.Mask = "###-#######-#";
+            this.tbcedulacliente.Name = "tbcedulacliente";
+            this.tbcedulacliente.Size = new System.Drawing.Size(96, 20);
+            this.tbcedulacliente.TabIndex = 37;
             // 
             // cbsexocliente
             // 
@@ -291,14 +292,6 @@
             this.label6.Size = new System.Drawing.Size(96, 13);
             this.label6.TabIndex = 8;
             this.label6.Text = "Fecha Nacimiento:";
-            // 
-            // tbcedulacliente
-            // 
-            this.tbcedulacliente.Enabled = false;
-            this.tbcedulacliente.Location = new System.Drawing.Point(9, 164);
-            this.tbcedulacliente.Name = "tbcedulacliente";
-            this.tbcedulacliente.Size = new System.Drawing.Size(96, 20);
-            this.tbcedulacliente.TabIndex = 5;
             // 
             // tbapellidocliente
             // 
@@ -485,6 +478,15 @@
             this.btnnuevocliente.UseVisualStyleBackColor = false;
             this.btnnuevocliente.Click += new System.EventHandler(this.btnnuevocliente_Click);
             // 
+            // tbtelefonocliente
+            // 
+            this.tbtelefonocliente.Enabled = false;
+            this.tbtelefonocliente.Location = new System.Drawing.Point(10, 147);
+            this.tbtelefonocliente.Mask = "(###)###-####";
+            this.tbtelefonocliente.Name = "tbtelefonocliente";
+            this.tbtelefonocliente.Size = new System.Drawing.Size(100, 20);
+            this.tbtelefonocliente.TabIndex = 37;
+            // 
             // CRUDClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -532,7 +534,6 @@
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.DateTimePicker dtpnacimientocliente;
         private System.Windows.Forms.Label label6;
-        public System.Windows.Forms.TextBox tbcedulacliente;
         public System.Windows.Forms.TextBox tbapellidocliente;
         public System.Windows.Forms.TextBox tbnumerocliente;
         private System.Windows.Forms.Label label5;
@@ -551,12 +552,13 @@
         public System.Windows.Forms.DateTimePicker dtpiniciofactura;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label14;
-        public System.Windows.Forms.TextBox tbtelefonocliente;
         public System.Windows.Forms.RadioButton rbservicionovencido;
         public System.Windows.Forms.RadioButton rbserviciovencido;
         public System.Windows.Forms.Button btneliminarcliente;
         public System.Windows.Forms.Button btnactualizarcliente;
         public System.Windows.Forms.Button btnnuevocliente;
         public System.Windows.Forms.Button btncargarfotocliente;
+        public System.Windows.Forms.MaskedTextBox tbcedulacliente;
+        public System.Windows.Forms.MaskedTextBox tbtelefonocliente;
     }
 }
