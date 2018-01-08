@@ -100,11 +100,6 @@ namespace CGSystem
             check.ShowDialog();
         }
 
-        private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnlistaclientes_Click(object sender, EventArgs e)
         {
             ListaDeClientes f = new ListaDeClientes();

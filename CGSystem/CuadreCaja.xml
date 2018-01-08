@@ -1,36 +1,6 @@
 <?xml version="1.0" standalone="yes"?>
 <NewDataSet>
   <Table>
-    <id_factura>35</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <descripcion_tipo_factura>CONTADO</descripcion_tipo_factura>
-    <total>80</total>
-  </Table>
-  <Table>
-    <id_factura>36</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <descripcion_tipo_factura>CONTADO</descripcion_tipo_factura>
-    <total>300</total>
-  </Table>
-  <Table>
-    <id_factura>37</id_factura>
-    <id_tipo_factura>2</id_tipo_factura>
-    <descripcion_tipo_factura>CREDITO</descripcion_tipo_factura>
-    <total>2880</total>
-  </Table>
-  <Table>
-    <id_factura>38</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <descripcion_tipo_factura>CONTADO</descripcion_tipo_factura>
-    <total>500</total>
-  </Table>
-  <Table>
-    <id_factura>39</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <descripcion_tipo_factura>CONTADO</descripcion_tipo_factura>
-    <total>0</total>
-  </Table>
-  <Table>
     <id_factura>40</id_factura>
     <id_tipo_factura>1</id_tipo_factura>
     <descripcion_tipo_factura>CONTADO</descripcion_tipo_factura>

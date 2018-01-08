@@ -63,6 +63,12 @@ namespace CGSystem
                     dt = ds.Tables[0];
                     dataGridView1.DataSource = dt;
                     cnx.Close();
+                    for (int i = 0; i < dataGridView1.RowCount; i++) //Ocultar Contraseña con asteriscos
+                    {
+                        dataGridView1.Rows[i].Cells[3].Value = "******";
+                    }
+                    dataGridView1.Refresh();
+
                 }
                 else if (rdbnumeroempleado.Checked)
                 {
@@ -75,6 +81,11 @@ namespace CGSystem
                     dt = ds.Tables[0];
                     dataGridView1.DataSource = dt;
                     cnx.Close();
+                    for (int i = 0; i < dataGridView1.RowCount; i++) //Ocultar Contraseña con asteriscos
+                    {
+                        dataGridView1.Rows[i].Cells[3].Value = "******";
+                    }
+                    dataGridView1.Refresh();
                 }
                 else if (rdbtipousuario.Checked)
                 {
@@ -87,6 +98,11 @@ namespace CGSystem
                     dt = ds.Tables[0];
                     dataGridView1.DataSource = dt;
                     cnx.Close();
+                    for (int i = 0; i < dataGridView1.RowCount; i++) //Ocultar Contraseña con asteriscos
+                    {
+                        dataGridView1.Rows[i].Cells[3].Value = "******";
+                    }
+                    dataGridView1.Refresh();
                 }
                 else if (rdbusuarios.Checked)
                 {
@@ -99,6 +115,19 @@ namespace CGSystem
                     dt = ds.Tables[0];
                     dataGridView1.DataSource = dt;
                     cnx.Close();
+                    for (int i = 0; i < dataGridView1.RowCount; i++) //Ocultar Contraseña con asteriscos
+                    {
+                        dataGridView1.Rows[i].Cells[3].Value = "******";
+                        if(dataGridView1.Rows[i].Cells[4].Value.ToString() == "1")
+                        {
+                            dataGridView1.Rows[i].Cells[4].Value = "Administrador";
+                        }
+                        else
+                        {
+                            dataGridView1.Rows[i].Cells[4].Value = "Empleado";
+                        }
+                    }
+                    dataGridView1.Refresh();
                 }
                 else MessageBox.Show("Favor seleccionar una de las opciones!");
             }
