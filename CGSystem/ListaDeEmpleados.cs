@@ -29,6 +29,11 @@ namespace CGSystem
 
         private void btnbuscar_Click(object sender, EventArgs e)
         {
+            Buscar();
+        }
+
+        public void Buscar()
+        {
             try
             {
                 cnx.Open();
@@ -134,6 +139,7 @@ namespace CGSystem
 
         private void ListaDeEmpleados_Load(object sender, EventArgs e)
         {
+            Buscar();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -174,6 +180,24 @@ namespace CGSystem
             {
                 MessageBox.Show("Antes debe seleccionar una de las opciones y digitar el valor a buscar!");
             }
+        }
+
+        private void tbbuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                Buscar();
+                e.Handled = true;
+            }
+            else
+            {
+                
+            }
+        }
+
+        private void tbbuscar_KeyUp(object sender, KeyEventArgs e)
+        {
+            Buscar();
         }
     }
 }

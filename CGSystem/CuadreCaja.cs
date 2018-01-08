@@ -24,6 +24,7 @@ namespace CGSystem
         public static string fechamesuno;
         public static string fechamesdos;
         public bool BuscandoHoy = false;
+        public bool Iniciando = true; //Para no mostrar nada al principio...
 
 
         public CuadreCaja()
@@ -33,8 +34,10 @@ namespace CGSystem
 
         private void CuadreCaja_Load(object sender, EventArgs e)
         {
-            MostrarUltimoMes();
+            Iniciando = true;
+            //MostrarUltimoMes();
             cbmescuadre.Text = cbmescuadre.Items[(DateTime.Now.Month)].ToString(); //Asignar el mes actual al Combobox
+            Iniciando = false;
         }
 
         public void MostrarHoy()
@@ -43,11 +46,14 @@ namespace CGSystem
             DateTime fechaDT = DateTime.Now;//Para tomar la fecha de hoy, formatearla y luego hacer el filtro correcto...
             string fechaHoy = oper.FormatearFecha(fechaDT);
 
-            TotalContado = 0;//Para Contar los totales
+            //Para reiniciar los totales
+            TotalContado = 0;
             TotalCredito = 0;
 
             dtvcuadrecaja.Rows.Clear();
-            //Cargar la Tabla de todos los clientes activos
+            dtvcuadrecaja.Refresh();
+
+            //Cargar la Tabla con todas las facturas activas
             ds = oper.ConsultaConResultado("SELECT c.id_factura, c.id_tipo_factura, t.descripcion_tipo_factura, c.total FROM cabecera_factura c INNER JOIN tipo_factura t ON c.id_tipo_factura = t.codigo_tipo_factura WHERE fecha BETWEEN '" + fechaHoy + "' AND '" + fechaHoy + "';");
 
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
@@ -80,41 +86,44 @@ namespace CGSystem
         {
             BuscandoHoy = false;
             dtvcuadrecaja.Rows.Clear();
+            dtvcuadrecaja.Refresh();
+            TotalContado = 0;
+            TotalCredito = 0;
+
             if (cbmescuadre.Text != "Rango...")
             {
                 MostrarUltimoMes();
             }
-            if (cbmescuadre.Text == "Rango...")
+            else
             {
                 DateTime desde = dtpinicio.Value;
                 DateTime hasta = dtpfin.Value;
-                string fechadesde = oper.FormatearFecha(dtpinicio.Value);
-                string fechahasta = oper.FormatearFecha(dtpfin.Value);
+                string fechadesde = oper.FormatearFecha(desde);
+                string fechahasta = oper.FormatearFecha(hasta);
+
                 ds = oper.ConsultaConResultado("SELECT c.id_factura, c.id_tipo_factura, t.descripcion_tipo_factura, c.total FROM cabecera_factura c INNER JOIN tipo_factura t ON c.id_tipo_factura = t.codigo_tipo_factura WHERE fecha BETWEEN '" + fechadesde + "' AND '" + fechahasta + "';");
-            }
 
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-            {
-
-                dtvcuadrecaja.Rows.Add();
-                for (int k = 0; k < 4; k++)
+                //Rellenar el Data Grid...
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
-                    dtvcuadrecaja.Rows[i].Cells[k].Value = ds.Tables[0].Rows[i][k].ToString();
+                    dtvcuadrecaja.Rows.Add();
+                    for (int k = 0; k < 4; k++)
+                    {
+                        dtvcuadrecaja.Rows[i].Cells[k].Value = ds.Tables[0].Rows[i][k].ToString();
+                    }
+                    if (Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[1].Value) == 1)//Al Contado
+                    {
+                        TotalContado += Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[3].Value);
+                    }
+                    else
+                    {
+                        TotalCredito += Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[3].Value);
+                    }
                 }
-                if (Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[1].Value) == 1)//Al Contado
-                {
-                    TotalContado += Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[3].Value);
-                }
-                else
-                {
-                    TotalCredito += Convert.ToInt32(dtvcuadrecaja.Rows[i].Cells[3].Value);
-                }
-
                 //Pasar Valores a los TextBox
                 tbventacontado.Text = "RD$ " + TotalContado.ToString();
                 tbventacredito.Text = "RD$ " + TotalCredito.ToString();
                 tbtotal.Text = "RD$ " + (TotalContado + TotalCredito).ToString();
-
             }
 
         }
@@ -162,6 +171,7 @@ namespace CGSystem
                 //Pasar Valores a los TextBox
                 tbventacontado.Text = "RD$ " + TotalContado.ToString();
                 tbventacredito.Text = "RD$ " + TotalCredito.ToString();
+                tbtotal.Text = "RD$ " + (TotalContado + TotalCredito).ToString();
 
             }
 
@@ -285,14 +295,18 @@ namespace CGSystem
 
         private void cbmescuadre_TextChanged(object sender, EventArgs e)
         {
-            if (cbmescuadre.Text == "Rango")
+            if (!Iniciando)
             {
-                Mostrarrango();
+                if (cbmescuadre.Text == "Rango")
+                {
+                    Mostrarrango();
+                }
+                else
+                {
+                    MostrarUltimoMes();
+                }
             }
-            else
-            {
-                MostrarUltimoMes();
-            }
+            else { }
         }
 
         private void dtpinicio_ValueChanged(object sender, EventArgs e)

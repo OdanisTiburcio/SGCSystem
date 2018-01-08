@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CuadreCaja));
             this.dtvcuadrecaja = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Descrip = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.tbventacredito = new System.Windows.Forms.TextBox();
             this.tbventacontado = new System.Windows.Forms.TextBox();
@@ -47,10 +51,6 @@
             this.lblrango = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descrip = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dtvcuadrecaja)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbimprimircuadre)).BeginInit();
@@ -78,6 +78,34 @@
             this.dtvcuadrecaja.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtvcuadrecaja.Size = new System.Drawing.Size(314, 437);
             this.dtvcuadrecaja.TabIndex = 0;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Width = 50;
+            // 
+            // cliente
+            // 
+            this.cliente.HeaderText = "Tipo";
+            this.cliente.Name = "cliente";
+            this.cliente.ReadOnly = true;
+            this.cliente.Width = 50;
+            // 
+            // Descrip
+            // 
+            this.Descrip.HeaderText = "Descripción";
+            this.Descrip.Name = "Descrip";
+            this.Descrip.ReadOnly = true;
+            this.Descrip.Width = 110;
+            // 
+            // tipo
+            // 
+            this.tipo.HeaderText = "Total (RD$)";
+            this.tipo.Name = "tipo";
+            this.tipo.ReadOnly = true;
+            this.tipo.Width = 121;
             // 
             // label1
             // 
@@ -169,8 +197,10 @@
             // 
             // pbimprimircuadre
             // 
+            this.pbimprimircuadre.BackColor = System.Drawing.SystemColors.Control;
             this.pbimprimircuadre.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbimprimircuadre.BackgroundImage")));
             this.pbimprimircuadre.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pbimprimircuadre.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pbimprimircuadre.InitialImage = null;
             this.pbimprimircuadre.Location = new System.Drawing.Point(351, 169);
             this.pbimprimircuadre.Name = "pbimprimircuadre";
@@ -226,6 +256,7 @@
             // 
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pictureBox1.Location = new System.Drawing.Point(436, 82);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(40, 30);
@@ -272,34 +303,6 @@
             this.label5.TabIndex = 12;
             this.label5.Text = "Fecha:";
             // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Width = 50;
-            // 
-            // cliente
-            // 
-            this.cliente.HeaderText = "Tipo";
-            this.cliente.Name = "cliente";
-            this.cliente.ReadOnly = true;
-            this.cliente.Width = 50;
-            // 
-            // Descrip
-            // 
-            this.Descrip.HeaderText = "Descripción";
-            this.Descrip.Name = "Descrip";
-            this.Descrip.ReadOnly = true;
-            this.Descrip.Width = 110;
-            // 
-            // tipo
-            // 
-            this.tipo.HeaderText = "Total (RD$)";
-            this.tipo.Name = "tipo";
-            this.tipo.ReadOnly = true;
-            this.tipo.Width = 121;
-            // 
             // CuadreCaja
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,7 +321,9 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dtvcuadrecaja);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(510, 501);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(510, 501);
             this.Name = "CuadreCaja";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cuadre de Caja";

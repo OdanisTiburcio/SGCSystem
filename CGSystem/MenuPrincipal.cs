@@ -95,7 +95,7 @@ namespace CGSystem
         private void btncheckin_Click(object sender, EventArgs e)
         {
             CheckIn check = new CheckIn();
-            check.Show();
+            check.ShowDialog();
         }
 
         private void archivoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -256,37 +256,37 @@ namespace CGSystem
         private void cuadreCajaToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CuadreCaja f = new CuadreCaja();
-            f.Show();
+            f.ShowDialog();
         }
 
         private void ingresosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CRUDIngresos f = new CRUDIngresos();
-            f.Show();
+            f.ShowDialog();
         }
 
         private void cuentasPorCobrarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CXC f = new CXC();
-            f.Show();
+            f.ShowDialog();
         }
 
         private void ciudadesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Ciudades f = new Ciudades();
-            f.Show();
+            f.ShowDialog();
         }
 
         private void sectoresToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Sectores f = new Sectores();
-            f.Show();
+            f.ShowDialog();
         }
 
         private void posicionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Posiciones f = new Posiciones();
-            f.Show();
+            f.ShowDialog();
         }
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -312,7 +312,7 @@ namespace CGSystem
         private void tsmcheckin_Click(object sender, EventArgs e)
         {
             CheckIn f = new CheckIn();
-            f.Show();
+            f.ShowDialog();
         }
     }
 }

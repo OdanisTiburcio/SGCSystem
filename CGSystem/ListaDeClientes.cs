@@ -249,7 +249,7 @@ namespace CGSystem
                     }
 
                 }
-
+                dgvListaClientes.Refresh();
             }
             catch
             {
@@ -262,14 +262,14 @@ namespace CGSystem
             if (e.KeyChar == 13)
             {
                 e.Handled = true;
-                BuscarPor();
+                Buscar();
             }
             else { }
         }
 
         private void tbbuscar_KeyUp(object sender, KeyEventArgs e)
         {
-            BuscarPor();
+            Buscar();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

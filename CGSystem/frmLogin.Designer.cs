@@ -162,7 +162,9 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(582, 297);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(582, 297);
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cosobo Gym - Login";
