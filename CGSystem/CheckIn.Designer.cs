@@ -42,6 +42,8 @@
             this.tbid = new System.Windows.Forms.TextBox();
             this.tbnombre = new System.Windows.Forms.TextBox();
             this.btnguardar = new System.Windows.Forms.Button();
+            this.Restante = new System.Windows.Forms.Label();
+            this.tbrestante = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.ptbfotoempleado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -82,7 +84,7 @@
             this.rdbinactivo.AutoCheck = false;
             this.rdbinactivo.AutoSize = true;
             this.rdbinactivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rdbinactivo.Location = new System.Drawing.Point(164, 172);
+            this.rdbinactivo.Location = new System.Drawing.Point(164, 156);
             this.rdbinactivo.Name = "rdbinactivo";
             this.rdbinactivo.Size = new System.Drawing.Size(77, 21);
             this.rdbinactivo.TabIndex = 44;
@@ -95,7 +97,7 @@
             this.rdbactivo.AutoSize = true;
             this.rdbactivo.Checked = true;
             this.rdbactivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rdbactivo.Location = new System.Drawing.Point(47, 172);
+            this.rdbactivo.Location = new System.Drawing.Point(47, 156);
             this.rdbactivo.Name = "rdbactivo";
             this.rdbactivo.Size = new System.Drawing.Size(74, 21);
             this.rdbactivo.TabIndex = 43;
@@ -105,7 +107,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(241, 212);
+            this.button1.Location = new System.Drawing.Point(248, 212);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(168, 59);
             this.button1.TabIndex = 41;
@@ -117,7 +119,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(61, 152);
+            this.label4.Location = new System.Drawing.Point(61, 141);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(148, 17);
             this.label4.TabIndex = 32;
@@ -179,19 +181,40 @@
             // 
             // btnguardar
             // 
-            this.btnguardar.Location = new System.Drawing.Point(32, 212);
+            this.btnguardar.Location = new System.Drawing.Point(39, 212);
             this.btnguardar.Name = "btnguardar";
             this.btnguardar.Size = new System.Drawing.Size(176, 59);
-            this.btnguardar.TabIndex = 38;
+            this.btnguardar.TabIndex = 0;
             this.btnguardar.Text = "Buscar";
             this.btnguardar.UseVisualStyleBackColor = true;
             this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
+            // 
+            // Restante
+            // 
+            this.Restante.AutoSize = true;
+            this.Restante.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Restante.Location = new System.Drawing.Point(15, 186);
+            this.Restante.Name = "Restante";
+            this.Restante.Size = new System.Drawing.Size(58, 13);
+            this.Restante.TabIndex = 47;
+            this.Restante.Text = "Restante";
+            // 
+            // tbrestante
+            // 
+            this.tbrestante.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tbrestante.Location = new System.Drawing.Point(77, 183);
+            this.tbrestante.Name = "tbrestante";
+            this.tbrestante.ReadOnly = true;
+            this.tbrestante.Size = new System.Drawing.Size(151, 20);
+            this.tbrestante.TabIndex = 46;
             // 
             // CheckIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 283);
+            this.Controls.Add(this.Restante);
+            this.Controls.Add(this.tbrestante);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tbcedula);
             this.Controls.Add(this.ptbfotoempleado);
@@ -234,5 +257,7 @@
         private System.Windows.Forms.TextBox tbid;
         private System.Windows.Forms.TextBox tbnombre;
         private System.Windows.Forms.Button btnguardar;
+        private System.Windows.Forms.Label Restante;
+        private System.Windows.Forms.TextBox tbrestante;
     }
 }

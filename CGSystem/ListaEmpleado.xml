@@ -10,4 +10,24 @@
     <sueldo>1</sueldo>
     <foto>C:\CGSystem\FotosEmpleados\1.jpg</foto>
   </Table>
+  <Table>
+    <numero_empleado>6</numero_empleado>
+    <nombre>ELVIS</nombre>
+    <apellido>COSOBO</apellido>
+    <cedula_empleado>031-0589868-8</cedula_empleado>
+    <descripcion_posicion>GERENTE GENERAL</descripcion_posicion>
+    <descripcion_departamento>GERENCIA GENERAL</descripcion_departamento>
+    <sueldo>50000</sueldo>
+    <foto>C:\CGSystem\FotosEmpleados\3.jpg</foto>
+  </Table>
+  <Table>
+    <numero_empleado>8</numero_empleado>
+    <nombre>MANUEL</nombre>
+    <apellido>DE LA CRUZ</apellido>
+    <cedula_empleado>031-0548987-9</cedula_empleado>
+    <descripcion_posicion>ENCARGADO DE BASE DE DATOS</descripcion_posicion>
+    <descripcion_departamento>GERENCIA DE MERCADEO</descripcion_departamento>
+    <sueldo>27800</sueldo>
+    <foto>C:\CGSystem\FotosEmpleados\2.jpg</foto>
+  </Table>
 </NewDataSet>

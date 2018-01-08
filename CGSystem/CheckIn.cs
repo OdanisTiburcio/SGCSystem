@@ -25,7 +25,7 @@ namespace CGSystem
 
         private void CheckIn_Load(object sender, EventArgs e)
         {
-
+            btnguardar.Select();
         }
 
         private void btbuscar_Click(object sender, EventArgs e)
@@ -63,17 +63,117 @@ namespace CGSystem
 
                 //Establecer si está vencido o no...
                 DateTime Hoy = DateTime.Now;
-                if(FinPeriodoCliente < Hoy)
+                if (FinPeriodoCliente < Hoy)
                 {
                     //Vencido
                     rdbinactivo.Checked = true;
                     rdbactivo.Checked = false;
+                    tbrestante.Text = "Servicio Vencido";
+                    tbrestante.BackColor = Color.Yellow;
+
                 }
                 else
                 {
                     //Vigente
                     rdbactivo.Checked = true;
                     rdbinactivo.Checked = false;
+
+                    //Mostrar el tiempo de servicio restante...
+                    string tiemporestante = "";
+                    int diasrestantes = (FinPeriodoCliente - Hoy).Days;
+                    int mesesretantes = 0;
+                    int añosrestantes = 0;
+
+                    string años = "";
+                    string meses = "";
+                    string dias = "";
+
+                    while (diasrestantes >= 365)
+                    {
+                        diasrestantes -= 365;
+                        añosrestantes++;
+                    }
+
+                    while (diasrestantes >= 30)
+                    {
+                        diasrestantes -= 30;
+                        mesesretantes++;
+                    }
+
+                    if (añosrestantes != 0) //Formatear los años
+                    {
+                        if (añosrestantes > 1)
+                        {
+                            años = añosrestantes.ToString() + " años, ";
+                        }
+                        else
+                        {
+                            años = añosrestantes.ToString() + " año, ";
+                        }
+
+                    }
+                    else
+                    {
+                        años = "";
+                    }
+
+                    if (mesesretantes != 0) //Formatear los meses
+                    {
+                        if (mesesretantes > 1)
+                        {
+                            meses = mesesretantes.ToString() + " meses ";
+                        }
+                        else
+                        {
+                            meses = mesesretantes.ToString() + " mes ";
+                        }
+
+                    }
+                    else
+                    {
+                        meses = "";
+                    }
+
+                    if (diasrestantes != 0) //Formatear los días
+                    {
+                        if (diasrestantes > 1)
+                        {
+                            if (años != "" || meses != "")
+                            {
+                                dias = "y " + diasrestantes.ToString() + " días";
+                            }
+                            else
+                            {
+                                dias = diasrestantes.ToString() + " días";
+                            }
+                        }
+                        else
+                        {
+                            if (años != "" || meses != "")
+                            {
+                                dias = "y " + diasrestantes.ToString() + " día";
+                            }
+                            else
+                            {
+                                dias = diasrestantes.ToString() + " día";
+                            }
+                        }
+
+                    }
+                    else
+                    {
+                        dias = "";
+                        if (años != "" && meses != "")
+                        {
+                            años = añosrestantes.ToString() + " años ";
+                            meses = "y " + mesesretantes.ToString() + " meses";
+                        }
+                    }
+
+                    tiemporestante = años + meses + dias;
+
+                    tbrestante.Text = tiemporestante;
+                    tbrestante.BackColor = Color.LightBlue;
                 }
 
             }
