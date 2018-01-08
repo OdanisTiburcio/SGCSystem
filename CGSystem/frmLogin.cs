@@ -149,5 +149,27 @@ namespace CGSystem
             tbRutaFoto.Text = Ruta;
             pictureBox1.Image = Foto;
         }
+
+        private void cbusuario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (tbcontraseña.Text == "" || String.IsNullOrEmpty(tbcontraseña.Text))
+                {
+                    tbcontraseña.Focus();
+                    tbcontraseña.Select();
+                    e.Handled = true;
+                }
+                else
+                {
+                    Entrar();
+                    e.Handled = true;
+                }
+            }
+            else
+            {
+
+            }
+        }
     }
 }

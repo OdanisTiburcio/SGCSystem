@@ -110,6 +110,7 @@
             this.cbusuario.Size = new System.Drawing.Size(197, 26);
             this.cbusuario.TabIndex = 4;
             this.cbusuario.SelectedIndexChanged += new System.EventHandler(this.cbusuario_SelectedIndexChanged);
+            this.cbusuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbusuario_KeyDown);
             // 
             // btnCancelar
             // 
