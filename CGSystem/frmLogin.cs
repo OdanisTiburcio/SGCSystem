@@ -59,6 +59,7 @@ namespace CGSystem
             catch
             {
                 MessageBox.Show("Este usuario no existe");
+                cbusuario.Select();
             }
 
 

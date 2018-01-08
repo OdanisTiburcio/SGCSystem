@@ -66,11 +66,12 @@ namespace CGSystem
                 Facturación.IdCliente = dgvListaServicios.CurrentRow.Cells[0].Value.ToString();
                 Facturación.NombreCliente = dgvListaServicios.CurrentRow.Cells[1].Value.ToString()+ " " + dgvListaServicios.CurrentRow.Cells[2].Value.ToString();
                 Facturación.SelecciónDeCliente = true; //Marcar un servicio como seleccionado
+                MenuPrincipal.SelecciónDeCliente = dgvListaServicios.CurrentRow.Cells[0].Value.ToString();
                 this.Close();
             }
             catch
             {
-                MessageBox.Show("No se selección un servicio, inténtelo de nuevo correctamente", "Aviso");
+                MessageBox.Show("No se selecciónó un cliente, inténtelo de nuevo correctamente", "Aviso");
             }
         }
 

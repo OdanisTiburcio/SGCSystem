@@ -290,7 +290,6 @@ namespace CGSystem
             forclientes.cbsexocliente.Text = dataGridView1.CurrentRow.Cells[12].Value.ToString();
             forclientes.tbRutaFoto.Text = dataGridView1.CurrentRow.Cells[13].Value.ToString();
             forclientes.Show();
-            Buscar();
             forclientes.tbnombrecliente.Enabled = true;
             forclientes.tbapellidocliente.Enabled = true;
             forclientes.tbcedulacliente.Enabled = true;
@@ -306,7 +305,6 @@ namespace CGSystem
             forclientes.btnactualizarcliente.Enabled = true;
             forclientes.btneliminarcliente.Enabled = true;
             forclientes.btncargarfotocliente.Enabled = true;
-            Buscar();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

@@ -34,7 +34,6 @@
             this.rdbinactivo = new System.Windows.Forms.RadioButton();
             this.rdbactivo = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnbuscar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbapellidos = new System.Windows.Forms.TextBox();
@@ -43,9 +42,7 @@
             this.tbid = new System.Windows.Forms.TextBox();
             this.tbnombre = new System.Windows.Forms.TextBox();
             this.btnguardar = new System.Windows.Forms.Button();
-            this.btbuscar = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.ptbfotoempleado)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btbuscar)).BeginInit();
             this.SuspendLayout();
             // 
             // label7
@@ -60,9 +57,9 @@
             // 
             // tbcedula
             // 
-            this.tbcedula.Enabled = false;
             this.tbcedula.Location = new System.Drawing.Point(64, 118);
             this.tbcedula.Name = "tbcedula";
+            this.tbcedula.ReadOnly = true;
             this.tbcedula.Size = new System.Drawing.Size(115, 20);
             this.tbcedula.TabIndex = 23;
             // 
@@ -73,7 +70,7 @@
             this.ptbfotoempleado.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.ptbfotoempleado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ptbfotoempleado.Image = global::CGSystem.Properties.Resources.Logo;
-            this.ptbfotoempleado.Location = new System.Drawing.Point(218, 12);
+            this.ptbfotoempleado.Location = new System.Drawing.Point(261, 12);
             this.ptbfotoempleado.Name = "ptbfotoempleado";
             this.ptbfotoempleado.Size = new System.Drawing.Size(191, 177);
             this.ptbfotoempleado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -82,23 +79,25 @@
             // 
             // rdbinactivo
             // 
+            this.rdbinactivo.AutoCheck = false;
             this.rdbinactivo.AutoSize = true;
-            this.rdbinactivo.Enabled = false;
-            this.rdbinactivo.Location = new System.Drawing.Point(108, 172);
+            this.rdbinactivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rdbinactivo.Location = new System.Drawing.Point(164, 172);
             this.rdbinactivo.Name = "rdbinactivo";
-            this.rdbinactivo.Size = new System.Drawing.Size(64, 17);
+            this.rdbinactivo.Size = new System.Drawing.Size(77, 21);
             this.rdbinactivo.TabIndex = 44;
             this.rdbinactivo.Text = "Vencido";
             this.rdbinactivo.UseVisualStyleBackColor = true;
             // 
             // rdbactivo
             // 
+            this.rdbactivo.AutoCheck = false;
             this.rdbactivo.AutoSize = true;
             this.rdbactivo.Checked = true;
-            this.rdbactivo.Enabled = false;
-            this.rdbactivo.Location = new System.Drawing.Point(41, 172);
+            this.rdbactivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.rdbactivo.Location = new System.Drawing.Point(47, 172);
             this.rdbactivo.Name = "rdbactivo";
-            this.rdbactivo.Size = new System.Drawing.Size(61, 17);
+            this.rdbactivo.Size = new System.Drawing.Size(74, 21);
             this.rdbactivo.TabIndex = 43;
             this.rdbactivo.TabStop = true;
             this.rdbactivo.Text = "Vigente";
@@ -106,29 +105,21 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(256, 201);
+            this.button1.Location = new System.Drawing.Point(241, 212);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(126, 59);
+            this.button1.Size = new System.Drawing.Size(168, 59);
             this.button1.TabIndex = 41;
             this.button1.Text = "Cerrar";
             this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnbuscar
-            // 
-            this.btnbuscar.Location = new System.Drawing.Point(146, 210);
-            this.btnbuscar.Name = "btnbuscar";
-            this.btnbuscar.Size = new System.Drawing.Size(104, 40);
-            this.btnbuscar.TabIndex = 40;
-            this.btnbuscar.Text = "Editar";
-            this.btnbuscar.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(47, 156);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(61, 152);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(117, 13);
+            this.label4.Size = new System.Drawing.Size(148, 17);
             this.label4.TabIndex = 32;
             this.label4.Text = "Estado del Servicio";
             // 
@@ -144,10 +135,10 @@
             // 
             // tbapellidos
             // 
-            this.tbapellidos.Enabled = false;
             this.tbapellidos.Location = new System.Drawing.Point(64, 92);
             this.tbapellidos.Name = "tbapellidos";
-            this.tbapellidos.Size = new System.Drawing.Size(123, 20);
+            this.tbapellidos.ReadOnly = true;
+            this.tbapellidos.Size = new System.Drawing.Size(191, 20);
             this.tbapellidos.TabIndex = 21;
             // 
             // label2
@@ -172,53 +163,41 @@
             // 
             // tbid
             // 
-            this.tbid.Enabled = false;
             this.tbid.Location = new System.Drawing.Point(64, 40);
             this.tbid.Name = "tbid";
+            this.tbid.ReadOnly = true;
             this.tbid.Size = new System.Drawing.Size(61, 20);
             this.tbid.TabIndex = 22;
             // 
             // tbnombre
             // 
-            this.tbnombre.Enabled = false;
             this.tbnombre.Location = new System.Drawing.Point(64, 66);
             this.tbnombre.Name = "tbnombre";
-            this.tbnombre.Size = new System.Drawing.Size(115, 20);
+            this.tbnombre.ReadOnly = true;
+            this.tbnombre.Size = new System.Drawing.Size(191, 20);
             this.tbnombre.TabIndex = 20;
             // 
             // btnguardar
             // 
-            this.btnguardar.Location = new System.Drawing.Point(14, 200);
+            this.btnguardar.Location = new System.Drawing.Point(32, 212);
             this.btnguardar.Name = "btnguardar";
-            this.btnguardar.Size = new System.Drawing.Size(126, 59);
+            this.btnguardar.Size = new System.Drawing.Size(176, 59);
             this.btnguardar.TabIndex = 38;
-            this.btnguardar.Text = "Registrar Entrada";
+            this.btnguardar.Text = "Buscar";
             this.btnguardar.UseVisualStyleBackColor = true;
-            // 
-            // btbuscar
-            // 
-            this.btbuscar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btbuscar.Image = global::CGSystem.Properties.Resources.lupa_psd_468x468;
-            this.btbuscar.Location = new System.Drawing.Point(183, 57);
-            this.btbuscar.Name = "btbuscar";
-            this.btbuscar.Size = new System.Drawing.Size(27, 32);
-            this.btbuscar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btbuscar.TabIndex = 127;
-            this.btbuscar.TabStop = false;
-            this.btbuscar.Click += new System.EventHandler(this.btbuscar_Click);
+            this.btnguardar.Click += new System.EventHandler(this.btnguardar_Click);
             // 
             // CheckIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(430, 283);
+            this.ClientSize = new System.Drawing.Size(464, 283);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.tbcedula);
             this.Controls.Add(this.ptbfotoempleado);
             this.Controls.Add(this.rdbinactivo);
             this.Controls.Add(this.rdbactivo);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.btnbuscar);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbapellidos);
@@ -227,7 +206,6 @@
             this.Controls.Add(this.tbid);
             this.Controls.Add(this.tbnombre);
             this.Controls.Add(this.btnguardar);
-            this.Controls.Add(this.btbuscar);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CheckIn";
@@ -235,7 +213,6 @@
             this.Text = "Check - In";
             this.Load += new System.EventHandler(this.CheckIn_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ptbfotoempleado)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btbuscar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,7 +226,6 @@
         private System.Windows.Forms.RadioButton rdbinactivo;
         private System.Windows.Forms.RadioButton rdbactivo;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbapellidos;
@@ -258,6 +234,5 @@
         private System.Windows.Forms.TextBox tbid;
         private System.Windows.Forms.TextBox tbnombre;
         private System.Windows.Forms.Button btnguardar;
-        private System.Windows.Forms.PictureBox btbuscar;
     }
 }

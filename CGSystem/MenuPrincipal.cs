@@ -22,6 +22,7 @@ namespace CGSystem
         public static bool SalirDelSistema = false;
         public static int TipoUsuario = 0; //usuario 1 igual a administrador y usuario 2 igual a empleado...
         public string estadoreporte;
+        public static string SelecciónDeCliente = "0"; 
 
         //Clases Reutilizables
         operacion oper = new operacion();
@@ -73,10 +74,11 @@ namespace CGSystem
                     //Desactivar
                     consultasToolStripMenuItem.DropDownItems[3].Enabled = false;
                     contabilidadToolStripMenuItem.DropDownItems[0].Enabled = false;
+                    archivoToolStripMenuItem.DropDownItems[0].Enabled = false;
                     archivoToolStripMenuItem.DropDownItems[1].Enabled = false;
                     archivoToolStripMenuItem.DropDownItems[2].Enabled = false;
-                    archivoToolStripMenuItem.DropDownItems[3].Enabled = false;
                     archivoToolStripMenuItem.DropDownItems[6].Enabled = false;
+                    archivoToolStripMenuItem.DropDownItems[7].Enabled = false;
 
                 }
 

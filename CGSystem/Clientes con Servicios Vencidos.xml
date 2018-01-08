@@ -8,4 +8,12 @@
     <fin_periodo>2017-04-13T00:00:00-04:00</fin_periodo>
     <foto>C:\CGSystem\FotosClientes\1.jpg</foto>
   </Table>
+  <Table>
+    <numero_cliente>16</numero_cliente>
+    <nombre_cliente>PRUEBA</nombre_cliente>
+    <apellido_cliente>CUALQUIERA</apellido_cliente>
+    <telefono>8095565897</telefono>
+    <fin_periodo>2017-11-16T00:00:00-04:00</fin_periodo>
+    <foto>C:\CGSystem\FotosClientes\1.jpg</foto>
+  </Table>
 </NewDataSet>
