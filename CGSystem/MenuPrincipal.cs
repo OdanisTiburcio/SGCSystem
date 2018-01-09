@@ -22,7 +22,8 @@ namespace CGSystem
         public static bool SalirDelSistema = false;
         public static int TipoUsuario = 0; //usuario 1 igual a administrador y usuario 2 igual a empleado...
         public string estadoreporte;
-        public static string SelecciónDeCliente = "0"; 
+        public static string SelecciónDeCliente = "0";
+        public static string SeleccionDeServicio = "0";
 
         //Clases Reutilizables
         operacion oper = new operacion();

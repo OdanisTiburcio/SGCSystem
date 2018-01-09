@@ -60,12 +60,16 @@
             // 
             // tbpsearchcode
             // 
+            this.tbpsearchcode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tbpsearchcode.Enabled = false;
             this.tbpsearchcode.Font = new System.Drawing.Font("Modern No. 20", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbpsearchcode.Location = new System.Drawing.Point(382, 9);
+            this.tbpsearchcode.Location = new System.Drawing.Point(382, 29);
             this.tbpsearchcode.Name = "tbpsearchcode";
+            this.tbpsearchcode.ReadOnly = true;
             this.tbpsearchcode.Size = new System.Drawing.Size(172, 32);
             this.tbpsearchcode.TabIndex = 39;
+            this.tbpsearchcode.Text = "Buscar y Editar";
+            this.tbpsearchcode.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label8
             // 
@@ -178,7 +182,7 @@
             this.btpsearch.Image = global::CGSystem.Properties.Resources.lupa_psd_468x468;
             this.btpsearch.Location = new System.Drawing.Point(560, 9);
             this.btpsearch.Name = "btpsearch";
-            this.btpsearch.Size = new System.Drawing.Size(45, 43);
+            this.btpsearch.Size = new System.Drawing.Size(55, 68);
             this.btpsearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btpsearch.TabIndex = 56;
             this.btpsearch.TabStop = false;
@@ -187,8 +191,8 @@
             // pictureBox1
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.pictureBox1.Image = global::CGSystem.Properties.Resources.add_item_icon_orange_1;
-            this.pictureBox1.Location = new System.Drawing.Point(444, 47);
+            this.pictureBox1.Image = global::CGSystem.Properties.Resources.clock_26094_640;
+            this.pictureBox1.Location = new System.Drawing.Point(355, 58);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(199, 238);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -199,7 +203,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(645, 300);
+            this.ClientSize = new System.Drawing.Size(627, 300);
             this.Controls.Add(this.btpnew);
             this.Controls.Add(this.btpsearch);
             this.Controls.Add(this.tbpsearchcode);

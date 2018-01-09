@@ -27,7 +27,29 @@ namespace CGSystem
 
         private void btpsearch_Click(object sender, EventArgs e)
         {
-            Buscar();
+            Form f = new SeleccionarServicio();
+            f.ShowDialog();
+            if (MenuPrincipal.SeleccionDeServicio != "0")
+            {
+                Cargar();
+            }
+            else
+            {
+                MessageBox.Show("No seleccionó ningún servicio...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+        }
+
+        void Cargar()
+        {
+            try
+            {
+                ds = oper.ConsultaConResultado("SELECT * FROM servicio WHERE codigo_servicio = '"+ MenuPrincipal.SeleccionDeServicio + "' AND estado = 'ACTIVO';;");
+            }
+            catch
+            {
+                MessageBox.Show("No se pudo cargar el servicio seleccionado...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void MantenimientoDeServicios_Load(object sender, EventArgs e)
@@ -38,7 +60,7 @@ namespace CGSystem
 
         private void btnactualizarservicio_Click(object sender, EventArgs e)
         {
-            oper.ConsultaSinResultado("UPDATE servicio SET descripcion_servicio = '"+tbpnombre.Text+"', precio_servicio = '"+tbpprecio.Text+"', dias = '"+tbdias.Text+"' WHERE codigo_servicio = '"+tbpcodigo.Text+"'");
+            oper.ConsultaSinResultado("UPDATE servicio SET descripcion_servicio = '" + tbpnombre.Text + "', precio_servicio = '" + tbpprecio.Text + "', dias = '" + tbdias.Text + "' WHERE codigo_servicio = '" + tbpcodigo.Text + "'");
         }
 
         public void Guardar()
@@ -57,13 +79,13 @@ namespace CGSystem
             }
             else
             {
-                MessageBox.Show("Faltan datos por registrar! ");
+                MessageBox.Show("Faltan datos, compléte todos los campos...");
             }
         }
 
         private void btpdelete_Click(object sender, EventArgs e)
         {
-            oper.ConsultaSinResultado("UPDATE servicio SET estado = 'DESACTIVADO' WHERE codigo_servicio = '"+tbpcodigo.Text+"'");
+            oper.ConsultaSinResultado("UPDATE servicio SET estado = 'DESACTIVADO' WHERE codigo_servicio = '" + tbpcodigo.Text + "'");
         }
 
         public void Nuevo()

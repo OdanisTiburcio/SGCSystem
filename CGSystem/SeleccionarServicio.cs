@@ -78,6 +78,7 @@ namespace CGSystem
                 //Método para seleccionar el servicio marcado o clickeado
                 Facturación.ServicioBuscarID = dgvListaServicios.CurrentRow.Cells[0].Value.ToString();
                 Facturación.SeleccionDeServicio = true; //Marcar un servicio como seleccionado
+                MenuPrincipal.SeleccionDeServicio = dgvListaServicios.CurrentRow.Cells[0].Value.ToString();
                 this.Close();
             }
             catch
