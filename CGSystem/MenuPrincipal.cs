@@ -68,6 +68,7 @@ namespace CGSystem
                     archivoToolStripMenuItem.DropDownItems[2].Enabled = true;
                     archivoToolStripMenuItem.DropDownItems[3].Enabled = true;
                     archivoToolStripMenuItem.DropDownItems[6].Enabled = true;
+                    archivoToolStripMenuItem.DropDownItems[7].Enabled = true;
 
                 }
                 else //Empleado
