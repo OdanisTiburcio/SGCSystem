@@ -215,6 +215,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btbuscar1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CXC";
             this.Text = "Cuenta por Cobrar";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1update)).EndInit();

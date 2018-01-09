@@ -185,6 +185,7 @@
             this.Controls.Add(this.lbidcliente);
             this.Controls.Add(this.tbaliasusuario);
             this.Controls.Add(this.label2);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CRUDUSUARIO";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Creación de Usuarios";

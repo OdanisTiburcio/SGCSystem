@@ -128,6 +128,7 @@
             this.Controls.Add(this.btnimprimirdepartamento);
             this.Controls.Add(this.btnactualizardepartamento);
             this.Controls.Add(this.btnguardardepartamento);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Departamentos";

@@ -128,6 +128,7 @@
             this.Controls.Add(this.tbdescripsector);
             this.Controls.Add(this.tbcodigosector);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Sectores";
             this.Text = "Sectores";
             this.ResumeLayout(false);

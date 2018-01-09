@@ -198,6 +198,7 @@
             this.Controls.Add(this.bntimprimiringreso);
             this.Controls.Add(this.btbuscaringreso);
             this.Controls.Add(this.dgvdetalleingresos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CRUDIngresos";
             this.Text = "Detalle de Ingresos";
             ((System.ComponentModel.ISupportInitialize)(this.dgvdetalleingresos)).EndInit();

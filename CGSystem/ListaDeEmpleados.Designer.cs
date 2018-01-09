@@ -257,6 +257,7 @@
             this.Controls.Add(this.btnbuscar);
             this.Controls.Add(this.btnagregar);
             this.Controls.Add(this.datanomina);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ListaDeEmpleados";

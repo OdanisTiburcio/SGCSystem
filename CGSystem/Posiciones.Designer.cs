@@ -128,6 +128,7 @@
             this.Controls.Add(this.tbdescripposición);
             this.Controls.Add(this.tbcodigoposicion);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Posiciones";
             this.Text = "Posiciones";
             this.ResumeLayout(false);

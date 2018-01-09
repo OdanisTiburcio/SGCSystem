@@ -155,6 +155,7 @@
             this.Controls.Add(this.btnbuscarusuario);
             this.Controls.Add(this.btncrearusuario);
             this.Controls.Add(this.dataGridView1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MantenimientoUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuarios";

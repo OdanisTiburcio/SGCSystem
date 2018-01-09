@@ -215,6 +215,7 @@
             this.Controls.Add(this.tbpcodigo);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MantenimientoDeServicios";
             this.Text = "Servicios";
             this.Load += new System.EventHandler(this.MantenimientoDeServicios_Load);

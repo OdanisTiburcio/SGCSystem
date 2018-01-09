@@ -128,6 +128,7 @@
             this.Controls.Add(this.tbdescripciudad);
             this.Controls.Add(this.tbcodigociudad);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Ciudades";
             this.Text = "Ciudades";
             this.Load += new System.EventHandler(this.Ciudades_Load);
