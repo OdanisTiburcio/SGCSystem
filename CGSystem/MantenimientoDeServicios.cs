@@ -79,7 +79,7 @@ namespace CGSystem
             }
             else
             {
-                MessageBox.Show("Faltan datos, compléte todos los campos...");
+                MessageBox.Show("Faltan datos, complete todos los campos...");
             }
         }
 
