@@ -96,10 +96,10 @@ namespace CGSystem
             {
 
             }
-            cbdepartamento.Text = "";
-            cbciudad.Text = "";
-            cbposicion.Text = "";
-            cbsector.Text = "";
+            //cbdepartamento.Text = "";
+            //cbciudad.Text = "";
+            //cbposicion.Text = "";
+            //cbsector.Text = "";
         }
 
         public bool ReadOnly { get; set; }
@@ -164,8 +164,9 @@ namespace CGSystem
             if (tbnombreempleado.Text != "" && tbapellidoempleado.Text != "" && tbcedulaempleado.Text != "" && dtpnacimientoempleado.Text != "" && cbsexoempleado.Text != "" && dtpingresoempleado.Text != "" && tbsueldo.Text != "" && cbposicion.Text != "" && cbdepartamento.Text != "" && cbestadoempleado.Text != "" && tbRutaFoto.Text != "")
             {
                 oper.ConsultaSinResultado("UPDATE empleado SET codigo_posicion = '" + codigoposicion + "', codigo_departamento = '" + codigodepart + "', sueldo = '" + tbsueldo.Text + "', cedula_empleado = '" + tbcedulaempleado.Text.ToString() + "', nombre = '" + tbnombreempleado.Text.ToString().ToUpper() + "', apellido = '" + tbapellidoempleado.Text.ToString().ToUpper() + "', fecha_nacimiento = '" + fechanacimiento + "', fecha_ingreso = '" + fechaingreso + "', direccion = '" + tbdireccionempleado.Text.ToString().ToUpper() + "', codigo_sector = '" + codigosector + "', codigo_ciudad = '" + codigociudad + "', telefono_casa = '" + tbtelefonoempleado.Text.ToString() + "', celular = '" + tbcelularempleado.Text.ToString() + "', codigo_estado = '" + codigoestado + "', foto = '" + tbRutaFoto.Text.ToString() + "', sexo = '" + cbsexoempleado.Text.ToString() + "' WHERE numero_empleado = '" + tbnumeroempleado.Text + "'");
-                limpiarcampos();
+                //limpiarcampos();
                 MessageBox.Show("Datos actualizados satisfactoriamente!");
+                this.Close();
             }
             else
             {

@@ -154,8 +154,8 @@ namespace CGSystem
             {
 
             }
-            cbciudadcliente.Text = "";
-            cbsectorcliente.Text = "";
+            //cbciudadcliente.Text = "";
+            //cbsectorcliente.Text = "";
         }
 
         private void btnactualizarcliente_Click(object sender, EventArgs e)
@@ -175,8 +175,9 @@ namespace CGSystem
             if (tbnombrecliente.Text != "" && tbapellidocliente.Text != "" && tbcedulacliente.Text != "" && dtpnacimientocliente.Text != "" && cbsexocliente.Text != "" && tbdireccioncliente.Text != "" && cbsectorcliente.Text != "" && cbciudadcliente.Text != "" && cbestadocliente.Text != "" && tbRutaFoto.Text != "")
             {
                 oper.ConsultaSinResultado("UPDATE cliente SET cedula_cliente = '" + tbcedulacliente.Text.ToString() + "', nombre_cliente = '" + tbnombrecliente.Text.ToString().ToUpper() + "', apellido_cliente = '" + tbapellidocliente.Text.ToString().ToUpper() + "', fecha_nacimiento = '" + fechanacimiento + "', direccion_cliente = '" + tbdireccioncliente.Text.ToString().ToUpper() + "', codigo_sector = '" + codigosector + "', codigo_ciudad = '" + codigociudad + "', telefono = '" + tbtelefonocliente.Text.ToString() + "', codigo_estado = '" + codigoestado + "', foto = '" + tbRutaFoto.Text.ToString() + "' WHERE numero_cliente = '" + tbnumerocliente.Text + "'");
-                limpiarcampos();
+                //limpiarcampos();
                 MessageBox.Show("Datos actualizados satisfactoriamente!");
+                this.Close();
             }
             else MessageBox.Show("Debe completar todos los datos! ");
         }
