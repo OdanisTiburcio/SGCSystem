@@ -323,6 +323,9 @@
     <EmbeddedResource Include="SeleccionarNumeroDeFactura.resx">
       <DependentUpon>SeleccionarNumeroDeFactura.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="SeleccionarServicio.resx">
+      <DependentUpon>SeleccionarServicio.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Todos los clientes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Todos los clientes.cs</LastGenOutput>

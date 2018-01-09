@@ -33,6 +33,7 @@
             this.btneliminarcliente = new System.Windows.Forms.Button();
             this.btnactualizarcliente = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tbtelefonocliente = new System.Windows.Forms.MaskedTextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.tbdireccioncliente = new System.Windows.Forms.TextBox();
@@ -66,7 +67,6 @@
             this.dtpiniciofactura = new System.Windows.Forms.DateTimePicker();
             this.label4 = new System.Windows.Forms.Label();
             this.btnnuevocliente = new System.Windows.Forms.Button();
-            this.tbtelefonocliente = new System.Windows.Forms.MaskedTextBox();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -140,6 +140,15 @@
             this.groupBox2.TabIndex = 30;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Geográficos:";
+            // 
+            // tbtelefonocliente
+            // 
+            this.tbtelefonocliente.Enabled = false;
+            this.tbtelefonocliente.Location = new System.Drawing.Point(10, 147);
+            this.tbtelefonocliente.Mask = "(###)###-####";
+            this.tbtelefonocliente.Name = "tbtelefonocliente";
+            this.tbtelefonocliente.Size = new System.Drawing.Size(100, 20);
+            this.tbtelefonocliente.TabIndex = 37;
             // 
             // label11
             // 
@@ -478,15 +487,6 @@
             this.btnnuevocliente.UseVisualStyleBackColor = false;
             this.btnnuevocliente.Click += new System.EventHandler(this.btnnuevocliente_Click);
             // 
-            // tbtelefonocliente
-            // 
-            this.tbtelefonocliente.Enabled = false;
-            this.tbtelefonocliente.Location = new System.Drawing.Point(10, 147);
-            this.tbtelefonocliente.Mask = "(###)###-####";
-            this.tbtelefonocliente.Name = "tbtelefonocliente";
-            this.tbtelefonocliente.Size = new System.Drawing.Size(100, 20);
-            this.tbtelefonocliente.TabIndex = 37;
-            // 
             // CRUDClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -502,6 +502,7 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnguardarcliente);
             this.Controls.Add(this.pictureBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CRUDClientes";

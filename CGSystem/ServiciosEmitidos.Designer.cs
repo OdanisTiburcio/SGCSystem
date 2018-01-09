@@ -229,6 +229,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btbuscar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "ServiciosEmitidos";
             this.Text = "Servicios Emitidos";
             ((System.ComponentModel.ISupportInitialize)(this.btbuscar1)).EndInit();

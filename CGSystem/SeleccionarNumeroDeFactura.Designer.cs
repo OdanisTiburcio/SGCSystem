@@ -86,6 +86,7 @@
             this.Controls.Add(this.btnguardar);
             this.Controls.Add(this.tbnumfactura);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(417, 171);
             this.MinimizeBox = false;

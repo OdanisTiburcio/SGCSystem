@@ -229,6 +229,7 @@
             this.Controls.Add(this.tbid);
             this.Controls.Add(this.tbnombre);
             this.Controls.Add(this.btnguardar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CheckIn";

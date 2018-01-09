@@ -320,6 +320,7 @@
             this.Controls.Add(this.btncuadrehoy);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dtvcuadrecaja);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(510, 501);
             this.MinimizeBox = false;
