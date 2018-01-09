@@ -46,7 +46,7 @@ namespace CGSystem
             {
                 dgvListaServicios.Rows.Clear();
                 //Cargar la Tabla de todos los servicios activos
-                ds = oper.ConsultaConResultado("SELECT * FROM servicio;");
+                ds = oper.ConsultaConResultado("SELECT * FROM servicio WHERE estado = 'ACTIVO';");
 
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
                 {
@@ -96,11 +96,11 @@ namespace CGSystem
                 //Cargar con el filtro especificado...
                 if (rdbnombre.Checked)
                 {
-                    ds = oper.ConsultaConResultado("SELECT * FROM servicio WHERE descripcion_servicio Like '%" + tbbuscar.Text + "%';");
+                    ds = oper.ConsultaConResultado("SELECT * FROM servicio WHERE descripcion_servicio Like '%" + tbbuscar.Text + "%' AND estado = 'ACTIVO';");
                 }
                 else
                 {
-                    ds = oper.ConsultaConResultado("SELECT * FROM servicio WHERE codigo_servicio Like '%" + tbbuscar.Text + "%';");
+                    ds = oper.ConsultaConResultado("SELECT * FROM servicio WHERE codigo_servicio Like '%" + tbbuscar.Text + "%' AND estado = 'ACTIVO';");
                 }
 
                 for (int i = 0; i < ds.Tables[0].Rows.Count; i++)

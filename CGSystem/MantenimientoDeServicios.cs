@@ -13,8 +13,9 @@ namespace CGSystem
     public partial class MantenimientoDeServicios : Form
     {
         DataSet ds = new DataSet();
-
         operacion oper = new operacion();
+        public bool NuevoServicio = false;
+
         public MantenimientoDeServicios()
         {
             InitializeComponent();
@@ -22,6 +23,7 @@ namespace CGSystem
 
         private void btpnew_Click(object sender, EventArgs e)
         {
+            NuevoServicio = true;
             Nuevo();
         }
 
@@ -44,7 +46,12 @@ namespace CGSystem
         {
             try
             {
-                ds = oper.ConsultaConResultado("SELECT * FROM servicio WHERE codigo_servicio = '"+ MenuPrincipal.SeleccionDeServicio + "' AND estado = 'ACTIVO';;");
+                ds = oper.ConsultaConResultado("SELECT * FROM servicio WHERE codigo_servicio = '"+ MenuPrincipal.SeleccionDeServicio + "' AND estado = 'ACTIVO';");
+                tbpcodigo.Text = ds.Tables[0].Rows[0][0].ToString();
+                tbpnombre.Text = ds.Tables[0].Rows[0][1].ToString();
+                tbpprecio.Text = ds.Tables[0].Rows[0][2].ToString();
+                tbdias.Text = ds.Tables[0].Rows[0][3].ToString();
+                NuevoServicio = false;
             }
             catch
             {
@@ -60,22 +67,29 @@ namespace CGSystem
 
         private void btnactualizarservicio_Click(object sender, EventArgs e)
         {
-            oper.ConsultaSinResultado("UPDATE servicio SET descripcion_servicio = '" + tbpnombre.Text + "', precio_servicio = '" + tbpprecio.Text + "', dias = '" + tbdias.Text + "' WHERE codigo_servicio = '" + tbpcodigo.Text + "'");
+            Guardar();
         }
 
         public void Guardar()
         {
+             
             if (tbpnombre.Text != "" && tbpprecio.Text != "" && tbdias.Text != "")
             {
-                oper.ConsultaSinResultado("INSERT INTO servicio (descripcion_servicio, precio_servicio, dias, estado) VALUES ('" + tbpnombre.Text.ToString() + "','" + tbpprecio.Text + "','" + tbdias.Text + "', 'ACTIVO')");
-                tbpnombre.Clear();
-                tbpprecio.Clear();
-                tbdias.Clear();
-                tbpcodigo.Clear();
-                MessageBox.Show("Datos registrados satisfactoriamente!");
+                if (NuevoServicio)
+                {
+                    oper.ConsultaSinResultado("INSERT INTO servicio (descripcion_servicio, precio_servicio, dias, estado) VALUES ('" + tbpnombre.Text.ToString() + "','" + tbpprecio.Text + "','" + tbdias.Text + "', 'ACTIVO')");
+                    tbpnombre.Clear();
+                    tbpprecio.Clear();
+                    tbdias.Clear();
+                    tbpcodigo.Clear();
+                    MessageBox.Show("Datos registrados satisfactoriamente!");
 
-                ds = oper.ConsultaConResultado("SELECT MAX(codigo_servicio) value FROM servicio;");
-                tbpcodigo.Text = ds.Tables[0].Rows[0][0].ToString();
+                    ds = oper.ConsultaConResultado("SELECT MAX(codigo_servicio) value FROM servicio;");
+                    tbpcodigo.Text = ds.Tables[0].Rows[0][0].ToString();
+                }else
+                {
+                    oper.ConsultaSinResultado("UPDATE servicio SET descripcion_servicio = '" + tbpnombre.Text + "', precio_servicio = '" + tbpprecio.Text + "', dias = '" + tbdias.Text + "' WHERE codigo_servicio = '" + tbpcodigo.Text + "'");
+                }
             }
             else
             {
@@ -86,12 +100,22 @@ namespace CGSystem
         private void btpdelete_Click(object sender, EventArgs e)
         {
             oper.ConsultaSinResultado("UPDATE servicio SET estado = 'DESACTIVADO' WHERE codigo_servicio = '" + tbpcodigo.Text + "'");
+            MessageBox.Show("Se eliminó el servicio correctamente...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            Nuevo();
         }
 
         public void Nuevo()
         {
             ds = oper.ConsultaConResultado("SELECT MAX(codigo_servicio) value FROM servicio;");
-            tbpcodigo.Text = ds.Tables[0].Rows[0][0].ToString();
+            try
+            {
+                tbpcodigo.Text = (Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1).ToString();
+            }
+            catch 
+            {
+                MessageBox.Show("El código del nuevo servicio es erróneo...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
 
             tbpnombre.Text = "";
             tbpsearchcode.Text = "";
@@ -99,10 +123,5 @@ namespace CGSystem
             tbpprecio.Text = "";
         }
 
-        public void Buscar()
-        {
-            //ds = oper.ConsultaConResultado("SELECT * FROM servicio WHERE codigo_servicio = '"+btpsearch.ResetText+"';")
-
-        }
     }
 }
