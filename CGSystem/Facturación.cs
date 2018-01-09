@@ -710,8 +710,6 @@ namespace CGSystem
 
         private void button2_Click(object sender, EventArgs e)
         {
-            GoingToModify = true;
-            NuevaFactura();
 
             if (modificandofactura)
             {
@@ -724,7 +722,8 @@ namespace CGSystem
                         {
 
                         }
-                        else { return; }
+                        else { return;
+                        }
                     }
                 }
                 else
@@ -744,6 +743,9 @@ namespace CGSystem
                     else { return; }
                 }
             }
+
+            GoingToModify = true;
+            NuevaFactura();
 
             //Abrir el formulario para elegir la factura que se va a modificar...
             Form f = new SeleccionarNumeroDeFactura();
