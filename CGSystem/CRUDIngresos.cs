@@ -37,7 +37,7 @@ namespace CGSystem
                 cnx.Open();
                 if (rbtodosingresos.Checked)
                 {
-                    string consulta = "SELECT ing.codigo_ingreso Código, tip.descripcion_tipo_ingreso Tipo, fac.numero_factura No_Factura, ing.monto_ingreso, ing.fecha FROM ingreso ing INNER JOIN tipo_ingreso tip ON tip.codigo_tipo_ingreso = ing.codigo_tipo_ingreso INNER JOIN factura fac ON fac.numero_factura = ing.numero_factura";
+                    string consulta = "SELECT ing.codigo_ingreso Código, tip.descripcion_tipo_ingreso Tipo, fac.numero_factura No_Factura, ing.monto_ingreso, ing.fecha FROM ingreso ing INNER JOIN tipo_ingreso tip ON tip.codigo_tipo_ingreso = ing.codigo_tipo_ingreso INNER JOIN factura fac ON fac.numero_factura = ing.numero_factura WHERE estado = 'ACTIVO'";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();

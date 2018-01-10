@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btneliminiar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -61,6 +61,8 @@
             this.btbuscar = new System.Windows.Forms.PictureBox();
             this.rdContado = new System.Windows.Forms.RadioButton();
             this.rdCredito = new System.Windows.Forms.RadioButton();
+            this.cbingreso = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaServicios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnsearch)).BeginInit();
@@ -95,7 +97,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(647, 63);
+            this.label6.Location = new System.Drawing.Point(643, 79);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(69, 19);
             this.label6.TabIndex = 141;
@@ -105,7 +107,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(531, 63);
+            this.label5.Location = new System.Drawing.Point(527, 79);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 19);
             this.label5.TabIndex = 140;
@@ -137,7 +139,7 @@
             // 
             this.tbcliente.Enabled = false;
             this.tbcliente.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbcliente.Location = new System.Drawing.Point(590, 101);
+            this.tbcliente.Location = new System.Drawing.Point(594, 106);
             this.tbcliente.Name = "tbcliente";
             this.tbcliente.Size = new System.Drawing.Size(167, 22);
             this.tbcliente.TabIndex = 135;
@@ -147,7 +149,7 @@
             // 
             this.lbidcliente.AutoSize = true;
             this.lbidcliente.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbidcliente.Location = new System.Drawing.Point(560, 128);
+            this.lbidcliente.Location = new System.Drawing.Point(564, 133);
             this.lbidcliente.Name = "lbidcliente";
             this.lbidcliente.Size = new System.Drawing.Size(27, 23);
             this.lbidcliente.TabIndex = 134;
@@ -158,7 +160,7 @@
             // 
             this.tbidcliente.Enabled = false;
             this.tbidcliente.Font = new System.Drawing.Font("Georgia", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbidcliente.Location = new System.Drawing.Point(590, 129);
+            this.tbidcliente.Location = new System.Drawing.Point(594, 134);
             this.tbidcliente.Name = "tbidcliente";
             this.tbidcliente.Size = new System.Drawing.Size(83, 22);
             this.tbidcliente.TabIndex = 133;
@@ -190,7 +192,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Times New Roman", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(516, 100);
+            this.label2.Location = new System.Drawing.Point(520, 105);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(71, 23);
             this.label2.TabIndex = 129;
@@ -288,17 +290,17 @@
             // 
             // iddetalle
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iddetalle.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iddetalle.DefaultCellStyle = dataGridViewCellStyle9;
             this.iddetalle.HeaderText = "#";
             this.iddetalle.Name = "iddetalle";
             this.iddetalle.Width = 25;
             // 
             // cedula
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.cedula.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.cedula.DefaultCellStyle = dataGridViewCellStyle10;
             this.cedula.HeaderText = "Código";
             this.cedula.Name = "cedula";
             this.cedula.ReadOnly = true;
@@ -355,7 +357,7 @@
             // 
             this.btnsearch.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnsearch.Image = global::CGSystem.Properties.Resources.lupa_psd_468x468;
-            this.btnsearch.Location = new System.Drawing.Point(760, 93);
+            this.btnsearch.Location = new System.Drawing.Point(764, 98);
             this.btnsearch.Name = "btnsearch";
             this.btnsearch.Size = new System.Drawing.Size(43, 38);
             this.btnsearch.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -379,29 +381,56 @@
             // 
             this.rdContado.AutoSize = true;
             this.rdContado.Checked = true;
-            this.rdContado.Location = new System.Drawing.Point(614, 67);
+            this.rdContado.Location = new System.Drawing.Point(610, 83);
             this.rdContado.Name = "rdContado";
             this.rdContado.Size = new System.Drawing.Size(14, 13);
             this.rdContado.TabIndex = 150;
             this.rdContado.TabStop = true;
             this.rdContado.UseVisualStyleBackColor = true;
             this.rdContado.CheckedChanged += new System.EventHandler(this.rdContado_CheckedChanged);
+            this.rdContado.Click += new System.EventHandler(this.rdContado_Click);
             // 
             // rdCredito
             // 
             this.rdCredito.AutoSize = true;
-            this.rdCredito.Location = new System.Drawing.Point(722, 67);
+            this.rdCredito.Location = new System.Drawing.Point(718, 83);
             this.rdCredito.Name = "rdCredito";
             this.rdCredito.Size = new System.Drawing.Size(14, 13);
             this.rdCredito.TabIndex = 150;
             this.rdCredito.UseVisualStyleBackColor = true;
             this.rdCredito.CheckedChanged += new System.EventHandler(this.rdCredito_CheckedChanged);
+            this.rdCredito.Click += new System.EventHandler(this.rdCredito_Click);
+            // 
+            // cbingreso
+            // 
+            this.cbingreso.FormattingEnabled = true;
+            this.cbingreso.Items.AddRange(new object[] {
+            "EFECTIVO",
+            "CHEQUE",
+            "TARJETA CREDITO"});
+            this.cbingreso.Location = new System.Drawing.Point(662, 53);
+            this.cbingreso.Name = "cbingreso";
+            this.cbingreso.Size = new System.Drawing.Size(121, 21);
+            this.cbingreso.TabIndex = 151;
+            this.cbingreso.Text = "EFECTIVO";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.label3.Location = new System.Drawing.Point(540, 55);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(121, 17);
+            this.label3.TabIndex = 152;
+            this.label3.Text = "Método de Pago";
             // 
             // Facturación
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 464);
+            this.ClientSize = new System.Drawing.Size(808, 465);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.cbingreso);
             this.Controls.Add(this.rdCredito);
             this.Controls.Add(this.rdContado);
             this.Controls.Add(this.pictureBox1);
@@ -478,5 +507,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ahorros;
         private System.Windows.Forms.DataGridViewTextBoxColumn isr;
+        private System.Windows.Forms.ComboBox cbingreso;
+        private System.Windows.Forms.Label label3;
     }
 }

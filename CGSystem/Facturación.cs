@@ -442,6 +442,9 @@ namespace CGSystem
                     if (rdCredito.Checked)//Si la factura es a crédito, generar una cuenta por cobrar de la factura actual al cliente correspondiente...
                     {
                         GenerarCXC(); //Como se esta modificando una factura, la CXC se va a actualizar...
+                        
+                        //Se eliminan los ingresos anteriormente generados...
+                        oper.ConsultaSinResultado("UPDATE ingreso SET estado = 'DESACTIVADO' WHERE numero_factura = '" + NumeroDeFactura + "';");
                     }
                     else //Si ahora es al contado...
                     {
@@ -449,10 +452,18 @@ namespace CGSystem
                         {
                             oper.ConsultaSinResultado("UPDATE cxc SET estado_cxc = 'DESACTIVADO' WHERE id_factura = '" + NumeroDeFactura + "';");
                         }
-                        else //Si era al contado, no se afecta nada...
+                        else //Si era al contado, no se afecta la cuenta por cobrar...
                         {
 
                         }
+                        //Se eliminan los ingresos anteriormente generados...
+                        oper.ConsultaSinResultado("UPDATE ingreso SET estado = 'DESACTIVADO' WHERE numero_factura = '" + NumeroDeFactura + "';");
+
+                        //Se inserta el nuevo ingreso...
+                        string TipoIngreso = (Convert.ToInt32(cbingreso.SelectedIndex + 1)).ToString();
+                        oper.ConsultaSinResultado("INSERT INTO ingreso (codigo_tipo_ingreso, numero_factura, monto_ingreso, fecha, estado) VALUES ('" + TipoIngreso + "','" + NumeroDeFactura + "','" + TotalFactura + "','" + fechaHoy + "', 'ACTIVO');");
+
+
                     }
 
                     FacturaModificadaGuardada = true;
@@ -529,7 +540,11 @@ namespace CGSystem
                     {
                         GenerarCXC();
                     }
-                    else { }
+                    else
+                    {//Generar Nuevo Ingreso
+                        string TipoIngreso = (Convert.ToInt32(cbingreso.SelectedIndex + 1)).ToString();
+                        oper.ConsultaSinResultado("INSERT INTO ingreso (codigo_tipo_ingreso, numero_factura, monto_ingreso, fecha, estado) VALUES ('" + TipoIngreso + "','" + NumeroDeFactura + "','" + TotalFactura + "','" + fechaHoy + "', 'ACTIVO');");
+                    }
 
                     ActualizarPeriodoDeCliente();//Sumarle los días facturados a la membresía del cliente.
                     CerrarFactura(); //Método para activar y desactivar los botonoes necesarios hasta la próxima factura...
@@ -722,7 +737,9 @@ namespace CGSystem
                         {
 
                         }
-                        else { return;
+                        else
+                        {
+                            return;
                         }
                     }
                 }
@@ -862,6 +879,16 @@ namespace CGSystem
         private void dgvListaServicios_UserDeletedRow_1(object sender, DataGridViewRowEventArgs e)
         {
             Actualizar();
+        }
+
+        private void rdContado_Click(object sender, EventArgs e)
+        {
+            cbingreso.Enabled = true;
+        }
+
+        private void rdCredito_Click(object sender, EventArgs e)
+        {
+            cbingreso.Enabled = false;
         }
     }
 
