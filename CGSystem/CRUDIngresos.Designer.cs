@@ -64,6 +64,7 @@
             this.bntimprimiringreso.TabIndex = 37;
             this.bntimprimiringreso.Text = "Imprimir";
             this.bntimprimiringreso.UseVisualStyleBackColor = false;
+            this.bntimprimiringreso.Click += new System.EventHandler(this.bntimprimiringreso_Click);
             // 
             // btbuscaringreso
             // 
@@ -201,6 +202,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CRUDIngresos";
             this.Text = "Detalle de Ingresos";
+            this.Load += new System.EventHandler(this.CRUDIngresos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdetalleingresos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

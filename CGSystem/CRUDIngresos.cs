@@ -37,7 +37,7 @@ namespace CGSystem
                 cnx.Open();
                 if (rbtodosingresos.Checked)
                 {
-                    string consulta = "SELECT ing.codigo_ingreso Código, tip.descripcion_tipo_ingreso Tipo, fac.numero_factura No_Factura, ing.monto_ingreso, ing.fecha FROM ingreso ing INNER JOIN tipo_ingreso tip ON tip.codigo_tipo_ingreso = ing.codigo_tipo_ingreso INNER JOIN factura fac ON fac.numero_factura = ing.numero_factura WHERE estado = 'ACTIVO'";
+                    string consulta = "SELECT ing.codigo_ingreso Código, tip.descripcion_tipo_ingreso Tipo, cab.id_factura No_Factura, ing.monto_ingreso Monto, ing.fecha Fecha FROM ingreso ing INNER JOIN tipo_ingreso tip ON tip.codigo_tipo_ingreso = ing.codigo_tipo_ingreso INNER JOIN cabecera_factura cab ON cab.id_factura = ing.numero_factura WHERE ing.estado = 'ACTIVO'";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -49,7 +49,7 @@ namespace CGSystem
                 }
                 else if (rbcodigoingreso.Checked)
                 {
-                    string consulta = "SELECT ing.codigo_ingreso Código, tip.descripcion_tipo_ingreso Tipo, fac.numero_factura No_Factura, ing.monto_ingreso, ing.fecha FROM ingreso ing INNER JOIN tipo_ingreso tip ON tip.codigo_tipo_ingreso = ing.codigo_tipo_ingreso INNER JOIN factura fac ON fac.numero_factura = ing.numero_factura WHERE ing.codigo_ingreso = '" + tbseleccion.Text + "'";
+                    string consulta = "SELECT ing.codigo_ingreso Código, tip.descripcion_tipo_ingreso Tipo, cab.id_factura No_Factura, ing.monto_ingreso Monto, ing.fecha Fecha FROM ingreso ing INNER JOIN tipo_ingreso tip ON tip.codigo_tipo_ingreso = ing.codigo_tipo_ingreso INNER JOIN cabecera_factura cab ON cab.id_factura = ing.numero_factura WHERE ing.codigo_ingreso = '" + tbseleccion.Text + "' AND ing.estado = 'ACTIVO'";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -61,7 +61,7 @@ namespace CGSystem
                 }
                 else if (rbnumerofact.Checked)
                 {
-                    string consulta = "SELECT ing.codigo_ingreso Código, tip.descripcion_tipo_ingreso Tipo, fac.numero_factura No_Factura, ing.monto_ingreso, ing.fecha FROM ingreso ing INNER JOIN tipo_ingreso tip ON tip.codigo_tipo_ingreso = ing.codigo_tipo_ingreso INNER JOIN factura fac ON fac.numero_factura = ing.numero_factura WHERE ing.numero_factura = '" + tbseleccion.Text + "'";
+                    string consulta = "SELECT ing.codigo_ingreso Código, tip.descripcion_tipo_ingreso Tipo, cab.id_factura No_Factura, ing.monto_ingreso Monto, ing.fecha Fecha FROM ingreso ing INNER JOIN tipo_ingreso tip ON tip.codigo_tipo_ingreso = ing.codigo_tipo_ingreso INNER JOIN cabecera_factura cab ON cab.id_factura = ing.numero_factura WHERE ing.numero_factura = '" + tbseleccion.Text + "' AND ing.estado = 'ACTIVO'";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -79,24 +79,34 @@ namespace CGSystem
                     string fechahasta = oper.FormatearFecha(dtpIngresohasta.Value);
                     try
                     {
-                    
-                    string consulta = "SELECT ing.codigo_ingreso Código, tip.descripcion_tipo_ingreso Tipo, fac.numero_factura No_Factura, ing.monto_ingreso, ing.fecha FROM ingreso ing INNER JOIN tipo_ingreso tip ON tip.codigo_tipo_ingreso = ing.codigo_tipo_ingreso INNER JOIN factura fac ON fac.numero_factura = ing.numero_factura WHERE ing.fecha BETWEEN '" + desde + "' AND '" + hasta + "'";
-                    SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
-                    DataSet ds = new DataSet();
-                    ds.Reset();
-                    DataTable dt = new DataTable();
-                    db.Fill(ds);
-                    dt = ds.Tables[0];
-                    dgvdetalleingresos.DataSource = dt;
-                    cnx.Close();
+                        string consulta = "SELECT ing.codigo_ingreso Código, tip.descripcion_tipo_ingreso Tipo, cab.id_factura No_Factura, ing.monto_ingreso Monto, ing.fecha Fecha FROM ingreso ing INNER JOIN tipo_ingreso tip ON tip.codigo_tipo_ingreso = ing.codigo_tipo_ingreso INNER JOIN cabecera_factura cab ON cab.id_factura = ing.numero_factura WHERE ing.fecha BETWEEN '" + desde + "' AND '" + hasta + "'";
+                        SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
+                        DataSet ds = new DataSet();
+                        ds.Reset();
+                        DataTable dt = new DataTable();
+                        db.Fill(ds);
+                        dt = ds.Tables[0];
+                        dgvdetalleingresos.DataSource = dt;
+                        cnx.Close();
                     }
                     catch (Exception ex) { }
                 }
             }
             catch (Exception ex)
             {
-                
+
             }
+        }
+
+        private void bntimprimiringreso_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CRUDIngresos_Load(object sender, EventArgs e)
+        {
+            dtpIngresodesde.Value = DateTime.Today;
+            dtpIngresohasta.Value = DateTime.Today;
         }
     }
 }
