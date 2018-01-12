@@ -206,6 +206,7 @@
             this.Name = "SeleccionarCliente";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Lista de Clientes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SeleccionarCliente_FormClosing);
             this.Load += new System.EventHandler(this.SeleccionarCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaServicios)).EndInit();
             this.ResumeLayout(false);

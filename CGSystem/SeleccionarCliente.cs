@@ -16,6 +16,7 @@ namespace CGSystem
         operacion oper = new operacion();
         DataSet ds = new DataSet();
         DataTable dt = new DataTable();
+        public static string ClienteBuscado = "";
 
         public SeleccionarCliente()
         {
@@ -24,7 +25,8 @@ namespace CGSystem
 
         private void SeleccionarCliente_Load(object sender, EventArgs e)
         {
-            MostrarTodo();
+            tbbuscar.Text = ClienteBuscado;
+            BuscarPor();
         }
 
         public void MostrarTodo()
@@ -145,6 +147,11 @@ namespace CGSystem
         private void btnbuscar_Click(object sender, EventArgs e)
         {
             BuscarPor();
+        }
+
+        private void SeleccionarCliente_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ClienteBuscado = "";
         }
     }
 }

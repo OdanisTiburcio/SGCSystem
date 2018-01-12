@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label4 = new System.Windows.Forms.Label();
             this.tbtotal = new System.Windows.Forms.TextBox();
-            this.dataGridView1update = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.dgvCuentasPorCobrar = new System.Windows.Forms.DataGridView();
+            this.tbcodigo = new System.Windows.Forms.TextBox();
             this.btnbuscar = new System.Windows.Forms.Button();
             this.btcnew = new System.Windows.Forms.Button();
             this.btimprimir = new System.Windows.Forms.Button();
@@ -42,7 +46,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btbuscar1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1update)).BeginInit();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.restante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCuentasPorCobrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btbuscar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,24 +77,35 @@
             this.tbtotal.Text = "RD$ 0.00";
             this.tbtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // dataGridView1update
+            // dgvCuentasPorCobrar
             // 
-            this.dataGridView1update.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridView1update.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1update.Enabled = false;
-            this.dataGridView1update.Location = new System.Drawing.Point(12, 133);
-            this.dataGridView1update.Name = "dataGridView1update";
-            this.dataGridView1update.Size = new System.Drawing.Size(657, 180);
-            this.dataGridView1update.TabIndex = 114;
+            this.dgvCuentasPorCobrar.AllowUserToAddRows = false;
+            this.dgvCuentasPorCobrar.AllowUserToDeleteRows = false;
+            this.dgvCuentasPorCobrar.AllowUserToResizeColumns = false;
+            this.dgvCuentasPorCobrar.AllowUserToResizeRows = false;
+            this.dgvCuentasPorCobrar.BackgroundColor = System.Drawing.Color.White;
+            this.dgvCuentasPorCobrar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCuentasPorCobrar.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
+            this.fact,
+            this.total,
+            this.restante});
+            this.dgvCuentasPorCobrar.Location = new System.Drawing.Point(12, 133);
+            this.dgvCuentasPorCobrar.Name = "dgvCuentasPorCobrar";
+            this.dgvCuentasPorCobrar.ReadOnly = true;
+            this.dgvCuentasPorCobrar.RowHeadersVisible = false;
+            this.dgvCuentasPorCobrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCuentasPorCobrar.Size = new System.Drawing.Size(657, 180);
+            this.dgvCuentasPorCobrar.TabIndex = 114;
             // 
-            // textBox1
+            // tbcodigo
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.textBox1.Location = new System.Drawing.Point(213, 100);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(82, 23);
-            this.textBox1.TabIndex = 112;
+            this.tbcodigo.Enabled = false;
+            this.tbcodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
+            this.tbcodigo.Location = new System.Drawing.Point(213, 100);
+            this.tbcodigo.Name = "tbcodigo";
+            this.tbcodigo.Size = new System.Drawing.Size(82, 23);
+            this.tbcodigo.TabIndex = 112;
             // 
             // btnbuscar
             // 
@@ -163,6 +182,8 @@
             this.tbnombre.Name = "tbnombre";
             this.tbnombre.Size = new System.Drawing.Size(321, 23);
             this.tbnombre.TabIndex = 102;
+            this.tbnombre.TextChanged += new System.EventHandler(this.tbnombre_TextChanged);
+            this.tbnombre.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbnombre_KeyUp);
             // 
             // label1
             // 
@@ -189,12 +210,49 @@
             // 
             this.btbuscar1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btbuscar1.Image = global::CGSystem.Properties.Resources.lupa_psd_468x468;
-            this.btbuscar1.Location = new System.Drawing.Point(527, 68);
+            this.btbuscar1.Location = new System.Drawing.Point(540, 51);
             this.btbuscar1.Name = "btbuscar1";
-            this.btbuscar1.Size = new System.Drawing.Size(53, 30);
+            this.btbuscar1.Size = new System.Drawing.Size(63, 57);
             this.btbuscar1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btbuscar1.TabIndex = 111;
             this.btbuscar1.TabStop = false;
+            this.btbuscar1.Click += new System.EventHandler(this.btbuscar1_Click);
+            // 
+            // id
+            // 
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id.DefaultCellStyle = dataGridViewCellStyle17;
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 60;
+            // 
+            // fact
+            // 
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.fact.DefaultCellStyle = dataGridViewCellStyle18;
+            this.fact.HeaderText = "Factura #";
+            this.fact.Name = "fact";
+            this.fact.ReadOnly = true;
+            this.fact.Width = 194;
+            // 
+            // total
+            // 
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.total.DefaultCellStyle = dataGridViewCellStyle19;
+            this.total.HeaderText = "Valor Total";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Width = 200;
+            // 
+            // restante
+            // 
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.restante.DefaultCellStyle = dataGridViewCellStyle20;
+            this.restante.HeaderText = "Valor Restante";
+            this.restante.Name = "restante";
+            this.restante.ReadOnly = true;
+            this.restante.Width = 200;
             // 
             // CXC
             // 
@@ -203,8 +261,8 @@
             this.ClientSize = new System.Drawing.Size(681, 410);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbtotal);
-            this.Controls.Add(this.dataGridView1update);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.dgvCuentasPorCobrar);
+            this.Controls.Add(this.tbcodigo);
             this.Controls.Add(this.btnbuscar);
             this.Controls.Add(this.btcnew);
             this.Controls.Add(this.btimprimir);
@@ -216,9 +274,15 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btbuscar1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(697, 449);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(697, 449);
             this.Name = "CXC";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cuenta por Cobrar";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1update)).EndInit();
+            this.Load += new System.EventHandler(this.CXC_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCuentasPorCobrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btbuscar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -229,8 +293,8 @@
 
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox tbtotal;
-        private System.Windows.Forms.DataGridView dataGridView1update;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView dgvCuentasPorCobrar;
+        private System.Windows.Forms.TextBox tbcodigo;
         private System.Windows.Forms.Button btnbuscar;
         private System.Windows.Forms.Button btcnew;
         private System.Windows.Forms.Button btimprimir;
@@ -241,5 +305,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox btbuscar1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fact;
+        private System.Windows.Forms.DataGridViewTextBoxColumn total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn restante;
     }
 }
