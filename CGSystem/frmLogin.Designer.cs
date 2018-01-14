@@ -111,6 +111,7 @@
             this.cbusuario.TabIndex = 4;
             this.cbusuario.SelectedIndexChanged += new System.EventHandler(this.cbusuario_SelectedIndexChanged);
             this.cbusuario.KeyDown += new System.Windows.Forms.KeyEventHandler(this.cbusuario_KeyDown);
+            this.cbusuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbusuario_KeyPress);
             // 
             // btnCancelar
             // 

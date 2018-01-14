@@ -52,6 +52,7 @@
             this.tbbuscar.Name = "tbbuscar";
             this.tbbuscar.Size = new System.Drawing.Size(184, 30);
             this.tbbuscar.TabIndex = 0;
+            this.tbbuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbbuscar_KeyPress);
             this.tbbuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbbuscar_KeyUp);
             // 
             // rdbid

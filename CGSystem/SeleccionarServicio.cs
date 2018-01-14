@@ -158,5 +158,14 @@ namespace CGSystem
             }
             else { }
         }
+
+        private void tbbuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+            }
+            else { }
+        }
     }
 }

@@ -28,28 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label4 = new System.Windows.Forms.Label();
             this.tbtotal = new System.Windows.Forms.TextBox();
             this.dgvCuentasPorCobrar = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.restante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbcodigo = new System.Windows.Forms.TextBox();
-            this.btnbuscar = new System.Windows.Forms.Button();
-            this.btcnew = new System.Windows.Forms.Button();
+            this.btnpagarfactura = new System.Windows.Forms.Button();
+            this.btnimpingreso = new System.Windows.Forms.Button();
             this.btimprimir = new System.Windows.Forms.Button();
             this.btcsave = new System.Windows.Forms.Button();
-            this.tbdetalle = new System.Windows.Forms.TextBox();
+            this.tbvalorapagar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbnombre = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btbuscar1 = new System.Windows.Forms.PictureBox();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.restante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cbingreso = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCuentasPorCobrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btbuscar1)).BeginInit();
             this.SuspendLayout();
@@ -76,6 +78,7 @@
             this.tbtotal.TabIndex = 115;
             this.tbtotal.Text = "RD$ 0.00";
             this.tbtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbtotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbtotal_KeyPress);
             // 
             // dgvCuentasPorCobrar
             // 
@@ -97,6 +100,43 @@
             this.dgvCuentasPorCobrar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCuentasPorCobrar.Size = new System.Drawing.Size(657, 180);
             this.dgvCuentasPorCobrar.TabIndex = 114;
+            this.dgvCuentasPorCobrar.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCuentasPorCobrar_CellDoubleClick);
+            // 
+            // id
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id.DefaultCellStyle = dataGridViewCellStyle1;
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 60;
+            // 
+            // fact
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.fact.DefaultCellStyle = dataGridViewCellStyle2;
+            this.fact.HeaderText = "Factura #";
+            this.fact.Name = "fact";
+            this.fact.ReadOnly = true;
+            this.fact.Width = 194;
+            // 
+            // total
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.total.DefaultCellStyle = dataGridViewCellStyle3;
+            this.total.HeaderText = "Valor Total";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Width = 200;
+            // 
+            // restante
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.restante.DefaultCellStyle = dataGridViewCellStyle4;
+            this.restante.HeaderText = "Valor Restante";
+            this.restante.Name = "restante";
+            this.restante.ReadOnly = true;
+            this.restante.Width = 200;
             // 
             // tbcodigo
             // 
@@ -107,27 +147,29 @@
             this.tbcodigo.Size = new System.Drawing.Size(82, 23);
             this.tbcodigo.TabIndex = 112;
             // 
-            // btnbuscar
+            // btnpagarfactura
             // 
-            this.btnbuscar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnbuscar.Font = new System.Drawing.Font("Goudy Old Style", 18F, System.Drawing.FontStyle.Bold);
-            this.btnbuscar.Location = new System.Drawing.Point(12, 319);
-            this.btnbuscar.Name = "btnbuscar";
-            this.btnbuscar.Size = new System.Drawing.Size(156, 34);
-            this.btnbuscar.TabIndex = 110;
-            this.btnbuscar.Text = "Pagar Factura";
-            this.btnbuscar.UseVisualStyleBackColor = false;
+            this.btnpagarfactura.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnpagarfactura.Font = new System.Drawing.Font("Goudy Old Style", 18F, System.Drawing.FontStyle.Bold);
+            this.btnpagarfactura.Location = new System.Drawing.Point(12, 319);
+            this.btnpagarfactura.Name = "btnpagarfactura";
+            this.btnpagarfactura.Size = new System.Drawing.Size(156, 34);
+            this.btnpagarfactura.TabIndex = 110;
+            this.btnpagarfactura.Text = "Pagar Factura";
+            this.btnpagarfactura.UseVisualStyleBackColor = false;
+            this.btnpagarfactura.Click += new System.EventHandler(this.btnbuscar_Click);
             // 
-            // btcnew
+            // btnimpingreso
             // 
-            this.btcnew.BackColor = System.Drawing.Color.Cornsilk;
-            this.btcnew.Font = new System.Drawing.Font("Goudy Old Style", 18F, System.Drawing.FontStyle.Bold);
-            this.btcnew.Location = new System.Drawing.Point(12, 357);
-            this.btcnew.Name = "btcnew";
-            this.btcnew.Size = new System.Drawing.Size(290, 41);
-            this.btcnew.TabIndex = 106;
-            this.btcnew.Text = "Imprimir Ingreso";
-            this.btcnew.UseVisualStyleBackColor = false;
+            this.btnimpingreso.BackColor = System.Drawing.Color.Cornsilk;
+            this.btnimpingreso.Enabled = false;
+            this.btnimpingreso.Font = new System.Drawing.Font("Goudy Old Style", 18F, System.Drawing.FontStyle.Bold);
+            this.btnimpingreso.Location = new System.Drawing.Point(12, 357);
+            this.btnimpingreso.Name = "btnimpingreso";
+            this.btnimpingreso.Size = new System.Drawing.Size(290, 41);
+            this.btnimpingreso.TabIndex = 106;
+            this.btnimpingreso.Text = "Imprimir Ingreso";
+            this.btnimpingreso.UseVisualStyleBackColor = false;
             // 
             // btimprimir
             // 
@@ -144,6 +186,7 @@
             // btcsave
             // 
             this.btcsave.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btcsave.Enabled = false;
             this.btcsave.Font = new System.Drawing.Font("Goudy Old Style", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btcsave.Location = new System.Drawing.Point(482, 360);
             this.btcsave.Name = "btcsave";
@@ -152,18 +195,22 @@
             this.btcsave.Text = "Pagar Total";
             this.btcsave.UseVisualStyleBackColor = false;
             // 
-            // tbdetalle
+            // tbvalorapagar
             // 
-            this.tbdetalle.Font = new System.Drawing.Font("Goudy Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbdetalle.Location = new System.Drawing.Point(174, 325);
-            this.tbdetalle.MaxLength = 175;
-            this.tbdetalle.Multiline = true;
-            this.tbdetalle.Name = "tbdetalle";
-            this.tbdetalle.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.tbdetalle.Size = new System.Drawing.Size(128, 24);
-            this.tbdetalle.TabIndex = 103;
-            this.tbdetalle.Text = "RD$0.00";
-            this.tbdetalle.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbvalorapagar.Font = new System.Drawing.Font("Goudy Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbvalorapagar.HideSelection = false;
+            this.tbvalorapagar.Location = new System.Drawing.Point(174, 325);
+            this.tbvalorapagar.MaxLength = 7;
+            this.tbvalorapagar.Name = "tbvalorapagar";
+            this.tbvalorapagar.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.tbvalorapagar.Size = new System.Drawing.Size(128, 27);
+            this.tbvalorapagar.TabIndex = 103;
+            this.tbvalorapagar.Text = "RD$ 0.00";
+            this.tbvalorapagar.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbvalorapagar.Enter += new System.EventHandler(this.tbvalorapagar_Enter);
+            this.tbvalorapagar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbvalorapagar_KeyDown);
+            this.tbvalorapagar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbvalorapagar_KeyPress);
+            this.tbvalorapagar.Leave += new System.EventHandler(this.tbvalorapagar_Leave);
             // 
             // label2
             // 
@@ -183,6 +230,7 @@
             this.tbnombre.Size = new System.Drawing.Size(321, 23);
             this.tbnombre.TabIndex = 102;
             this.tbnombre.TextChanged += new System.EventHandler(this.tbnombre_TextChanged);
+            this.tbnombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbnombre_KeyPress);
             this.tbnombre.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbnombre_KeyUp);
             // 
             // label1
@@ -218,56 +266,45 @@
             this.btbuscar1.TabStop = false;
             this.btbuscar1.Click += new System.EventHandler(this.btbuscar1_Click);
             // 
-            // id
+            // label5
             // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id.DefaultCellStyle = dataGridViewCellStyle17;
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 60;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
+            this.label5.Location = new System.Drawing.Point(297, 104);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(121, 17);
+            this.label5.TabIndex = 154;
+            this.label5.Text = "Método de Pago";
             // 
-            // fact
+            // cbingreso
             // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.fact.DefaultCellStyle = dataGridViewCellStyle18;
-            this.fact.HeaderText = "Factura #";
-            this.fact.Name = "fact";
-            this.fact.ReadOnly = true;
-            this.fact.Width = 194;
-            // 
-            // total
-            // 
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.total.DefaultCellStyle = dataGridViewCellStyle19;
-            this.total.HeaderText = "Valor Total";
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            this.total.Width = 200;
-            // 
-            // restante
-            // 
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.restante.DefaultCellStyle = dataGridViewCellStyle20;
-            this.restante.HeaderText = "Valor Restante";
-            this.restante.Name = "restante";
-            this.restante.ReadOnly = true;
-            this.restante.Width = 200;
+            this.cbingreso.FormattingEnabled = true;
+            this.cbingreso.Items.AddRange(new object[] {
+            "EFECTIVO",
+            "CHEQUE",
+            "TARJETA CREDITO"});
+            this.cbingreso.Location = new System.Drawing.Point(419, 104);
+            this.cbingreso.Name = "cbingreso";
+            this.cbingreso.Size = new System.Drawing.Size(121, 21);
+            this.cbingreso.TabIndex = 153;
+            this.cbingreso.Text = "EFECTIVO";
             // 
             // CXC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(681, 410);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cbingreso);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbtotal);
             this.Controls.Add(this.dgvCuentasPorCobrar);
             this.Controls.Add(this.tbcodigo);
-            this.Controls.Add(this.btnbuscar);
-            this.Controls.Add(this.btcnew);
+            this.Controls.Add(this.btnpagarfactura);
+            this.Controls.Add(this.btnimpingreso);
             this.Controls.Add(this.btimprimir);
             this.Controls.Add(this.btcsave);
-            this.Controls.Add(this.tbdetalle);
+            this.Controls.Add(this.tbvalorapagar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbnombre);
             this.Controls.Add(this.label1);
@@ -295,11 +332,11 @@
         private System.Windows.Forms.TextBox tbtotal;
         private System.Windows.Forms.DataGridView dgvCuentasPorCobrar;
         private System.Windows.Forms.TextBox tbcodigo;
-        private System.Windows.Forms.Button btnbuscar;
-        private System.Windows.Forms.Button btcnew;
+        private System.Windows.Forms.Button btnpagarfactura;
+        private System.Windows.Forms.Button btnimpingreso;
         private System.Windows.Forms.Button btimprimir;
         private System.Windows.Forms.Button btcsave;
-        private System.Windows.Forms.TextBox tbdetalle;
+        private System.Windows.Forms.TextBox tbvalorapagar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbnombre;
         private System.Windows.Forms.Label label1;
@@ -309,5 +346,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fact;
         private System.Windows.Forms.DataGridViewTextBoxColumn total;
         private System.Windows.Forms.DataGridViewTextBoxColumn restante;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cbingreso;
     }
 }

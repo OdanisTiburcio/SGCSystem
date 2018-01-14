@@ -172,5 +172,14 @@ namespace CGSystem
 
             }
         }
+
+        private void cbusuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+            }
+            else { }
+        }
     }
 }

@@ -332,5 +332,69 @@ namespace CGSystem
             return fecharestada;
         }
 
+        public bool ValidarNumero(string cantidad)
+        {
+            try //Validar que sea un numero
+            {
+                long number = Int64.Parse(cantidad);
+
+                if (number > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        public string ConvertirAMoneda(int entero)
+        {
+            try
+            {
+                //Contar dgitos.
+                int digitos = Convert.ToInt32((entero.ToString().Length));
+                string reflejo = entero.ToString();
+                int cantidaddecomas = 0;
+
+                if (entero > 999)//Si el entero es mayor que 999 Contar las comas a poner...
+                {
+                    
+                    while (reflejo.Length > 3) //Siempre que el numero tenga mas de tres digitos...
+                    {
+                        reflejo = reflejo.Remove(0, 3);
+                        cantidaddecomas++;
+                    }
+
+                }
+
+                string comatizado = entero.ToString();
+                int sumante = 3;
+                int IndexPosicion = 0;
+
+                for (int i = 0; i < cantidaddecomas; i++)
+                {
+                    sumante = (3+(4*i));
+                    IndexPosicion = (comatizado.Length - (sumante));
+
+                    comatizado = comatizado.Insert(IndexPosicion,",");
+                }
+
+                string formateado = "RD$ " + comatizado + ".00";
+
+                return formateado;
+            }
+            catch
+            {
+                return "RD$ 0.00";
+            }
+
+        }
+
     }
 }

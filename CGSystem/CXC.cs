@@ -18,6 +18,7 @@ namespace CGSystem
         DataTable dt = new DataTable();
         public string[] CodigosFacturas = new string[1000000];
         public bool Buscado = false;
+        public long ValorAPagar = 0;
 
         public CXC()
         {
@@ -63,7 +64,7 @@ namespace CGSystem
                 {
                     for (int k = 0; k < CodigosFacturas.Length; k++)
                     {
-                        if(ds.Tables[0].Rows[i][1].ToString() == CodigosFacturas[k]) //Solo insertar las filas que aplican...
+                        if (ds.Tables[0].Rows[i][1].ToString() == CodigosFacturas[k]) //Solo insertar las filas que aplican...
                         {
                             dgvCuentasPorCobrar.Rows.Add();
                             dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[0].Value = ds.Tables[0].Rows[i][0].ToString();
@@ -73,19 +74,23 @@ namespace CGSystem
                             ContadorDeFilas++;
                             k = 1000001;
                         }
-                        else {
+                        else
+                        {
                             if (CodigosFacturas[k] == null)
                             {
                                 k = 1000001;
                             }
-                            else {
+                            else
+                            {
                             }
                         }
                     }
                 }
 
                 dgvCuentasPorCobrar.Refresh();
-                if(dgvCuentasPorCobrar.RowCount == 0)
+                btnimpingreso.Enabled = false;
+
+                if (dgvCuentasPorCobrar.RowCount == 0)
                 {
                     MessageBox.Show("El cliente No.: " + MenuPrincipal.SelecciónDeCliente + " no tiene cuentas por cobrar...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -121,6 +126,183 @@ namespace CGSystem
         private void tbnombre_TextChanged(object sender, EventArgs e)
         {
             Buscado = false;
+        }
+
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+            PagarFactura();
+        }
+
+        public void PagarFactura()
+        {
+            try
+            {
+                //Verificar que halla una factura seleccionada...
+                if (dgvCuentasPorCobrar.SelectedRows.Count == 1)
+                {
+                    //Verificar que halla digitado algun valor a pagar...
+                    bool numerovalido = oper.ValidarNumero(ValorAPagar.ToString());
+                    if (!numerovalido)
+                    {
+                        MessageBox.Show("Ingrese una cantidad válida...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tbvalorapagar.Select();
+                    }
+                    else
+                    {
+                        //Validar que la cantidad a pagar no sea mayor a la cantidad en deuda
+                        double ValorEnDeuda = Convert.ToDouble(dgvCuentasPorCobrar.CurrentRow.Cells[3].Value);
+
+                        if(ValorAPagar > ValorEnDeuda)
+                        {
+                            MessageBox.Show("El valor a pagar es mayor que la cantidad en deuda, por favor ingrese una cantidad menor o igual...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            tbvalorapagar.Select();
+                            return;
+                        }
+                        else
+                        {
+                            //continuar...
+                        }
+
+                        //continuar si es valido
+                        string numerodefacturaapagar = dgvCuentasPorCobrar.CurrentRow.Cells[1].Value.ToString();
+                        bool pagarfactura = oper.CajaDeMensaje("¿Va a pargar la cantidad de "+tbvalorapagar.Text + " a la factura No.: " + numerodefacturaapagar + " ?", "Pagar Factura");
+                        if (pagarfactura)
+                        {
+                            //Relizar cambios en la CXC
+                            string cxcmodificar = dgvCuentasPorCobrar.CurrentRow.Cells[0].Value.ToString();
+                            double RestanteActual = Convert.ToDouble(dgvCuentasPorCobrar.CurrentRow.Cells[3].Value);
+                            string nuevorestante = (RestanteActual - ValorAPagar).ToString();
+                            bool cuentasaldada = false;
+
+                            if(nuevorestante == "0" || nuevorestante == "0.0" || nuevorestante == "0.00") // Pasarla al estado de Saldadas...
+                            {
+                                oper.ConsultaSinResultado("UPDATE cxc SET restante = '" + nuevorestante + "', estado_cxc = 'SALDADA' WHERE id_cxc = '" + cxcmodificar + "';");
+                                cuentasaldada = true;
+                            }
+                            else
+                            {
+                                oper.ConsultaSinResultado("UPDATE cxc SET restante = '" + nuevorestante + "' WHERE id_cxc = '" + cxcmodificar + "';");
+                            }                            
+
+                            //Generar ingreso
+                            string TipoIngreso = (Convert.ToInt32(cbingreso.SelectedIndex + 1)).ToString();
+                            string fechahoy = oper.FormatearFecha(DateTime.Now);
+                            oper.ConsultaSinResultado("INSERT INTO ingreso (codigo_tipo_ingreso, numero_factura, monto_ingreso, fecha, estado) VALUES ('" + TipoIngreso + "','" + numerodefacturaapagar + "','" + ValorAPagar.ToString() + "','" + fechahoy + "', 'ACTIVO');");
+
+
+                            bool imprimiringreso = oper.CajaDeMensaje("Pago realizado exitosamente ¿Desea imprimir el recibo de ingreso?", "Pago Exitoso");
+                            if (imprimiringreso)
+                            {
+                                //Imprimir recibo de ingreso...
+                            }
+                            else
+                            {
+                                //No imprimir recibo de ingreso
+                            }
+
+                            if (cuentasaldada)
+                            {
+                                MessageBox.Show("La factura ha sido pagada en su totalidad, ahora ha pasado a \"Cuentas Saldadas\"...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            }
+                            else
+                            {
+                                //continuar...
+                            }
+
+                            btnimpingreso.Enabled = true;
+                            Mostrar();
+
+                        }
+                        else
+                        {
+
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Por favor, seleccione la factura que desea pagar...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch
+            {
+            }
+        }
+
+        private void tbvalorapagar_Enter(object sender, EventArgs e)
+        {
+            if (ValorAPagar == 0)
+            {
+                tbvalorapagar.Text = "";
+            }
+            else
+            {
+                tbvalorapagar.Text = ValorAPagar.ToString();
+            }
+        }
+
+        private void tbvalorapagar_Leave(object sender, EventArgs e)
+        {
+            bool numerovalido = oper.ValidarNumero(tbvalorapagar.Text);
+            if (numerovalido)
+            {
+                ValorAPagar = Int64.Parse(tbvalorapagar.Text);
+            }
+            else
+            {
+                ValorAPagar = 0;
+            }
+
+            if (ValorAPagar == 0)
+            {
+                tbvalorapagar.Text = "RD$ 0.00";
+            }
+            else
+            {
+                tbvalorapagar.Text = oper.ConvertirAMoneda(unchecked((int)ValorAPagar));
+            }
+        }
+
+        private void tbvalorapagar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnpagarfactura.Select();
+                e.Handled = true;
+            }
+            else { }
+        }
+
+        private void tbvalorapagar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == 13)
+            {
+                e.Handled = true;
+            }
+            else { }
+        }
+
+        private void dgvCuentasPorCobrar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            tbvalorapagar.Select();
+        }
+
+        private void tbnombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+            }
+            else { }
+        }
+
+        private void tbtotal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+            }
+            else { }
         }
     }
 }
