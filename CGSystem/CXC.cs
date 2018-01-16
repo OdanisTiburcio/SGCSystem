@@ -20,6 +20,7 @@ namespace CGSystem
         public bool Buscado = false;
         public long ValorAPagar = 0;
         public long ValorTotalAPagar = 0;
+        public bool variasfacturas = false;
 
         public CXC()
         {
@@ -284,8 +285,7 @@ namespace CGSystem
                         {
                             numerodefacturasapagar[i] = dgvCuentasPorCobrar.Rows[i].Cells[1].Value.ToString();
                         }
-                            
-                            
+
                         bool pagarfactura = oper.CajaDeMensaje("¿Va a pargar la cantidad de " + lbtotal.Text + " al total de las cuentas por cobrar del cliente No.: " + MenuPrincipal.SelecciónDeCliente + " ?", "Pagar Factura");
                         if (pagarfactura)
                         {
@@ -293,44 +293,29 @@ namespace CGSystem
                             string cxcmodificar = dgvCuentasPorCobrar.CurrentRow.Cells[0].Value.ToString();
                             double RestanteActual = Convert.ToDouble(dgvCuentasPorCobrar.CurrentRow.Cells[3].Value);
                             string nuevorestante = (RestanteActual - ValorAPagar).ToString();
-                            bool cuentasaldada = false;
 
-                            if (nuevorestante == "0" || nuevorestante == "0.0" || nuevorestante == "0.00") // Pasarla al estado de Saldadas...
-                            {
-                                oper.ConsultaSinResultado("UPDATE cxc SET restante = '" + nuevorestante + "', estado_cxc = 'SALDADA' WHERE id_cxc = '" + cxcmodificar + "';");
-                                cuentasaldada = true;
-                            }
-                            else
-                            {
-                                oper.ConsultaSinResultado("UPDATE cxc SET restante = '" + nuevorestante + "' WHERE id_cxc = '" + cxcmodificar + "';");
-                            }
+                            oper.ConsultaSinResultado("UPDATE cxc SET restante = '" + nuevorestante + "', estado_cxc = 'SALDADA' WHERE id_cxc = '" + cxcmodificar + "';");
 
                             //Generar ingreso
                             string TipoIngreso = (Convert.ToInt32(cbingreso.SelectedIndex + 1)).ToString();
                             string fechahoy = oper.FormatearFecha(DateTime.Now);
-                            oper.ConsultaSinResultado("INSERT INTO ingreso (codigo_tipo_ingreso, numero_factura, monto_ingreso, fecha, estado) VALUES ('" + TipoIngreso + "','" + numerodefacturaapagar + "','" + ValorAPagar.ToString() + "','" + fechahoy + "', 'ACTIVO');");
+                            oper.ConsultaSinResultado("INSERT INTO ingreso (codigo_tipo_ingreso, numero_factura, monto_ingreso, fecha, estado) VALUES ('" + TipoIngreso + "','" + numerodefacturasapagardfghdfg + "','" + ValorAPagar.ToString() + "','" + fechahoy + "', 'ACTIVO');");
 
 
-                            bool imprimiringreso = oper.CajaDeMensaje("Pago realizado exitosamente ¿Desea imprimir el recibo de ingreso?", "Pago Exitoso");
+
+
+                            bool imprimiringreso = oper.CajaDeMensaje("Pago total realizado exitosamente ¿Desea imprimir el recibo de ingreso?", "Pago Exitoso");
                             if (imprimiringreso)
                             {
-                                //Imprimir recibo de ingreso...
+                                //Imprimir recibo de ingreso total...
                             }
                             else
                             {
-                                //No imprimir recibo de ingreso
-                            }
-
-                            if (cuentasaldada)
-                            {
-                                MessageBox.Show("La factura ha sido pagada en su totalidad, ahora ha pasado a \"Cuentas Saldadas\"...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            }
-                            else
-                            {
-                                //continuar...
+                                //No imprimir recibo de ingreso total
                             }
 
                             btnimpingreso.Enabled = true;
+                            variasfacturas = true;
                             Mostrar();
 
                         }
