@@ -33,7 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label4 = new System.Windows.Forms.Label();
-            this.tbtotal = new System.Windows.Forms.TextBox();
+            this.tbpagartotal = new System.Windows.Forms.TextBox();
             this.dgvCuentasPorCobrar = new System.Windows.Forms.DataGridView();
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fact = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -42,8 +42,8 @@
             this.tbcodigo = new System.Windows.Forms.TextBox();
             this.btnpagarfactura = new System.Windows.Forms.Button();
             this.btnimpingreso = new System.Windows.Forms.Button();
-            this.btimprimir = new System.Windows.Forms.Button();
-            this.btcsave = new System.Windows.Forms.Button();
+            this.btnimprimirestado = new System.Windows.Forms.Button();
+            this.btnpagartotal = new System.Windows.Forms.Button();
             this.tbvalorapagar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbnombre = new System.Windows.Forms.TextBox();
@@ -52,6 +52,7 @@
             this.btbuscar1 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.cbingreso = new System.Windows.Forms.ComboBox();
+            this.lbtotal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCuentasPorCobrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btbuscar1)).BeginInit();
             this.SuspendLayout();
@@ -67,18 +68,20 @@
             this.label4.TabIndex = 116;
             this.label4.Text = "Total";
             // 
-            // tbtotal
+            // tbpagartotal
             // 
-            this.tbtotal.Enabled = false;
-            this.tbtotal.Font = new System.Drawing.Font("Calisto MT", 10F, System.Drawing.FontStyle.Bold);
-            this.tbtotal.ForeColor = System.Drawing.Color.Red;
-            this.tbtotal.Location = new System.Drawing.Point(543, 332);
-            this.tbtotal.Name = "tbtotal";
-            this.tbtotal.Size = new System.Drawing.Size(126, 23);
-            this.tbtotal.TabIndex = 115;
-            this.tbtotal.Text = "RD$ 0.00";
-            this.tbtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.tbtotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbtotal_KeyPress);
+            this.tbpagartotal.Font = new System.Drawing.Font("Calisto MT", 10F, System.Drawing.FontStyle.Bold);
+            this.tbpagartotal.ForeColor = System.Drawing.Color.Red;
+            this.tbpagartotal.Location = new System.Drawing.Point(543, 332);
+            this.tbpagartotal.Name = "tbpagartotal";
+            this.tbpagartotal.ReadOnly = true;
+            this.tbpagartotal.Size = new System.Drawing.Size(126, 23);
+            this.tbpagartotal.TabIndex = 115;
+            this.tbpagartotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.tbpagartotal.Enter += new System.EventHandler(this.tbpagartotal_Enter);
+            this.tbpagartotal.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbpagartotal_KeyDown);
+            this.tbpagartotal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbtotal_KeyPress);
+            this.tbpagartotal.Leave += new System.EventHandler(this.tbpagartotal_Leave);
             // 
             // dgvCuentasPorCobrar
             // 
@@ -171,29 +174,30 @@
             this.btnimpingreso.Text = "Imprimir Ingreso";
             this.btnimpingreso.UseVisualStyleBackColor = false;
             // 
-            // btimprimir
+            // btnimprimirestado
             // 
-            this.btimprimir.BackColor = System.Drawing.Color.Cornsilk;
-            this.btimprimir.Enabled = false;
-            this.btimprimir.Font = new System.Drawing.Font("Goudy Old Style", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btimprimir.Location = new System.Drawing.Point(309, 325);
-            this.btimprimir.Name = "btimprimir";
-            this.btimprimir.Size = new System.Drawing.Size(163, 70);
-            this.btimprimir.TabIndex = 105;
-            this.btimprimir.Text = "Imprimir Estado de Cuenta";
-            this.btimprimir.UseVisualStyleBackColor = false;
+            this.btnimprimirestado.BackColor = System.Drawing.Color.Cornsilk;
+            this.btnimprimirestado.Enabled = false;
+            this.btnimprimirestado.Font = new System.Drawing.Font("Goudy Old Style", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnimprimirestado.Location = new System.Drawing.Point(309, 325);
+            this.btnimprimirestado.Name = "btnimprimirestado";
+            this.btnimprimirestado.Size = new System.Drawing.Size(163, 70);
+            this.btnimprimirestado.TabIndex = 105;
+            this.btnimprimirestado.Text = "Imprimir Estado de Cuenta";
+            this.btnimprimirestado.UseVisualStyleBackColor = false;
             // 
-            // btcsave
+            // btnpagartotal
             // 
-            this.btcsave.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.btcsave.Enabled = false;
-            this.btcsave.Font = new System.Drawing.Font("Goudy Old Style", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btcsave.Location = new System.Drawing.Point(482, 360);
-            this.btcsave.Name = "btcsave";
-            this.btcsave.Size = new System.Drawing.Size(187, 38);
-            this.btcsave.TabIndex = 104;
-            this.btcsave.Text = "Pagar Total";
-            this.btcsave.UseVisualStyleBackColor = false;
+            this.btnpagartotal.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnpagartotal.Enabled = false;
+            this.btnpagartotal.Font = new System.Drawing.Font("Goudy Old Style", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnpagartotal.Location = new System.Drawing.Point(482, 360);
+            this.btnpagartotal.Name = "btnpagartotal";
+            this.btnpagartotal.Size = new System.Drawing.Size(187, 38);
+            this.btnpagartotal.TabIndex = 104;
+            this.btnpagartotal.Text = "Pagar Total";
+            this.btnpagartotal.UseVisualStyleBackColor = false;
+            this.btnpagartotal.Click += new System.EventHandler(this.btcsave_Click);
             // 
             // tbvalorapagar
             // 
@@ -270,7 +274,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(297, 104);
+            this.label5.Location = new System.Drawing.Point(297, 102);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(121, 17);
             this.label5.TabIndex = 154;
@@ -283,27 +287,40 @@
             "EFECTIVO",
             "CHEQUE",
             "TARJETA CREDITO"});
-            this.cbingreso.Location = new System.Drawing.Point(419, 104);
+            this.cbingreso.Location = new System.Drawing.Point(419, 101);
             this.cbingreso.Name = "cbingreso";
             this.cbingreso.Size = new System.Drawing.Size(121, 21);
             this.cbingreso.TabIndex = 153;
             this.cbingreso.Text = "EFECTIVO";
             // 
+            // lbtotal
+            // 
+            this.lbtotal.AutoSize = true;
+            this.lbtotal.BackColor = System.Drawing.SystemColors.Control;
+            this.lbtotal.Font = new System.Drawing.Font("Calisto MT", 10F, System.Drawing.FontStyle.Bold);
+            this.lbtotal.ForeColor = System.Drawing.Color.Red;
+            this.lbtotal.Location = new System.Drawing.Point(546, 336);
+            this.lbtotal.Name = "lbtotal";
+            this.lbtotal.Size = new System.Drawing.Size(67, 16);
+            this.lbtotal.TabIndex = 155;
+            this.lbtotal.Text = "RD$ 0.00";
+            // 
             // CXC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(681, 410);
+            this.ClientSize = new System.Drawing.Size(681, 411);
+            this.Controls.Add(this.lbtotal);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.cbingreso);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.tbtotal);
+            this.Controls.Add(this.tbpagartotal);
             this.Controls.Add(this.dgvCuentasPorCobrar);
             this.Controls.Add(this.tbcodigo);
             this.Controls.Add(this.btnpagarfactura);
             this.Controls.Add(this.btnimpingreso);
-            this.Controls.Add(this.btimprimir);
-            this.Controls.Add(this.btcsave);
+            this.Controls.Add(this.btnimprimirestado);
+            this.Controls.Add(this.btnpagartotal);
             this.Controls.Add(this.tbvalorapagar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbnombre);
@@ -329,13 +346,13 @@
         #endregion
 
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbtotal;
+        private System.Windows.Forms.TextBox tbpagartotal;
         private System.Windows.Forms.DataGridView dgvCuentasPorCobrar;
         private System.Windows.Forms.TextBox tbcodigo;
         private System.Windows.Forms.Button btnpagarfactura;
         private System.Windows.Forms.Button btnimpingreso;
-        private System.Windows.Forms.Button btimprimir;
-        private System.Windows.Forms.Button btcsave;
+        private System.Windows.Forms.Button btnimprimirestado;
+        private System.Windows.Forms.Button btnpagartotal;
         private System.Windows.Forms.TextBox tbvalorapagar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbnombre;
@@ -348,5 +365,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn restante;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cbingreso;
+        private System.Windows.Forms.Label lbtotal;
     }
 }
