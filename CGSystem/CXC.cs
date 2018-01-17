@@ -40,6 +40,7 @@ namespace CGSystem
                 SeleccionarCliente.ClienteBuscado = tbnombre.Text;
             }
             f.ShowDialog();
+            variasfacturas = false;
             Mostrar();
         }
 
@@ -47,71 +48,79 @@ namespace CGSystem
         {
             try
             {
-                tbcodigo.Text = MenuPrincipal.SelecciónDeCliente;
-                ds = oper.ConsultaConResultado("SELECT nombre_cliente, apellido_cliente FROM cliente WHERE numero_cliente = '" + MenuPrincipal.SelecciónDeCliente + "';");
-                tbnombre.Text = ds.Tables[0].Rows[0][0].ToString() + " " + ds.Tables[0].Rows[0][1].ToString();
-
-                ds = oper.ConsultaConResultado("SELECT * FROM cabecera_factura WHERE id_cliente = '" + MenuPrincipal.SelecciónDeCliente + "' AND estado = 'ACTIVO';");
-                CodigosFacturas = new string[1000000];
-                for (int i = 0; i < ds.Tables[0].Rows.Count; i++) //Escribir las facturas factibles...
+                if (variasfacturas) //si se pagó el total de facturas; limpiar el datagrid...
                 {
-                    CodigosFacturas[i] = ds.Tables[0].Rows[i][0].ToString();
+                    dgvCuentasPorCobrar.Rows.Clear();
+                    dgvCuentasPorCobrar.Refresh();
                 }
-
-                ds = oper.ConsultaConResultado("SELECT * FROM cxc WHERE estado_cxc = 'ACTIVO';");//Escribir las que aplican
-                int ContadorDeFilas = 0;
-                dgvCuentasPorCobrar.Rows.Clear();
-                double ValorTotalContador = 0;
-
-                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                else
                 {
-                    for (int k = 0; k < CodigosFacturas.Length; k++)
+                    tbcodigo.Text = MenuPrincipal.SelecciónDeCliente;
+                    ds = oper.ConsultaConResultado("SELECT nombre_cliente, apellido_cliente FROM cliente WHERE numero_cliente = '" + MenuPrincipal.SelecciónDeCliente + "';");
+                    tbnombre.Text = ds.Tables[0].Rows[0][0].ToString() + " " + ds.Tables[0].Rows[0][1].ToString();
+
+                    ds = oper.ConsultaConResultado("SELECT * FROM cabecera_factura WHERE id_cliente = '" + MenuPrincipal.SelecciónDeCliente + "' AND estado = 'ACTIVO';");
+                    CodigosFacturas = new string[1000000];
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++) //Escribir las facturas factibles...
                     {
-                        if (ds.Tables[0].Rows[i][1].ToString() == CodigosFacturas[k]) //Solo insertar las filas que aplican...
+                        CodigosFacturas[i] = ds.Tables[0].Rows[i][0].ToString();
+                    }
+
+                    ds = oper.ConsultaConResultado("SELECT * FROM cxc WHERE estado_cxc = 'ACTIVO';");//Escribir las que aplican
+                    int ContadorDeFilas = 0;
+                    dgvCuentasPorCobrar.Rows.Clear();
+                    double ValorTotalContador = 0;
+
+                    for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                    {
+                        for (int k = 0; k < CodigosFacturas.Length; k++)
                         {
-                            dgvCuentasPorCobrar.Rows.Add();
-                            dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[0].Value = ds.Tables[0].Rows[i][0].ToString();
-                            dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[1].Value = ds.Tables[0].Rows[i][1].ToString();
-                            dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[2].Value = ds.Tables[0].Rows[i][2].ToString();
-                            dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[3].Value = ds.Tables[0].Rows[i][3].ToString();
-                            ValorTotalContador += Convert.ToDouble(dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[3].Value); //Calcular el Total...
-                            ContadorDeFilas++;
-                            k = 1000001;
-                        }
-                        else
-                        {
-                            if (CodigosFacturas[k] == null)
+                            if (ds.Tables[0].Rows[i][1].ToString() == CodigosFacturas[k]) //Solo insertar las filas que aplican...
                             {
+                                dgvCuentasPorCobrar.Rows.Add();
+                                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[0].Value = ds.Tables[0].Rows[i][0].ToString();
+                                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[1].Value = ds.Tables[0].Rows[i][1].ToString();
+                                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[2].Value = ds.Tables[0].Rows[i][2].ToString();
+                                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[3].Value = ds.Tables[0].Rows[i][3].ToString();
+                                ValorTotalContador += Convert.ToDouble(dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[3].Value); //Calcular el Total...
+                                ContadorDeFilas++;
                                 k = 1000001;
                             }
                             else
                             {
+                                if (CodigosFacturas[k] == null)
+                                {
+                                    k = 1000001;
+                                }
+                                else
+                                {
+                                }
                             }
                         }
                     }
+
+                    lbtotal.Text = oper.ConvertirAMoneda(unchecked((int)ValorTotalContador));
+                    ValorTotalAPagar = unchecked((int)ValorTotalContador);
+
+                    dgvCuentasPorCobrar.Refresh();
+                    btnimpingreso.Enabled = false;
+
+                    if (dgvCuentasPorCobrar.RowCount == 0)
+                    {
+                        MessageBox.Show("El cliente No.: " + MenuPrincipal.SelecciónDeCliente + " no tiene cuentas por cobrar...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        btnpagarfactura.Enabled = true;
+                        btnimpingreso.Enabled = true;
+                        btnimprimirestado.Enabled = true;
+                        btnpagartotal.Enabled = true;
+                        tbvalorapagar.Enabled = true;
+                    }
+
+                    Buscado = true;
                 }
 
-                lbtotal.Text = oper.ConvertirAMoneda(unchecked((int)ValorTotalContador));
-                ValorTotalAPagar = unchecked((int)ValorTotalContador);
-
-                dgvCuentasPorCobrar.Refresh();
-                btnimpingreso.Enabled = false;
-
-                if (dgvCuentasPorCobrar.RowCount == 0)
-                {
-                    MessageBox.Show("El cliente No.: " + MenuPrincipal.SelecciónDeCliente + " no tiene cuentas por cobrar...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    btnpagarfactura.Enabled = true;
-                    btnimpingreso.Enabled = true;
-                    btnimprimirestado.Enabled = true;
-                    btnpagartotal.Enabled = true;
-                    tbvalorapagar.Enabled = true;
-                    //tbpagartotal.Enabled = true;
-                }
-
-                Buscado = true;
             }
             catch
             {
@@ -251,7 +260,7 @@ namespace CGSystem
                 //Verificar que el cliente tenga cuentas por cobrar...
                 if (dgvCuentasPorCobrar.RowCount > 0)
                 {
-                    //Verificar que halla digitado algun valor a pagar...
+                    //Validar la cantidad a pagar...
                     bool numerovalido = oper.ValidarNumero(ValorTotalAPagar.ToString());
                     if (!numerovalido)
                     {
@@ -279,30 +288,30 @@ namespace CGSystem
                             //continuar...
                         }
 
-                        //continuar si es valido
-                        string[] numerodefacturasapagar = new string[100000];
-                        for (int i = 0; i < dgvCuentasPorCobrar.RowCount; i++)
-                        {
-                            numerodefacturasapagar[i] = dgvCuentasPorCobrar.Rows[i].Cells[1].Value.ToString();
-                        }
-
                         bool pagarfactura = oper.CajaDeMensaje("¿Va a pargar la cantidad de " + lbtotal.Text + " al total de las cuentas por cobrar del cliente No.: " + MenuPrincipal.SelecciónDeCliente + " ?", "Pagar Factura");
                         if (pagarfactura)
                         {
-                            //Relizar cambios en la CXC
-                            string cxcmodificar = dgvCuentasPorCobrar.CurrentRow.Cells[0].Value.ToString();
-                            double RestanteActual = Convert.ToDouble(dgvCuentasPorCobrar.CurrentRow.Cells[3].Value);
-                            string nuevorestante = (RestanteActual - ValorAPagar).ToString();
 
-                            oper.ConsultaSinResultado("UPDATE cxc SET restante = '" + nuevorestante + "', estado_cxc = 'SALDADA' WHERE id_cxc = '" + cxcmodificar + "';");
-
-                            //Generar ingreso
+                            //Guardar todos los recibos de ingreso y modificar todas las cxc presentes...
+                            string[] numerodefacturasapagar = new string[100000];
+                            string cxcmodificar = "0";
+                            double RestanteActual = 0;
+                            string nuevorestante = "0";
                             string TipoIngreso = (Convert.ToInt32(cbingreso.SelectedIndex + 1)).ToString();
-                            string fechahoy = oper.FormatearFecha(DateTime.Now);
-                            oper.ConsultaSinResultado("INSERT INTO ingreso (codigo_tipo_ingreso, numero_factura, monto_ingreso, fecha, estado) VALUES ('" + TipoIngreso + "','" + numerodefacturasapagardfghdfg + "','" + ValorAPagar.ToString() + "','" + fechahoy + "', 'ACTIVO');");
+                            string fechahoy = fechahoy = oper.FormatearFecha(DateTime.Now);
 
+                            for (int i = 0; i < dgvCuentasPorCobrar.RowCount; i++)
+                            {
+                                numerodefacturasapagar[i] = dgvCuentasPorCobrar.Rows[i].Cells[1].Value.ToString(); //Obtener número de factura
+                                RestanteActual = Convert.ToDouble(dgvCuentasPorCobrar.Rows[i].Cells[3].Value); //Obtener Restante actual
+                                cxcmodificar = dgvCuentasPorCobrar.Rows[i].Cells[0].Value.ToString(); //Obtener Primary Key de la CXC
 
+                                //Relizar cambios en la CXC
+                                oper.ConsultaSinResultado("UPDATE cxc SET restante = '" + nuevorestante + "', estado_cxc = 'SALDADA' WHERE id_cxc = '" + cxcmodificar + "';");
 
+                                //Generar ingreso                             
+                                oper.ConsultaSinResultado("INSERT INTO ingreso (codigo_tipo_ingreso, numero_factura, monto_ingreso, fecha, estado) VALUES ('" + TipoIngreso + "','" + numerodefacturasapagar[i] + "','" + RestanteActual.ToString() + "','" + fechahoy + "', 'ACTIVO');");
+                            }
 
                             bool imprimiringreso = oper.CajaDeMensaje("Pago total realizado exitosamente ¿Desea imprimir el recibo de ingreso?", "Pago Exitoso");
                             if (imprimiringreso)
@@ -316,8 +325,9 @@ namespace CGSystem
 
                             btnimpingreso.Enabled = true;
                             variasfacturas = true;
+                            btnpagartotal.Enabled = false;
+                            lbtotal.Text = "RD$ 0.00";
                             Mostrar();
-
                         }
                         else
                         {
@@ -460,6 +470,28 @@ namespace CGSystem
                 e.Handled = true;
             }
             else { }
+        }
+
+        private void btnimpingreso_Click(object sender, EventArgs e)
+        {
+            ImprimirUltmoIngreso();
+        }
+
+        public void ImprimirUltmoIngreso()
+        {
+            try
+            {
+                if (variasfacturas)
+                {
+                    //Imprimir Ingreso Total...
+                }else
+                {
+                    //Imprimir último ingreso particular de la última factura pagada...
+                }
+            }
+            catch
+            {
+            }
         }
     }
 }

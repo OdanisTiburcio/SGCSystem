@@ -103,6 +103,25 @@ namespace CGSystem
 
         }
 
+        public void ImprimirIngresoSeleccionado()
+        {
+            try
+            {
+                if (dgvdetalleingresos.SelectedRows.Count == 1) //Validar que se halla selecionado un (1) ingreso...
+                {
+                    //Imprimir este ingreso...
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione el ingreso que desea imprimir...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
         private void CRUDIngresos_Load(object sender, EventArgs e)
         {
             dtpIngresodesde.Value = DateTime.Today;

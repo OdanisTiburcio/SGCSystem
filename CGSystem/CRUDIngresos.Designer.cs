@@ -47,10 +47,19 @@
             // 
             // dgvdetalleingresos
             // 
+            this.dgvdetalleingresos.AllowDrop = true;
+            this.dgvdetalleingresos.AllowUserToAddRows = false;
+            this.dgvdetalleingresos.AllowUserToDeleteRows = false;
+            this.dgvdetalleingresos.AllowUserToOrderColumns = true;
+            this.dgvdetalleingresos.AllowUserToResizeColumns = false;
+            this.dgvdetalleingresos.AllowUserToResizeRows = false;
             this.dgvdetalleingresos.BackgroundColor = System.Drawing.Color.White;
             this.dgvdetalleingresos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvdetalleingresos.Location = new System.Drawing.Point(12, 98);
+            this.dgvdetalleingresos.MultiSelect = false;
             this.dgvdetalleingresos.Name = "dgvdetalleingresos";
+            this.dgvdetalleingresos.RowHeadersVisible = false;
+            this.dgvdetalleingresos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvdetalleingresos.Size = new System.Drawing.Size(515, 268);
             this.dgvdetalleingresos.TabIndex = 3;
             // 

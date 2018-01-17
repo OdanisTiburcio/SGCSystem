@@ -173,6 +173,7 @@
             this.btnimpingreso.TabIndex = 106;
             this.btnimpingreso.Text = "Imprimir Ingreso";
             this.btnimpingreso.UseVisualStyleBackColor = false;
+            this.btnimpingreso.Click += new System.EventHandler(this.btnimpingreso_Click);
             // 
             // btnimprimirestado
             // 
