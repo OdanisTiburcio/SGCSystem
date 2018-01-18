@@ -17,6 +17,7 @@ namespace CGSystem
         DataSet ds = new DataSet();
         DataTable dt = new DataTable();
         public string[] CodigosFacturas = new string[1000000];
+        public string[] FechasFacturas = new string[1000000];
         public bool Buscado = false;
         public long ValorAPagar = 0;
         public long ValorTotalAPagar = 0;
@@ -61,9 +62,12 @@ namespace CGSystem
 
                     ds = oper.ConsultaConResultado("SELECT * FROM cabecera_factura WHERE id_cliente = '" + MenuPrincipal.SelecciónDeCliente + "' AND estado = 'ACTIVO';");
                     CodigosFacturas = new string[1000000];
+                    FechasFacturas = new string[1000000];
+
                     for (int i = 0; i < ds.Tables[0].Rows.Count; i++) //Escribir las facturas factibles...
                     {
                         CodigosFacturas[i] = ds.Tables[0].Rows[i][0].ToString();
+                        FechasFacturas[i] = ds.Tables[0].Rows[i][4].ToString();
                     }
 
                     ds = oper.ConsultaConResultado("SELECT * FROM cxc WHERE estado_cxc = 'ACTIVO';");//Escribir las que aplican
@@ -82,6 +86,9 @@ namespace CGSystem
                                 dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[1].Value = ds.Tables[0].Rows[i][1].ToString();
                                 dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[2].Value = ds.Tables[0].Rows[i][2].ToString();
                                 dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[3].Value = ds.Tables[0].Rows[i][3].ToString();
+                                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[4].Value = tbnombre.Text;
+                                FechasFacturas[k] = FechasFacturas[k].Remove(10, (FechasFacturas[k].Length - 10));
+                                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[5].Value = FechasFacturas[k].ToString();
                                 ValorTotalContador += Convert.ToDouble(dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[3].Value); //Calcular el Total...
                                 ContadorDeFilas++;
                                 k = 1000001;
@@ -128,6 +135,88 @@ namespace CGSystem
             }
 
 
+        }
+
+        public void MostrarTodo()
+        {
+            try
+            {
+
+                tbcodigo.Clear();
+
+                ds = oper.ConsultaConResultado("SELECT * FROM cabecera_factura WHERE id_cliente = '" + MenuPrincipal.SelecciónDeCliente + "' AND estado = 'ACTIVO';");
+                CodigosFacturas = new string[1000000];
+                FechasFacturas = new string[1000000];
+
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++) //Escribir las facturas factibles...
+                {
+                    CodigosFacturas[i] = ds.Tables[0].Rows[i][0].ToString();
+                    FechasFacturas[i] = ds.Tables[0].Rows[i][4].ToString();
+                }
+
+                ds = oper.ConsultaConResultado("SELECT * FROM cxc WHERE estado_cxc = 'ACTIVO';");//Escribir las que aplican
+                int ContadorDeFilas = 0;
+                dgvCuentasPorCobrar.Rows.Clear();
+                double ValorTotalContador = 0;
+
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    for (int k = 0; k < CodigosFacturas.Length; k++)
+                    {
+                        if (ds.Tables[0].Rows[i][1].ToString() == CodigosFacturas[k]) //Solo insertar las filas que aplican...
+                        {
+                            dgvCuentasPorCobrar.Rows.Add();
+                            dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[0].Value = ds.Tables[0].Rows[i][0].ToString();
+                            dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[1].Value = ds.Tables[0].Rows[i][1].ToString();
+                            dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[2].Value = ds.Tables[0].Rows[i][2].ToString();
+                            dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[3].Value = ds.Tables[0].Rows[i][3].ToString();
+                            dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[4].Value = tbnombre.Text;
+                            FechasFacturas[k] = FechasFacturas[k].Remove(10, (FechasFacturas[k].Length - 10));
+                            dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[5].Value = FechasFacturas[k].ToString();
+                            ValorTotalContador += Convert.ToDouble(dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[3].Value); //Calcular el Total...
+                            ContadorDeFilas++;
+                            k = 1000001;
+                        }
+                        else
+                        {
+                            if (CodigosFacturas[k] == null)
+                            {
+                                k = 1000001;
+                            }
+                            else
+                            {
+                            }
+                        }
+                    }
+                }
+
+                lbtotal.Text = oper.ConvertirAMoneda(unchecked((int)ValorTotalContador));
+                ValorTotalAPagar = unchecked((int)ValorTotalContador);
+
+                dgvCuentasPorCobrar.Refresh();
+                btnimpingreso.Enabled = false;
+
+                if (dgvCuentasPorCobrar.RowCount == 0)
+                {
+                    MessageBox.Show("El cliente No.: " + MenuPrincipal.SelecciónDeCliente + " no tiene cuentas por cobrar...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    btnpagarfactura.Enabled = true;
+                    btnimpingreso.Enabled = true;
+                    btnimprimirestado.Enabled = true;
+                    btnpagartotal.Enabled = true;
+                    tbvalorapagar.Enabled = true;
+                }
+
+                Buscado = true;
+            }
+
+
+            catch
+            {
+                MessageBox.Show("El cliente No.: " + MenuPrincipal.SelecciónDeCliente + " no tiene cuentas por cobrar...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void tbnombre_KeyUp(object sender, KeyEventArgs e)
@@ -484,7 +573,8 @@ namespace CGSystem
                 if (variasfacturas)
                 {
                     //Imprimir Ingreso Total...
-                }else
+                }
+                else
                 {
                     //Imprimir último ingreso particular de la última factura pagada...
                 }

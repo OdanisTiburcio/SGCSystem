@@ -396,5 +396,26 @@ namespace CGSystem
 
         }
 
+        public string ObtenerHoraActual(string hora, string minutos)
+        {
+            //Formatear la Hora
+            string hour;
+            if (DateTime.Now.Hour > 12)
+            {
+                hour = (DateTime.Now.Hour - 12).ToString();
+            }
+            else { hour = DateTime.Now.Hour.ToString(); }
+
+            //Formatear los minutos
+            string minutes;
+            if (DateTime.Now.Minute > 9)
+            {
+                minutes = DateTime.Now.Minute.ToString();
+            }
+            else { minutes = "0" + DateTime.Now.Minute.ToString(); }
+
+            return (" " + hour + ":" + minutes);
+        }
+
     }
 }
