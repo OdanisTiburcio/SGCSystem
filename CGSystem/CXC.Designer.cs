@@ -28,20 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label4 = new System.Windows.Forms.Label();
             this.tbpagartotal = new System.Windows.Forms.TextBox();
             this.dgvCuentasPorCobrar = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fact = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.restante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombrecliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tbcodigo = new System.Windows.Forms.TextBox();
             this.btnpagarfactura = new System.Windows.Forms.Button();
             this.btnimpingreso = new System.Windows.Forms.Button();
             this.btnimprimirestado = new System.Windows.Forms.Button();
-            this.btnpagartotal = new System.Windows.Forms.Button();
             this.tbvalorapagar = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.tbnombre = new System.Windows.Forms.TextBox();
@@ -51,12 +56,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.cbingreso = new System.Windows.Forms.ComboBox();
             this.lbtotal = new System.Windows.Forms.Label();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fact = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.restante = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombrecliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnpagartotal = new System.Windows.Forms.Button();
+            this.btnmostrartodas = new System.Windows.Forms.Button();
+            this.btnmostrarvencidas = new System.Windows.Forms.Button();
+            this.btncuentasaldada = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCuentasPorCobrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btbuscar1)).BeginInit();
             this.SuspendLayout();
@@ -66,7 +69,7 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.Control;
             this.label4.Font = new System.Drawing.Font("Goudy Old Style", 18F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(477, 330);
+            this.label4.Location = new System.Drawing.Point(477, 278);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(63, 28);
             this.label4.TabIndex = 116;
@@ -76,7 +79,7 @@
             // 
             this.tbpagartotal.Font = new System.Drawing.Font("Calisto MT", 10F, System.Drawing.FontStyle.Bold);
             this.tbpagartotal.ForeColor = System.Drawing.Color.Red;
-            this.tbpagartotal.Location = new System.Drawing.Point(543, 332);
+            this.tbpagartotal.Location = new System.Drawing.Point(543, 280);
             this.tbpagartotal.Name = "tbpagartotal";
             this.tbpagartotal.ReadOnly = true;
             this.tbpagartotal.Size = new System.Drawing.Size(126, 23);
@@ -102,7 +105,7 @@
             this.restante,
             this.nombrecliente,
             this.fecha});
-            this.dgvCuentasPorCobrar.Location = new System.Drawing.Point(12, 133);
+            this.dgvCuentasPorCobrar.Location = new System.Drawing.Point(12, 78);
             this.dgvCuentasPorCobrar.Name = "dgvCuentasPorCobrar";
             this.dgvCuentasPorCobrar.ReadOnly = true;
             this.dgvCuentasPorCobrar.RowHeadersVisible = false;
@@ -111,11 +114,64 @@
             this.dgvCuentasPorCobrar.TabIndex = 114;
             this.dgvCuentasPorCobrar.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCuentasPorCobrar_CellDoubleClick);
             // 
+            // id
+            // 
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id.DefaultCellStyle = dataGridViewCellStyle19;
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Width = 50;
+            // 
+            // fact
+            // 
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.fact.DefaultCellStyle = dataGridViewCellStyle20;
+            this.fact.HeaderText = "Factura #";
+            this.fact.Name = "fact";
+            this.fact.ReadOnly = true;
+            this.fact.Width = 90;
+            // 
+            // total
+            // 
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.total.DefaultCellStyle = dataGridViewCellStyle21;
+            this.total.HeaderText = "Valor Total";
+            this.total.Name = "total";
+            this.total.ReadOnly = true;
+            this.total.Width = 120;
+            // 
+            // restante
+            // 
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.restante.DefaultCellStyle = dataGridViewCellStyle22;
+            this.restante.HeaderText = "Valor Restante";
+            this.restante.Name = "restante";
+            this.restante.ReadOnly = true;
+            this.restante.Width = 120;
+            // 
+            // nombrecliente
+            // 
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.nombrecliente.DefaultCellStyle = dataGridViewCellStyle23;
+            this.nombrecliente.HeaderText = "Cliente";
+            this.nombrecliente.Name = "nombrecliente";
+            this.nombrecliente.ReadOnly = true;
+            this.nombrecliente.Width = 174;
+            // 
+            // fecha
+            // 
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.fecha.DefaultCellStyle = dataGridViewCellStyle24;
+            this.fecha.HeaderText = "Fecha";
+            this.fecha.Name = "fecha";
+            this.fecha.ReadOnly = true;
+            // 
             // tbcodigo
             // 
             this.tbcodigo.Enabled = false;
             this.tbcodigo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.tbcodigo.Location = new System.Drawing.Point(213, 100);
+            this.tbcodigo.Location = new System.Drawing.Point(317, 45);
             this.tbcodigo.Name = "tbcodigo";
             this.tbcodigo.Size = new System.Drawing.Size(82, 23);
             this.tbcodigo.TabIndex = 112;
@@ -124,7 +180,7 @@
             // 
             this.btnpagarfactura.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.btnpagarfactura.Font = new System.Drawing.Font("Goudy Old Style", 18F, System.Drawing.FontStyle.Bold);
-            this.btnpagarfactura.Location = new System.Drawing.Point(12, 319);
+            this.btnpagarfactura.Location = new System.Drawing.Point(12, 267);
             this.btnpagarfactura.Name = "btnpagarfactura";
             this.btnpagarfactura.Size = new System.Drawing.Size(156, 34);
             this.btnpagarfactura.TabIndex = 110;
@@ -137,7 +193,7 @@
             this.btnimpingreso.BackColor = System.Drawing.Color.Cornsilk;
             this.btnimpingreso.Enabled = false;
             this.btnimpingreso.Font = new System.Drawing.Font("Goudy Old Style", 18F, System.Drawing.FontStyle.Bold);
-            this.btnimpingreso.Location = new System.Drawing.Point(12, 357);
+            this.btnimpingreso.Location = new System.Drawing.Point(12, 305);
             this.btnimpingreso.Name = "btnimpingreso";
             this.btnimpingreso.Size = new System.Drawing.Size(290, 41);
             this.btnimpingreso.TabIndex = 106;
@@ -150,31 +206,18 @@
             this.btnimprimirestado.BackColor = System.Drawing.Color.Cornsilk;
             this.btnimprimirestado.Enabled = false;
             this.btnimprimirestado.Font = new System.Drawing.Font("Goudy Old Style", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnimprimirestado.Location = new System.Drawing.Point(309, 325);
+            this.btnimprimirestado.Location = new System.Drawing.Point(309, 273);
             this.btnimprimirestado.Name = "btnimprimirestado";
             this.btnimprimirestado.Size = new System.Drawing.Size(163, 70);
             this.btnimprimirestado.TabIndex = 105;
             this.btnimprimirestado.Text = "Imprimir Estado de Cuenta";
             this.btnimprimirestado.UseVisualStyleBackColor = false;
             // 
-            // btnpagartotal
-            // 
-            this.btnpagartotal.BackColor = System.Drawing.Color.DarkSeaGreen;
-            this.btnpagartotal.Enabled = false;
-            this.btnpagartotal.Font = new System.Drawing.Font("Goudy Old Style", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnpagartotal.Location = new System.Drawing.Point(482, 360);
-            this.btnpagartotal.Name = "btnpagartotal";
-            this.btnpagartotal.Size = new System.Drawing.Size(187, 38);
-            this.btnpagartotal.TabIndex = 104;
-            this.btnpagartotal.Text = "Pagar Total";
-            this.btnpagartotal.UseVisualStyleBackColor = false;
-            this.btnpagartotal.Click += new System.EventHandler(this.btcsave_Click);
-            // 
             // tbvalorapagar
             // 
             this.tbvalorapagar.Font = new System.Drawing.Font("Goudy Old Style", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbvalorapagar.HideSelection = false;
-            this.tbvalorapagar.Location = new System.Drawing.Point(174, 325);
+            this.tbvalorapagar.Location = new System.Drawing.Point(174, 273);
             this.tbvalorapagar.MaxLength = 7;
             this.tbvalorapagar.Name = "tbvalorapagar";
             this.tbvalorapagar.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
@@ -190,19 +233,19 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Goudy Old Style", 18F, System.Drawing.FontStyle.Bold);
-            this.label2.Location = new System.Drawing.Point(135, 95);
+            this.label2.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(234, 43);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 28);
+            this.label2.Size = new System.Drawing.Size(86, 25);
             this.label2.TabIndex = 109;
             this.label2.Text = "Código";
             // 
             // tbnombre
             // 
             this.tbnombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.25F);
-            this.tbnombre.Location = new System.Drawing.Point(213, 69);
+            this.tbnombre.Location = new System.Drawing.Point(317, 14);
             this.tbnombre.Name = "tbnombre";
-            this.tbnombre.Size = new System.Drawing.Size(321, 23);
+            this.tbnombre.Size = new System.Drawing.Size(300, 23);
             this.tbnombre.TabIndex = 102;
             this.tbnombre.TextChanged += new System.EventHandler(this.tbnombre_TextChanged);
             this.tbnombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbnombre_KeyPress);
@@ -211,21 +254,21 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Goudy Old Style", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 67);
+            this.label1.Font = new System.Drawing.Font("Georgia", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(232, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(205, 28);
+            this.label1.Size = new System.Drawing.Size(88, 25);
             this.label1.TabIndex = 108;
-            this.label1.Text = "Nombre del Cliente";
+            this.label1.Text = "Cliente";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Goudy Old Style", 30.75F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label3.Location = new System.Drawing.Point(98, 12);
+            this.label3.Font = new System.Drawing.Font("Gabriola", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.label3.Location = new System.Drawing.Point(0, 7);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(341, 48);
+            this.label3.Size = new System.Drawing.Size(243, 68);
             this.label3.TabIndex = 107;
             this.label3.Text = "Cuenta por Cobrar";
             // 
@@ -233,7 +276,7 @@
             // 
             this.btbuscar1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btbuscar1.Image = global::CGSystem.Properties.Resources.lupa_psd_468x468;
-            this.btbuscar1.Location = new System.Drawing.Point(536, 60);
+            this.btbuscar1.Location = new System.Drawing.Point(623, 7);
             this.btbuscar1.Name = "btbuscar1";
             this.btbuscar1.Size = new System.Drawing.Size(46, 39);
             this.btbuscar1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -245,7 +288,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Tahoma", 10F, System.Drawing.FontStyle.Bold);
-            this.label5.Location = new System.Drawing.Point(297, 102);
+            this.label5.Location = new System.Drawing.Point(405, 49);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(121, 17);
             this.label5.TabIndex = 154;
@@ -253,16 +296,16 @@
             // 
             // cbingreso
             // 
+            this.cbingreso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbingreso.FormattingEnabled = true;
             this.cbingreso.Items.AddRange(new object[] {
             "EFECTIVO",
             "CHEQUE",
             "TARJETA CREDITO"});
-            this.cbingreso.Location = new System.Drawing.Point(419, 101);
+            this.cbingreso.Location = new System.Drawing.Point(525, 47);
             this.cbingreso.Name = "cbingreso";
-            this.cbingreso.Size = new System.Drawing.Size(121, 21);
+            this.cbingreso.Size = new System.Drawing.Size(145, 21);
             this.cbingreso.TabIndex = 153;
-            this.cbingreso.Text = "EFECTIVO";
             // 
             // lbtotal
             // 
@@ -270,72 +313,70 @@
             this.lbtotal.BackColor = System.Drawing.SystemColors.Control;
             this.lbtotal.Font = new System.Drawing.Font("Calisto MT", 10F, System.Drawing.FontStyle.Bold);
             this.lbtotal.ForeColor = System.Drawing.Color.Red;
-            this.lbtotal.Location = new System.Drawing.Point(546, 336);
+            this.lbtotal.Location = new System.Drawing.Point(546, 284);
             this.lbtotal.Name = "lbtotal";
             this.lbtotal.Size = new System.Drawing.Size(67, 16);
             this.lbtotal.TabIndex = 155;
             this.lbtotal.Text = "RD$ 0.00";
             // 
-            // id
+            // btnpagartotal
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id.DefaultCellStyle = dataGridViewCellStyle7;
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Width = 50;
+            this.btnpagartotal.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnpagartotal.Enabled = false;
+            this.btnpagartotal.Font = new System.Drawing.Font("Goudy Old Style", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnpagartotal.Location = new System.Drawing.Point(482, 308);
+            this.btnpagartotal.Name = "btnpagartotal";
+            this.btnpagartotal.Size = new System.Drawing.Size(187, 38);
+            this.btnpagartotal.TabIndex = 104;
+            this.btnpagartotal.Text = "Pagar Total";
+            this.btnpagartotal.UseVisualStyleBackColor = false;
+            this.btnpagartotal.Click += new System.EventHandler(this.btcsave_Click);
             // 
-            // fact
+            // btnmostrartodas
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.fact.DefaultCellStyle = dataGridViewCellStyle8;
-            this.fact.HeaderText = "Factura #";
-            this.fact.Name = "fact";
-            this.fact.ReadOnly = true;
-            this.fact.Width = 90;
+            this.btnmostrartodas.BackColor = System.Drawing.Color.DarkSeaGreen;
+            this.btnmostrartodas.Font = new System.Drawing.Font("Forte", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnmostrartodas.Location = new System.Drawing.Point(12, 352);
+            this.btnmostrartodas.Name = "btnmostrartodas";
+            this.btnmostrartodas.Size = new System.Drawing.Size(187, 57);
+            this.btnmostrartodas.TabIndex = 156;
+            this.btnmostrartodas.Text = "Mostrar Todas";
+            this.btnmostrartodas.UseVisualStyleBackColor = false;
+            this.btnmostrartodas.Click += new System.EventHandler(this.btnmostrartodas_Click);
             // 
-            // total
+            // btnmostrarvencidas
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.total.DefaultCellStyle = dataGridViewCellStyle9;
-            this.total.HeaderText = "Valor Total";
-            this.total.Name = "total";
-            this.total.ReadOnly = true;
-            this.total.Width = 120;
+            this.btnmostrarvencidas.BackColor = System.Drawing.Color.FloralWhite;
+            this.btnmostrarvencidas.Font = new System.Drawing.Font("Forte", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnmostrarvencidas.Location = new System.Drawing.Point(205, 352);
+            this.btnmostrarvencidas.Name = "btnmostrarvencidas";
+            this.btnmostrarvencidas.Size = new System.Drawing.Size(187, 57);
+            this.btnmostrarvencidas.TabIndex = 157;
+            this.btnmostrarvencidas.Text = "Mostrar Vencidas";
+            this.btnmostrarvencidas.UseVisualStyleBackColor = false;
+            this.btnmostrarvencidas.Click += new System.EventHandler(this.btnmostrarvencidas_Click);
             // 
-            // restante
+            // btncuentasaldada
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.restante.DefaultCellStyle = dataGridViewCellStyle10;
-            this.restante.HeaderText = "Valor Restante";
-            this.restante.Name = "restante";
-            this.restante.ReadOnly = true;
-            this.restante.Width = 120;
-            // 
-            // nombrecliente
-            // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.nombrecliente.DefaultCellStyle = dataGridViewCellStyle11;
-            this.nombrecliente.HeaderText = "Cliente";
-            this.nombrecliente.Name = "nombrecliente";
-            this.nombrecliente.ReadOnly = true;
-            this.nombrecliente.Width = 174;
-            // 
-            // fecha
-            // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.fecha.DefaultCellStyle = dataGridViewCellStyle12;
-            this.fecha.HeaderText = "Fecha";
-            this.fecha.Name = "fecha";
-            this.fecha.ReadOnly = true;
+            this.btncuentasaldada.BackColor = System.Drawing.SystemColors.Info;
+            this.btncuentasaldada.Font = new System.Drawing.Font("Forte", 17F);
+            this.btncuentasaldada.Location = new System.Drawing.Point(398, 352);
+            this.btncuentasaldada.Name = "btncuentasaldada";
+            this.btncuentasaldada.Size = new System.Drawing.Size(271, 57);
+            this.btncuentasaldada.TabIndex = 158;
+            this.btncuentasaldada.Text = "Cuentas Saldadas";
+            this.btncuentasaldada.UseVisualStyleBackColor = false;
+            this.btncuentasaldada.Click += new System.EventHandler(this.btncuentasaldada_Click);
             // 
             // CXC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(681, 411);
+            this.ClientSize = new System.Drawing.Size(681, 419);
+            this.Controls.Add(this.btncuentasaldada);
+            this.Controls.Add(this.btnmostrarvencidas);
+            this.Controls.Add(this.btnmostrartodas);
             this.Controls.Add(this.lbtotal);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.cbingreso);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.tbpagartotal);
@@ -351,11 +392,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btbuscar1);
+            this.Controls.Add(this.label5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(697, 449);
+            this.MaximumSize = new System.Drawing.Size(697, 458);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(697, 449);
+            this.MinimumSize = new System.Drawing.Size(697, 458);
             this.Name = "CXC";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cuenta por Cobrar";
@@ -376,7 +418,6 @@
         private System.Windows.Forms.Button btnpagarfactura;
         private System.Windows.Forms.Button btnimpingreso;
         private System.Windows.Forms.Button btnimprimirestado;
-        private System.Windows.Forms.Button btnpagartotal;
         private System.Windows.Forms.TextBox tbvalorapagar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbnombre;
@@ -392,5 +433,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn restante;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombrecliente;
         private System.Windows.Forms.DataGridViewTextBoxColumn fecha;
+        private System.Windows.Forms.Button btnpagartotal;
+        private System.Windows.Forms.Button btnmostrartodas;
+        private System.Windows.Forms.Button btnmostrarvencidas;
+        private System.Windows.Forms.Button btncuentasaldada;
     }
 }

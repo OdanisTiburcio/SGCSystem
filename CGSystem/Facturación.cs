@@ -97,7 +97,7 @@ namespace CGSystem
                     TotalFactura += Convert.ToInt32(dgvListaServicios.Rows[i].Cells[6].Value);
                     DiasASumar += (Convert.ToInt32(dgvListaServicios.Rows[i].Cells[4].Value) * Convert.ToInt32(dgvListaServicios.Rows[i].Cells[5].Value)); //días por cantidad = total dias a sumar del detalle actual...
                 }
-                tbtotal.Text = "RD$ " + TotalFactura.ToString();
+                tbtotal.Text = oper.ConvertirAMoneda(Convert.ToInt32(TotalFactura));
                 Actualizando = false;
             }
             catch
@@ -336,6 +336,7 @@ namespace CGSystem
                 SavedRowCount = 0;
                 ModDiasARestar = 0;
                 ModDiasASumar = 0;
+                cbingreso.SelectedIndex = 0;
 
 
                 //Vaciar todo y dejar la factura como nueva...

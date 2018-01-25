@@ -200,6 +200,7 @@ namespace CGSystem
         {
             CRUDClientes f = new CRUDClientes();
             f.Show();
+            f.btnnuevocliente.PerformClick();
             Buscar();
         }
 

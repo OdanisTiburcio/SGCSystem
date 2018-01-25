@@ -62,25 +62,25 @@ namespace CGSystem
                 if (TipoUsuario == 1) //Administrador
                 {
                     //Activar
-                    consultasToolStripMenuItem.DropDownItems[3].Enabled = true;
-                    contabilidadToolStripMenuItem.DropDownItems[0].Enabled = true;
-                    archivoToolStripMenuItem.DropDownItems[1].Enabled = true;
-                    archivoToolStripMenuItem.DropDownItems[2].Enabled = true;
-                    archivoToolStripMenuItem.DropDownItems[3].Enabled = true;
-                    archivoToolStripMenuItem.DropDownItems[6].Enabled = true;
-                    archivoToolStripMenuItem.DropDownItems[7].Enabled = true;
+                    consultasToolStripMenuItem.DropDownItems[3].Visible = true;
+                    contabilidadToolStripMenuItem.DropDownItems[0].Visible = true;
+                    archivoToolStripMenuItem.DropDownItems[1].Visible = true;
+                    archivoToolStripMenuItem.DropDownItems[2].Visible = true;
+                    archivoToolStripMenuItem.DropDownItems[3].Visible = true;
+                    archivoToolStripMenuItem.DropDownItems[6].Visible = true;
+                    archivoToolStripMenuItem.DropDownItems[7].Visible = true;
 
                 }
                 else //Empleado
                 {
                     //Desactivar
-                    consultasToolStripMenuItem.DropDownItems[3].Enabled = false;
-                    contabilidadToolStripMenuItem.DropDownItems[0].Enabled = false;
-                    archivoToolStripMenuItem.DropDownItems[0].Enabled = false;
-                    archivoToolStripMenuItem.DropDownItems[1].Enabled = false;
-                    archivoToolStripMenuItem.DropDownItems[2].Enabled = false;
-                    archivoToolStripMenuItem.DropDownItems[6].Enabled = false;
-                    archivoToolStripMenuItem.DropDownItems[7].Enabled = false;
+                    consultasToolStripMenuItem.DropDownItems[3].Visible = false;
+                    contabilidadToolStripMenuItem.DropDownItems[0].Visible = false;
+                    archivoToolStripMenuItem.DropDownItems[0].Visible = false;
+                    archivoToolStripMenuItem.DropDownItems[1].Visible = false;
+                    archivoToolStripMenuItem.DropDownItems[2].Visible = false;
+                    archivoToolStripMenuItem.DropDownItems[6].Visible = false;
+                    archivoToolStripMenuItem.DropDownItems[7].Visible = false;
 
                 }
 
@@ -177,7 +177,7 @@ namespace CGSystem
 
         private void cerrarSesiónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool salir = oper.CajaDeMensaje("Seguro que desea Cerrar Sesión", "Aviso");
+            bool salir = oper.CajaDeMensaje("¿Seguro que Desea Cerrar Sesión?", "Aviso");
             if (salir)
             {
                 Logeado = false;

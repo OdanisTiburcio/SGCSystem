@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btneliminiar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -49,13 +49,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.dgvListaServicios = new System.Windows.Forms.DataGridView();
-            this.iddetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sueldobruto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ahorros = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.isr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnsearch = new System.Windows.Forms.PictureBox();
             this.btbuscar = new System.Windows.Forms.PictureBox();
@@ -63,6 +56,13 @@
             this.rdCredito = new System.Windows.Forms.RadioButton();
             this.cbingreso = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.iddetalle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sueldobruto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cargo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ahorros = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.isr = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaServicios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnsearch)).BeginInit();
@@ -288,59 +288,6 @@
             this.dgvListaServicios.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaServicios_CellValueChanged);
             this.dgvListaServicios.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.dgvListaServicios_UserDeletedRow_1);
             // 
-            // iddetalle
-            // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iddetalle.DefaultCellStyle = dataGridViewCellStyle9;
-            this.iddetalle.HeaderText = "#";
-            this.iddetalle.Name = "iddetalle";
-            this.iddetalle.Width = 25;
-            // 
-            // cedula
-            // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.cedula.DefaultCellStyle = dataGridViewCellStyle10;
-            this.cedula.HeaderText = "Código";
-            this.cedula.Name = "cedula";
-            this.cedula.ReadOnly = true;
-            this.cedula.Width = 45;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Descripción";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 185;
-            // 
-            // sueldobruto
-            // 
-            this.sueldobruto.HeaderText = "Precio";
-            this.sueldobruto.Name = "sueldobruto";
-            this.sueldobruto.ReadOnly = true;
-            this.sueldobruto.Width = 65;
-            // 
-            // cargo
-            // 
-            this.cargo.HeaderText = "Días(+)";
-            this.cargo.Name = "cargo";
-            this.cargo.ReadOnly = true;
-            this.cargo.Width = 50;
-            // 
-            // ahorros
-            // 
-            this.ahorros.HeaderText = "Cantidad";
-            this.ahorros.Name = "ahorros";
-            this.ahorros.ReadOnly = true;
-            this.ahorros.Width = 60;
-            // 
-            // isr
-            // 
-            this.isr.HeaderText = "Total";
-            this.isr.Name = "isr";
-            this.isr.ReadOnly = true;
-            this.isr.Width = 75;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -403,6 +350,7 @@
             // 
             // cbingreso
             // 
+            this.cbingreso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbingreso.FormattingEnabled = true;
             this.cbingreso.Items.AddRange(new object[] {
             "EFECTIVO",
@@ -410,9 +358,8 @@
             "TARJETA CREDITO"});
             this.cbingreso.Location = new System.Drawing.Point(662, 53);
             this.cbingreso.Name = "cbingreso";
-            this.cbingreso.Size = new System.Drawing.Size(121, 21);
+            this.cbingreso.Size = new System.Drawing.Size(134, 21);
             this.cbingreso.TabIndex = 151;
-            this.cbingreso.Text = "EFECTIVO";
             // 
             // label3
             // 
@@ -424,11 +371,65 @@
             this.label3.TabIndex = 152;
             this.label3.Text = "Método de Pago";
             // 
+            // iddetalle
+            // 
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iddetalle.DefaultCellStyle = dataGridViewCellStyle7;
+            this.iddetalle.HeaderText = "#";
+            this.iddetalle.Name = "iddetalle";
+            this.iddetalle.Width = 25;
+            // 
+            // cedula
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.cedula.DefaultCellStyle = dataGridViewCellStyle8;
+            this.cedula.HeaderText = "Código";
+            this.cedula.Name = "cedula";
+            this.cedula.ReadOnly = true;
+            this.cedula.Width = 45;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Descripción";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 185;
+            // 
+            // sueldobruto
+            // 
+            this.sueldobruto.HeaderText = "Precio";
+            this.sueldobruto.Name = "sueldobruto";
+            this.sueldobruto.ReadOnly = true;
+            this.sueldobruto.Width = 65;
+            // 
+            // cargo
+            // 
+            this.cargo.HeaderText = "Días(+)";
+            this.cargo.Name = "cargo";
+            this.cargo.ReadOnly = true;
+            this.cargo.Width = 50;
+            // 
+            // ahorros
+            // 
+            this.ahorros.HeaderText = "Cantidad";
+            this.ahorros.MaxInputLength = 4;
+            this.ahorros.Name = "ahorros";
+            this.ahorros.ReadOnly = true;
+            this.ahorros.Width = 60;
+            // 
+            // isr
+            // 
+            this.isr.HeaderText = "Total";
+            this.isr.Name = "isr";
+            this.isr.ReadOnly = true;
+            this.isr.Width = 75;
+            // 
             // Facturación
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 465);
+            this.ClientSize = new System.Drawing.Size(808, 464);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbingreso);
             this.Controls.Add(this.rdCredito);
@@ -500,6 +501,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RadioButton rdContado;
         private System.Windows.Forms.RadioButton rdCredito;
+        private System.Windows.Forms.ComboBox cbingreso;
+        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridViewTextBoxColumn iddetalle;
         private System.Windows.Forms.DataGridViewTextBoxColumn cedula;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -507,7 +510,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cargo;
         private System.Windows.Forms.DataGridViewTextBoxColumn ahorros;
         private System.Windows.Forms.DataGridViewTextBoxColumn isr;
-        private System.Windows.Forms.ComboBox cbingreso;
-        private System.Windows.Forms.Label label3;
     }
 }

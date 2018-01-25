@@ -26,6 +26,7 @@ namespace CGSystem
         public CXC()
         {
             InitializeComponent();
+            cbingreso.SelectedIndex = 0;
         }
 
         private void btbuscar1_Click(object sender, EventArgs e)
@@ -234,6 +235,7 @@ namespace CGSystem
         private void CXC_Load(object sender, EventArgs e)
         {
             Buscado = false;
+            
         }
 
         private void tbnombre_TextChanged(object sender, EventArgs e)
@@ -582,6 +584,31 @@ namespace CGSystem
             catch
             {
             }
+        }
+
+        private void btnmostrartodas_Click(object sender, EventArgs e)
+        {
+            MostrarTodas();
+        }
+
+        public void MostrarTodas()
+        {
+            MessageBox.Show("Mostrando todas las facturas...","Mostrar Todas", MessageBoxButtons.OK,MessageBoxIcon.Information);
+        }
+
+        public void MostrarVencidas()
+        {
+            MessageBox.Show("Mostrando las facturas vencidas...", "Mostrar Vencidas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnmostrarvencidas_Click(object sender, EventArgs e)
+        {
+            MostrarVencidas();
+        }
+
+        private void btncuentasaldada_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Mostrando ventana de \"Cuentas Saldadas\"...", "Mostrar Cuentas Saldadas", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

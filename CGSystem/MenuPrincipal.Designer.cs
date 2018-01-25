@@ -72,7 +72,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(898, 24);
-            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // consultasToolStripMenuItem
@@ -283,7 +283,7 @@
             this.btnfacturar.Location = new System.Drawing.Point(10, 161);
             this.btnfacturar.Name = "btnfacturar";
             this.btnfacturar.Size = new System.Drawing.Size(222, 88);
-            this.btnfacturar.TabIndex = 2;
+            this.btnfacturar.TabIndex = 1;
             this.btnfacturar.Text = "Facturar";
             this.btnfacturar.UseVisualStyleBackColor = false;
             this.btnfacturar.Click += new System.EventHandler(this.btnfacturar_Click);
@@ -296,7 +296,7 @@
             this.btncheckin.Location = new System.Drawing.Point(10, 65);
             this.btncheckin.Name = "btncheckin";
             this.btncheckin.Size = new System.Drawing.Size(222, 89);
-            this.btncheckin.TabIndex = 3;
+            this.btncheckin.TabIndex = 0;
             this.btncheckin.Text = "Check-in";
             this.btncheckin.UseVisualStyleBackColor = false;
             this.btncheckin.Click += new System.EventHandler(this.btncheckin_Click);
@@ -308,7 +308,7 @@
             this.btnlistaclientes.Location = new System.Drawing.Point(10, 255);
             this.btnlistaclientes.Name = "btnlistaclientes";
             this.btnlistaclientes.Size = new System.Drawing.Size(222, 88);
-            this.btnlistaclientes.TabIndex = 4;
+            this.btnlistaclientes.TabIndex = 2;
             this.btnlistaclientes.Text = "Clientes";
             this.btnlistaclientes.UseVisualStyleBackColor = false;
             this.btnlistaclientes.Click += new System.EventHandler(this.btnlistaclientes_Click);
