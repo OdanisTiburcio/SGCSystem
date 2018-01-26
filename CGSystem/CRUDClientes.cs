@@ -154,8 +154,8 @@ namespace CGSystem
             {
 
             }
-            //cbciudadcliente.Text = "";
-            //cbsectorcliente.Text = "";
+            cbciudadcliente.Text = "";
+            cbsectorcliente.Text = "";
         }
 
         private void btnactualizarcliente_Click(object sender, EventArgs e)

@@ -80,7 +80,7 @@
             this.btncargarfotocliente.Location = new System.Drawing.Point(6, 172);
             this.btncargarfotocliente.Name = "btncargarfotocliente";
             this.btncargarfotocliente.Size = new System.Drawing.Size(145, 23);
-            this.btncargarfotocliente.TabIndex = 28;
+            this.btncargarfotocliente.TabIndex = 16;
             this.btncargarfotocliente.Text = "Cargar Foto...";
             this.btncargarfotocliente.UseVisualStyleBackColor = true;
             this.btncargarfotocliente.Click += new System.EventHandler(this.btncargarfotocliente_Click_1);
@@ -148,7 +148,7 @@
             this.tbtelefonocliente.Mask = "(###)###-####";
             this.tbtelefonocliente.Name = "tbtelefonocliente";
             this.tbtelefonocliente.Size = new System.Drawing.Size(100, 20);
-            this.tbtelefonocliente.TabIndex = 37;
+            this.tbtelefonocliente.TabIndex = 10;
             // 
             // label11
             // 
@@ -175,7 +175,7 @@
             this.tbdireccioncliente.Multiline = true;
             this.tbdireccioncliente.Name = "tbdireccioncliente";
             this.tbdireccioncliente.Size = new System.Drawing.Size(363, 43);
-            this.tbdireccioncliente.TabIndex = 18;
+            this.tbdireccioncliente.TabIndex = 7;
             // 
             // cbestadocliente
             // 
@@ -202,7 +202,7 @@
             this.cbciudadcliente.Location = new System.Drawing.Point(188, 106);
             this.cbciudadcliente.Name = "cbciudadcliente";
             this.cbciudadcliente.Size = new System.Drawing.Size(185, 21);
-            this.cbciudadcliente.TabIndex = 10;
+            this.cbciudadcliente.TabIndex = 9;
             // 
             // label9
             // 
@@ -260,7 +260,7 @@
             this.tbcedulacliente.Mask = "###-#######-#";
             this.tbcedulacliente.Name = "tbcedulacliente";
             this.tbcedulacliente.Size = new System.Drawing.Size(96, 20);
-            this.tbcedulacliente.TabIndex = 37;
+            this.tbcedulacliente.TabIndex = 5;
             // 
             // cbsexocliente
             // 
@@ -370,7 +370,7 @@
             this.btnguardarcliente.Location = new System.Drawing.Point(394, 205);
             this.btnguardarcliente.Name = "btnguardarcliente";
             this.btnguardarcliente.Size = new System.Drawing.Size(124, 49);
-            this.btnguardarcliente.TabIndex = 27;
+            this.btnguardarcliente.TabIndex = 17;
             this.btnguardarcliente.Text = "Guardar";
             this.btnguardarcliente.UseVisualStyleBackColor = false;
             this.btnguardarcliente.Click += new System.EventHandler(this.btnguardarcliente_Click);
@@ -409,7 +409,7 @@
             this.rbservicionovencido.Location = new System.Drawing.Point(79, 109);
             this.rbservicionovencido.Name = "rbservicionovencido";
             this.rbservicionovencido.Size = new System.Drawing.Size(37, 16);
-            this.rbservicionovencido.TabIndex = 28;
+            this.rbservicionovencido.TabIndex = 15;
             this.rbservicionovencido.TabStop = true;
             this.rbservicionovencido.Text = "NO";
             this.rbservicionovencido.UseVisualStyleBackColor = true;
@@ -422,7 +422,7 @@
             this.rbserviciovencido.Location = new System.Drawing.Point(79, 92);
             this.rbserviciovencido.Name = "rbserviciovencido";
             this.rbserviciovencido.Size = new System.Drawing.Size(32, 16);
-            this.rbserviciovencido.TabIndex = 27;
+            this.rbserviciovencido.TabIndex = 14;
             this.rbserviciovencido.TabStop = true;
             this.rbserviciovencido.Text = "SI";
             this.rbserviciovencido.UseVisualStyleBackColor = true;
@@ -444,7 +444,7 @@
             this.dtpfinfactura.Location = new System.Drawing.Point(9, 72);
             this.dtpfinfactura.Name = "dtpfinfactura";
             this.dtpfinfactura.Size = new System.Drawing.Size(109, 20);
-            this.dtpfinfactura.TabIndex = 25;
+            this.dtpfinfactura.TabIndex = 13;
             this.dtpfinfactura.Value = new System.DateTime(2017, 11, 16, 23, 30, 50, 0);
             // 
             // label13
@@ -463,7 +463,7 @@
             this.dtpiniciofactura.Location = new System.Drawing.Point(9, 34);
             this.dtpiniciofactura.Name = "dtpiniciofactura";
             this.dtpiniciofactura.Size = new System.Drawing.Size(109, 20);
-            this.dtpiniciofactura.TabIndex = 23;
+            this.dtpiniciofactura.TabIndex = 12;
             this.dtpiniciofactura.Value = new System.DateTime(2017, 11, 16, 23, 30, 50, 0);
             // 
             // label4
