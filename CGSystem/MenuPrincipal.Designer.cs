@@ -39,7 +39,6 @@
             this.ingresosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuadreCajaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuentasPorCobrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.listaDeServiciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -124,8 +123,7 @@
             this.contabilidadToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ingresosToolStripMenuItem,
             this.cuadreCajaToolStripMenuItem,
-            this.cuentasPorCobrarToolStripMenuItem,
-            this.listaDeServiciosToolStripMenuItem});
+            this.cuentasPorCobrarToolStripMenuItem});
             this.contabilidadToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("contabilidadToolStripMenuItem.Image")));
             this.contabilidadToolStripMenuItem.Name = "contabilidadToolStripMenuItem";
             this.contabilidadToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
@@ -154,14 +152,6 @@
             this.cuentasPorCobrarToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
             this.cuentasPorCobrarToolStripMenuItem.Text = "Cuentas por Cobrar";
             this.cuentasPorCobrarToolStripMenuItem.Click += new System.EventHandler(this.cuentasPorCobrarToolStripMenuItem_Click);
-            // 
-            // listaDeServiciosToolStripMenuItem
-            // 
-            this.listaDeServiciosToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("listaDeServiciosToolStripMenuItem.Image")));
-            this.listaDeServiciosToolStripMenuItem.Name = "listaDeServiciosToolStripMenuItem";
-            this.listaDeServiciosToolStripMenuItem.Size = new System.Drawing.Size(177, 22);
-            this.listaDeServiciosToolStripMenuItem.Text = "Lista de Servicios";
-            this.listaDeServiciosToolStripMenuItem.Click += new System.EventHandler(this.listaDeServiciosToolStripMenuItem_Click);
             // 
             // archivoToolStripMenuItem
             // 
@@ -370,7 +360,6 @@
         private System.Windows.Forms.ToolStripMenuItem ingresosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cuadreCajaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cuentasPorCobrarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listaDeServiciosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem serviciosToolStripMenuItem;

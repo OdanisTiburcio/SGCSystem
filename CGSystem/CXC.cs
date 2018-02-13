@@ -235,7 +235,7 @@ namespace CGSystem
         private void CXC_Load(object sender, EventArgs e)
         {
             Buscado = false;
-            
+
         }
 
         private void tbnombre_TextChanged(object sender, EventArgs e)
@@ -305,7 +305,7 @@ namespace CGSystem
                             oper.ConsultaSinResultado("INSERT INTO ingreso (codigo_tipo_ingreso, numero_factura, monto_ingreso, fecha, estado) VALUES ('" + TipoIngreso + "','" + numerodefacturaapagar + "','" + ValorAPagar.ToString() + "','" + fechahoy + "', 'ACTIVO');");
 
 
-                            bool imprimiringreso = oper.CajaDeMensaje("Pago realizado exitosamente ¿Desea imprimir el recibo de ingreso?", "Pago Exitoso");
+                            bool imprimiringreso = oper.CajaDeMensaje("Pago realizado exitosamente", "Pago Exitoso");
                             if (imprimiringreso)
                             {
                                 //Imprimir recibo de ingreso...
@@ -589,13 +589,32 @@ namespace CGSystem
         private void btnmostrartodas_Click(object sender, EventArgs e)
         {
             MostrarTodas();
+            btnpagarfactura.Enabled = false;
         }
 
         public void MostrarTodas()
         {
-            MessageBox.Show("Mostrando todas las facturas...","Mostrar Todas", MessageBoxButtons.OK,MessageBoxIcon.Information);
-        }
+            ds = oper.ConsultaConResultado("SELECT c.id_cxc, c.id_factura, c.total_factura, c.restante, cte.nombre_cliente ||' '|| cte.apellido_cliente, cab.fecha, c.estado_cxc, cab.id_factura, cab.id_cliente  FROM cxc c INNER JOIN cabecera_factura cab ON cab.id_factura = c.id_factura INNER JOIN cliente cte ON cte.numero_cliente = cab.id_cliente  WHERE c.estado_cxc = 'ACTIVO'");//Escribir las que aplican
+            int ContadorDeFilas = 0;
+            dgvCuentasPorCobrar.Rows.Clear();
+            double ValorTotalContador = 0;
 
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                dgvCuentasPorCobrar.Rows.Add();
+                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[0].Value = ds.Tables[0].Rows[i][0].ToString();
+                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[1].Value = ds.Tables[0].Rows[i][1].ToString();
+                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[2].Value = ds.Tables[0].Rows[i][2].ToString();
+                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[3].Value = ds.Tables[0].Rows[i][3].ToString();
+                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[4].Value = ds.Tables[0].Rows[i][4].ToString();
+                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[5].Value = ds.Tables[0].Rows[i][5].ToString();
+                ValorTotalContador += Convert.ToDouble(dgvCuentasPorCobrar.Rows[i].Cells[3].Value);
+                lbtotal.Text = oper.ConvertirAMoneda(unchecked((int)ValorTotalContador));
+                ValorTotalAPagar = unchecked((int)ValorTotalContador);
+                ContadorDeFilas++;
+            }
+            MessageBox.Show("Mostrando todas las facturas...", "Mostrar Todas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
         public void MostrarVencidas()
         {
             MessageBox.Show("Mostrando las facturas vencidas...", "Mostrar Vencidas", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -609,6 +628,11 @@ namespace CGSystem
         private void btncuentasaldada_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Mostrando ventana de \"Cuentas Saldadas\"...", "Mostrar Cuentas Saldadas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void btnimprimirestado_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

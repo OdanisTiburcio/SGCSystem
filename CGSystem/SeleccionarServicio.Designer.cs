@@ -147,6 +147,7 @@
             this.dgvListaServicios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaServicios.Size = new System.Drawing.Size(683, 319);
             this.dgvListaServicios.TabIndex = 2;
+            this.dgvListaServicios.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaServicios_CellContentClick);
             this.dgvListaServicios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaServicios_CellDoubleClick);
             this.dgvListaServicios.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvListaServicios_KeyPress);
             // 

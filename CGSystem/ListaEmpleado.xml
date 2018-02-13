@@ -30,4 +30,14 @@
     <sueldo>27800</sueldo>
     <foto>C:\CGSystem\FotosEmpleados\2.jpg</foto>
   </Table>
+  <Table>
+    <numero_empleado>9</numero_empleado>
+    <nombre>ELVIS</nombre>
+    <apellido>ORTIZ</apellido>
+    <cedula_empleado>031-0264953-4</cedula_empleado>
+    <descripcion_posicion>GERENTE GENERAL</descripcion_posicion>
+    <descripcion_departamento>GERENCIA DE MERCADEO</descripcion_departamento>
+    <sueldo>25000</sueldo>
+    <foto>C:\CGSystem\FotosEmpleados\5.jpg</foto>
+  </Table>
 </NewDataSet>

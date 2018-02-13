@@ -38,7 +38,7 @@ namespace CGSystem
             f.tbaliasusuario.Enabled = true;
             f.tbcontrasenausuario.Enabled = true;
             f.cbestadousuario.Enabled = true;
-            f.btnguardarusuario.Enabled = true;
+            f.btnguardarusuario.Enabled = false;
             f.ShowDialog();
         }
 

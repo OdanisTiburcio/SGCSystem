@@ -165,7 +165,7 @@ namespace CGSystem
 
         private void listaDeServiciosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ServiciosEmitidos f = new ServiciosEmitidos();
+            SeleccionarServicio f = new SeleccionarServicio();
             f.ShowDialog();
         }
 

@@ -21,8 +21,7 @@ namespace CGSystem
 
         private void CRUDUSUARIO_Load(object sender, EventArgs e)
         {
-            btnguardarusuario.Enabled = false;
-            btnactualizarusuario.Enabled = false;
+            
         }
 
         private void btnguardarusuario_Click(object sender, EventArgs e)

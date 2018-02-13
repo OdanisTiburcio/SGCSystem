@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label4 = new System.Windows.Forms.Label();
             this.tbpagartotal = new System.Windows.Forms.TextBox();
             this.dgvCuentasPorCobrar = new System.Windows.Forms.DataGridView();
@@ -116,8 +116,8 @@
             // 
             // id
             // 
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.id.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.id.DefaultCellStyle = dataGridViewCellStyle1;
             this.id.HeaderText = "ID";
             this.id.Name = "id";
             this.id.ReadOnly = true;
@@ -125,8 +125,8 @@
             // 
             // fact
             // 
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.fact.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.fact.DefaultCellStyle = dataGridViewCellStyle2;
             this.fact.HeaderText = "Factura #";
             this.fact.Name = "fact";
             this.fact.ReadOnly = true;
@@ -134,8 +134,8 @@
             // 
             // total
             // 
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.total.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.total.DefaultCellStyle = dataGridViewCellStyle3;
             this.total.HeaderText = "Valor Total";
             this.total.Name = "total";
             this.total.ReadOnly = true;
@@ -143,8 +143,8 @@
             // 
             // restante
             // 
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.restante.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.restante.DefaultCellStyle = dataGridViewCellStyle4;
             this.restante.HeaderText = "Valor Restante";
             this.restante.Name = "restante";
             this.restante.ReadOnly = true;
@@ -152,8 +152,8 @@
             // 
             // nombrecliente
             // 
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.nombrecliente.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.nombrecliente.DefaultCellStyle = dataGridViewCellStyle5;
             this.nombrecliente.HeaderText = "Cliente";
             this.nombrecliente.Name = "nombrecliente";
             this.nombrecliente.ReadOnly = true;
@@ -161,8 +161,8 @@
             // 
             // fecha
             // 
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.fecha.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.fecha.DefaultCellStyle = dataGridViewCellStyle6;
             this.fecha.HeaderText = "Fecha";
             this.fecha.Name = "fecha";
             this.fecha.ReadOnly = true;
@@ -212,6 +212,7 @@
             this.btnimprimirestado.TabIndex = 105;
             this.btnimprimirestado.Text = "Imprimir Estado de Cuenta";
             this.btnimprimirestado.UseVisualStyleBackColor = false;
+            this.btnimprimirestado.Click += new System.EventHandler(this.btnimprimirestado_Click);
             // 
             // tbvalorapagar
             // 

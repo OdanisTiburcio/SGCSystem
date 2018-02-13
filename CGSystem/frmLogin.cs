@@ -87,7 +87,7 @@ namespace CGSystem
             try//Cargar Usuarios al combobox
             {
                 cbusuario.Items.Clear();
-                ds = oper.ConsultaConResultado("SELECT alias_usuario FROM login;");
+                ds = oper.ConsultaConResultado("SELECT alias_usuario FROM login ORDER BY alias_usuario DESC;");
                 foreach (DataRow fila in ds.Tables[0].Rows)
                 {
                     cbusuario.Items.Add(fila["alias_usuario"].ToString());

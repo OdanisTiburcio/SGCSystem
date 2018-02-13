@@ -83,7 +83,7 @@ namespace CGSystem
             }
             catch
             {
-                MessageBox.Show("No se selección un servicio, inténtelo de nuevo correctamente", "Aviso");
+                MessageBox.Show("No se seleccionó un servicio, inténtelo de nuevo", "Aviso");
             }
         }
 
@@ -166,6 +166,11 @@ namespace CGSystem
                 e.Handled = true;
             }
             else { }
+        }
+
+        private void dgvListaServicios_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
