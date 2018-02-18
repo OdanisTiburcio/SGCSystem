@@ -1,11 +1,67 @@
 <?xml version="1.0" standalone="yes"?>
 <NewDataSet>
   <Table>
+    <numero_cliente>1</numero_cliente>
+    <nombre_cliente>RAMON</nombre_cliente>
+    <apellido_cliente>CARDENAS</apellido_cliente>
+    <telefono>(829)586-8547</telefono>
+    <fin_periodo>2017-04-13T00:00:00-04:00</fin_periodo>
+    <foto>C:\CGSystem\FotosClientes\1.jpg</foto>
+  </Table>
+  <Table>
+    <numero_cliente>2</numero_cliente>
+    <nombre_cliente>JHON</nombre_cliente>
+    <apellido_cliente>SPRING</apellido_cliente>
+    <telefono>(809)570-5867</telefono>
+    <fin_periodo>2018-06-14T00:00:00-04:00</fin_periodo>
+    <foto>C:\CGSystem\FotosClientes\2.jpg</foto>
+  </Table>
+  <Table>
+    <numero_cliente>3</numero_cliente>
+    <nombre_cliente>CARL</nombre_cliente>
+    <apellido_cliente>SMITH</apellido_cliente>
+    <telefono>(809)570-8697</telefono>
+    <fin_periodo>2019-07-08T00:00:00-04:00</fin_periodo>
+    <foto>C:\CGSystem\FotosClientes\3.jpg</foto>
+  </Table>
+  <Table>
+    <numero_cliente>5</numero_cliente>
+    <nombre_cliente>EL CHAVO</nombre_cliente>
+    <apellido_cliente>DEL 8</apellido_cliente>
+    <telefono>(809)570-9087</telefono>
+    <fin_periodo>2018-05-04T00:00:00-04:00</fin_periodo>
+    <foto>C:\CGSystem\FotosClientes\4.jpg</foto>
+  </Table>
+  <Table>
+    <numero_cliente>13</numero_cliente>
+    <nombre_cliente>EMERLYN DE LOS SANTOS</nombre_cliente>
+    <apellido_cliente>AQUILES TRAIGO</apellido_cliente>
+    <telefono>809-000-0000</telefono>
+    <fin_periodo>2019-07-19T00:00:00-04:00</fin_periodo>
+    <foto>C:\CGSystem\FotosClientes\5.jpg</foto>
+  </Table>
+  <Table>
+    <numero_cliente>14</numero_cliente>
+    <nombre_cliente>WILLIAM</nombre_cliente>
+    <apellido_cliente>SHAKESPEARE</apellido_cliente>
+    <telefono>080-808-8546</telefono>
+    <fin_periodo>2018-05-04T00:00:00-04:00</fin_periodo>
+    <foto>C:\CGSystem\FotosClientes\3.jpg</foto>
+  </Table>
+  <Table>
     <numero_cliente>16</numero_cliente>
     <nombre_cliente>PRUEBA</nombre_cliente>
     <apellido_cliente>CUALQUIERA</apellido_cliente>
     <telefono>(809)556-5897</telefono>
     <fin_periodo>2017-12-31T00:00:00-04:00</fin_periodo>
     <foto>C:\CGSystem\FotosClientes\1.jpg</foto>
+  </Table>
+  <Table>
+    <numero_cliente>17</numero_cliente>
+    <nombre_cliente>SDCS</nombre_cliente>
+    <apellido_cliente>SDCS</apellido_cliente>
+    <telefono>(809)565-8956</telefono>
+    <fin_periodo>2018-04-05T00:00:00-04:00</fin_periodo>
+    <foto>C:\CGSystem\FotosClientes\2.jpg</foto>
   </Table>
 </NewDataSet>

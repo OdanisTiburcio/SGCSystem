@@ -90,6 +90,7 @@ namespace CGSystem
                 else
                 {
                     oper.ConsultaSinResultado("UPDATE servicio SET descripcion_servicio = '" + tbpnombre.Text + "', precio_servicio = '" + tbpprecio.Text + "', dias = '" + tbdias.Text + "' WHERE codigo_servicio = '" + tbpcodigo.Text + "'");
+                    MessageBox.Show("Se guardaron los cambios satisfactoriamente!...", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             else
