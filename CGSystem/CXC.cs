@@ -589,7 +589,12 @@ namespace CGSystem
         private void btnmostrartodas_Click(object sender, EventArgs e)
         {
             MostrarTodas();
-            btnpagarfactura.Enabled = false;
+            //Si se encontró algo, activar el botón de pagar...
+            if (dgvCuentasPorCobrar.Rows.Count > 0)
+            {
+                btnpagarfactura.Enabled = true;
+                btnpagartotal.Enabled = false;
+            }
         }
 
         public void MostrarTodas()
@@ -613,16 +618,69 @@ namespace CGSystem
                 ValorTotalAPagar = unchecked((int)ValorTotalContador);
                 ContadorDeFilas++;
             }
-            MessageBox.Show("Mostrando todas las facturas...", "Mostrar Todas", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
+
         public void MostrarVencidas()
         {
-            MessageBox.Show("Mostrando las facturas vencidas...", "Mostrar Vencidas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //MessageBox.Show("Mostrando las facturas vencidas...", "Mostrar Vencidas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ds = oper.ConsultaConResultado("SELECT c.id_cxc, c.id_factura, c.total_factura, c.restante, cte.nombre_cliente ||' '|| cte.apellido_cliente, cab.fecha, c.estado_cxc, cab.id_factura, cab.id_cliente  FROM cxc c INNER JOIN cabecera_factura cab ON cab.id_factura = c.id_factura INNER JOIN cliente cte ON cte.numero_cliente = cab.id_cliente  WHERE c.estado_cxc = 'ACTIVO';");//Escribir las que aplican
+            int ContadorDeFilas = 0;
+            dgvCuentasPorCobrar.Rows.Clear();
+            double ValorTotalContador = 0;
+            //Para Calcular fecha más 30 días
+            DateTime Fechah;
+            DateTime Fechahn;
+            DateTime FechaHoy = DateTime.Now;
+            string FechaFactura;
+            string FechaVencida;
+            bool vencida;
+
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                //Revisar si está vencida
+                vencida = false;
+                Fechah = Convert.ToDateTime(ds.Tables[0].Rows[i][5].ToString());
+                FechaFactura = oper.FormatearFecha(Fechah);
+                FechaVencida = oper.SumarAlaFecha(FechaFactura, 30);
+                Fechahn = Convert.ToDateTime(FechaVencida);
+                if (Fechahn <= FechaHoy)
+                {
+                    vencida = true;
+                }
+                else
+                {
+                    vencida = false;
+                }
+
+                if (vencida)
+                {
+                    dgvCuentasPorCobrar.Rows.Add();
+                    dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[0].Value = ds.Tables[0].Rows[i][0].ToString();
+                    dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[1].Value = ds.Tables[0].Rows[i][1].ToString();
+                    dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[2].Value = ds.Tables[0].Rows[i][2].ToString();
+                    dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[3].Value = ds.Tables[0].Rows[i][3].ToString();
+                    dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[4].Value = ds.Tables[0].Rows[i][4].ToString();
+                    dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[5].Value = ds.Tables[0].Rows[i][5].ToString();
+                    ValorTotalContador += Convert.ToDouble(dgvCuentasPorCobrar.Rows[i].Cells[3].Value);
+                    lbtotal.Text = oper.ConvertirAMoneda(unchecked((int)ValorTotalContador));
+                    ValorTotalAPagar = unchecked((int)ValorTotalContador);
+                    ContadorDeFilas++;
+                }
+            }
         }
 
         private void btnmostrarvencidas_Click(object sender, EventArgs e)
         {
             MostrarVencidas();
+            //Si se encontró algo, activar el botón de pagar...
+            if (dgvCuentasPorCobrar.Rows.Count > 0)
+            {
+                btnpagarfactura.Enabled = true;
+                btnpagartotal.Enabled = false;
+            }
+            else
+            {
+            }
         }
 
         private void btncuentasaldada_Click(object sender, EventArgs e)
