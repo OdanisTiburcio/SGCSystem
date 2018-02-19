@@ -24,6 +24,7 @@ namespace CGSystem
         public bool variasfacturas = false;
         public bool MostrarTodabb = false;//Para saber si se clickeó en mostrar todas...
         public bool MostrarVencidasbb = false;//Para saber si se clickeó en Mostrar Vencidas...
+        public bool Saldadas = false;//Para Llevar un control de las cuentas saldadas...
 
         public CXC()
         {
@@ -40,6 +41,9 @@ namespace CGSystem
         {
             MostrarTodabb = false;
             MostrarVencidasbb = false;
+            Saldadas = false;
+            dgvCuentasPorCobrar.Columns[3].DataGridView.GridColor = Color.Black;
+            dgvCuentasPorCobrar.BackgroundColor = Color.White;
 
             Form f = new SeleccionarCliente();
             if (!Buscado)
@@ -240,7 +244,6 @@ namespace CGSystem
         private void CXC_Load(object sender, EventArgs e)
         {
             Buscado = false;
-
         }
 
         private void tbnombre_TextChanged(object sender, EventArgs e)
@@ -288,7 +291,7 @@ namespace CGSystem
                         bool pagarfactura = oper.CajaDeMensaje("¿Va a pargar la cantidad de " + tbvalorapagar.Text + " a la factura No.: " + numerodefacturaapagar + " ?", "Pagar Factura");
                         if (pagarfactura)
                         {
-                            //Relizar cambios en la CXC
+                            //Realizar cambios en la CXC
                             string cxcmodificar = dgvCuentasPorCobrar.CurrentRow.Cells[0].Value.ToString();
                             double RestanteActual = Convert.ToDouble(dgvCuentasPorCobrar.CurrentRow.Cells[3].Value);
                             string nuevorestante = (RestanteActual - ValorAPagar).ToString();
@@ -328,7 +331,7 @@ namespace CGSystem
                             {
                                 //continuar...
                             }
-                                                        
+
                             btnimpingreso.Enabled = true;
 
                             //Decidir qué se va a mostrar luego
@@ -346,7 +349,7 @@ namespace CGSystem
                                 {
                                     Mostrar();
                                 }
-                            }                            
+                            }
 
                         }
                         else
@@ -512,9 +515,52 @@ namespace CGSystem
             else { }
         }
 
+        public void EliminarFacturaSaldada()
+        {
+            string totalrestante = dgvCuentasPorCobrar.CurrentRow.Cells[2].Value.ToString();
+            string idCXC = dgvCuentasPorCobrar.CurrentRow.Cells[0].Value.ToString();
+            string facturaactual = dgvCuentasPorCobrar.CurrentRow.Cells[1].Value.ToString();
+            string clienteactual = dgvCuentasPorCobrar.CurrentRow.Cells[4].Value.ToString();
+
+            //Primer Aviso
+            bool primeraviso = oper.CajaDeMensaje("Está a punto de eliminar el pago de una factura, ¿Desea Continuar?", "Avis oPrevio");
+            if (primeraviso)
+            {
+                //Segundo Aviso
+                bool EliminarFactura = oper.CajaDeMensaje("¿Seguro que desea ELIMINAR el pago total de la factura: " + facturaactual + " perteneciente al Cliente: " + clienteactual + "?...", "Eliminar Pago de Factura");
+
+                if (EliminarFactura)//Si el usuario hace click en Aceptar al enunciado mostrado arriba, proceder a eliminar lo que halla que devolver...
+                {
+                    //Devolver el estado de la CXC a ACTIVO y restablecer el valor total a pagar...
+                    oper.ConsultaSinResultado("UPDATE cxc SET restante = '" + totalrestante + "', estado_cxc = 'ACTIVO' WHERE id_cxc = '" + idCXC + "';");
+
+                    //Desactivar todos los ingresos pertenecientes a la factura devuelta...
+                    oper.ConsultaSinResultado("UPDATE ingreso SET estado = 'DESACTIVADO' WHERE numero_factura = '"+ facturaactual +"';");
+                    MostrarSaldadas();
+                }
+                else
+                {
+                    //DoNothing
+                }
+            }
+            else
+            {
+                //DoNothing
+            }
+
+        }
+
         private void dgvCuentasPorCobrar_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            tbvalorapagar.Select();
+            //Saber si se pagó con el Grid de cuentas Saldadas, si fue así: Preguntar si se desea eliminar la cuenta saldada...
+            if (Saldadas && MenuPrincipal.TipoUsuario == 1)
+            {
+                EliminarFacturaSaldada();
+            }
+            else
+            {
+                tbvalorapagar.Select();
+            }
         }
 
         private void tbnombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -611,6 +657,9 @@ namespace CGSystem
         {
             MostrarTodabb = true;
             MostrarVencidasbb = false;
+            Saldadas = false;
+            dgvCuentasPorCobrar.Columns[3].DataGridView.GridColor = Color.Black;
+            dgvCuentasPorCobrar.BackgroundColor = Color.White;
             MostrarTodas();
             //Si se encontró algo, activar el botón de pagar...
             if (dgvCuentasPorCobrar.Rows.Count > 0)
@@ -623,6 +672,29 @@ namespace CGSystem
         public void MostrarTodas()
         {
             ds = oper.ConsultaConResultado("SELECT c.id_cxc, c.id_factura, c.total_factura, c.restante, cte.nombre_cliente ||' '|| cte.apellido_cliente, cab.fecha, c.estado_cxc, cab.id_factura, cab.id_cliente  FROM cxc c INNER JOIN cabecera_factura cab ON cab.id_factura = c.id_factura INNER JOIN cliente cte ON cte.numero_cliente = cab.id_cliente  WHERE c.estado_cxc = 'ACTIVO'");//Escribir las que aplican
+            int ContadorDeFilas = 0;
+            dgvCuentasPorCobrar.Rows.Clear();
+            double ValorTotalContador = 0;
+
+            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            {
+                dgvCuentasPorCobrar.Rows.Add();
+                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[0].Value = ds.Tables[0].Rows[i][0].ToString();
+                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[1].Value = ds.Tables[0].Rows[i][1].ToString();
+                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[2].Value = ds.Tables[0].Rows[i][2].ToString();
+                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[3].Value = ds.Tables[0].Rows[i][3].ToString();
+                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[4].Value = ds.Tables[0].Rows[i][4].ToString();
+                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[5].Value = ds.Tables[0].Rows[i][5].ToString();
+                ValorTotalContador += Convert.ToDouble(dgvCuentasPorCobrar.Rows[i].Cells[3].Value);
+                lbtotal.Text = oper.ConvertirAMoneda(unchecked((int)ValorTotalContador));
+                ValorTotalAPagar = unchecked((int)ValorTotalContador);
+                ContadorDeFilas++;
+            }
+        }
+
+        public void MostrarSaldadas()
+        {
+            ds = oper.ConsultaConResultado("SELECT c.id_cxc, c.id_factura, c.total_factura, c.restante, cte.nombre_cliente ||' '|| cte.apellido_cliente, cab.fecha, c.estado_cxc, cab.id_factura, cab.id_cliente  FROM cxc c INNER JOIN cabecera_factura cab ON cab.id_factura = c.id_factura INNER JOIN cliente cte ON cte.numero_cliente = cab.id_cliente  WHERE c.estado_cxc = 'SALDADA';");//Mostrar las saldaas
             int ContadorDeFilas = 0;
             dgvCuentasPorCobrar.Rows.Clear();
             double ValorTotalContador = 0;
@@ -697,6 +769,9 @@ namespace CGSystem
         {
             MostrarVencidasbb = true;
             MostrarTodabb = false;
+            Saldadas = false;
+            dgvCuentasPorCobrar.Columns[3].DataGridView.GridColor = Color.Black;
+            dgvCuentasPorCobrar.BackgroundColor = Color.White;
             MostrarVencidas();
             //Si se encontró algo, activar el botón de pagar...
             if (dgvCuentasPorCobrar.Rows.Count > 0)
@@ -711,7 +786,12 @@ namespace CGSystem
 
         private void btncuentasaldada_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Mostrando ventana de \"Cuentas Saldadas\"...", "Mostrar Cuentas Saldadas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            btnpagarfactura.Enabled = false;
+            btnpagartotal.Enabled = false;
+            Saldadas = true;
+            dgvCuentasPorCobrar.Columns[3].DataGridView.GridColor = Color.Red;
+            dgvCuentasPorCobrar.BackgroundColor = Color.LightBlue;
+            MostrarSaldadas();
         }
 
         private void btnimprimirestado_Click(object sender, EventArgs e)

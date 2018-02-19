@@ -126,6 +126,30 @@ namespace CGSystem
         {
             dtpIngresodesde.Value = DateTime.Today;
             dtpIngresohasta.Value = DateTime.Today;
+            if (MenuPrincipal.TipoUsuario == 1)
+            {
+                btneliminaringreso.Enabled = true;
+            }
+            else
+            {
+                btneliminaringreso.Enabled = false;
+            }
+
+        }
+
+        private void btneliminaringreso_Click(object sender, EventArgs e)
+        {
+            bool EliminarIngreso = oper.CajaDeMensaje("¿Desea eliminar el ingreso seleccionado?","Eliminar Ingreso");
+            if (EliminarIngreso)
+            {
+                //Buscar el valor actual de la fctura cxc seleccionada
+
+                //Sumarle al valor restante actual el valor del ingreso
+
+            }else
+            {
+
+            }
         }
     }
 }

@@ -41,6 +41,7 @@
             this.rbnumerofact = new System.Windows.Forms.RadioButton();
             this.rbcodigoingreso = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
+            this.btneliminaringreso = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdetalleingresos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -199,11 +200,25 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Buscar por:";
             // 
+            // btneliminaringreso
+            // 
+            this.btneliminaringreso.BackColor = System.Drawing.Color.Coral;
+            this.btneliminaringreso.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btneliminaringreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btneliminaringreso.Location = new System.Drawing.Point(167, 371);
+            this.btneliminaringreso.Name = "btneliminaringreso";
+            this.btneliminaringreso.Size = new System.Drawing.Size(201, 35);
+            this.btneliminaringreso.TabIndex = 42;
+            this.btneliminaringreso.Text = "Eliminar Ingreso";
+            this.btneliminaringreso.UseVisualStyleBackColor = false;
+            this.btneliminaringreso.Click += new System.EventHandler(this.btneliminaringreso_Click);
+            // 
             // CRUDIngresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 378);
+            this.ClientSize = new System.Drawing.Size(536, 411);
+            this.Controls.Add(this.btneliminaringreso);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.bntimprimiringreso);
             this.Controls.Add(this.btbuscaringreso);
@@ -233,5 +248,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.RadioButton rbtodosingresos;
         private System.Windows.Forms.TextBox tbseleccion;
+        private System.Windows.Forms.Button btneliminaringreso;
     }
 }
