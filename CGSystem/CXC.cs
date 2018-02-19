@@ -22,6 +22,8 @@ namespace CGSystem
         public long ValorAPagar = 0;
         public long ValorTotalAPagar = 0;
         public bool variasfacturas = false;
+        public bool MostrarTodabb = false;//Para saber si se clickeó en mostrar todas...
+        public bool MostrarVencidasbb = false;//Para saber si se clickeó en Mostrar Vencidas...
 
         public CXC()
         {
@@ -36,6 +38,9 @@ namespace CGSystem
 
         public void Buscar()
         {
+            MostrarTodabb = false;
+            MostrarVencidasbb = false;
+
             Form f = new SeleccionarCliente();
             if (!Buscado)
             {
@@ -138,87 +143,87 @@ namespace CGSystem
 
         }
 
-        public void MostrarTodo()
-        {
-            try
-            {
+        //public void MostrarTodo()
+        //{
+        //    try
+        //    {
 
-                tbcodigo.Clear();
+        //        tbcodigo.Clear();
 
-                ds = oper.ConsultaConResultado("SELECT * FROM cabecera_factura WHERE id_cliente = '" + MenuPrincipal.SelecciónDeCliente + "' AND estado = 'ACTIVO';");
-                CodigosFacturas = new string[1000000];
-                FechasFacturas = new string[1000000];
+        //        ds = oper.ConsultaConResultado("SELECT * FROM cabecera_factura WHERE id_cliente = '" + MenuPrincipal.SelecciónDeCliente + "' AND estado = 'ACTIVO';");
+        //        CodigosFacturas = new string[1000000];
+        //        FechasFacturas = new string[1000000];
 
-                for (int i = 0; i < ds.Tables[0].Rows.Count; i++) //Escribir las facturas factibles...
-                {
-                    CodigosFacturas[i] = ds.Tables[0].Rows[i][0].ToString();
-                    FechasFacturas[i] = ds.Tables[0].Rows[i][4].ToString();
-                }
+        //        for (int i = 0; i < ds.Tables[0].Rows.Count; i++) //Escribir las facturas factibles...
+        //        {
+        //            CodigosFacturas[i] = ds.Tables[0].Rows[i][0].ToString();
+        //            FechasFacturas[i] = ds.Tables[0].Rows[i][4].ToString();
+        //        }
 
-                ds = oper.ConsultaConResultado("SELECT * FROM cxc WHERE estado_cxc = 'ACTIVO';");//Escribir las que aplican
-                int ContadorDeFilas = 0;
-                dgvCuentasPorCobrar.Rows.Clear();
-                double ValorTotalContador = 0;
+        //        ds = oper.ConsultaConResultado("SELECT * FROM cxc WHERE estado_cxc = 'ACTIVO';");//Escribir las que aplican
+        //        int ContadorDeFilas = 0;
+        //        dgvCuentasPorCobrar.Rows.Clear();
+        //        double ValorTotalContador = 0;
 
-                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                {
-                    for (int k = 0; k < CodigosFacturas.Length; k++)
-                    {
-                        if (ds.Tables[0].Rows[i][1].ToString() == CodigosFacturas[k]) //Solo insertar las filas que aplican...
-                        {
-                            dgvCuentasPorCobrar.Rows.Add();
-                            dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[0].Value = ds.Tables[0].Rows[i][0].ToString();
-                            dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[1].Value = ds.Tables[0].Rows[i][1].ToString();
-                            dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[2].Value = ds.Tables[0].Rows[i][2].ToString();
-                            dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[3].Value = ds.Tables[0].Rows[i][3].ToString();
-                            dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[4].Value = tbnombre.Text;
-                            FechasFacturas[k] = FechasFacturas[k].Remove(10, (FechasFacturas[k].Length - 10));
-                            dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[5].Value = FechasFacturas[k].ToString();
-                            ValorTotalContador += Convert.ToDouble(dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[3].Value); //Calcular el Total...
-                            ContadorDeFilas++;
-                            k = 1000001;
-                        }
-                        else
-                        {
-                            if (CodigosFacturas[k] == null)
-                            {
-                                k = 1000001;
-                            }
-                            else
-                            {
-                            }
-                        }
-                    }
-                }
+        //        for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+        //        {
+        //            for (int k = 0; k < CodigosFacturas.Length; k++)
+        //            {
+        //                if (ds.Tables[0].Rows[i][1].ToString() == CodigosFacturas[k]) //Solo insertar las filas que aplican...
+        //                {
+        //                    dgvCuentasPorCobrar.Rows.Add();
+        //                    dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[0].Value = ds.Tables[0].Rows[i][0].ToString();
+        //                    dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[1].Value = ds.Tables[0].Rows[i][1].ToString();
+        //                    dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[2].Value = ds.Tables[0].Rows[i][2].ToString();
+        //                    dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[3].Value = ds.Tables[0].Rows[i][3].ToString();
+        //                    dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[4].Value = tbnombre.Text;
+        //                    FechasFacturas[k] = FechasFacturas[k].Remove(10, (FechasFacturas[k].Length - 10));
+        //                    dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[5].Value = FechasFacturas[k].ToString();
+        //                    ValorTotalContador += Convert.ToDouble(dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[3].Value); //Calcular el Total...
+        //                    ContadorDeFilas++;
+        //                    k = 1000001;
+        //                }
+        //                else
+        //                {
+        //                    if (CodigosFacturas[k] == null)
+        //                    {
+        //                        k = 1000001;
+        //                    }
+        //                    else
+        //                    {
+        //                    }
+        //                }
+        //            }
+        //        }
 
-                lbtotal.Text = oper.ConvertirAMoneda(unchecked((int)ValorTotalContador));
-                ValorTotalAPagar = unchecked((int)ValorTotalContador);
+        //        lbtotal.Text = oper.ConvertirAMoneda(unchecked((int)ValorTotalContador));
+        //        ValorTotalAPagar = unchecked((int)ValorTotalContador);
 
-                dgvCuentasPorCobrar.Refresh();
-                btnimpingreso.Enabled = false;
+        //        dgvCuentasPorCobrar.Refresh();
+        //        btnimpingreso.Enabled = false;
 
-                if (dgvCuentasPorCobrar.RowCount == 0)
-                {
-                    MessageBox.Show("El cliente No.: " + MenuPrincipal.SelecciónDeCliente + " no tiene cuentas por cobrar...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    btnpagarfactura.Enabled = true;
-                    btnimpingreso.Enabled = true;
-                    btnimprimirestado.Enabled = true;
-                    btnpagartotal.Enabled = true;
-                    tbvalorapagar.Enabled = true;
-                }
+        //        if (dgvCuentasPorCobrar.RowCount == 0)
+        //        {
+        //            MessageBox.Show("El cliente No.: " + MenuPrincipal.SelecciónDeCliente + " no tiene cuentas por cobrar...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        }
+        //        else
+        //        {
+        //            btnpagarfactura.Enabled = true;
+        //            btnimpingreso.Enabled = true;
+        //            btnimprimirestado.Enabled = true;
+        //            btnpagartotal.Enabled = true;
+        //            tbvalorapagar.Enabled = true;
+        //        }
 
-                Buscado = true;
-            }
+        //        Buscado = true;
+        //    }
 
 
-            catch
-            {
-                MessageBox.Show("El cliente No.: " + MenuPrincipal.SelecciónDeCliente + " no tiene cuentas por cobrar...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
+        //    catch
+        //    {
+        //        MessageBox.Show("El cliente No.: " + MenuPrincipal.SelecciónDeCliente + " no tiene cuentas por cobrar...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    }
+        //}
 
         private void tbnombre_KeyUp(object sender, KeyEventArgs e)
         {
@@ -323,9 +328,25 @@ namespace CGSystem
                             {
                                 //continuar...
                             }
-
+                                                        
                             btnimpingreso.Enabled = true;
-                            Mostrar();
+
+                            //Decidir qué se va a mostrar luego
+                            if (MostrarTodabb)
+                            {
+                                MostrarTodas();
+                            }
+                            else
+                            {
+                                if (MostrarVencidasbb)
+                                {
+                                    MostrarVencidas();
+                                }
+                                else
+                                {
+                                    Mostrar();
+                                }
+                            }                            
 
                         }
                         else
@@ -588,6 +609,8 @@ namespace CGSystem
 
         private void btnmostrartodas_Click(object sender, EventArgs e)
         {
+            MostrarTodabb = true;
+            MostrarVencidasbb = false;
             MostrarTodas();
             //Si se encontró algo, activar el botón de pagar...
             if (dgvCuentasPorCobrar.Rows.Count > 0)
@@ -627,6 +650,7 @@ namespace CGSystem
             int ContadorDeFilas = 0;
             dgvCuentasPorCobrar.Rows.Clear();
             double ValorTotalContador = 0;
+
             //Para Calcular fecha más 30 días
             DateTime Fechah;
             DateTime Fechahn;
@@ -671,6 +695,8 @@ namespace CGSystem
 
         private void btnmostrarvencidas_Click(object sender, EventArgs e)
         {
+            MostrarVencidasbb = true;
+            MostrarTodabb = false;
             MostrarVencidas();
             //Si se encontró algo, activar el botón de pagar...
             if (dgvCuentasPorCobrar.Rows.Count > 0)
