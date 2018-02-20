@@ -224,7 +224,12 @@
             this.Controls.Add(this.btbuscaringreso);
             this.Controls.Add(this.dgvdetalleingresos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(552, 449);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(552, 449);
             this.Name = "CRUDIngresos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Detalle de Ingresos";
             this.Load += new System.EventHandler(this.CRUDIngresos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvdetalleingresos)).EndInit();

@@ -139,17 +139,59 @@ namespace CGSystem
 
         private void btneliminaringreso_Click(object sender, EventArgs e)
         {
-            bool EliminarIngreso = oper.CajaDeMensaje("¿Desea eliminar el ingreso seleccionado?","Eliminar Ingreso");
-            if (EliminarIngreso)
-            {
-                //Buscar el valor actual de la fctura cxc seleccionada
+            string ingresoid = "";
+            try
+            {   
+                
+                if (dgvdetalleingresos.SelectedRows.Count == 1)
+                {
+                    bool EliminarIngreso = oper.CajaDeMensaje("¿Desea eliminar el ingreso seleccionado?", "Eliminar Ingreso");
+                    if (EliminarIngreso)
+                    {
+                        string ingresonumfactura = dgvdetalleingresos.CurrentRow.Cells[2].Value.ToString();
+                        ingresoid = dgvdetalleingresos.CurrentRow.Cells[0].Value.ToString();
+                        string ingresomonto = dgvdetalleingresos.CurrentRow.Cells[3].Value.ToString();
 
-                //Sumarle al valor restante actual el valor del ingreso
+                        //Buscar el valor actual de la fctura cxc seleccionada
+                        DataSet ds = oper.ConsultaConResultado("SELECT cxc.restante FROM cxc WHERE cxc.id_factura = '" + ingresonumfactura + "' AND cxc.estado_cxc != 'DESACTIVADO';");
+                        string viejomonto = ds.Tables[0].Rows[0][0].ToString();
 
-            }else
-            {
+                        //Desactivar el ingreso
+                        oper.ConsultaSinResultado("UPDATE ingreso SET estado = 'DESACTIVADO' WHERE codigo_ingreso = '" + ingresoid + "';");
+
+                        //Sumarle al valor restante actual el valor del ingreso
+                        string nuevomonto = (Convert.ToDouble(ingresomonto) + Convert.ToDouble(viejomonto)).ToString();
+                        oper.ConsultaConResultado("UPDATE cxc SET restante = '" + nuevomonto + "' WHERE id_factura = '" + ingresonumfactura + "';");
+
+                        //Si la cuenta estaba saldada; devolverla a cuentas por cobrar...
+                        if (viejomonto == "0")
+                        {
+                            oper.ConsultaConResultado("UPDATE cxc SET estado_cxc = 'ACTIVO' WHERE id_factura = '" + ingresonumfactura + "';");
+                            MessageBox.Show("La factura afectada fue devuelta a \"Cuentas por Cobrar\"...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+
+                        }
+
+                        dgvdetalleingresos.Rows.RemoveAt(dgvdetalleingresos.CurrentRow.Index);
+
+                    }
+                    else
+                    {
+                        
+                    }
+                }
+
 
             }
+            catch
+            {
+                MessageBox.Show("La factura enlazada fue eliminada, se desactivará el ingreso de todas formas...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                oper.ConsultaSinResultado("UPDATE ingreso SET estado = 'DESACTIVADO' WHERE codigo_ingreso = '" + ingresoid + "';");
+                dgvdetalleingresos.Rows.RemoveAt(dgvdetalleingresos.CurrentRow.Index);
+            }
+
         }
     }
 }
