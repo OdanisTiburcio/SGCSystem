@@ -72,7 +72,7 @@ namespace CGSystem
                 }
                 else if (rdbnumeroempleado.Checked)
                 {
-                    string consulta = "SELECT codigo_login AS Codigo, numero_empleado AS Num_Empleado, alias_usuario AS Alias, clave_usuario AS Clave, codigo_tipo_usuario AS Tipo, codigo_estado AS Estado FROM login WHERE numero_empleado = '" + tbbuscarusuarios.Text + "'";
+                    string consulta = "SELECT emp.nombre AS Nombre, emp.apellido AS Apellido, l.alias_usuario AS Alias, l.clave_usuario AS Clave, t.descripcion_tipo_usuario AS Tipo FROM login l INNER JOIN tipo_usuario t ON t.codigo_tipo_usuario = l.codigo_tipo_usuario INNER JOIN empleado emp ON emp.numero_empleado = l.numero_empleado WHERE l.numero_empleado = '" + tbbuscarusuarios.Text + "'";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -89,7 +89,7 @@ namespace CGSystem
                 }
                 else if (rdbtipousuario.Checked)
                 {
-                    string consulta = "SELECT codigo_login AS Codigo, numero_empleado AS Num_Empleado, alias_usuario AS Alias, clave_usuario AS Clave, codigo_tipo_usuario AS Tipo, codigo_estado AS Estado FROM login WHERE codigo_tipo_usuario = '" + tbbuscarusuarios.Text + "'";
+                    string consulta = "SELECT emp.nombre AS Nombre, emp.apellido AS Apellido, l.alias_usuario AS Alias, l.clave_usuario AS Clave, t.descripcion_tipo_usuario AS Tipo FROM login l INNER JOIN tipo_usuario t ON t.codigo_tipo_usuario = l.codigo_tipo_usuario INNER JOIN empleado emp ON emp.numero_empleado = l.numero_empleado WHERE l.numero_empleado = '" + tbbuscarusuarios.Text + "'";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -106,7 +106,7 @@ namespace CGSystem
                 }
                 else if (rdbusuarios.Checked)
                 {
-                    string consulta = "SELECT codigo_login AS Codigo, numero_empleado AS Num_Empleado, alias_usuario AS Alias, clave_usuario AS Clave, codigo_tipo_usuario AS Tipo, codigo_estado AS Estado FROM login";
+                    string consulta = "SELECT emp.nombre AS Nombre, emp.apellido AS Apellido, l.alias_usuario AS Alias, l.clave_usuario AS Clave, t.descripcion_tipo_usuario AS Tipo FROM login l INNER JOIN tipo_usuario t ON t.codigo_tipo_usuario = l.codigo_tipo_usuario INNER JOIN empleado emp ON emp.numero_empleado = l.numero_empleado";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -118,14 +118,14 @@ namespace CGSystem
                     for (int i = 0; i < dataGridView1.RowCount; i++) //Ocultar Contraseña con asteriscos
                     {
                         dataGridView1.Rows[i].Cells[3].Value = "******";
-                        if(dataGridView1.Rows[i].Cells[4].Value.ToString() == "1")
-                        {
-                            dataGridView1.Rows[i].Cells[4].Value = "Administrador";
-                        }
-                        else
-                        {
-                            dataGridView1.Rows[i].Cells[4].Value = "Empleado";
-                        }
+                        //if(dataGridView1.Rows[i].Cells[4].Value.ToString() == "1")
+                        //{
+                        //    dataGridView1.Rows[i].Cells[4].Value = "Administrador";
+                        //}
+                        //else
+                        //{
+                        //    dataGridView1.Rows[i].Cells[4].Value = "Empleado";
+                        //}
                     }
                     dataGridView1.Refresh();
                 }
