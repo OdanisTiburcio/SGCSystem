@@ -89,10 +89,10 @@ namespace CGSystem
                         dgvdetalleingresos.DataSource = dt;
                         cnx.Close();
                     }
-                    catch (Exception ex) { }
+                    catch (Exception) { }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }

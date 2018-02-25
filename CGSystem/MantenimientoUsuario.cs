@@ -131,7 +131,7 @@ namespace CGSystem
                 }
                 else MessageBox.Show("Favor seleccionar una de las opciones!");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
