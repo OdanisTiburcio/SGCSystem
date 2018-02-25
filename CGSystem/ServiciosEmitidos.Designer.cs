@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ServiciosEmitidos));
             this.button2 = new System.Windows.Forms.Button();
             this.dtfechato = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
@@ -230,6 +231,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btbuscar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ServiciosEmitidos";
             this.Text = "Servicios Emitidos";
             ((System.ComponentModel.ISupportInitialize)(this.btbuscar1)).EndInit();

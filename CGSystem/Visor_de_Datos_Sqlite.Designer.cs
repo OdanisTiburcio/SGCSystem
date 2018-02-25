@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Visor_de_Datos_Sqlite));
             this.button1 = new System.Windows.Forms.Button();
             this.tbnombretabla = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -81,6 +82,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.tbnombretabla);
             this.Controls.Add(this.button1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(711, 383);
             this.MinimumSize = new System.Drawing.Size(711, 383);

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MantenimientoUsuario));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.btncrearusuario = new System.Windows.Forms.Button();
             this.btnbuscarusuario = new System.Windows.Forms.Button();
@@ -156,6 +157,7 @@
             this.Controls.Add(this.btncrearusuario);
             this.Controls.Add(this.dataGridView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MantenimientoUsuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuarios";

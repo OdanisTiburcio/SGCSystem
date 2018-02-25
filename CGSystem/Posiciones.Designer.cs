@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Posiciones));
             this.label2 = new System.Windows.Forms.Label();
             this.tbdescripposición = new System.Windows.Forms.TextBox();
             this.tbcodigoposicion = new System.Windows.Forms.TextBox();
@@ -129,6 +130,7 @@
             this.Controls.Add(this.tbcodigoposicion);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Posiciones";
             this.Text = "Posiciones";
             this.ResumeLayout(false);

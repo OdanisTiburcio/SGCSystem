@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CRUDIngresos));
             this.dgvdetalleingresos = new System.Windows.Forms.DataGridView();
             this.bntimprimiringreso = new System.Windows.Forms.Button();
             this.btbuscaringreso = new System.Windows.Forms.Button();
@@ -217,13 +218,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 411);
+            this.ClientSize = new System.Drawing.Size(536, 410);
             this.Controls.Add(this.btneliminaringreso);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.bntimprimiringreso);
             this.Controls.Add(this.btbuscaringreso);
             this.Controls.Add(this.dgvdetalleingresos);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(552, 449);
             this.MinimizeBox = false;

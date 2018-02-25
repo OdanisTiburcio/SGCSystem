@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CRUDEmpleados));
             this.bncargarfotoempleado = new System.Windows.Forms.Button();
             this.tbRutaFoto = new System.Windows.Forms.TextBox();
             this.btneliminarempleado = new System.Windows.Forms.Button();
@@ -523,6 +524,7 @@
             this.Controls.Add(this.btnguardarempleado);
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "CRUDEmpleados";

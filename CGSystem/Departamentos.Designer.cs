@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Departamentos));
             this.btneliminardepartamento = new System.Windows.Forms.Button();
             this.btnimprimirdepartamento = new System.Windows.Forms.Button();
             this.btnactualizardepartamento = new System.Windows.Forms.Button();
@@ -129,6 +130,7 @@
             this.Controls.Add(this.btnactualizardepartamento);
             this.Controls.Add(this.btnguardardepartamento);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Departamentos";

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Ciudades));
             this.label2 = new System.Windows.Forms.Label();
             this.tbdescripciudad = new System.Windows.Forms.TextBox();
             this.tbcodigociudad = new System.Windows.Forms.TextBox();
@@ -129,6 +130,7 @@
             this.Controls.Add(this.tbcodigociudad);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Ciudades";
             this.Text = "Ciudades";
             this.Load += new System.EventHandler(this.Ciudades_Load);
