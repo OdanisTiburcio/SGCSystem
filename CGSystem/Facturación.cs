@@ -100,10 +100,8 @@ namespace CGSystem
                 }
                 tbtotal.Text = oper.ConvertirAMoneda(Convert.ToInt32(TotalFactura));
             }
-            catch (Exception ex)
+            catch
             {
-
-                throw ex;
                 MessageBox.Show("Indique una cantidad válida para el detalle No.: " + (ErrorControler + 1).ToString() + "...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dgvListaServicios.Rows[ErrorControler].Cells[5].Value = "1";
             }

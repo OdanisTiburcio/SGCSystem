@@ -1,69 +1,9 @@
 <?xml version="1.0" standalone="yes"?>
 <NewDataSet>
   <Table>
-    <id_factura>35</id_factura>
+    <id_factura>46</id_factura>
     <id_tipo_factura>1</id_tipo_factura>
     <descripcion_tipo_factura>CONTADO</descripcion_tipo_factura>
-    <total>80</total>
-  </Table>
-  <Table>
-    <id_factura>36</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <descripcion_tipo_factura>CONTADO</descripcion_tipo_factura>
-    <total>300</total>
-  </Table>
-  <Table>
-    <id_factura>37</id_factura>
-    <id_tipo_factura>2</id_tipo_factura>
-    <descripcion_tipo_factura>CREDITO</descripcion_tipo_factura>
-    <total>2880</total>
-  </Table>
-  <Table>
-    <id_factura>38</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <descripcion_tipo_factura>CONTADO</descripcion_tipo_factura>
-    <total>500</total>
-  </Table>
-  <Table>
-    <id_factura>39</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <descripcion_tipo_factura>CONTADO</descripcion_tipo_factura>
-    <total>0</total>
-  </Table>
-  <Table>
-    <id_factura>40</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <descripcion_tipo_factura>CONTADO</descripcion_tipo_factura>
-    <total>300</total>
-  </Table>
-  <Table>
-    <id_factura>41</id_factura>
-    <id_tipo_factura>2</id_tipo_factura>
-    <descripcion_tipo_factura>CREDITO</descripcion_tipo_factura>
-    <total>200</total>
-  </Table>
-  <Table>
-    <id_factura>42</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <descripcion_tipo_factura>CONTADO</descripcion_tipo_factura>
-    <total>800</total>
-  </Table>
-  <Table>
-    <id_factura>43</id_factura>
-    <id_tipo_factura>2</id_tipo_factura>
-    <descripcion_tipo_factura>CREDITO</descripcion_tipo_factura>
-    <total>10580</total>
-  </Table>
-  <Table>
-    <id_factura>44</id_factura>
-    <id_tipo_factura>1</id_tipo_factura>
-    <descripcion_tipo_factura>CONTADO</descripcion_tipo_factura>
-    <total>1080</total>
-  </Table>
-  <Table>
-    <id_factura>45</id_factura>
-    <id_tipo_factura>2</id_tipo_factura>
-    <descripcion_tipo_factura>CREDITO</descripcion_tipo_factura>
-    <total>80</total>
+    <total>40</total>
   </Table>
 </NewDataSet>
