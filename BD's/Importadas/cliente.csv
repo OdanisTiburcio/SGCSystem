@@ -1,0 +1,2 @@
+numero_cliente,cedula_cliente,nombre_cliente,apellido_cliente,fecha_nacimiento,direccion_cliente,codigo_sector,codigo_ciudad,telefono,inicio_periodo,fin_periodo,codigo_estado,foto,sexo
+1,999-9999999-9,VISITANTE,DIARIO,1/1/1900,DESCONOCIDA,1,1,(999)999-9999,1/1/1900,1/1/9999,1,C:\CGSystem\FotosClientes\1.jpg,MASCULINO

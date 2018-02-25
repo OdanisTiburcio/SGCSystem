@@ -1,0 +1,4 @@
+codigo_tipo_ingreso,descripcion_tipo_ingreso
+1,EFECTIVO
+2,CHEQUE
+3,TARJETA CREDITO

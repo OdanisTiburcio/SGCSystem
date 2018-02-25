@@ -1,0 +1,2 @@
+numero_empleado,codigo_posicion,codigo_departamento,sueldo,cedula_empleado,nombre,apellido,fecha_nacimiento,fecha_ingreso,direccion,codigo_sector,codigo_ciudad,telefono_casa,celular,codigo_estado,foto,sexo
+1,1,1,25000,031-0264953-4,ELVIS,ORTIZ,1/27/2018,1/27/2018,"CALLE 2A, ESQUINA 7A ",6,28,(829)399-5797,(829)399-5797,1,C:\CGSystem\FotosEmpleados\1.jpg,MASCULINO

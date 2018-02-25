@@ -54,7 +54,7 @@ namespace CGSystem
                 cnx.Open();
                 if (rdbaliasusuario.Checked)
                 {
-                    string consulta = "SELECT codigo_login Código, numero_empleado Núm_Empleado, alias_usuario Alias, clave_usuario Clave, codigo_tipo_usuario Tipo, codigo_estado Estado FROM login WHERE alias_usuario LIKE '%" + tbbuscarusuarios.Text + "%'";
+                    string consulta = "SELECT codigo_login AS Codigo, numero_empleado AS Num_Empleado, alias_usuario AS Alias, clave_usuario AS Clave, codigo_tipo_usuario AS Tipo, codigo_estado AS Estado FROM login WHERE alias_usuario LIKE '%" + tbbuscarusuarios.Text + "%'";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -72,7 +72,7 @@ namespace CGSystem
                 }
                 else if (rdbnumeroempleado.Checked)
                 {
-                    string consulta = "SELECT codigo_login Código, numero_empleado Núm_Empleado, alias_usuario Alias, clave_usuario Clave, codigo_tipo_usuario Tipo, codigo_estado Estado FROM login WHERE numero_empleado = '" + tbbuscarusuarios.Text + "'";
+                    string consulta = "SELECT codigo_login AS Codigo, numero_empleado AS Num_Empleado, alias_usuario AS Alias, clave_usuario AS Clave, codigo_tipo_usuario AS Tipo, codigo_estado AS Estado FROM login WHERE numero_empleado = '" + tbbuscarusuarios.Text + "'";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -89,7 +89,7 @@ namespace CGSystem
                 }
                 else if (rdbtipousuario.Checked)
                 {
-                    string consulta = "SELECT codigo_login Código, numero_empleado Núm_Empleado, alias_usuario Alias, clave_usuario Clave, codigo_tipo_usuario Tipo FROM login WHERE codigo_tipo_usuario = '" + tbbuscarusuarios.Text + "'";
+                    string consulta = "SELECT codigo_login AS Codigo, numero_empleado AS Num_Empleado, alias_usuario AS Alias, clave_usuario AS Clave, codigo_tipo_usuario AS Tipo, codigo_estado AS Estado FROM login WHERE codigo_tipo_usuario = '" + tbbuscarusuarios.Text + "'";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -106,7 +106,7 @@ namespace CGSystem
                 }
                 else if (rdbusuarios.Checked)
                 {
-                    string consulta = "SELECT codigo_login Código, numero_empleado Núm_Empleado, alias_usuario Alias, clave_usuario Clave, codigo_tipo_usuario Tipo, codigo_estado Estado FROM login";
+                    string consulta = "SELECT codigo_login AS Codigo, numero_empleado AS Num_Empleado, alias_usuario AS Alias, clave_usuario AS Clave, codigo_tipo_usuario AS Tipo, codigo_estado AS Estado FROM login";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
