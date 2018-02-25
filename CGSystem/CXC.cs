@@ -535,7 +535,7 @@ namespace CGSystem
                     oper.ConsultaSinResultado("UPDATE cxc SET restante = '" + totalrestante + "', estado_cxc = 'ACTIVO' WHERE id_cxc = '" + idCXC + "';");
 
                     //Desactivar todos los ingresos pertenecientes a la factura devuelta...
-                    oper.ConsultaSinResultado("UPDATE ingreso SET estado = 'DESACTIVADO' WHERE numero_factura = '"+ facturaactual +"';");
+                    oper.ConsultaSinResultado("UPDATE ingreso SET estado = 'DESACTIVADO' WHERE numero_factura = '" + facturaactual + "';");
                     MostrarSaldadas();
                 }
                 else
@@ -671,25 +671,33 @@ namespace CGSystem
 
         public void MostrarTodas()
         {
-            ds = oper.ConsultaConResultado("SELECT c.id_cxc, c.id_factura, c.total_factura, c.restante, cte.nombre_cliente ||' '|| cte.apellido_cliente, cab.fecha, c.estado_cxc, cab.id_factura, cab.id_cliente  FROM cxc c INNER JOIN cabecera_factura cab ON cab.id_factura = c.id_factura INNER JOIN cliente cte ON cte.numero_cliente = cab.id_cliente  WHERE c.estado_cxc = 'ACTIVO'");//Escribir las que aplican
-            int ContadorDeFilas = 0;
-            dgvCuentasPorCobrar.Rows.Clear();
-            double ValorTotalContador = 0;
-
-            for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+            try
             {
-                dgvCuentasPorCobrar.Rows.Add();
-                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[0].Value = ds.Tables[0].Rows[i][0].ToString();
-                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[1].Value = ds.Tables[0].Rows[i][1].ToString();
-                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[2].Value = ds.Tables[0].Rows[i][2].ToString();
-                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[3].Value = ds.Tables[0].Rows[i][3].ToString();
-                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[4].Value = ds.Tables[0].Rows[i][4].ToString();
-                dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[5].Value = ds.Tables[0].Rows[i][5].ToString();
-                ValorTotalContador += Convert.ToDouble(dgvCuentasPorCobrar.Rows[i].Cells[3].Value);
-                lbtotal.Text = oper.ConvertirAMoneda(unchecked((int)ValorTotalContador));
-                ValorTotalAPagar = unchecked((int)ValorTotalContador);
-                ContadorDeFilas++;
+                ds = oper.ConsultaConResultado("SELECT c.id_cxc, c.id_factura, c.total_factura, c.restante, cte.nombre_cliente ||' '|| cte.apellido_cliente, cab.fecha, c.estado_cxc, cab.id_factura, cab.id_cliente  FROM cxc c INNER JOIN cabecera_factura cab ON cab.id_factura = c.id_factura INNER JOIN cliente cte ON cte.numero_cliente = cab.id_cliente  WHERE c.estado_cxc = 'ACTIVO'");//Escribir las que aplican
+                int ContadorDeFilas = 0;
+                dgvCuentasPorCobrar.Rows.Clear();
+                double ValorTotalContador = 0;
+
+                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                {
+                    dgvCuentasPorCobrar.Rows.Add();
+                    dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[0].Value = ds.Tables[0].Rows[i][0].ToString();
+                    dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[1].Value = ds.Tables[0].Rows[i][1].ToString();
+                    dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[2].Value = ds.Tables[0].Rows[i][2].ToString();
+                    dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[3].Value = ds.Tables[0].Rows[i][3].ToString();
+                    dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[4].Value = ds.Tables[0].Rows[i][4].ToString();
+                    dgvCuentasPorCobrar.Rows[ContadorDeFilas].Cells[5].Value = ds.Tables[0].Rows[i][5].ToString();
+                    ValorTotalContador += Convert.ToDouble(dgvCuentasPorCobrar.Rows[i].Cells[3].Value);
+                    lbtotal.Text = oper.ConvertirAMoneda(unchecked((int)ValorTotalContador));
+                    ValorTotalAPagar = unchecked((int)ValorTotalContador);
+                    ContadorDeFilas++;
+                }
             }
+            catch
+            {
+                MessageBox.Show("Actualmente no hay cuentas por cobrar...","Cuentas por cobrar",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+
         }
 
         public void MostrarSaldadas()

@@ -1,0 +1,25 @@
+delete from cabecera_factura;    
+delete from sqlite_sequence where name='cabecera_factura';
+
+delete from cxc;    
+delete from sqlite_sequence where name='cxc';
+
+delete from detalle_factura;    
+delete from sqlite_sequence where name='detalle_factura';
+
+delete from ingreso;    
+delete from sqlite_sequence where name='ingreso';
+
+
+
+---
+
+
+
+delete from cabecera_factura;    
+
+delete from cxc;    
+
+delete from detalle_factura;    
+
+delete from ingreso;    

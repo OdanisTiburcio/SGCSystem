@@ -74,7 +74,7 @@ namespace CGSystem
 
         private void btbuscar_Click(object sender, EventArgs e)
         {
-            
+            Buscar();
         }
 
         public void Actualizar()
@@ -83,7 +83,6 @@ namespace CGSystem
             try
             {
                 //Método para actualizar el Data Grid View
-                Actualizando = true;
                 TotalFactura = 0;
                 contador = 0;
                 DiasASumar = 0;
@@ -93,15 +92,18 @@ namespace CGSystem
 
                     contador++;
                     ErrorControler = i;
-                    dgvListaServicios.Rows[i].Cells[6].Value = Convert.ToInt32(dgvListaServicios.Rows[i].Cells[3].Value) * Convert.ToInt32(dgvListaServicios.Rows[i].Cells[5].Value);//Precio por Cantidad =  Total
+                    double look = Convert.ToDouble(dgvListaServicios.Rows[i].Cells[3].Value);
+                    double look2 = Convert.ToDouble(dgvListaServicios.Rows[i].Cells[5].Value);
+                    dgvListaServicios.Rows[i].Cells[6].Value = (look * look2).ToString();//Precio por Cantidad =  Total
                     TotalFactura += Convert.ToInt32(dgvListaServicios.Rows[i].Cells[6].Value);
                     DiasASumar += (Convert.ToInt32(dgvListaServicios.Rows[i].Cells[4].Value) * Convert.ToInt32(dgvListaServicios.Rows[i].Cells[5].Value)); //días por cantidad = total dias a sumar del detalle actual...
                 }
                 tbtotal.Text = oper.ConvertirAMoneda(Convert.ToInt32(TotalFactura));
-                Actualizando = false;
             }
-            catch
+            catch (Exception ex)
             {
+
+                throw ex;
                 MessageBox.Show("Indique una cantidad válida para el detalle No.: " + (ErrorControler + 1).ToString() + "...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dgvListaServicios.Rows[ErrorControler].Cells[5].Value = "1";
             }
@@ -205,7 +207,7 @@ namespace CGSystem
             //Buscar un cliente mostrando el formulario de selección
             Form f = new SeleccionarCliente();
             f.ShowDialog();
- 
+
             try
             {
                 if (SelecciónDeCliente)
@@ -359,7 +361,10 @@ namespace CGSystem
             }
             catch
             {
-                MessageBox.Show("Error al crear nueva factura, contacte al técnico del sistema, disculpe los inconvenientes", "Aviso");
+                //Es la primera factura...
+                NumeroDeFactura = "1";
+                lbnumfactura.Text = "No. Factura: " + NumeroDeFactura;
+                //MessageBox.Show("Error al crear nueva factura, contacte al técnico del sistema, disculpe los inconvenientes", "Aviso");
             }
         }
 
@@ -443,9 +448,9 @@ namespace CGSystem
                     if (rdCredito.Checked)//Si la factura es a crédito, generar una cuenta por cobrar de la factura actual al cliente correspondiente...
                     {
                         GenerarCXC(); //Como se esta modificando una factura, la CXC se va a actualizar...
-                        
-                        //Se eliminan los ingresos anteriormente generados...
-                        oper.ConsultaSinResultado("UPDATE ingreso SET estado = 'DESACTIVADO' WHERE numero_factura = '" + NumeroDeFactura + "';");
+
+                        //Se eliminan los ingresos anteriormente generados... Descontinado, el ingreso debe quedarse
+                        //oper.ConsultaSinResultado("UPDATE ingreso SET estado = 'DESACTIVADO' WHERE numero_factura = '" + NumeroDeFactura + "';");
                     }
                     else //Si ahora es al contado...
                     {
@@ -910,7 +915,7 @@ namespace CGSystem
                 BuscarCliente();
             }
             else { }
-            
+
         }
 
         private void btnsearch_Click(object sender, KeyEventArgs e)
