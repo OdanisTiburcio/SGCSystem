@@ -74,7 +74,7 @@ namespace CGSystem
 
         private void btbuscar_Click(object sender, EventArgs e)
         {
-            Buscar();
+            
         }
 
         public void Actualizar()
@@ -890,6 +890,16 @@ namespace CGSystem
         private void rdCredito_Click(object sender, EventArgs e)
         {
             cbingreso.Enabled = false;
+        }
+
+        private void tbidcliente_Enter(object sender, EventArgs e)
+        {
+            BuscarCliente();
+        }
+
+        private void tbidcliente_DoubleClick(object sender, EventArgs e)
+        {
+            BuscarCliente();
         }
     }
 

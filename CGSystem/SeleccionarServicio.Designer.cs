@@ -58,22 +58,22 @@
             // rdbid
             // 
             this.rdbid.AutoSize = true;
+            this.rdbid.Checked = true;
             this.rdbid.Location = new System.Drawing.Point(180, 23);
             this.rdbid.Name = "rdbid";
             this.rdbid.Size = new System.Drawing.Size(34, 17);
             this.rdbid.TabIndex = 54;
+            this.rdbid.TabStop = true;
             this.rdbid.Text = "Id";
             this.rdbid.UseVisualStyleBackColor = true;
             // 
             // rdbnombre
             // 
             this.rdbnombre.AutoSize = true;
-            this.rdbnombre.Checked = true;
             this.rdbnombre.Location = new System.Drawing.Point(121, 23);
             this.rdbnombre.Name = "rdbnombre";
             this.rdbnombre.Size = new System.Drawing.Size(62, 17);
             this.rdbnombre.TabIndex = 55;
-            this.rdbnombre.TabStop = true;
             this.rdbnombre.Text = "Nombre";
             this.rdbnombre.UseVisualStyleBackColor = true;
             // 

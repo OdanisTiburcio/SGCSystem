@@ -240,6 +240,7 @@ namespace CGSystem
                     SalirDelSistema = true;
                     this.Close();
                 }
+
             }
             else
             {
