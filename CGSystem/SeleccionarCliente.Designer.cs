@@ -58,22 +58,22 @@
             // rdbid
             // 
             this.rdbid.AutoSize = true;
+            this.rdbid.Checked = true;
             this.rdbid.Location = new System.Drawing.Point(160, 19);
             this.rdbid.Name = "rdbid";
             this.rdbid.Size = new System.Drawing.Size(34, 17);
             this.rdbid.TabIndex = 63;
+            this.rdbid.TabStop = true;
             this.rdbid.Text = "Id";
             this.rdbid.UseVisualStyleBackColor = true;
             // 
             // rdbnombre
             // 
             this.rdbnombre.AutoSize = true;
-            this.rdbnombre.Checked = true;
             this.rdbnombre.Location = new System.Drawing.Point(92, 19);
             this.rdbnombre.Name = "rdbnombre";
             this.rdbnombre.Size = new System.Drawing.Size(62, 17);
             this.rdbnombre.TabIndex = 64;
-            this.rdbnombre.TabStop = true;
             this.rdbnombre.Text = "Nombre";
             this.rdbnombre.UseVisualStyleBackColor = true;
             // 
@@ -215,9 +215,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox tbbuscar;
-        private System.Windows.Forms.RadioButton rdbid;
         private System.Windows.Forms.RadioButton rdbnombre;
         private System.Windows.Forms.Button btnmostrartodo;
         private System.Windows.Forms.Button btnimprimir;
@@ -229,5 +226,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn sueldobruto;
         private System.Windows.Forms.DataGridViewTextBoxColumn cargo;
+        public System.Windows.Forms.RadioButton rdbid;
+        public System.Windows.Forms.TextBox tbbuscar;
     }
 }

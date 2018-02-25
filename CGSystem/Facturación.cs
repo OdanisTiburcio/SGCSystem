@@ -205,7 +205,7 @@ namespace CGSystem
             //Buscar un cliente mostrando el formulario de selección
             Form f = new SeleccionarCliente();
             f.ShowDialog();
-
+ 
             try
             {
                 if (SelecciónDeCliente)
@@ -900,6 +900,22 @@ namespace CGSystem
         private void tbidcliente_DoubleClick(object sender, EventArgs e)
         {
             BuscarCliente();
+        }
+
+        private void btnsearch_Click(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                e.Handled = true;
+                BuscarCliente();
+            }
+            else { }
+            
+        }
+
+        private void btnsearch_Click(object sender, KeyEventArgs e)
+        {
+
         }
     }
 

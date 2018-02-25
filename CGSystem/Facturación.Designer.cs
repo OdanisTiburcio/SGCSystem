@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.btneliminiar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -154,7 +154,6 @@
             this.lbidcliente.Size = new System.Drawing.Size(27, 23);
             this.lbidcliente.TabIndex = 134;
             this.lbidcliente.Text = "Id";
-            this.lbidcliente.Visible = false;
             // 
             // tbidcliente
             // 
@@ -163,6 +162,8 @@
             this.tbidcliente.Name = "tbidcliente";
             this.tbidcliente.Size = new System.Drawing.Size(83, 22);
             this.tbidcliente.TabIndex = 2;
+            this.tbidcliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btnsearch_Click);
+            this.tbidcliente.KeyUp += new System.Windows.Forms.KeyEventHandler(this.btnsearch_Click);
             // 
             // btnimprimir
             // 
@@ -289,17 +290,17 @@
             // 
             // iddetalle
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.iddetalle.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iddetalle.DefaultCellStyle = dataGridViewCellStyle5;
             this.iddetalle.HeaderText = "#";
             this.iddetalle.Name = "iddetalle";
             this.iddetalle.Width = 25;
             // 
             // cedula
             // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.cedula.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.cedula.DefaultCellStyle = dataGridViewCellStyle6;
             this.cedula.HeaderText = "Código";
             this.cedula.Name = "cedula";
             this.cedula.ReadOnly = true;
