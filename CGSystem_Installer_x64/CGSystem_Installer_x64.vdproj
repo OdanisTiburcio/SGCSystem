@@ -1764,7 +1764,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:CGSystem_Installer_x64"
         "ProductCode" = "8:{00652253-CC4D-4BA4-BEB0-1B4F5FB18B25}"
-        "PackageCode" = "8:{180DE949-1879-4E1F-9D7E-13A317FA557C}"
+        "PackageCode" = "8:{0C5C157E-9455-4AEB-9B1E-2FB8D8E64040}"
         "UpgradeCode" = "8:{53478EDB-973B-45C4-A4D9-10D9ED282A19}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
