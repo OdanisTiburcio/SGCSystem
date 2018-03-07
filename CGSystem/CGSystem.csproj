@@ -127,6 +127,12 @@
     <Compile Include="CRUDUSUARIO.Designer.cs">
       <DependentUpon>CRUDUSUARIO.cs</DependentUpon>
     </Compile>
+    <Compile Include="CtrlMedidas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CtrlMedidas.Designer.cs">
+      <DependentUpon>CtrlMedidas.cs</DependentUpon>
+    </Compile>
     <Compile Include="MantenimientoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -290,6 +296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CRUDUSUARIO.resx">
       <DependentUpon>CRUDUSUARIO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CtrlMedidas.resx">
+      <DependentUpon>CtrlMedidas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoUsuario.resx">
       <DependentUpon>MantenimientoUsuario.cs</DependentUpon>

@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ListaDeClientes));
             this.tbbuscar = new System.Windows.Forms.TextBox();
-            this.rdbcedula = new System.Windows.Forms.RadioButton();
+            this.rdbtodos = new System.Windows.Forms.RadioButton();
             this.rdbapellido = new System.Windows.Forms.RadioButton();
             this.rdbid = new System.Windows.Forms.RadioButton();
             this.rdbnombre = new System.Windows.Forms.RadioButton();
@@ -63,17 +63,17 @@
             this.tbbuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbbuscar_KeyPress);
             this.tbbuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbbuscar_KeyUp);
             // 
-            // rdbcedula
+            // rdbtodos
             // 
-            this.rdbcedula.AutoSize = true;
-            this.rdbcedula.Checked = true;
-            this.rdbcedula.Location = new System.Drawing.Point(181, 49);
-            this.rdbcedula.Name = "rdbcedula";
-            this.rdbcedula.Size = new System.Drawing.Size(64, 17);
-            this.rdbcedula.TabIndex = 39;
-            this.rdbcedula.TabStop = true;
-            this.rdbcedula.Text = "Todos...";
-            this.rdbcedula.UseVisualStyleBackColor = true;
+            this.rdbtodos.AutoSize = true;
+            this.rdbtodos.Checked = true;
+            this.rdbtodos.Location = new System.Drawing.Point(181, 49);
+            this.rdbtodos.Name = "rdbtodos";
+            this.rdbtodos.Size = new System.Drawing.Size(64, 17);
+            this.rdbtodos.TabIndex = 39;
+            this.rdbtodos.TabStop = true;
+            this.rdbtodos.Text = "Todos...";
+            this.rdbtodos.UseVisualStyleBackColor = true;
             // 
             // rdbapellido
             // 
@@ -254,7 +254,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbbuscar);
-            this.Controls.Add(this.rdbcedula);
+            this.Controls.Add(this.rdbtodos);
             this.Controls.Add(this.rdbapellido);
             this.Controls.Add(this.rdbid);
             this.Controls.Add(this.rdbnombre);
@@ -281,7 +281,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox tbbuscar;
-        private System.Windows.Forms.RadioButton rdbcedula;
+        private System.Windows.Forms.RadioButton rdbtodos;
         private System.Windows.Forms.RadioButton rdbapellido;
         private System.Windows.Forms.RadioButton rdbid;
         private System.Windows.Forms.RadioButton rdbnombre;

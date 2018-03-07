@@ -41,6 +41,7 @@
             this.cuentasPorCobrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.controlDeMedidasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serviciosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.departamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -172,11 +173,20 @@
             // 
             // clientesToolStripMenuItem
             // 
+            this.clientesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.controlDeMedidasToolStripMenuItem});
             this.clientesToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("clientesToolStripMenuItem.Image")));
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(165, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
+            // 
+            // controlDeMedidasToolStripMenuItem
+            // 
+            this.controlDeMedidasToolStripMenuItem.Name = "controlDeMedidasToolStripMenuItem";
+            this.controlDeMedidasToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
+            this.controlDeMedidasToolStripMenuItem.Text = "Control de Medidas";
+            this.controlDeMedidasToolStripMenuItem.Click += new System.EventHandler(this.controlDeMedidasToolStripMenuItem_Click);
             // 
             // empleadosToolStripMenuItem
             // 
@@ -375,5 +385,6 @@
         private System.Windows.Forms.ToolStripMenuItem posicionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reporteVencidosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem controlDeMedidasToolStripMenuItem;
     }
 }

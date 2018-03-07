@@ -314,5 +314,11 @@ namespace CGSystem
             CheckIn f = new CheckIn();
             f.ShowDialog();
         }
+
+        private void controlDeMedidasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CtrlMedidas frm = new CtrlMedidas();
+            frm.Show();
+        }
     }
 }
