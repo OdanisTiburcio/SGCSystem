@@ -141,7 +141,7 @@ namespace CGSystem
                 cnx.Open();
                 if (rdbnombre.Checked)
                 {
-                    string consulta = "SELECT cte.numero_cliente Numero, cte.nombre_cliente Nombre, cte.apellido_cliente Apellido, cte.cedula_cliente Cedula, cte.fecha_nacimiento Nacimiento, cte.direccion_cliente Direccion, sec.descripcion_sector Sector, ciu.descripcion_ciudad Ciudad, cte.telefono Telefono, inicio_periodo Desde, fin_periodo Hasta, est.descripcion_estado Estado, cte.sexo Genero FROM cliente cte INNER JOIN sector sec ON sec.codigo_sector = cte.codigo_sector INNER JOIN ciudad ciu ON ciu.codigo_ciudad = cte.codigo_ciudad INNER JOIN estado est ON est.codigo_estado = cte.codigo_estado WHERE cte.nombre_cliente LIKE '%" + tbbuscar.Text + "%'";
+                    string consulta = "SELECT cte.numero_cliente Numero, cte.nombre_cliente Nombre, cte.apellido_cliente Apellido, cte.cedula_cliente Cedula, cte.fecha_nacimiento Nacimiento, cte.direccion_cliente Direccion, sec.descripcion_sector Sector, ciu.descripcion_ciudad Ciudad, cte.telefono Telefono, inicio_periodo Desde, fin_periodo Hasta, est.descripcion_estado Estado, cte.sexo Genero, cte.foto FROM cliente cte INNER JOIN sector sec ON sec.codigo_sector = cte.codigo_sector INNER JOIN ciudad ciu ON ciu.codigo_ciudad = cte.codigo_ciudad INNER JOIN estado est ON est.codigo_estado = cte.codigo_estado WHERE cte.nombre_cliente LIKE '%" + tbbuscar.Text + "%'";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -153,7 +153,7 @@ namespace CGSystem
                 }
                 else if (rdbid.Checked)
                 {
-                    string consulta = "SELECT cte.numero_cliente Numero, cte.nombre_cliente Nombre, cte.apellido_cliente Apellido, cte.cedula_cliente Cedula, cte.fecha_nacimiento Nacimiento, cte.direccion_cliente Direccion, sec.descripcion_sector Sector, ciu.descripcion_ciudad Ciudad, cte.telefono Telefono, inicio_periodo Desde, fin_periodo Hasta, est.descripcion_estado Estado, cte.sexo Genero FROM cliente cte INNER JOIN sector sec ON sec.codigo_sector = cte.codigo_sector INNER JOIN ciudad ciu ON ciu.codigo_ciudad = cte.codigo_ciudad INNER JOIN estado est ON est.codigo_estado = cte.codigo_estado WHERE cte.numero_cliente = '" + tbbuscar.Text + "'";
+                    string consulta = "SELECT cte.numero_cliente Numero, cte.nombre_cliente Nombre, cte.apellido_cliente Apellido, cte.cedula_cliente Cedula, cte.fecha_nacimiento Nacimiento, cte.direccion_cliente Direccion, sec.descripcion_sector Sector, ciu.descripcion_ciudad Ciudad, cte.telefono Telefono, inicio_periodo Desde, fin_periodo Hasta, est.descripcion_estado Estado, cte.sexo Genero, cte.foto FROM cliente cte INNER JOIN sector sec ON sec.codigo_sector = cte.codigo_sector INNER JOIN ciudad ciu ON ciu.codigo_ciudad = cte.codigo_ciudad INNER JOIN estado est ON est.codigo_estado = cte.codigo_estado WHERE cte.numero_cliente = '" + tbbuscar.Text + "'";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -165,7 +165,7 @@ namespace CGSystem
                 }
                 else if (rdbapellido.Checked)
                 {
-                    string consulta = "SELECT cte.numero_cliente Numero, cte.nombre_cliente Nombre, cte.apellido_cliente Apellido, cte.cedula_cliente Cedula, cte.fecha_nacimiento Nacimiento, cte.direccion_cliente Direccion, sec.descripcion_sector Sector, ciu.descripcion_ciudad Ciudad, cte.telefono Telefono, inicio_periodo Desde, fin_periodo Hasta, est.descripcion_estado Estado, cte.sexo Genero FROM cliente cte INNER JOIN sector sec ON sec.codigo_sector = cte.codigo_sector INNER JOIN ciudad ciu ON ciu.codigo_ciudad = cte.codigo_ciudad INNER JOIN estado est ON est.codigo_estado = cte.codigo_estado WHERE cte.apellido_cliente LIKE '%" + tbbuscar.Text + "%'";
+                    string consulta = "SELECT cte.numero_cliente Numero, cte.nombre_cliente Nombre, cte.apellido_cliente Apellido, cte.cedula_cliente Cedula, cte.fecha_nacimiento Nacimiento, cte.direccion_cliente Direccion, sec.descripcion_sector Sector, ciu.descripcion_ciudad Ciudad, cte.telefono Telefono, inicio_periodo Desde, fin_periodo Hasta, est.descripcion_estado Estado, cte.sexo Genero, cte.foto FROM cliente cte INNER JOIN sector sec ON sec.codigo_sector = cte.codigo_sector INNER JOIN ciudad ciu ON ciu.codigo_ciudad = cte.codigo_ciudad INNER JOIN estado est ON est.codigo_estado = cte.codigo_estado WHERE cte.apellido_cliente LIKE '%" + tbbuscar.Text + "%'";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
@@ -177,7 +177,7 @@ namespace CGSystem
                 }
                 else if (rdbtodos.Checked)
                 {
-                    string consulta = "SELECT cte.numero_cliente Numero, cte.nombre_cliente Nombre, cte.apellido_cliente Apellido, cte.cedula_cliente Cedula, cte.fecha_nacimiento Nacimiento, cte.direccion_cliente Direccion, sec.descripcion_sector Sector, ciu.descripcion_ciudad Ciudad, cte.telefono Telefono, inicio_periodo Desde, fin_periodo Hasta, est.descripcion_estado Estado, cte.sexo Genero FROM cliente cte INNER JOIN sector sec ON sec.codigo_sector = cte.codigo_sector INNER JOIN ciudad ciu ON ciu.codigo_ciudad = cte.codigo_ciudad INNER JOIN estado est ON est.codigo_estado = cte.codigo_estado";
+                    string consulta = "SELECT cte.numero_cliente Numero, cte.nombre_cliente Nombre, cte.apellido_cliente Apellido, cte.cedula_cliente Cedula, cte.fecha_nacimiento Nacimiento, cte.direccion_cliente Direccion, sec.descripcion_sector Sector, ciu.descripcion_ciudad Ciudad, cte.telefono Telefono, inicio_periodo Desde, fin_periodo Hasta, est.descripcion_estado Estado, cte.sexo Genero, cte.foto FROM cliente cte INNER JOIN sector sec ON sec.codigo_sector = cte.codigo_sector INNER JOIN ciudad ciu ON ciu.codigo_ciudad = cte.codigo_ciudad INNER JOIN estado est ON est.codigo_estado = cte.codigo_estado";
                     SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
                     DataSet ds = new DataSet();
                     ds.Reset();
