@@ -51,7 +51,10 @@ namespace CGSystem
             }
             else
             {
-
+                DateTime hoy = DateTime.Now;
+                string fechahoy = oper.FormatearFecha(hoy);
+                oper.ConsultaSinResultado("UPDATE licencia SET estado = INICIADO, fechaini = '"+fechahoy+"';");
+                IniciarSistema = true;
             }
 
             if (IniciarSistema)
@@ -60,7 +63,16 @@ namespace CGSystem
             }
             else
             {
-
+                Form f = new insertarLicencia();
+                f.ShowDialog();
+                if (IniciarSistema)
+                {
+                    Application.Run(new MenuPrincipal());
+                }
+                else
+                {
+                    //Seguir sin abrir el programa
+                }
             }
 
             

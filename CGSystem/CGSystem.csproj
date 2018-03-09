@@ -306,6 +306,9 @@
     <EmbeddedResource Include="CtrlMedidas.resx">
       <DependentUpon>CtrlMedidas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="insertarLicencia.resx">
+      <DependentUpon>insertarLicencia.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MantenimientoUsuario.resx">
       <DependentUpon>MantenimientoUsuario.cs</DependentUpon>
     </EmbeddedResource>
