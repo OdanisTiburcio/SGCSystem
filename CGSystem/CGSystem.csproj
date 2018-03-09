@@ -133,6 +133,12 @@
     <Compile Include="CtrlMedidas.Designer.cs">
       <DependentUpon>CtrlMedidas.cs</DependentUpon>
     </Compile>
+    <Compile Include="insertarLicencia.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="insertarLicencia.Designer.cs">
+      <DependentUpon>insertarLicencia.cs</DependentUpon>
+    </Compile>
     <Compile Include="MantenimientoUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
