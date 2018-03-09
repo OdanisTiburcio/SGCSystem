@@ -200,7 +200,7 @@ namespace CGSystem
                 DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE fin_periodo < '" + fecha + "' AND codigo_estado = '1'");
                 if (ds.Tables[0].Rows[0][0].ToString() == "")
                 {
-                    MessageBox.Show("No hay clientes activos con servicios vencidos!");
+                    MessageBox.Show("No hay clientes activos con servicios vencidos!", "Reporte de Clientes con Servicios Vencidos", MessageBoxButtons.OK,MessageBoxIcon.Information);
                     return;
                 }
                 ds.WriteXml("C:\\CGSystem\\CGSystem\\Clientes con Servicios Vencidos.xml");
@@ -319,6 +319,20 @@ namespace CGSystem
         {
             CtrlMedidas frm = new CtrlMedidas();
             frm.Show();
+        }
+
+        private void activarProductoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataSet ds = oper.ConsultaConResultado("SELECT estado FROM licencia;");
+            if (ds.Tables[0].Rows[0][0].ToString() == "ACTIVADO")
+            {
+                MessageBox.Show("¡Enhorabuena! su producto ya está activado...", "Activación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                Form f = new insertarLicencia();
+                f.ShowDialog();
+            }            
         }
     }
 }

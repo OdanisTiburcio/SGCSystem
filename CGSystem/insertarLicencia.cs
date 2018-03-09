@@ -28,14 +28,26 @@ namespace CGSystem
         {
             if (txtlicencia.Text == "CF567-DFD345-SSDD324RRR3")//Licencia Correcta
             {
-                oper.ConsultaSinResultado("UPDATE licencia SET fechaini = '2998-01-01';");
+                oper.ConsultaSinResultado("UPDATE licencia SET estado = 'ACTIVADO', fechaini = '2998-01-01';");
                 MessageBox.Show("Felicidades, ha activado satisfactoriamente el sistema...", "Enhorabuena", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Program.IniciarSistema = true;
                 this.Close();
             }
             else
             {
-                MessageBox.Show("Licencia Incorrecta, revise bien los carácteres insertados...","Error de Activación",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Licencia Incorrecta, revise bien los carácteres insertados...", "Error de Activación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void insertarLicencia_Load(object sender, EventArgs e)
+        {
+            if (Program.IniciarSistema)
+            {
+                lblExpirado.Text = "Bienvenido a la Activación del Producto";
+            }
+            else
+            {
+                lblExpirado.Text = "Su Prueba de 30 días ha Vencido";
             }
         }
     }

@@ -37,23 +37,25 @@ namespace CGSystem
             if (licenciainiciada)
             {
                 DateTime hoy = DateTime.Now;
-                string fechavenci = ds.Tables[0].Rows[0][1].ToString();
-                string TreintaMasFechaInstalacion = oper.SumarAlaFecha(fechavenci, 30);
+                string fechavenc = ds.Tables[0].Rows[0][1].ToString();
+                DateTime fechavenci = Convert.ToDateTime(fechavenc);
+                string formatedfechavencida = oper.FormatearFecha(fechavenci);
+                string TreintaMasFechaInstalacion = oper.SumarAlaFecha(formatedfechavencida, 30);
                 DateTime fechavencimiento = Convert.ToDateTime(TreintaMasFechaInstalacion);
                 if (fechavencimiento > hoy)
                 {
-                    IniciarSistema = false;
+                    IniciarSistema = true;
                 }
                 else
                 {
-                    IniciarSistema = true;
+                    IniciarSistema = false;
                 }
             }
             else
             {
                 DateTime hoy = DateTime.Now;
                 string fechahoy = oper.FormatearFecha(hoy);
-                oper.ConsultaSinResultado("UPDATE licencia SET estado = INICIADO, fechaini = '"+fechahoy+"';");
+                oper.ConsultaSinResultado("UPDATE licencia SET estado = 'INICIADO', fechaini = '"+fechahoy+"';");
                 IniciarSistema = true;
             }
 

@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblExpirado = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtlicencia = new System.Windows.Forms.TextBox();
             this.btnaceptar = new System.Windows.Forms.Button();
             this.btncancelar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // lblExpirado
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Monotype Corsiva", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(123, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(324, 33);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Su Prueba de 30 días ha Vencido";
+            this.lblExpirado.AutoSize = true;
+            this.lblExpirado.Font = new System.Drawing.Font("Monotype Corsiva", 20.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExpirado.ForeColor = System.Drawing.Color.Red;
+            this.lblExpirado.Location = new System.Drawing.Point(123, 10);
+            this.lblExpirado.Name = "lblExpirado";
+            this.lblExpirado.Size = new System.Drawing.Size(324, 33);
+            this.lblExpirado.TabIndex = 0;
+            this.lblExpirado.Text = "Su Prueba de 30 días ha Vencido";
             // 
             // label2
             // 
@@ -98,13 +98,14 @@
             this.Controls.Add(this.btnaceptar);
             this.Controls.Add(this.txtlicencia);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblExpirado);
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(588, 207);
             this.MinimumSize = new System.Drawing.Size(588, 207);
             this.Name = "insertarLicencia";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Licencia";
+            this.Load += new System.EventHandler(this.insertarLicencia_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -112,7 +113,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblExpirado;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtlicencia;
         private System.Windows.Forms.Button btnaceptar;
