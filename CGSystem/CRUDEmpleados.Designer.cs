@@ -102,6 +102,7 @@
             // btneliminarempleado
             // 
             this.btneliminarempleado.BackColor = System.Drawing.Color.Cornsilk;
+            this.btneliminarempleado.Enabled = false;
             this.btneliminarempleado.Font = new System.Drawing.Font("Mistral", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btneliminarempleado.Location = new System.Drawing.Point(518, 263);
             this.btneliminarempleado.Name = "btneliminarempleado";
@@ -115,6 +116,7 @@
             // 
             this.btnactualizarempleado.BackColor = System.Drawing.Color.Cornsilk;
             this.btnactualizarempleado.CausesValidation = false;
+            this.btnactualizarempleado.Enabled = false;
             this.btnactualizarempleado.Font = new System.Drawing.Font("Mistral", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnactualizarempleado.Location = new System.Drawing.Point(388, 263);
             this.btnactualizarempleado.Name = "btnactualizarempleado";
@@ -367,6 +369,7 @@
             // btnguardarempleado
             // 
             this.btnguardarempleado.BackColor = System.Drawing.Color.Cornsilk;
+            this.btnguardarempleado.Enabled = false;
             this.btnguardarempleado.Font = new System.Drawing.Font("Mistral", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnguardarempleado.Location = new System.Drawing.Point(518, 208);
             this.btnguardarempleado.Name = "btnguardarempleado";
