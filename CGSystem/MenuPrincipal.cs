@@ -76,11 +76,15 @@ namespace CGSystem
                     //Desactivar
                     consultasToolStripMenuItem.DropDownItems[3].Visible = false;
                     contabilidadToolStripMenuItem.DropDownItems[0].Visible = false;
-                    archivoToolStripMenuItem.DropDownItems[0].Visible = false;
+                    contabilidadToolStripMenuItem.DropDownItems[1].Visible = false;
+                    archivoToolStripMenuItem.DropDownItems[0].Visible = true;
                     archivoToolStripMenuItem.DropDownItems[1].Visible = false;
                     archivoToolStripMenuItem.DropDownItems[2].Visible = false;
+                    archivoToolStripMenuItem.DropDownItems[3].Visible = false;
                     archivoToolStripMenuItem.DropDownItems[6].Visible = false;
                     archivoToolStripMenuItem.DropDownItems[7].Visible = false;
+                    archivoToolStripMenuItem.DropDownItems[8].Visible = false;
+                    ayudaToolStripMenuItem.DropDownItems[0].Visible = false;
 
                 }
 
