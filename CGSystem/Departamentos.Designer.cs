@@ -41,6 +41,7 @@
             // 
             // btneliminardepartamento
             // 
+            this.btneliminardepartamento.Enabled = false;
             this.btneliminardepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btneliminardepartamento.Location = new System.Drawing.Point(240, 86);
             this.btneliminardepartamento.Name = "btneliminardepartamento";
@@ -52,6 +53,7 @@
             // 
             // btnimprimirdepartamento
             // 
+            this.btnimprimirdepartamento.Enabled = false;
             this.btnimprimirdepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnimprimirdepartamento.Location = new System.Drawing.Point(339, 86);
             this.btnimprimirdepartamento.Name = "btnimprimirdepartamento";

@@ -135,6 +135,24 @@ namespace CGSystem
             forempleados.tbnumeroempleado.Enabled = false;
             forempleados.btnguardarempleado.Enabled = false;
             forempleados.btnnuevoempleado.Enabled = false;
+            forempleados.btnactualizarempleado.Enabled = true;
+            //forempleados.btneliminarempleado.Enabled = true;
+            forempleados.tbnombreempleado.Enabled = true;
+            forempleados.tbapellidoempleado.Enabled = true;
+            forempleados.tbcedulaempleado.Enabled = true;
+            forempleados.tbdireccionempleado.Enabled = true;
+            forempleados.tbcelularempleado.Enabled = true;
+            forempleados.tbsueldo.Enabled = true;
+            forempleados.tbtelefonoempleado.Enabled = true;
+            forempleados.cbciudad.Enabled = true;
+            forempleados.cbdepartamento.Enabled = true;
+            forempleados.cbestadoempleado.Enabled = true;
+            forempleados.cbposicion.Enabled = true;
+            forempleados.cbsector.Enabled = true;
+            forempleados.cbsexoempleado.Enabled = true;
+            forempleados.dtpingresoempleado.Enabled = true;
+            forempleados.dtpnacimientoempleado.Enabled = true;
+            forempleados.bncargarfotoempleado.Enabled = true;
         }
 
         private void ListaDeEmpleados_Load(object sender, EventArgs e)

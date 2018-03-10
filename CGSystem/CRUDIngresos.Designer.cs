@@ -68,6 +68,7 @@
             // bntimprimiringreso
             // 
             this.bntimprimiringreso.BackColor = System.Drawing.Color.Cornsilk;
+            this.bntimprimiringreso.Enabled = false;
             this.bntimprimiringreso.Font = new System.Drawing.Font("Mistral", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bntimprimiringreso.Location = new System.Drawing.Point(442, 53);
             this.bntimprimiringreso.Name = "bntimprimiringreso";

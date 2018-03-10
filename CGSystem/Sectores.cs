@@ -66,5 +66,10 @@ namespace CGSystem
             }
 
         }
+
+        private void btnimprimirsector_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
