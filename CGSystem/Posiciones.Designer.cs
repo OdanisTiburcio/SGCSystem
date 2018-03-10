@@ -97,6 +97,7 @@
             // 
             // btneliminarposicion
             // 
+            this.btneliminarposicion.Enabled = false;
             this.btneliminarposicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btneliminarposicion.Location = new System.Drawing.Point(215, 78);
             this.btneliminarposicion.Name = "btneliminarposicion";
@@ -108,6 +109,7 @@
             // 
             // btnimprimirposicion
             // 
+            this.btnimprimirposicion.Enabled = false;
             this.btnimprimirposicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnimprimirposicion.Location = new System.Drawing.Point(315, 78);
             this.btnimprimirposicion.Name = "btnimprimirposicion";

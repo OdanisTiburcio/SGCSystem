@@ -58,6 +58,7 @@
             // 
             // tbcodigosector
             // 
+            this.tbcodigosector.Enabled = false;
             this.tbcodigosector.Location = new System.Drawing.Point(165, 6);
             this.tbcodigosector.Name = "tbcodigosector";
             this.tbcodigosector.Size = new System.Drawing.Size(83, 20);
@@ -97,6 +98,7 @@
             // 
             // btneliminarsector
             // 
+            this.btneliminarsector.Enabled = false;
             this.btneliminarsector.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btneliminarsector.Location = new System.Drawing.Point(220, 75);
             this.btneliminarsector.Name = "btneliminarsector";
@@ -108,6 +110,7 @@
             // 
             // btnimprimirsector
             // 
+            this.btnimprimirsector.Enabled = false;
             this.btnimprimirsector.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnimprimirsector.Location = new System.Drawing.Point(317, 75);
             this.btnimprimirsector.Name = "btnimprimirsector";
@@ -115,6 +118,7 @@
             this.btnimprimirsector.TabIndex = 32;
             this.btnimprimirsector.Text = "Imprimir";
             this.btnimprimirsector.UseVisualStyleBackColor = true;
+            this.btnimprimirsector.Click += new System.EventHandler(this.btnimprimirsector_Click);
             // 
             // Sectores
             // 

@@ -136,7 +136,7 @@ namespace CGSystem
             forempleados.btnguardarempleado.Enabled = false;
             forempleados.btnnuevoempleado.Enabled = false;
             forempleados.btnactualizarempleado.Enabled = true;
-            forempleados.btneliminarempleado.Enabled = true;
+            //forempleados.btneliminarempleado.Enabled = true;
             forempleados.tbnombreempleado.Enabled = true;
             forempleados.tbapellidoempleado.Enabled = true;
             forempleados.tbcedulaempleado.Enabled = true;

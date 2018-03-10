@@ -97,6 +97,7 @@
             // 
             // btneliminarciudad
             // 
+            this.btneliminarciudad.Enabled = false;
             this.btneliminarciudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btneliminarciudad.Location = new System.Drawing.Point(215, 86);
             this.btneliminarciudad.Name = "btneliminarciudad";
@@ -108,6 +109,7 @@
             // 
             // btnimprimirciudad
             // 
+            this.btnimprimirciudad.Enabled = false;
             this.btnimprimirciudad.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnimprimirciudad.Location = new System.Drawing.Point(315, 86);
             this.btnimprimirciudad.Name = "btnimprimirciudad";

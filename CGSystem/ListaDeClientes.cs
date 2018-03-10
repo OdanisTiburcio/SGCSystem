@@ -304,7 +304,7 @@ namespace CGSystem
             forclientes.btnguardarcliente.Enabled = false;
             forclientes.btnnuevocliente.Enabled = false;
             forclientes.btnactualizarcliente.Enabled = true;
-            forclientes.btneliminarcliente.Enabled = true;
+            //forclientes.btneliminarcliente.Enabled = true;
             forclientes.btncargarfotocliente.Enabled = true;
         }
 
