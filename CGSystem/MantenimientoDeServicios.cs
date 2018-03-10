@@ -61,8 +61,10 @@ namespace CGSystem
 
         private void MantenimientoDeServicios_Load(object sender, EventArgs e)
         {
-            ds = oper.ConsultaConResultado("SELECT MAX(codigo_servicio) value FROM servicio;");
-            tbpcodigo.Text = (Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1).ToString();
+            //ds = oper.ConsultaConResultado("SELECT MAX(codigo_servicio) value FROM servicio;");
+            //tbpcodigo.Text = (Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1).ToString();
+            NuevoServicio = true;
+            Nuevo();
         }
 
         private void btnactualizarservicio_Click(object sender, EventArgs e)
