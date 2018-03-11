@@ -306,6 +306,14 @@ namespace CGSystem
             forclientes.btnactualizarcliente.Enabled = true;
             //forclientes.btneliminarcliente.Enabled = true;
             forclientes.btncargarfotocliente.Enabled = true;
+            if (MenuPrincipal.TipoUsuario == 1)
+            {
+                forclientes.btnactualizarcliente.Enabled = true;
+            }
+            else
+            {
+                forclientes.btnactualizarcliente.Enabled = false;
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

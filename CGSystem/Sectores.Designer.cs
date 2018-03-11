@@ -35,7 +35,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnguardarsector = new System.Windows.Forms.Button();
             this.btneliminarsector = new System.Windows.Forms.Button();
-            this.btnimprimirsector = new System.Windows.Forms.Button();
             this.btnactualizarsector = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -54,7 +53,7 @@
             // 
             this.tbdescripsector.Location = new System.Drawing.Point(154, 39);
             this.tbdescripsector.Name = "tbdescripsector";
-            this.tbdescripsector.Size = new System.Drawing.Size(244, 20);
+            this.tbdescripsector.Size = new System.Drawing.Size(272, 20);
             this.tbdescripsector.TabIndex = 30;
             // 
             // tbcodigosector
@@ -62,7 +61,7 @@
             this.tbcodigosector.Enabled = false;
             this.tbcodigosector.Location = new System.Drawing.Point(154, 13);
             this.tbcodigosector.Name = "tbcodigosector";
-            this.tbcodigosector.Size = new System.Drawing.Size(83, 20);
+            this.tbcodigosector.Size = new System.Drawing.Size(41, 20);
             this.tbcodigosector.TabIndex = 29;
             // 
             // label1
@@ -79,9 +78,9 @@
             // 
             this.btnguardarsector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnguardarsector.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnguardarsector.Location = new System.Drawing.Point(7, 71);
+            this.btnguardarsector.Location = new System.Drawing.Point(17, 71);
             this.btnguardarsector.Name = "btnguardarsector";
-            this.btnguardarsector.Size = new System.Drawing.Size(79, 38);
+            this.btnguardarsector.Size = new System.Drawing.Size(92, 38);
             this.btnguardarsector.TabIndex = 32;
             this.btnguardarsector.Text = "Guardar";
             this.btnguardarsector.UseVisualStyleBackColor = true;
@@ -91,34 +90,21 @@
             // 
             this.btneliminarsector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btneliminarsector.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btneliminarsector.Location = new System.Drawing.Point(270, 71);
+            this.btneliminarsector.Location = new System.Drawing.Point(326, 71);
             this.btneliminarsector.Name = "btneliminarsector";
-            this.btneliminarsector.Size = new System.Drawing.Size(78, 38);
+            this.btneliminarsector.Size = new System.Drawing.Size(92, 38);
             this.btneliminarsector.TabIndex = 32;
             this.btneliminarsector.Text = "Eliminar";
             this.btneliminarsector.UseVisualStyleBackColor = true;
             this.btneliminarsector.Click += new System.EventHandler(this.btneliminarsector_Click);
             // 
-            // btnimprimirsector
-            // 
-            this.btnimprimirsector.Enabled = false;
-            this.btnimprimirsector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnimprimirsector.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnimprimirsector.Location = new System.Drawing.Point(354, 71);
-            this.btnimprimirsector.Name = "btnimprimirsector";
-            this.btnimprimirsector.Size = new System.Drawing.Size(77, 38);
-            this.btnimprimirsector.TabIndex = 32;
-            this.btnimprimirsector.Text = "Imprimir";
-            this.btnimprimirsector.UseVisualStyleBackColor = true;
-            this.btnimprimirsector.Click += new System.EventHandler(this.btnimprimirsector_Click);
-            // 
             // btnactualizarsector
             // 
             this.btnactualizarsector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnactualizarsector.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnactualizarsector.Location = new System.Drawing.Point(92, 71);
+            this.btnactualizarsector.Location = new System.Drawing.Point(120, 71);
             this.btnactualizarsector.Name = "btnactualizarsector";
-            this.btnactualizarsector.Size = new System.Drawing.Size(74, 38);
+            this.btnactualizarsector.Size = new System.Drawing.Size(92, 38);
             this.btnactualizarsector.TabIndex = 32;
             this.btnactualizarsector.Text = "Editar";
             this.btnactualizarsector.UseVisualStyleBackColor = true;
@@ -129,7 +115,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(172, 71);
+            this.button1.Location = new System.Drawing.Point(223, 71);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(92, 38);
             this.button1.TabIndex = 32;
@@ -141,8 +127,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 119);
-            this.Controls.Add(this.btnimprimirsector);
+            this.ClientSize = new System.Drawing.Size(438, 118);
             this.Controls.Add(this.btneliminarsector);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnactualizarsector);
@@ -174,7 +159,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnguardarsector;
         private System.Windows.Forms.Button btneliminarsector;
-        private System.Windows.Forms.Button btnimprimirsector;
         private System.Windows.Forms.Button btnactualizarsector;
         private System.Windows.Forms.Button button1;
     }

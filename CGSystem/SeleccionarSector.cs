@@ -127,5 +127,10 @@ namespace CGSystem
             Sectores.CrearNuevo = true;
             this.Close();
         }
+
+        private void btnmostrartodo_Click(object sender, EventArgs e)
+        {
+            BuscarPor();
+        }
     }
 }

@@ -15,6 +15,7 @@ namespace CGSystem
     public partial class CRUDClientes : Form
     {
         operacion oper = new operacion();
+        //public int TipoUsuario = 0;
         public CRUDClientes()
         {
             InitializeComponent();

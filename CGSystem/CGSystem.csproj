@@ -248,6 +248,12 @@
     <Compile Include="SeleccionarCliente.Designer.cs">
       <DependentUpon>SeleccionarCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="SeleccionarDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeleccionarDepartamento.Designer.cs">
+      <DependentUpon>SeleccionarDepartamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="SeleccionarNumeroDeFactura.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -346,6 +352,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SeleccionarCliente.resx">
       <DependentUpon>SeleccionarCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeleccionarDepartamento.resx">
+      <DependentUpon>SeleccionarDepartamento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SeleccionarNumeroDeFactura.resx">
       <DependentUpon>SeleccionarNumeroDeFactura.cs</DependentUpon>

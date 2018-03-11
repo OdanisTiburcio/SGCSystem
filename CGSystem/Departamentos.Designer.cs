@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Departamentos));
+            this.btnnuevodepartamento = new System.Windows.Forms.Button();
             this.btneliminardepartamento = new System.Windows.Forms.Button();
-            this.btnimprimirdepartamento = new System.Windows.Forms.Button();
-            this.btnactualizardepartamento = new System.Windows.Forms.Button();
+            this.btneditardepartamento = new System.Windows.Forms.Button();
             this.btnguardardepartamento = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.tbDescripDepartamento = new System.Windows.Forms.TextBox();
@@ -39,46 +39,45 @@
             this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
+            // btnnuevodepartamento
+            // 
+            this.btnnuevodepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnnuevodepartamento.Location = new System.Drawing.Point(236, 73);
+            this.btnnuevodepartamento.Name = "btnnuevodepartamento";
+            this.btnnuevodepartamento.Size = new System.Drawing.Size(93, 41);
+            this.btnnuevodepartamento.TabIndex = 11;
+            this.btnnuevodepartamento.Text = "Nuevo (+)";
+            this.btnnuevodepartamento.UseVisualStyleBackColor = true;
+            this.btnnuevodepartamento.Click += new System.EventHandler(this.button2_Click);
+            // 
             // btneliminardepartamento
             // 
-            this.btneliminardepartamento.Enabled = false;
             this.btneliminardepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btneliminardepartamento.Location = new System.Drawing.Point(240, 86);
+            this.btneliminardepartamento.Location = new System.Drawing.Point(335, 73);
             this.btneliminardepartamento.Name = "btneliminardepartamento";
-            this.btneliminardepartamento.Size = new System.Drawing.Size(93, 51);
-            this.btneliminardepartamento.TabIndex = 11;
+            this.btneliminardepartamento.Size = new System.Drawing.Size(93, 41);
+            this.btneliminardepartamento.TabIndex = 10;
             this.btneliminardepartamento.Text = "Eliminar";
             this.btneliminardepartamento.UseVisualStyleBackColor = true;
-            this.btneliminardepartamento.Click += new System.EventHandler(this.button2_Click);
+            this.btneliminardepartamento.Click += new System.EventHandler(this.btneliminardepartamento_Click);
             // 
-            // btnimprimirdepartamento
+            // btneditardepartamento
             // 
-            this.btnimprimirdepartamento.Enabled = false;
-            this.btnimprimirdepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnimprimirdepartamento.Location = new System.Drawing.Point(339, 86);
-            this.btnimprimirdepartamento.Name = "btnimprimirdepartamento";
-            this.btnimprimirdepartamento.Size = new System.Drawing.Size(93, 51);
-            this.btnimprimirdepartamento.TabIndex = 10;
-            this.btnimprimirdepartamento.Text = "Imprimir";
-            this.btnimprimirdepartamento.UseVisualStyleBackColor = true;
-            // 
-            // btnactualizardepartamento
-            // 
-            this.btnactualizardepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnactualizardepartamento.Location = new System.Drawing.Point(141, 86);
-            this.btnactualizardepartamento.Name = "btnactualizardepartamento";
-            this.btnactualizardepartamento.Size = new System.Drawing.Size(93, 51);
-            this.btnactualizardepartamento.TabIndex = 9;
-            this.btnactualizardepartamento.Text = "Actualizar";
-            this.btnactualizardepartamento.UseVisualStyleBackColor = true;
-            this.btnactualizardepartamento.Click += new System.EventHandler(this.btGuardarDepartamento_Click_1);
+            this.btneditardepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btneditardepartamento.Location = new System.Drawing.Point(137, 73);
+            this.btneditardepartamento.Name = "btneditardepartamento";
+            this.btneditardepartamento.Size = new System.Drawing.Size(93, 41);
+            this.btneditardepartamento.TabIndex = 9;
+            this.btneditardepartamento.Text = "Editar";
+            this.btneditardepartamento.UseVisualStyleBackColor = true;
+            this.btneditardepartamento.Click += new System.EventHandler(this.btGuardarDepartamento_Click_1);
             // 
             // btnguardardepartamento
             // 
             this.btnguardardepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnguardardepartamento.Location = new System.Drawing.Point(42, 86);
+            this.btnguardardepartamento.Location = new System.Drawing.Point(38, 73);
             this.btnguardardepartamento.Name = "btnguardardepartamento";
-            this.btnguardardepartamento.Size = new System.Drawing.Size(93, 51);
+            this.btnguardardepartamento.Size = new System.Drawing.Size(93, 41);
             this.btnguardardepartamento.TabIndex = 8;
             this.btnguardardepartamento.Text = "Guardar";
             this.btnguardardepartamento.UseVisualStyleBackColor = true;
@@ -103,9 +102,10 @@
             // 
             // tbCodigoDepartamento
             // 
+            this.tbCodigoDepartamento.Enabled = false;
             this.tbCodigoDepartamento.Location = new System.Drawing.Point(200, 9);
             this.tbCodigoDepartamento.Name = "tbCodigoDepartamento";
-            this.tbCodigoDepartamento.Size = new System.Drawing.Size(83, 20);
+            this.tbCodigoDepartamento.Size = new System.Drawing.Size(54, 20);
             this.tbCodigoDepartamento.TabIndex = 13;
             // 
             // label1
@@ -122,14 +122,14 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(458, 143);
+            this.ClientSize = new System.Drawing.Size(458, 122);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbDescripDepartamento);
             this.Controls.Add(this.tbCodigoDepartamento);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnnuevodepartamento);
             this.Controls.Add(this.btneliminardepartamento);
-            this.Controls.Add(this.btnimprimirdepartamento);
-            this.Controls.Add(this.btnactualizardepartamento);
+            this.Controls.Add(this.btneditardepartamento);
             this.Controls.Add(this.btnguardardepartamento);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -138,6 +138,7 @@
             this.Name = "Departamentos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Departamentos";
+            this.Load += new System.EventHandler(this.Departamentos_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,9 +146,9 @@
 
         #endregion
 
+        private System.Windows.Forms.Button btnnuevodepartamento;
         private System.Windows.Forms.Button btneliminardepartamento;
-        private System.Windows.Forms.Button btnimprimirdepartamento;
-        private System.Windows.Forms.Button btnactualizardepartamento;
+        private System.Windows.Forms.Button btneditardepartamento;
         private System.Windows.Forms.Button btnguardardepartamento;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox tbDescripDepartamento;

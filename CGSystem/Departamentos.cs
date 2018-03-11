@@ -12,6 +12,10 @@ namespace CGSystem
 {
     public partial class Departamentos : Form
     {
+        public static bool NuevoDepartamento = false;
+        public static string DepartamentoEditarID = "0";
+        public static string DepartamentoEditarDesc = "";
+        public static bool CrearNuevo = false;
         public Departamentos()
         {
             InitializeComponent();
@@ -19,18 +23,28 @@ namespace CGSystem
         public bool ReadOnly { get; set; }
         private void button2_Click(object sender, EventArgs e)
         {
-            if (tbCodigoDepartamento.Text == "")
+            Nuevo();
+            tbDescripDepartamento.Enabled = true;
+        }
+        public void Nuevo()
+        {
+            operacion oper = new operacion();
+            DataSet ds = new DataSet();
+
+            ds = oper.ConsultaConResultado("SELECT MAX(codigo_departamento) value FROM departamento;");
+            try
             {
-                MessageBox.Show("Favor digitar un código de departamento válido!");
-            }
-            else
-            {
-                operacion oper = new operacion();
-                oper.ConsultaSinResultado("DELETE FROM departamento WHERE codigo_departamento ='" + tbCodigoDepartamento.Text.ToString() + "'");
-                tbCodigoDepartamento.Clear();
+                tbCodigoDepartamento.Text = (Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1).ToString();
                 tbDescripDepartamento.Clear();
-                MessageBox.Show("Departamento eliminado correctamente!");
+                NuevoDepartamento = true;
             }
+            catch
+            {
+                MessageBox.Show("El código del nuevo departamento es erróneo...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            tbDescripDepartamento.Clear();
+
         }
 
         private void frmDepartamentos_Load(object sender, EventArgs e)
@@ -42,7 +56,7 @@ namespace CGSystem
         {
             if (tbDescripDepartamento.Text == "")
             {
-                MessageBox.Show("Favor digitar un nombre de departamento válido!");
+                MessageBox.Show("Favor digitar un nombre de departamento válido!", "Aviso!");
             }
             else
             {
@@ -55,19 +69,25 @@ namespace CGSystem
 
         private void btGuardarDepartamento_Click_1(object sender, EventArgs e)
         {
-            if (tbCodigoDepartamento.Text == "")
+            Form f = new SeleccionarDepartamento();
+            f.ShowDialog();
+            if (!NuevoDepartamento)
             {
-                MessageBox.Show("Favor digitar un código de departamento válido!");
+                tbCodigoDepartamento.Text = DepartamentoEditarID;
+                tbDescripDepartamento.Text = DepartamentoEditarDesc;
             }
             else
             {
-                operacion oper = new operacion();
-                oper.ConsultaSinResultado("UPDATE departamento SET descripcion_departamento ='" + tbDescripDepartamento.Text.ToString().ToUpper() + "' WHERE codigo_departamento = '" + tbCodigoDepartamento.Text.ToString() + "'");
-                tbCodigoDepartamento.Clear();
-                tbDescripDepartamento.Clear();
-                MessageBox.Show("Datos actualizados correctamente!");
-            }
 
+            }
+            if (CrearNuevo)
+            {
+                Nuevo();
+                CrearNuevo = false;
+            }
+            else
+            {
+            }
         }
 
         private void tsbnuevodepartamento_Click(object sender, EventArgs e)
@@ -79,19 +99,83 @@ namespace CGSystem
         {
             tbCodigoDepartamento.Enabled = true;
         }
-
-        private void btnbuscardepartamento_Click(object sender, EventArgs e)
+        private void btneliminardepartamento_Click(object sender, EventArgs e)
         {
-            //if (tbCodigoDepartamento.Text == "")
-            //{
-            //    MessageBox.Show("Favor digitar un código de departamento válido!");
-            //}
-            //else
-            //{
-            //    operacion oper = new operacion();
-            //    oper.ConsultaSinResultado("SELECT * FROM departamento WHERE codigo_departamento = '" + tbCodigoDepartamento.Text.ToString() + "')");
-            //    MessageBox.Show("Datos registrados satisfactoriamente!");
-            //}
+            operacion oper = new operacion();
+            if (!NuevoDepartamento)
+            {
+                bool Eliminar = oper.CajaDeMensaje("¿Seguro que desea eliminar el departamento: " + tbDescripDepartamento.Text + "?", "Eliminar");
+                if (Eliminar)
+                {
+                    if (tbCodigoDepartamento.Text == "")
+                    {
+                        MessageBox.Show("Favor digitar un código de departamento válido!");
+                    }
+                    else
+                    {
+                        bool EstaSiendoUsado = false;
+                        DataSet ds = oper.ConsultaConResultado("SELECT codigo_departamento FROM empleado;");
+                        for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                        {
+                            if (ds.Tables[0].Rows[0][0].ToString() == tbCodigoDepartamento.Text)
+                            {
+                                EstaSiendoUsado = true;
+                            }
+                            else
+                            {
+
+                            }
+                        }
+
+                        //ds = oper.ConsultaConResultado("SELECT codigo_sector FROM empleado;");
+                        //for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                        //{
+                        //    if (ds.Tables[0].Rows[0][0].ToString() == tbcodigosector.Text)
+                        //    {
+                        //        EstaSiendoUsado = true;
+                        //    }
+                        //    else
+                        //    {
+
+                        //    }
+                        //}
+
+                        if (EstaSiendoUsado)
+                        {
+                            MessageBox.Show("Este departamento no se puede eliminar porque está siendo usado...", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            oper = new operacion();
+                            oper.ConsultaSinResultado("DELETE FROM departamento WHERE codigo_departamento ='" + tbCodigoDepartamento.Text.ToString() + "'");
+                            MessageBox.Show("Departamento eliminado correctamente!");
+                            Nuevo();
+                        }
+                    }
+                }
+                else
+                {
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione el Departamento que desea eliminar..." + Environment.NewLine + "Haga clic en el botón Editar.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+
+        private void Departamentos_Load(object sender, EventArgs e)
+        {
+            NuevoDepartamento = true;
+            Nuevo();
+            if (MenuPrincipal.TipoUsuario == 1)
+            {
+                btneliminardepartamento.Enabled = true;
+            }
+            else
+            {
+                btneliminardepartamento.Enabled = false;
+            }
         }
     }
-}
+    }

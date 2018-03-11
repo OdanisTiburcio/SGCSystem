@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(insertarLicencia));
             this.lblExpirado = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtlicencia = new System.Windows.Forms.TextBox();
@@ -93,12 +94,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(572, 169);
+            this.ClientSize = new System.Drawing.Size(572, 168);
             this.Controls.Add(this.btncancelar);
             this.Controls.Add(this.btnaceptar);
             this.Controls.Add(this.txtlicencia);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lblExpirado);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(588, 207);
             this.MinimumSize = new System.Drawing.Size(588, 207);

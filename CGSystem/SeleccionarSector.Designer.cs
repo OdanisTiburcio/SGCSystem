@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SeleccionarSector));
             this.tbbuscar = new System.Windows.Forms.TextBox();
             this.rdbid = new System.Windows.Forms.RadioButton();
             this.rdbnombre = new System.Windows.Forms.RadioButton();
@@ -83,6 +84,7 @@
             this.btnmostrartodo.TabIndex = 70;
             this.btnmostrartodo.Text = "Mostrar Todo";
             this.btnmostrartodo.UseVisualStyleBackColor = false;
+            this.btnmostrartodo.Click += new System.EventHandler(this.btnmostrartodo_Click);
             // 
             // btnimprimir
             // 
@@ -159,7 +161,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(587, 426);
+            this.ClientSize = new System.Drawing.Size(587, 425);
             this.Controls.Add(this.tbbuscar);
             this.Controls.Add(this.rdbid);
             this.Controls.Add(this.rdbnombre);
@@ -168,6 +170,7 @@
             this.Controls.Add(this.btnbuscar);
             this.Controls.Add(this.btnagregar);
             this.Controls.Add(this.dgvListaSectores);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(603, 464);
             this.MinimumSize = new System.Drawing.Size(603, 464);

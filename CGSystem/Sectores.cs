@@ -62,7 +62,7 @@ namespace CGSystem
                 {
                     if (tbcodigosector.Text == "")
                     {
-                        MessageBox.Show("Favor digitar un código de sector válido!");
+                        MessageBox.Show("Favor digitar un código de sector válido!", "Aviso!");
                     }
                     else
                     {
@@ -112,7 +112,7 @@ namespace CGSystem
             }
             else
             {
-                MessageBox.Show("Seleccione el sector que desea eliminar...", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Seleccione el sector que desea eliminar..." + Environment.NewLine + "Haga clic en el botón Editar.", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -126,6 +126,14 @@ namespace CGSystem
         {
             NuevoSector = true;
             Nuevo();
+            if (MenuPrincipal.TipoUsuario == 1) 
+            {
+                btneliminarsector.Enabled = true;
+            }
+            else
+            {
+                btneliminarsector.Enabled = false;
+            }
         }
 
         public void Nuevo()
