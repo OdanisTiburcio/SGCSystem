@@ -12,6 +12,12 @@ namespace CGSystem
 {
     public partial class Sectores : Form
     {
+
+        public static bool NuevoSector = false;
+        public static bool CrearNuevo = false;
+        public static string SectorEditarID = "0";
+        public static string SectorEditarDesc = "";
+
         public Sectores()
         {
             InitializeComponent();
@@ -19,50 +25,94 @@ namespace CGSystem
 
         private void btnguardarsector_Click(object sender, EventArgs e)
         {
-            if (tbdescripsector.Text == "")
-            {
-                MessageBox.Show("Favor digitar un nombre de sector válido!");
-            }
-            else
-            {
-                operacion oper = new operacion();
-                oper.ConsultaSinResultado("INSERT INTO sector (descripcion_sector) VALUES ('" + tbdescripsector.Text.ToString().ToUpper() + "')");
-                tbdescripsector.Clear();
-                MessageBox.Show("Datos registrados satisfactoriamente!");
-            }
-
+            Guardar();
         }
 
         private void btnactualizarsector_Click(object sender, EventArgs e)
         {
-            if (tbcodigosector.Text == "")
+            Form f = new SeleccionarSector();
+            f.ShowDialog();
+            if (!NuevoSector)
             {
-                MessageBox.Show("Favor digitar un código de sector válido!");
+                tbcodigosector.Text = SectorEditarID;
+                tbdescripsector.Text = SectorEditarDesc;
             }
             else
             {
-                operacion oper = new operacion();
-                oper.ConsultaSinResultado("UPDATE sector SET descripcion_sector ='" + tbdescripsector.Text.ToString().ToUpper() + "' WHERE codigo_sector = '" + tbcodigosector.Text.ToString() + "'");
-                tbcodigosector.Clear();
-                tbdescripsector.Clear();
-                MessageBox.Show("Datos actualizados correctamente!");
+
+            }
+            if (CrearNuevo)
+            {
+                Nuevo();
+                CrearNuevo = false;
+            }
+            else
+            {
             }
 
         }
 
         private void btneliminarsector_Click(object sender, EventArgs e)
         {
-            if (tbcodigosector.Text == "")
+            operacion oper = new operacion();
+            if (!NuevoSector)
             {
-                MessageBox.Show("Favor digitar un código de sector válido!");
+                bool Eliminar = oper.CajaDeMensaje("¿Seguro que desea eliminar el sector: " + tbdescripsector.Text + "?", "Eliminar");
+                if (Eliminar)
+                {
+                    if (tbcodigosector.Text == "")
+                    {
+                        MessageBox.Show("Favor digitar un código de sector válido!");
+                    }
+                    else
+                    {
+                        bool EstaSiendoUsado = false;
+                        DataSet ds = oper.ConsultaConResultado("SELECT codigo_sector FROM cliente;");
+                        for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                        {
+                            if (ds.Tables[0].Rows[0][0].ToString() == tbcodigosector.Text)
+                            {
+                                EstaSiendoUsado = true;
+                            }
+                            else
+                            {
+
+                            }
+                        }
+
+                        ds = oper.ConsultaConResultado("SELECT codigo_sector FROM empleado;");
+                        for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+                        {
+                            if (ds.Tables[0].Rows[0][0].ToString() == tbcodigosector.Text)
+                            {
+                                EstaSiendoUsado = true;
+                            }
+                            else
+                            {
+
+                            }
+                        }
+
+                        if (EstaSiendoUsado)
+                        {
+                            MessageBox.Show("Este sector no se puede eliminar porque está siendo usado...", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            oper = new operacion();
+                            oper.ConsultaSinResultado("DELETE FROM sector WHERE codigo_sector ='" + tbcodigosector.Text.ToString() + "'");
+                            MessageBox.Show("Sector eliminado correctamente!");
+                            Nuevo();
+                        }
+                    }
+                }
+                else
+                {
+                }
             }
             else
             {
-                operacion oper = new operacion();
-                oper.ConsultaSinResultado("DELETE FROM sector WHERE codigo_sector ='" + tbcodigosector.Text.ToString() + "'");
-                tbcodigosector.Clear();
-                tbdescripsector.Clear();
-                MessageBox.Show("Sector eliminado correctamente!");
+                MessageBox.Show("Seleccione el sector que desea eliminar...", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -70,6 +120,63 @@ namespace CGSystem
         private void btnimprimirsector_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Sectores_Load(object sender, EventArgs e)
+        {
+            NuevoSector = true;
+            Nuevo();
+        }
+
+        public void Nuevo()
+        {
+            operacion oper = new operacion();
+            DataSet ds = new DataSet();
+
+            ds = oper.ConsultaConResultado("SELECT MAX(codigo_sector) value FROM sector;");
+            try
+            {
+                tbcodigosector.Text = (Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1).ToString();
+                tbdescripsector.Clear();
+                NuevoSector = true;
+            }
+            catch
+            {
+                MessageBox.Show("El código del nuevo servicio es erróneo...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+            tbdescripsector.Clear();
+
+        }
+
+        public void Guardar()
+        {
+            operacion oper = new operacion();
+            if (tbdescripsector.Text == "" || string.IsNullOrEmpty(tbdescripsector.Text))
+            {
+                MessageBox.Show("La descripción no puede estar en blanco...", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (NuevoSector)
+                {
+
+                    oper.ConsultaSinResultado("INSERT INTO sector (descripcion_sector) VALUES ('" + tbdescripsector.Text.ToString().ToUpper() + "')");
+                    MessageBox.Show("Sector creado satisfactoriamente!", "Nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    NuevoSector = false;
+                }
+                else
+                {
+                    oper.ConsultaSinResultado("UPDATE sector SET descripcion_sector ='" + tbdescripsector.Text.ToString().ToUpper() + "' WHERE codigo_sector = '" + tbcodigosector.Text.ToString() + "'");
+                    MessageBox.Show("Datos actualizados correctamente!", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    NuevoSector = false;
+                }
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Nuevo();
         }
     }
 }
