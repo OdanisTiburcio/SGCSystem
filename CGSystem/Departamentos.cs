@@ -119,19 +119,6 @@ namespace CGSystem
                             }
                         }
 
-                        //ds = oper.ConsultaConResultado("SELECT codigo_sector FROM empleado;");
-                        //for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                        //{
-                        //    if (ds.Tables[0].Rows[0][0].ToString() == tbcodigosector.Text)
-                        //    {
-                        //        EstaSiendoUsado = true;
-                        //    }
-                        //    else
-                        //    {
-
-                        //    }
-                        //}
-
                         if (EstaSiendoUsado)
                         {
                             MessageBox.Show("Este departamento no se puede eliminar porque está siendo usado...", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);

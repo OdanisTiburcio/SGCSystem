@@ -23,56 +23,6 @@ namespace CGSystem
             InitializeComponent();
         }
 
-        private void btnguardarposicion_Click(object sender, EventArgs e)
-        {
-            if (tbdescripposición.Text == "")
-            {
-                MessageBox.Show("Favor digitar un nombre de posición válido!");
-            }
-            else
-            {
-                operacion oper = new operacion();
-                oper.ConsultaSinResultado("INSERT INTO posicion (descripcion_posicion) VALUES ('" + tbdescripposición.Text.ToString().ToUpper() + "')");
-                tbdescripposición.Clear();
-                MessageBox.Show("Datos registrados satisfactoriamente!");
-            }
-
-        }
-
-        private void btnactualizarposicion_Click(object sender, EventArgs e)
-        {
-            if (tbcodigoposicion.Text == "")
-            {
-                MessageBox.Show("Favor digitar un código de posición válido!");
-            }
-            else
-            {
-                operacion oper = new operacion();
-                oper.ConsultaSinResultado("UPDATE posicion SET descripcion_posicion ='" + tbdescripposición.Text.ToString().ToUpper() + "' WHERE codigo_posicion = '" + tbcodigoposicion.Text.ToString() + "'");
-                tbcodigoposicion.Clear();
-                tbdescripposición.Clear();
-                MessageBox.Show("Datos actualizados correctamente!");
-            }
-
-        }
-
-        private void btneliminarposicion_Click(object sender, EventArgs e)
-        {
-            if (tbcodigoposicion.Text == "")
-            {
-                MessageBox.Show("Favor digitar un código de posición válido!");
-            }
-            else
-            {
-                operacion oper = new operacion();
-                oper.ConsultaSinResultado("DELETE FROM posicion WHERE codigo_posicion ='" + tbcodigoposicion.Text.ToString() + "'");
-                tbcodigoposicion.Clear();
-                tbdescripposición.Clear();
-                MessageBox.Show("Posición eliminada correctamente!");
-            }
-
-        }
-
         private void Posiciones_Load(object sender, EventArgs e)
         {
             NuevaPosicion = true;
@@ -149,7 +99,7 @@ namespace CGSystem
                 {
                     if (tbcodigoposicion.Text == "")
                     {
-                        MessageBox.Show("Favor digitar un código de sector válido!", "Aviso!");
+                        MessageBox.Show("Favor seleccionar un código de posicion válido!", "Aviso!");
                     }
                     else
                     {
@@ -188,7 +138,7 @@ namespace CGSystem
                         {
                             oper = new operacion();
                             oper.ConsultaSinResultado("DELETE FROM posicion WHERE codigo_posicion ='" + tbcodigoposicion.Text.ToString() + "'");
-                            MessageBox.Show("Sector eliminado correctamente!");
+                            MessageBox.Show("Posición eliminada correctamente!");
                             Nuevo();
                         }
                     }

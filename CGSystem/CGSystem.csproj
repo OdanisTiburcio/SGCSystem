@@ -242,6 +242,12 @@
     <Compile Include="Sectores.Designer.cs">
       <DependentUpon>Sectores.cs</DependentUpon>
     </Compile>
+    <Compile Include="SeleccionarCiudad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeleccionarCiudad.Designer.cs">
+      <DependentUpon>SeleccionarCiudad.cs</DependentUpon>
+    </Compile>
     <Compile Include="SeleccionarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -355,6 +361,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Sectores.resx">
       <DependentUpon>Sectores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeleccionarCiudad.resx">
+      <DependentUpon>SeleccionarCiudad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SeleccionarCliente.resx">
       <DependentUpon>SeleccionarCliente.cs</DependentUpon>

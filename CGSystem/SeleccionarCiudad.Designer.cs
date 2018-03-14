@@ -1,6 +1,6 @@
 ﻿namespace CGSystem
 {
-    partial class SeleccionarPosicion
+    partial class SeleccionarCiudad
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SeleccionarPosicion));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SeleccionarCiudad));
             this.tbbuscar = new System.Windows.Forms.TextBox();
             this.rdbid = new System.Windows.Forms.RadioButton();
             this.rdbnombre = new System.Windows.Forms.RadioButton();
@@ -46,7 +46,7 @@
             // 
             this.tbbuscar.BackColor = System.Drawing.Color.AliceBlue;
             this.tbbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbbuscar.Location = new System.Drawing.Point(128, 11);
+            this.tbbuscar.Location = new System.Drawing.Point(128, 14);
             this.tbbuscar.Name = "tbbuscar";
             this.tbbuscar.Size = new System.Drawing.Size(198, 29);
             this.tbbuscar.TabIndex = 82;
@@ -55,7 +55,7 @@
             // rdbid
             // 
             this.rdbid.AutoSize = true;
-            this.rdbid.Location = new System.Drawing.Point(72, 15);
+            this.rdbid.Location = new System.Drawing.Point(72, 18);
             this.rdbid.Name = "rdbid";
             this.rdbid.Size = new System.Drawing.Size(58, 17);
             this.rdbid.TabIndex = 86;
@@ -66,7 +66,7 @@
             // 
             this.rdbnombre.AutoSize = true;
             this.rdbnombre.Checked = true;
-            this.rdbnombre.Location = new System.Drawing.Point(12, 15);
+            this.rdbnombre.Location = new System.Drawing.Point(12, 18);
             this.rdbnombre.Name = "rdbnombre";
             this.rdbnombre.Size = new System.Drawing.Size(62, 17);
             this.rdbnombre.TabIndex = 87;
@@ -78,7 +78,7 @@
             // 
             this.btnbuscar.BackColor = System.Drawing.Color.Cornsilk;
             this.btnbuscar.Font = new System.Drawing.Font("Harlow Solid Italic", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnbuscar.Location = new System.Drawing.Point(332, 6);
+            this.btnbuscar.Location = new System.Drawing.Point(332, 9);
             this.btnbuscar.Name = "btnbuscar";
             this.btnbuscar.Size = new System.Drawing.Size(129, 38);
             this.btnbuscar.TabIndex = 83;
@@ -89,7 +89,7 @@
             // btnagregar
             // 
             this.btnagregar.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnagregar.Location = new System.Drawing.Point(467, 5);
+            this.btnagregar.Location = new System.Drawing.Point(467, 8);
             this.btnagregar.Name = "btnagregar";
             this.btnagregar.Size = new System.Drawing.Size(109, 39);
             this.btnagregar.TabIndex = 85;
@@ -109,7 +109,7 @@
             this.cedula,
             this.Nombre});
             this.dgvlistadepartamentos.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvlistadepartamentos.Location = new System.Drawing.Point(12, 47);
+            this.dgvlistadepartamentos.Location = new System.Drawing.Point(12, 50);
             this.dgvlistadepartamentos.MultiSelect = false;
             this.dgvlistadepartamentos.Name = "dgvlistadepartamentos";
             this.dgvlistadepartamentos.ReadOnly = true;
@@ -137,18 +137,19 @@
             // 
             this.btnmostrartodo.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnmostrartodo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnmostrartodo.Location = new System.Drawing.Point(329, 370);
+            this.btnmostrartodo.Location = new System.Drawing.Point(329, 373);
             this.btnmostrartodo.Name = "btnmostrartodo";
             this.btnmostrartodo.Size = new System.Drawing.Size(220, 46);
             this.btnmostrartodo.TabIndex = 89;
             this.btnmostrartodo.Text = "Mostrar Todo";
             this.btnmostrartodo.UseVisualStyleBackColor = false;
+            this.btnmostrartodo.Click += new System.EventHandler(this.btnmostrartodo_Click);
             // 
             // btnseleccionardepto
             // 
             this.btnseleccionardepto.BackColor = System.Drawing.Color.CornflowerBlue;
             this.btnseleccionardepto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnseleccionardepto.Location = new System.Drawing.Point(32, 370);
+            this.btnseleccionardepto.Location = new System.Drawing.Point(32, 373);
             this.btnseleccionardepto.Name = "btnseleccionardepto";
             this.btnseleccionardepto.Size = new System.Drawing.Size(220, 46);
             this.btnseleccionardepto.TabIndex = 88;
@@ -156,11 +157,11 @@
             this.btnseleccionardepto.UseVisualStyleBackColor = false;
             this.btnseleccionardepto.Click += new System.EventHandler(this.btnseleccionardepto_Click);
             // 
-            // SeleccionarPosicion
+            // SeleccionarCiudad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(588, 426);
+            this.ClientSize = new System.Drawing.Size(588, 427);
             this.Controls.Add(this.tbbuscar);
             this.Controls.Add(this.rdbid);
             this.Controls.Add(this.rdbnombre);
@@ -170,10 +171,14 @@
             this.Controls.Add(this.btnmostrartodo);
             this.Controls.Add(this.btnseleccionardepto);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "SeleccionarPosicion";
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(604, 465);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(604, 465);
+            this.Name = "SeleccionarCiudad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Seleccionar Posicion";
-            this.Load += new System.EventHandler(this.SeleccionarPosicion_Load);
+            this.Text = "Seleccionar Ciudad";
+            this.Load += new System.EventHandler(this.SeleccionarCiudad_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvlistadepartamentos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
