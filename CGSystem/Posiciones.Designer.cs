@@ -138,6 +138,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Posiciones";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Posiciones";
             this.Load += new System.EventHandler(this.Posiciones_Load);
             this.ResumeLayout(false);

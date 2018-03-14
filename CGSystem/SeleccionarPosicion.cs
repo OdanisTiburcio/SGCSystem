@@ -128,5 +128,9 @@ namespace CGSystem
 
         }
 
+        private void dgvlistadepartamentos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Seleccionar_Dpto();
+        }
     }
 }

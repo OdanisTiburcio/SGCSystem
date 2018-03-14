@@ -116,7 +116,7 @@
             this.dgvlistadepartamentos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvlistadepartamentos.Size = new System.Drawing.Size(564, 319);
             this.dgvlistadepartamentos.TabIndex = 84;
-            this.dgvlistadepartamentos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvlistadepartamentos_CellContentDoubleClick);
+            this.dgvlistadepartamentos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvlistadepartamentos_CellDoubleClick);
             // 
             // cedula
             // 
@@ -169,6 +169,7 @@
             this.Controls.Add(this.btnmostrartodo);
             this.Controls.Add(this.btnseleccionardepto);
             this.Name = "SeleccionarPosicion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SeleccionarPosicion";
             this.Load += new System.EventHandler(this.SeleccionarPosicion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvlistadepartamentos)).EndInit();
