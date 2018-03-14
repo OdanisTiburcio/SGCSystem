@@ -86,8 +86,7 @@ namespace CGSystem
                     tbpcodigo.Clear();
                     MessageBox.Show("Datos registrados satisfactoriamente!");
 
-                    ds = oper.ConsultaConResultado("SELECT MAX(codigo_servicio) value FROM servicio;");
-                    tbpcodigo.Text = ds.Tables[0].Rows[0][0].ToString();
+                    Nuevo();
                 }
                 else
                 {

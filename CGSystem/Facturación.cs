@@ -594,8 +594,20 @@ namespace CGSystem
 
         public void DiaUnico()
         {
+
             try
             {
+                //Confirmar que la factura actual sea nueva...
+                if (dgvListaServicios.RowCount > 0 && !FacturaGuardada)
+                {
+                    bool desecharfactura = oper.CajaDeMensaje("La factura actual no ha sido guardada ¿Desea desecharla?", "Aviso");
+                    if (desecharfactura)
+                    {
+                        //continuar
+                    }
+                    else { return; }
+                }
+
                 //Seleccionar el servicio a facturar
                 Form f = new SeleccionarServicioDiaUnico();
                 f.ShowDialog();
@@ -631,8 +643,8 @@ namespace CGSystem
                 string TipoIngreso = (Convert.ToInt32(cbingreso.SelectedIndex + 1)).ToString();
                 oper.ConsultaSinResultado("INSERT INTO ingreso (codigo_tipo_ingreso, numero_factura, monto_ingreso, fecha, estado) VALUES ('" + TipoIngreso + "','" + NumeroDeFactura + "','" + onceprecio + "','" + fechaHoy + "', 'ACTIVO');");
 
-                ActualizarPeriodoDeCliente();//Sumarle los días facturados a la membresía del cliente.
-                CerrarFactura(); //Método para activar y desactivar los botonoes necesarios hasta la próxima factura...
+                //ActualizarPeriodoDeCliente(); //Desactivado para el cliente de un unico uso diario...
+                NuevaFactura(); //Método para activar y desactivar los botonoes necesarios hasta la próxima factura...
 
                 MessageBox.Show("¡Facturación de un día de servicio Exitosa!", "Servicio Unico", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

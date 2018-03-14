@@ -43,6 +43,7 @@
             this.rbcodigoingreso = new System.Windows.Forms.RadioButton();
             this.label1 = new System.Windows.Forms.Label();
             this.btneliminaringreso = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvdetalleingresos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -60,6 +61,7 @@
             this.dgvdetalleingresos.Location = new System.Drawing.Point(12, 98);
             this.dgvdetalleingresos.MultiSelect = false;
             this.dgvdetalleingresos.Name = "dgvdetalleingresos";
+            this.dgvdetalleingresos.ReadOnly = true;
             this.dgvdetalleingresos.RowHeadersVisible = false;
             this.dgvdetalleingresos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvdetalleingresos.Size = new System.Drawing.Size(515, 268);
@@ -108,9 +110,11 @@
             this.dtpIngresohasta.Size = new System.Drawing.Size(84, 24);
             this.dtpIngresohasta.TabIndex = 40;
             this.dtpIngresohasta.Value = new System.DateTime(2017, 11, 16, 0, 0, 0, 0);
+            this.dtpIngresohasta.ValueChanged += new System.EventHandler(this.dtpIngresohasta_ValueChanged);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.tbseleccion);
             this.groupBox1.Controls.Add(this.dtpIngresodesde);
             this.groupBox1.Controls.Add(this.rbfechadesdeingresos);
@@ -215,11 +219,23 @@
             this.btneliminaringreso.UseVisualStyleBackColor = false;
             this.btneliminaringreso.Click += new System.EventHandler(this.btneliminaringreso_Click);
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Cornsilk;
+            this.button1.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(7, 44);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(78, 29);
+            this.button1.TabIndex = 43;
+            this.button1.Text = "Hoy";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // CRUDIngresos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(536, 410);
+            this.ClientSize = new System.Drawing.Size(536, 411);
             this.Controls.Add(this.btneliminaringreso);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.bntimprimiringreso);
@@ -257,5 +273,6 @@
         private System.Windows.Forms.RadioButton rbtodosingresos;
         private System.Windows.Forms.TextBox tbseleccion;
         private System.Windows.Forms.Button btneliminaringreso;
+        public System.Windows.Forms.Button button1;
     }
 }

@@ -50,14 +50,14 @@ namespace CGSystem
 
         private void dgvListaServicios_KeyUp(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
+            //if (e.KeyCode == Keys.Enter)
+            //{
+            //    Seleccionar();
+            //}
+            //else
+            //{
 
-            }
-            else
-            {
-
-            }
+            //}
         }
 
 
@@ -84,5 +84,21 @@ namespace CGSystem
             }
         }
 
+        private void dgvListaServicios_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Seleccionar();
+        }
+
+        private void dgvListaServicios_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+                Seleccionar();
+            }
+            else
+            {
+
+            }
+        }
     }
 }

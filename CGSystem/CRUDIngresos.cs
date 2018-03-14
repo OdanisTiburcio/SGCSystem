@@ -21,15 +21,21 @@ namespace CGSystem
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            BuscarPor();
         }
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-
+            rbfechadesdeingresos.PerformClick();
+            BuscarPor();
         }
 
-        private void btbuscaringreso_Click(object sender, EventArgs e)
+        private void dtpIngresohasta_ValueChanged(object sender, EventArgs e)
+        {
+            BuscarPor();
+        }
+
+        public void BuscarPor()
         {
             try
             {
@@ -89,13 +95,18 @@ namespace CGSystem
                         dgvdetalleingresos.DataSource = dt;
                         cnx.Close();
                     }
-                    catch (Exception) { }
+                    catch { }
                 }
             }
-            catch (Exception)
+            catch
             {
 
             }
+        }
+
+        private void btbuscaringreso_Click(object sender, EventArgs e)
+        {
+            BuscarPor();
         }
 
         private void bntimprimiringreso_Click(object sender, EventArgs e)
@@ -134,15 +145,39 @@ namespace CGSystem
             {
                 btneliminaringreso.Enabled = false;
             }
+            BuscarPor();
 
+        }
+
+        public void MostrarHoy()
+        {
+            SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\SGCSystemBD.db;Version=3;");
+            cnx.Open();
+            DateTime desde = DateTime.Now;
+            DateTime hasta = DateTime.Now;
+            string fechadesde = oper.FormatearFecha(desde);
+            string fechahasta = oper.FormatearFecha(hasta);
+            try
+            {
+                string consulta = "SELECT ing.codigo_ingreso Código, tip.descripcion_tipo_ingreso Tipo, cab.id_factura No_Factura, ing.monto_ingreso Monto, ing.fecha Fecha FROM ingreso ing INNER JOIN tipo_ingreso tip ON tip.codigo_tipo_ingreso = ing.codigo_tipo_ingreso INNER JOIN cabecera_factura cab ON cab.id_factura = ing.numero_factura WHERE ing.fecha BETWEEN '" + fechadesde + "' AND '" + fechahasta + "' AND ing.estado = 'ACTIVO';;";
+                SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
+                DataSet ds = new DataSet();
+                ds.Reset();
+                DataTable dt = new DataTable();
+                db.Fill(ds);
+                dt = ds.Tables[0];
+                dgvdetalleingresos.DataSource = dt;
+                cnx.Close();
+            }
+            catch { }
         }
 
         private void btneliminaringreso_Click(object sender, EventArgs e)
         {
             string ingresoid = "";
             try
-            {   
-                
+            {
+
                 if (dgvdetalleingresos.SelectedRows.Count == 1)
                 {
                     bool EliminarIngreso = oper.CajaDeMensaje("¿Desea eliminar el ingreso seleccionado?", "Eliminar Ingreso");
@@ -179,7 +214,7 @@ namespace CGSystem
                     }
                     else
                     {
-                        
+
                     }
                 }
 
@@ -187,11 +222,27 @@ namespace CGSystem
             }
             catch
             {
-                MessageBox.Show("La factura enlazada fue eliminada, se desactivará el ingreso de todas formas...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                oper.ConsultaSinResultado("UPDATE ingreso SET estado = 'DESACTIVADO' WHERE codigo_ingreso = '" + ingresoid + "';");
-                dgvdetalleingresos.Rows.RemoveAt(dgvdetalleingresos.CurrentRow.Index);
+                bool EliminarFactura = oper.CajaDeMensaje("La factura enlazada es al CONTADO o fue eliminada..." + Environment.NewLine + "¿Desea anular la factura y el ingreso de todas formas?", "Eliminar Ingreso");
+                if (EliminarFactura)
+                {
+                    string ingresonumfactura = dgvdetalleingresos.CurrentRow.Cells[2].Value.ToString();
+                    oper.ConsultaSinResultado("UPDATE ingreso SET estado = 'DESACTIVADO' WHERE codigo_ingreso = '" + ingresoid + "';");
+                    oper.ConsultaSinResultado("UPDATE cabecera_factura SET estado = 'DESACTIVADO' WHERE id_factura = '" + ingresonumfactura + "';");
+                    oper.ConsultaSinResultado("UPDATE detalle_factura SET estado = 'DESACTIVADO' WHERE id_factura = '" + ingresonumfactura + "';");
+                    dgvdetalleingresos.Rows.RemoveAt(dgvdetalleingresos.CurrentRow.Index);
+                }
+                else
+                {
+
+                }
+
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MostrarHoy();
         }
     }
 }

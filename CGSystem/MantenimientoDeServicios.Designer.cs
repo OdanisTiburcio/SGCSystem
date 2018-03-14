@@ -222,7 +222,12 @@
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(643, 338);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(643, 338);
             this.Name = "MantenimientoDeServicios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Servicios";
             this.Load += new System.EventHandler(this.MantenimientoDeServicios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btpsearch)).EndInit();

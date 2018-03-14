@@ -59,6 +59,8 @@
             this.dgvListaServicios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvListaServicios.Size = new System.Drawing.Size(683, 274);
             this.dgvListaServicios.TabIndex = 3;
+            this.dgvListaServicios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvListaServicios_CellDoubleClick);
+            this.dgvListaServicios.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dgvListaServicios_KeyPress);
             this.dgvListaServicios.KeyUp += new System.Windows.Forms.KeyEventHandler(this.dgvListaServicios_KeyUp);
             // 
             // cedula
