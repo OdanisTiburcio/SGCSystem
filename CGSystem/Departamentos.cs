@@ -183,7 +183,7 @@ namespace CGSystem
                 {
 
                     oper.ConsultaSinResultado("INSERT INTO departamento (descripcion_departamento) VALUES ('" + tbDescripDepartamento.Text.ToString().ToUpper() + "')");
-                    MessageBox.Show("Sector creado satisfactoriamente!", "Nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Departamento creado satisfactoriamente!", "Nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     NuevoDepartamento = false;
                     Nuevo();
                 }

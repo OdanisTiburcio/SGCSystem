@@ -33,10 +33,10 @@
             this.tbdescripposición = new System.Windows.Forms.TextBox();
             this.tbcodigoposicion = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnguardarposicion = new System.Windows.Forms.Button();
-            this.btnactualizarposicion = new System.Windows.Forms.Button();
-            this.btneliminarposicion = new System.Windows.Forms.Button();
-            this.btnimprimirposicion = new System.Windows.Forms.Button();
+            this.btneliminarposi = new System.Windows.Forms.Button();
+            this.btnnuevo = new System.Windows.Forms.Button();
+            this.btneditarposi = new System.Windows.Forms.Button();
+            this.btnguardarposi = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -58,7 +58,7 @@
             // 
             // tbcodigoposicion
             // 
-            this.tbcodigoposicion.Location = new System.Drawing.Point(165, 6);
+            this.tbcodigoposicion.Location = new System.Drawing.Point(167, 15);
             this.tbcodigoposicion.Name = "tbcodigoposicion";
             this.tbcodigoposicion.Size = new System.Drawing.Size(83, 20);
             this.tbcodigoposicion.TabIndex = 25;
@@ -67,66 +67,70 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bookman Old Style", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(12, 18);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(117, 14);
             this.label1.TabIndex = 24;
             this.label1.Text = "Código Posición:";
             // 
-            // btnguardarposicion
+            // btneliminarposi
             // 
-            this.btnguardarposicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnguardarposicion.Location = new System.Drawing.Point(15, 78);
-            this.btnguardarposicion.Name = "btnguardarposicion";
-            this.btnguardarposicion.Size = new System.Drawing.Size(94, 51);
-            this.btnguardarposicion.TabIndex = 28;
-            this.btnguardarposicion.Text = "Guardar";
-            this.btnguardarposicion.UseVisualStyleBackColor = true;
-            this.btnguardarposicion.Click += new System.EventHandler(this.btnguardarposicion_Click);
+            this.btneliminarposi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btneliminarposi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btneliminarposi.Location = new System.Drawing.Point(321, 68);
+            this.btneliminarposi.Name = "btneliminarposi";
+            this.btneliminarposi.Size = new System.Drawing.Size(92, 38);
+            this.btneliminarposi.TabIndex = 33;
+            this.btneliminarposi.Text = "Eliminar";
+            this.btneliminarposi.UseVisualStyleBackColor = true;
+            this.btneliminarposi.Click += new System.EventHandler(this.btneliminarposi_Click);
             // 
-            // btnactualizarposicion
+            // btnnuevo
             // 
-            this.btnactualizarposicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnactualizarposicion.Location = new System.Drawing.Point(115, 78);
-            this.btnactualizarposicion.Name = "btnactualizarposicion";
-            this.btnactualizarposicion.Size = new System.Drawing.Size(94, 51);
-            this.btnactualizarposicion.TabIndex = 28;
-            this.btnactualizarposicion.Text = "Actualizar";
-            this.btnactualizarposicion.UseVisualStyleBackColor = true;
-            this.btnactualizarposicion.Click += new System.EventHandler(this.btnactualizarposicion_Click);
+            this.btnnuevo.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnnuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnnuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnnuevo.Location = new System.Drawing.Point(218, 68);
+            this.btnnuevo.Name = "btnnuevo";
+            this.btnnuevo.Size = new System.Drawing.Size(92, 38);
+            this.btnnuevo.TabIndex = 34;
+            this.btnnuevo.Text = "Nuevo (+)";
+            this.btnnuevo.UseVisualStyleBackColor = false;
+            this.btnnuevo.Click += new System.EventHandler(this.btnnuevo_Click);
             // 
-            // btneliminarposicion
+            // btneditarposi
             // 
-            this.btneliminarposicion.Enabled = false;
-            this.btneliminarposicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btneliminarposicion.Location = new System.Drawing.Point(215, 78);
-            this.btneliminarposicion.Name = "btneliminarposicion";
-            this.btneliminarposicion.Size = new System.Drawing.Size(94, 51);
-            this.btneliminarposicion.TabIndex = 28;
-            this.btneliminarposicion.Text = "Eliminar";
-            this.btneliminarposicion.UseVisualStyleBackColor = true;
-            this.btneliminarposicion.Click += new System.EventHandler(this.btneliminarposicion_Click);
+            this.btneditarposi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btneditarposi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btneditarposi.Location = new System.Drawing.Point(115, 68);
+            this.btneditarposi.Name = "btneditarposi";
+            this.btneditarposi.Size = new System.Drawing.Size(92, 38);
+            this.btneditarposi.TabIndex = 35;
+            this.btneditarposi.Text = "Editar";
+            this.btneditarposi.UseVisualStyleBackColor = true;
+            this.btneditarposi.Click += new System.EventHandler(this.btneditarposi_Click);
             // 
-            // btnimprimirposicion
+            // btnguardarposi
             // 
-            this.btnimprimirposicion.Enabled = false;
-            this.btnimprimirposicion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnimprimirposicion.Location = new System.Drawing.Point(315, 78);
-            this.btnimprimirposicion.Name = "btnimprimirposicion";
-            this.btnimprimirposicion.Size = new System.Drawing.Size(94, 51);
-            this.btnimprimirposicion.TabIndex = 28;
-            this.btnimprimirposicion.Text = "Imprimir";
-            this.btnimprimirposicion.UseVisualStyleBackColor = true;
+            this.btnguardarposi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnguardarposi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnguardarposi.Location = new System.Drawing.Point(12, 68);
+            this.btnguardarposi.Name = "btnguardarposi";
+            this.btnguardarposi.Size = new System.Drawing.Size(92, 38);
+            this.btnguardarposi.TabIndex = 36;
+            this.btnguardarposi.Text = "Guardar";
+            this.btnguardarposi.UseVisualStyleBackColor = true;
+            this.btnguardarposi.Click += new System.EventHandler(this.btnguardarposi_Click);
             // 
             // Posiciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 142);
-            this.Controls.Add(this.btnimprimirposicion);
-            this.Controls.Add(this.btneliminarposicion);
-            this.Controls.Add(this.btnactualizarposicion);
-            this.Controls.Add(this.btnguardarposicion);
+            this.ClientSize = new System.Drawing.Size(426, 122);
+            this.Controls.Add(this.btneliminarposi);
+            this.Controls.Add(this.btnnuevo);
+            this.Controls.Add(this.btneditarposi);
+            this.Controls.Add(this.btnguardarposi);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbdescripposición);
             this.Controls.Add(this.tbcodigoposicion);
@@ -135,6 +139,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Posiciones";
             this.Text = "Posiciones";
+            this.Load += new System.EventHandler(this.Posiciones_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,9 +151,9 @@
         public System.Windows.Forms.TextBox tbdescripposición;
         public System.Windows.Forms.TextBox tbcodigoposicion;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnguardarposicion;
-        private System.Windows.Forms.Button btnactualizarposicion;
-        private System.Windows.Forms.Button btneliminarposicion;
-        private System.Windows.Forms.Button btnimprimirposicion;
+        private System.Windows.Forms.Button btneliminarposi;
+        private System.Windows.Forms.Button btnnuevo;
+        private System.Windows.Forms.Button btneditarposi;
+        private System.Windows.Forms.Button btnguardarposi;
     }
 }
