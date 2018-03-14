@@ -92,7 +92,7 @@ namespace CGSystem
             operacion oper = new operacion();
             DataSet ds = new DataSet();
 
-            ds = oper.ConsultaConResultado("SELECT MAX(codigo_sector) value FROM sector;");
+            ds = oper.ConsultaConResultado("SELECT MAX(codigo_posicion) value FROM posicion;");
             try
             {
                 tbcodigoposicion.Text = (Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1).ToString();
