@@ -62,6 +62,7 @@ namespace CGSystem
         {
             BuscarPor();
         }
+
         public void Seleccionar_Dpto()
         {
             if (dgvlistadepartamentos.SelectedRows.Count == 1)
@@ -77,6 +78,7 @@ namespace CGSystem
                 dgvlistadepartamentos.Focus();
             }
         }
+
         private void dgvlistadepartamentos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             Seleccionar_Dpto();
@@ -89,7 +91,7 @@ namespace CGSystem
 
         private void btnmostrartodo_Click(object sender, EventArgs e)
         {
-            BuscarPor();
+            MostrarTodo();
         }
 
         private void btnagregar_Click(object sender, EventArgs e)

@@ -16,10 +16,12 @@ namespace CGSystem
         public static string DepartamentoEditarID = "0";
         public static string DepartamentoEditarDesc = "";
         public static bool CrearNuevo = false;
+
         public Departamentos()
         {
             InitializeComponent();
         }
+
         public bool ReadOnly { get; set; }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -54,17 +56,7 @@ namespace CGSystem
 
         private void btNuevoDepartamento_Click_1(object sender, EventArgs e)
         {
-            if (tbDescripDepartamento.Text == "")
-            {
-                MessageBox.Show("Favor digitar un nombre de departamento válido!", "Aviso!");
-            }
-            else
-            {
-                operacion oper = new operacion();
-                oper.ConsultaSinResultado("INSERT INTO departamento (descripcion_departamento) VALUES ('" + tbDescripDepartamento.Text.ToString().ToUpper() + "')");
-                tbDescripDepartamento.Clear();
-                MessageBox.Show("Datos registrados satisfactoriamente!");
-            }
+            Guardar();
         }
 
         private void btGuardarDepartamento_Click_1(object sender, EventArgs e)
@@ -177,5 +169,32 @@ namespace CGSystem
                 btneliminardepartamento.Enabled = false;
             }
         }
+
+        public void Guardar()
+        {
+            operacion oper = new operacion();
+            if (tbDescripDepartamento.Text == "" || string.IsNullOrEmpty(tbDescripDepartamento.Text))
+            {
+                MessageBox.Show("La descripción no puede estar en blanco...", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                if (NuevoDepartamento)
+                {
+
+                    oper.ConsultaSinResultado("INSERT INTO departamento (descripcion_departamento) VALUES ('" + tbDescripDepartamento.Text.ToString().ToUpper() + "')");
+                    MessageBox.Show("Sector creado satisfactoriamente!", "Nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    NuevoDepartamento = false;
+                    Nuevo();
+                }
+                else
+                {
+                    oper.ConsultaSinResultado("UPDATE departamento SET descripcion_departamento ='" + tbDescripDepartamento.Text.ToString().ToUpper() + "' WHERE codigo_departamento = '" + tbCodigoDepartamento.Text.ToString() + "'");
+                    MessageBox.Show("Datos actualizados correctamente!", "Guardar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    NuevoDepartamento = false;
+                }
+            }
+        }
+
     }
-    }
+}

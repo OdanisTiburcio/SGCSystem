@@ -172,6 +172,7 @@ namespace CGSystem
                     oper.ConsultaSinResultado("INSERT INTO sector (descripcion_sector) VALUES ('" + tbdescripsector.Text.ToString().ToUpper() + "')");
                     MessageBox.Show("Sector creado satisfactoriamente!", "Nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     NuevoSector = false;
+                    Nuevo();
                 }
                 else
                 {

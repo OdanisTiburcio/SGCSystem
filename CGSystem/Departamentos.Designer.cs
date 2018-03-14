@@ -41,19 +41,22 @@
             // 
             // btnnuevodepartamento
             // 
+            this.btnnuevodepartamento.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnnuevodepartamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnnuevodepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnnuevodepartamento.Location = new System.Drawing.Point(236, 73);
+            this.btnnuevodepartamento.Location = new System.Drawing.Point(230, 69);
             this.btnnuevodepartamento.Name = "btnnuevodepartamento";
             this.btnnuevodepartamento.Size = new System.Drawing.Size(93, 41);
             this.btnnuevodepartamento.TabIndex = 11;
             this.btnnuevodepartamento.Text = "Nuevo (+)";
-            this.btnnuevodepartamento.UseVisualStyleBackColor = true;
+            this.btnnuevodepartamento.UseVisualStyleBackColor = false;
             this.btnnuevodepartamento.Click += new System.EventHandler(this.button2_Click);
             // 
             // btneliminardepartamento
             // 
+            this.btneliminardepartamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btneliminardepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btneliminardepartamento.Location = new System.Drawing.Point(335, 73);
+            this.btneliminardepartamento.Location = new System.Drawing.Point(329, 69);
             this.btneliminardepartamento.Name = "btneliminardepartamento";
             this.btneliminardepartamento.Size = new System.Drawing.Size(93, 41);
             this.btneliminardepartamento.TabIndex = 10;
@@ -63,8 +66,9 @@
             // 
             // btneditardepartamento
             // 
+            this.btneditardepartamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btneditardepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btneditardepartamento.Location = new System.Drawing.Point(137, 73);
+            this.btneditardepartamento.Location = new System.Drawing.Point(131, 69);
             this.btneditardepartamento.Name = "btneditardepartamento";
             this.btneditardepartamento.Size = new System.Drawing.Size(93, 41);
             this.btneditardepartamento.TabIndex = 9;
@@ -74,8 +78,9 @@
             // 
             // btnguardardepartamento
             // 
+            this.btnguardardepartamento.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnguardardepartamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnguardardepartamento.Location = new System.Drawing.Point(38, 73);
+            this.btnguardardepartamento.Location = new System.Drawing.Point(32, 69);
             this.btnguardardepartamento.Name = "btnguardardepartamento";
             this.btnguardardepartamento.Size = new System.Drawing.Size(93, 41);
             this.btnguardardepartamento.TabIndex = 8;
@@ -95,7 +100,7 @@
             // 
             // tbDescripDepartamento
             // 
-            this.tbDescripDepartamento.Location = new System.Drawing.Point(200, 43);
+            this.tbDescripDepartamento.Location = new System.Drawing.Point(200, 41);
             this.tbDescripDepartamento.Name = "tbDescripDepartamento";
             this.tbDescripDepartamento.Size = new System.Drawing.Size(250, 20);
             this.tbDescripDepartamento.TabIndex = 14;
@@ -103,7 +108,7 @@
             // tbCodigoDepartamento
             // 
             this.tbCodigoDepartamento.Enabled = false;
-            this.tbCodigoDepartamento.Location = new System.Drawing.Point(200, 9);
+            this.tbCodigoDepartamento.Location = new System.Drawing.Point(200, 10);
             this.tbCodigoDepartamento.Name = "tbCodigoDepartamento";
             this.tbCodigoDepartamento.Size = new System.Drawing.Size(54, 20);
             this.tbCodigoDepartamento.TabIndex = 13;
