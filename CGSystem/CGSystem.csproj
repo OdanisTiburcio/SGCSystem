@@ -284,6 +284,12 @@
     <Compile Include="SeleccionarServicio.Designer.cs">
       <DependentUpon>SeleccionarServicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="SeleccionarServicioDiaUnico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SeleccionarServicioDiaUnico.Designer.cs">
+      <DependentUpon>SeleccionarServicioDiaUnico.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServiciosEmitidos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -382,6 +388,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SeleccionarServicio.resx">
       <DependentUpon>SeleccionarServicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SeleccionarServicioDiaUnico.resx">
+      <DependentUpon>SeleccionarServicioDiaUnico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Todos los clientes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -501,6 +510,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\clock-26094_640.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Primary icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\System.Data.SQLite.Core.1.0.107.0\build\net46\System.Data.SQLite.Core.targets" Condition="Exists('..\packages\System.Data.SQLite.Core.1.0.107.0\build\net46\System.Data.SQLite.Core.targets')" />

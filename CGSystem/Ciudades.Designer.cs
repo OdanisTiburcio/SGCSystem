@@ -58,6 +58,7 @@
             // 
             // tbcodigociudad
             // 
+            this.tbcodigociudad.Enabled = false;
             this.tbcodigociudad.Location = new System.Drawing.Point(165, 10);
             this.tbcodigociudad.Name = "tbcodigociudad";
             this.tbcodigociudad.Size = new System.Drawing.Size(83, 20);

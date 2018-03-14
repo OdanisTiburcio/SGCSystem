@@ -19,6 +19,8 @@ namespace CGSystem
         public static bool SelecciónDeCliente = false; //Para confirmar si se seleccionó un cliente o si solo se cerró el formulario...
         public static bool ModificarFactura = false; //Para confirmar si se seleccionó una factura para modificar...
         public static int FacturaModificarNum = 0;
+
+        //Variables Necesarias
         public int contador = 0; //Para controlar algunos métodos...
         public int DiasASumar = 0;
         public string[] PlusModificando = new string[100];
@@ -35,6 +37,13 @@ namespace CGSystem
         public int ModDiasASumar = 0;
         public bool cargandofactura = false;
         public bool GoingToModify = false;
+
+        //Variables necesarias para el guardado de un servicio unico
+        public static string oncecodigo = "";
+        public static string oncedescripcion = "";
+        public static string onceprecio = "";
+        public static string oncedias = "";
+        public static bool AceptarOnce = false;
 
         //Clases Reutilizables
         operacion oper = new operacion();
@@ -145,11 +154,16 @@ namespace CGSystem
 
         private void tbproducto_KeyUp(object sender, KeyEventArgs e)
         {
-            //if (e.KeyCode == Keys.Enter)
-            //{
-            //    Buscar();
-            //}
-            //else { }
+            if (e.KeyCode == Keys.F5)
+            {
+                bool FacturarUnDia = oper.CajaDeMensaje("¿Desea Facturar un día de servicio?", "Servicio Unico");
+                if (FacturarUnDia)
+                {
+                    DiaUnico();
+                }
+                else { }
+            }
+            else { }
         }
 
         public void Buscar()
@@ -576,6 +590,57 @@ namespace CGSystem
             }
 
             return tipo;
+        }
+
+        public void DiaUnico()
+        {
+            try
+            {
+                //Seleccionar el servicio a facturar
+                Form f = new SeleccionarServicioDiaUnico();
+                f.ShowDialog();
+
+                if (!AceptarOnce)
+                {
+                    return; //salir
+                }
+                else
+                {
+                    //continuar...
+                }
+
+                //Método para realizar el guardado de un día único...
+                //Establecer si es a Crédito o al Contado
+                TipoFactura = "CONTADO";
+
+                //Obtener el código del tipo de factura actual
+                ds = oper.ConsultaConResultado("SELECT codigo_tipo_factura FROM tipo_factura WHERE descripcion_tipo_factura = '" + TipoFactura + "';");
+                TipoFactura = ds.Tables[0].Rows[0][0].ToString();
+
+                //Primero Guardamos la cabecera de la factura
+                oper.ConsultaSinResultado("INSERT INTO cabecera_factura (id_factura, id_tipo_factura, id_cliente, id_empleado, fecha," +
+                    "total, estado, dias_sumar) VALUES ('" + NumeroDeFactura + "', '" + TipoFactura + "'," +
+                    "'1', '" + MenuPrincipal.UsuarioID.ToString() + "', '" + fechaHoy + "', '" + onceprecio + "', 'ACTIVO', '" + oncedias + "');");
+
+                //Ahora guardamos el detalle de la facutra de Servicio Unico o "ONCE"
+                oper.ConsultaSinResultado("INSERT INTO detalle_factura (id_detalle, id_factura, codigo, descripcion, precio, dias, cantidad, total, estado) " +
+                    "VALUES ('1', '" + NumeroDeFactura + "', '" + oncecodigo + "', '" + oncedescripcion + "', '" + onceprecio + "'" +
+                    ", '" + oncedias + "', '1', '" + onceprecio + "', 'ACTIVO');");
+
+                //Generar Nuevo Ingreso
+                string TipoIngreso = (Convert.ToInt32(cbingreso.SelectedIndex + 1)).ToString();
+                oper.ConsultaSinResultado("INSERT INTO ingreso (codigo_tipo_ingreso, numero_factura, monto_ingreso, fecha, estado) VALUES ('" + TipoIngreso + "','" + NumeroDeFactura + "','" + onceprecio + "','" + fechaHoy + "', 'ACTIVO');");
+
+                ActualizarPeriodoDeCliente();//Sumarle los días facturados a la membresía del cliente.
+                CerrarFactura(); //Método para activar y desactivar los botonoes necesarios hasta la próxima factura...
+
+                MessageBox.Show("¡Facturación de un día de servicio Exitosa!", "Servicio Unico", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch
+            {
+                MessageBox.Show("Hubo un error al tratar de guardar la factura, contacte al " +
+                    "encargado de mantenimiento del sistema, disculpe los inconvenientes...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
 

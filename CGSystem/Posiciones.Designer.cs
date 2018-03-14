@@ -58,9 +58,10 @@
             // 
             // tbcodigoposicion
             // 
+            this.tbcodigoposicion.Enabled = false;
             this.tbcodigoposicion.Location = new System.Drawing.Point(167, 15);
             this.tbcodigoposicion.Name = "tbcodigoposicion";
-            this.tbcodigoposicion.Size = new System.Drawing.Size(83, 20);
+            this.tbcodigoposicion.Size = new System.Drawing.Size(55, 20);
             this.tbcodigoposicion.TabIndex = 25;
             // 
             // label1
