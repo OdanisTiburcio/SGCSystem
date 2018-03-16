@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -25,6 +26,13 @@ namespace CGSystem
         public static string SelecciónDeCliente = "0";
         public static string SeleccionDeServicio = "0";
         public static string idseleccionar = "0";
+
+        //Variables para el guardado de BackUp de la base de Datos
+        public string DataBaseOldBackUpRute = "c:\\dbbackup\\old\\SGCSystemBD.db";
+        public string DataBaseBackUpRute = "c:\\dbbackup\\SGCSystemBD.db";
+        public string DataBaseRute = "c:\\CGSystem\\SGCSystemBD.db";
+        public string BakcUpRute = "c:\\dbbackup";
+        public string OldBakcUpRute = "c:\\dbbackup\\old";
 
         //Clases Reutilizables
         operacion oper = new operacion();
@@ -127,6 +135,7 @@ namespace CGSystem
             }
             else
             {
+                BackUpDB();
             }
             //Si el usuario selecciona mostrar el reporte de vencidos en el menú principal
             if (estadoreporte == "si")
@@ -137,6 +146,7 @@ namespace CGSystem
             {
                 return;
             }
+
         }
 
         private void facturarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -205,7 +215,7 @@ namespace CGSystem
                 DataSet ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, fin_periodo, foto FROM cliente WHERE fin_periodo < '" + fecha + "' AND codigo_estado = '1'");
                 if (ds.Tables[0].Rows[0][0].ToString() == "")
                 {
-                    MessageBox.Show("No hay clientes activos con servicios vencidos!", "Reporte de Clientes con Servicios Vencidos", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("No hay clientes activos con servicios vencidos!", "Reporte de Clientes con Servicios Vencidos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 ds.WriteXml("C:\\CGSystem\\CGSystem\\Clientes con Servicios Vencidos.xml");
@@ -337,7 +347,51 @@ namespace CGSystem
             {
                 Form f = new insertarLicencia();
                 f.ShowDialog();
-            }            
+            }
+        }
+
+        public void BackUpDB()
+        {
+            try
+            {
+                if (!Directory.Exists(BakcUpRute))
+                {
+                    Directory.CreateDirectory(BakcUpRute);
+                    Directory.CreateDirectory(OldBakcUpRute);
+                }
+                else { }
+                
+                if (!File.Exists(DataBaseBackUpRute))
+                {
+                    //Copiar la base de datos y pegarla en la carpeta de Back Up
+                    File.Copy(DataBaseRute, DataBaseBackUpRute);
+
+                    //Asignar la fecha de hoy al archivo BackUp
+                    File.SetLastWriteTime(DataBaseBackUpRute, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day));
+                }
+                else
+                {
+                    //Borrar el BackUp old
+                    if (File.Exists(DataBaseOldBackUpRute))
+                    {
+                        File.Delete(DataBaseOldBackUpRute);
+                    }
+                    else { }
+
+                    //Guardar el Back Up Viejo en la carpeta old
+                    File.Move(DataBaseBackUpRute, DataBaseOldBackUpRute);
+
+                    //Copiar la base de datos y pegarla en la carpeta de Back Up
+                    File.Copy(DataBaseRute, DataBaseBackUpRute);
+
+                    //Asignar la fecha de hoy al archivo BackUp
+                    File.SetLastWriteTime(DataBaseBackUpRute, new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, DateTime.Now.Hour, DateTime.Now.Minute,DateTime.Now.Second));
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Hubo un problema haciendo el backup de la base de datos, contacte al encargado de Mantenimiento...", "Back Up", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }
