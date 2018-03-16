@@ -6,4 +6,28 @@
     <descripcion_tipo_factura>CONTADO</descripcion_tipo_factura>
     <total>40</total>
   </Table>
+  <Table>
+    <id_factura>2</id_factura>
+    <id_tipo_factura>2</id_tipo_factura>
+    <descripcion_tipo_factura>CREDITO</descripcion_tipo_factura>
+    <total>40</total>
+  </Table>
+  <Table>
+    <id_factura>3</id_factura>
+    <id_tipo_factura>1</id_tipo_factura>
+    <descripcion_tipo_factura>CONTADO</descripcion_tipo_factura>
+    <total>40</total>
+  </Table>
+  <Table>
+    <id_factura>4</id_factura>
+    <id_tipo_factura>1</id_tipo_factura>
+    <descripcion_tipo_factura>CONTADO</descripcion_tipo_factura>
+    <total>40</total>
+  </Table>
+  <Table>
+    <id_factura>5</id_factura>
+    <id_tipo_factura>1</id_tipo_factura>
+    <descripcion_tipo_factura>CONTADO</descripcion_tipo_factura>
+    <total>40</total>
+  </Table>
 </NewDataSet>

@@ -5,7 +5,15 @@
     <nombre_cliente>VISITANTE</nombre_cliente>
     <apellido_cliente>DIARIO</apellido_cliente>
     <telefono>(809)999-9999</telefono>
-    <fin_periodo>2020-01-01T00:00:00-04:00</fin_periodo>
+    <fin_periodo>2020-01-02T00:00:00-04:00</fin_periodo>
     <foto>C:\CGSystem\FotosClientes\1.jpg</foto>
+  </Table>
+  <Table>
+    <numero_cliente>2</numero_cliente>
+    <nombre_cliente>KOALA</nombre_cliente>
+    <apellido_cliente>DEL BOSQUE</apellido_cliente>
+    <telefono>(000)000-0000</telefono>
+    <fin_periodo>2017-11-16T00:00:00-04:00</fin_periodo>
+    <foto>C:\Users\Public\Pictures\Sample Pictures\Koala.jpg</foto>
   </Table>
 </NewDataSet>
