@@ -370,6 +370,8 @@ namespace CGSystem
                 ds = oper.ConsultaConResultado("SELECT MAX(id_factura) value FROM cabecera_factura;");
                 NumeroDeFactura = (Convert.ToInt32(ds.Tables[0].Rows[0][0].ToString()) + 1).ToString();
                 lbnumfactura.Text = "No. Factura: " + NumeroDeFactura;
+
+                tbproducto.Focus();
             }
             catch
             {

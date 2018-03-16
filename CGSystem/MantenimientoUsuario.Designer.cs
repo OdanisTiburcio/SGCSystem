@@ -41,17 +41,17 @@
             this.btnseleccionar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.btnagregar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnnuevo = new System.Windows.Forms.Button();
+            this.btnresetear = new System.Windows.Forms.Button();
             this.lbltitulo = new System.Windows.Forms.Label();
             this.telefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvequipos = new System.Windows.Forms.DataGridView();
+            this.dgvusuarios = new System.Windows.Forms.DataGridView();
             this.carrera = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnbuscar = new System.Windows.Forms.Button();
+            this.btneliminar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvequipos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvusuarios)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -78,14 +78,14 @@
             // cbtipousuario
             // 
             this.cbtipousuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbtipousuario.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbtipousuario.Font = new System.Drawing.Font("Palatino Linotype", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbtipousuario.FormattingEnabled = true;
             this.cbtipousuario.Items.AddRange(new object[] {
-            "Empleado",
-            "Administrador"});
+            "EMPLEADO",
+            "ADMINISTRADOR"});
             this.cbtipousuario.Location = new System.Drawing.Point(116, 136);
             this.cbtipousuario.Name = "cbtipousuario";
-            this.cbtipousuario.Size = new System.Drawing.Size(136, 30);
+            this.cbtipousuario.Size = new System.Drawing.Size(143, 26);
             this.cbtipousuario.TabIndex = 2;
             // 
             // txtidempleado
@@ -176,6 +176,7 @@
             this.btnseleccionar.TabIndex = 3;
             this.btnseleccionar.Text = "Seleccionar";
             this.btnseleccionar.UseVisualStyleBackColor = false;
+            this.btnseleccionar.Click += new System.EventHandler(this.btnseleccionar_Click);
             // 
             // label1
             // 
@@ -199,28 +200,31 @@
             this.btnagregar.TabIndex = 4;
             this.btnagregar.Text = "CREAR";
             this.btnagregar.UseVisualStyleBackColor = false;
+            this.btnagregar.Click += new System.EventHandler(this.btnagregar_Click);
             // 
-            // button2
+            // btnnuevo
             // 
-            this.button2.BackColor = System.Drawing.Color.Cornsilk;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(183, 219);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(116, 38);
-            this.button2.TabIndex = 88;
-            this.button2.Text = "Nuevo (+)";
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnnuevo.BackColor = System.Drawing.Color.Cornsilk;
+            this.btnnuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnnuevo.Location = new System.Drawing.Point(183, 219);
+            this.btnnuevo.Name = "btnnuevo";
+            this.btnnuevo.Size = new System.Drawing.Size(116, 38);
+            this.btnnuevo.TabIndex = 88;
+            this.btnnuevo.Text = "Nuevo (+)";
+            this.btnnuevo.UseVisualStyleBackColor = false;
+            this.btnnuevo.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btnresetear
             // 
-            this.button1.BackColor = System.Drawing.Color.LightSalmon;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(305, 219);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(165, 38);
-            this.button1.TabIndex = 90;
-            this.button1.Text = "Resetear Cuenta";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnresetear.BackColor = System.Drawing.Color.LightSalmon;
+            this.btnresetear.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnresetear.Location = new System.Drawing.Point(305, 219);
+            this.btnresetear.Name = "btnresetear";
+            this.btnresetear.Size = new System.Drawing.Size(165, 38);
+            this.btnresetear.TabIndex = 90;
+            this.btnresetear.Text = "Resetear Cuenta";
+            this.btnresetear.UseVisualStyleBackColor = false;
+            this.btnresetear.Click += new System.EventHandler(this.button1_Click);
             // 
             // lbltitulo
             // 
@@ -251,28 +255,29 @@
             this.codigo.Name = "codigo";
             this.codigo.ReadOnly = true;
             // 
-            // dgvequipos
+            // dgvusuarios
             // 
-            this.dgvequipos.AllowUserToAddRows = false;
-            this.dgvequipos.AllowUserToDeleteRows = false;
-            this.dgvequipos.AllowUserToResizeColumns = false;
-            this.dgvequipos.AllowUserToResizeRows = false;
-            this.dgvequipos.BackgroundColor = System.Drawing.Color.Azure;
-            this.dgvequipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvequipos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvusuarios.AllowUserToAddRows = false;
+            this.dgvusuarios.AllowUserToDeleteRows = false;
+            this.dgvusuarios.AllowUserToResizeColumns = false;
+            this.dgvusuarios.AllowUserToResizeRows = false;
+            this.dgvusuarios.BackgroundColor = System.Drawing.Color.Azure;
+            this.dgvusuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvusuarios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.codigo,
             this.nomb,
             this.carrera,
             this.telefono});
-            this.dgvequipos.GridColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.dgvequipos.Location = new System.Drawing.Point(12, 46);
-            this.dgvequipos.MultiSelect = false;
-            this.dgvequipos.Name = "dgvequipos";
-            this.dgvequipos.ReadOnly = true;
-            this.dgvequipos.RowHeadersVisible = false;
-            this.dgvequipos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvequipos.Size = new System.Drawing.Size(473, 167);
-            this.dgvequipos.TabIndex = 87;
+            this.dgvusuarios.GridColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.dgvusuarios.Location = new System.Drawing.Point(12, 46);
+            this.dgvusuarios.MultiSelect = false;
+            this.dgvusuarios.Name = "dgvusuarios";
+            this.dgvusuarios.ReadOnly = true;
+            this.dgvusuarios.RowHeadersVisible = false;
+            this.dgvusuarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvusuarios.Size = new System.Drawing.Size(473, 167);
+            this.dgvusuarios.TabIndex = 87;
+            this.dgvusuarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvequipos_CellDoubleClick);
             // 
             // carrera
             // 
@@ -281,16 +286,17 @@
             this.carrera.ReadOnly = true;
             this.carrera.Width = 150;
             // 
-            // btnbuscar
+            // btneliminar
             // 
-            this.btnbuscar.BackColor = System.Drawing.Color.LightSalmon;
-            this.btnbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnbuscar.Location = new System.Drawing.Point(12, 219);
-            this.btnbuscar.Name = "btnbuscar";
-            this.btnbuscar.Size = new System.Drawing.Size(165, 38);
-            this.btnbuscar.TabIndex = 89;
-            this.btnbuscar.Text = "Eliminar Cuenta";
-            this.btnbuscar.UseVisualStyleBackColor = false;
+            this.btneliminar.BackColor = System.Drawing.Color.LightSalmon;
+            this.btneliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btneliminar.Location = new System.Drawing.Point(12, 219);
+            this.btneliminar.Name = "btneliminar";
+            this.btneliminar.Size = new System.Drawing.Size(165, 38);
+            this.btneliminar.TabIndex = 89;
+            this.btneliminar.Text = "Eliminar Cuenta";
+            this.btneliminar.UseVisualStyleBackColor = false;
+            this.btneliminar.Click += new System.EventHandler(this.btnbuscar_Click);
             // 
             // MantenimientoUsuario
             // 
@@ -298,11 +304,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(498, 477);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnnuevo);
+            this.Controls.Add(this.btnresetear);
             this.Controls.Add(this.lbltitulo);
-            this.Controls.Add(this.dgvequipos);
-            this.Controls.Add(this.btnbuscar);
+            this.Controls.Add(this.dgvusuarios);
+            this.Controls.Add(this.btneliminar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -315,7 +321,7 @@
             this.Load += new System.EventHandler(this.MantenimientoUsuario_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvequipos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvusuarios)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -335,14 +341,14 @@
         private System.Windows.Forms.Button btnseleccionar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnagregar;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnnuevo;
+        private System.Windows.Forms.Button btnresetear;
         private System.Windows.Forms.Label lbltitulo;
         private System.Windows.Forms.DataGridViewTextBoxColumn telefono;
         private System.Windows.Forms.DataGridViewTextBoxColumn nomb;
         private System.Windows.Forms.DataGridViewTextBoxColumn codigo;
-        private System.Windows.Forms.DataGridView dgvequipos;
+        private System.Windows.Forms.DataGridView dgvusuarios;
         private System.Windows.Forms.DataGridViewTextBoxColumn carrera;
-        private System.Windows.Forms.Button btnbuscar;
+        private System.Windows.Forms.Button btneliminar;
     }
 }

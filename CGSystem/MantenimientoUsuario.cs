@@ -13,10 +13,9 @@ namespace CGSystem
 {
     public partial class MantenimientoUsuario : Form
     {
-        DataSet ds = new DataSet();
-        DataTable dt = new DataTable();
         operacion oper = new operacion();
-        SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\SGCSystemBD.db;Version=3;");
+        public bool modificar = false;
+        public string idmodificar = "";
 
         public MantenimientoUsuario()
         {
@@ -27,140 +26,184 @@ namespace CGSystem
         {
             MostrarTodos();
             cbtipousuario.SelectedIndex = 0;
-
-            //dt = oper.ConsultaDataTable("SELECT * FROM login;");
-            //dataGridView1.DataSource = dt;
-            //dataGridView1.Refresh();
         }
 
-        //private void btncrearingreso_Click(object sender, EventArgs e)
-        //{
-        //    CRUDUSUARIO f = new CRUDUSUARIO();
-        //    f.cbtipocuentausuario.Enabled = true;
-        //    f.cbnumeroempleado.Enabled = true;
-        //    f.tbaliasusuario.Enabled = true;
-        //    f.tbcontrasenausuario.Enabled = true;
-        //    f.cbestadousuario.Enabled = true;
-        //    f.btnguardarusuario.Enabled = false;
-        //    f.ShowDialog();
-        //}
-
-        //public void BuscarUsuario()
-        //{
-        //    try
-        //    {
-        //        cnx.Open();
-        //        if (rdbaliasusuario.Checked)
-        //        {
-        //            string consulta = "SELECT codigo_login AS Codigo, numero_empleado AS Num_Empleado, alias_usuario AS Alias, clave_usuario AS Clave, codigo_tipo_usuario AS Tipo, codigo_estado AS Estado FROM login WHERE alias_usuario LIKE '%" + tbbuscarusuarios.Text + "%'";
-        //            SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
-        //            DataSet ds = new DataSet();
-        //            ds.Reset();
-        //            DataTable dt = new DataTable();
-        //            db.Fill(ds);
-        //            dt = ds.Tables[0];
-        //            dataGridView1.DataSource = dt;
-        //            cnx.Close();
-        //            for (int i = 0; i < dataGridView1.RowCount; i++) //Ocultar Contraseña con asteriscos
-        //            {
-        //                dataGridView1.Rows[i].Cells[3].Value = "******";
-        //            }
-        //            dataGridView1.Refresh();
-
-        //        }
-        //        else if (rdbnumeroempleado.Checked)
-        //        {
-        //            string consulta = "SELECT emp.nombre AS Nombre, emp.apellido AS Apellido, l.alias_usuario AS Alias, l.clave_usuario AS Clave, t.descripcion_tipo_usuario AS Tipo FROM login l INNER JOIN tipo_usuario t ON t.codigo_tipo_usuario = l.codigo_tipo_usuario INNER JOIN empleado emp ON emp.numero_empleado = l.numero_empleado WHERE l.numero_empleado = '" + tbbuscarusuarios.Text + "'";
-        //            SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
-        //            DataSet ds = new DataSet();
-        //            ds.Reset();
-        //            DataTable dt = new DataTable();
-        //            db.Fill(ds);
-        //            dt = ds.Tables[0];
-        //            dataGridView1.DataSource = dt;
-        //            cnx.Close();
-        //            for (int i = 0; i < dataGridView1.RowCount; i++) //Ocultar Contraseña con asteriscos
-        //            {
-        //                dataGridView1.Rows[i].Cells[3].Value = "******";
-        //            }
-        //            dataGridView1.Refresh();
-        //        }
-        //        else if (rdbtipousuario.Checked)
-        //        {
-        //            string consulta = "SELECT emp.nombre AS Nombre, emp.apellido AS Apellido, l.alias_usuario AS Alias, l.clave_usuario AS Clave, t.descripcion_tipo_usuario AS Tipo FROM login l INNER JOIN tipo_usuario t ON t.codigo_tipo_usuario = l.codigo_tipo_usuario INNER JOIN empleado emp ON emp.numero_empleado = l.numero_empleado WHERE l.numero_empleado = '" + tbbuscarusuarios.Text + "'";
-        //            SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
-        //            DataSet ds = new DataSet();
-        //            ds.Reset();
-        //            DataTable dt = new DataTable();
-        //            db.Fill(ds);
-        //            dt = ds.Tables[0];
-        //            dataGridView1.DataSource = dt;
-        //            cnx.Close();
-        //            for (int i = 0; i < dataGridView1.RowCount; i++) //Ocultar Contraseña con asteriscos
-        //            {
-        //                dataGridView1.Rows[i].Cells[3].Value = "******";
-        //            }
-        //            dataGridView1.Refresh();
-        //        }
-        //        else if (rdbusuarios.Checked)
-        //        {
-        //            string consulta = "SELECT emp.nombre AS Nombre, emp.apellido AS Apellido, l.alias_usuario AS Alias, l.clave_usuario AS Clave, t.descripcion_tipo_usuario AS Tipo FROM login l INNER JOIN tipo_usuario t ON t.codigo_tipo_usuario = l.codigo_tipo_usuario INNER JOIN empleado emp ON emp.numero_empleado = l.numero_empleado";
-        //            SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
-        //            DataSet ds = new DataSet();
-        //            ds.Reset();
-        //            DataTable dt = new DataTable();
-        //            db.Fill(ds);
-        //            dt = ds.Tables[0];
-        //            dataGridView1.DataSource = dt;
-        //            cnx.Close();
-        //            for (int i = 0; i < dataGridView1.RowCount; i++) //Ocultar Contraseña con asteriscos
-        //            {
-        //                dataGridView1.Rows[i].Cells[3].Value = "******";
-        //                //if(dataGridView1.Rows[i].Cells[4].Value.ToString() == "1")
-        //                //{
-        //                //    dataGridView1.Rows[i].Cells[4].Value = "Administrador";
-        //                //}
-        //                //else
-        //                //{
-        //                //    dataGridView1.Rows[i].Cells[4].Value = "Empleado";
-        //                //}
-        //            }
-        //            dataGridView1.Refresh();
-        //        }
-        //        else MessageBox.Show("Favor seleccionar una de las opciones!");
-        //    }
-        //    catch (Exception)
-        //    {
-
-        //    }
-        //}
-
-        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void dgvequipos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            //if (dgvequipos.Columns[e.ColumnIndex].Index == 3 && e.Value != null)
-            //{
-            //    dgvequipos.Rows[e.RowIndex].Tag = e.Value;
-            //    e.Value = new String('*', e.Value.ToString().Length);
-            //}
+            idmodificar = dgvusuarios.CurrentRow.Cells[0].Value.ToString();
+            Modificar();
         }
 
+        private void btnbuscar_Click(object sender, EventArgs e) //Eliminar
+        {
+            bool eliminarusuario = oper.CajaDeMensaje("¿Seguro que de sea eliminar este usuario?", "Eliminar");
+            if (eliminarusuario)
+            {
+                if (dgvusuarios.SelectedRows.Count == 1)
+                {
+                    oper.ConsultaSinResultado("DELETE FROM login WHERE usuario = '" + dgvusuarios.CurrentRow.Cells[0].Value.ToString() + "';");
+                    MostrarTodos();
+                }
+            }
+            else { }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            NuevoUsuario();
+            txtusuario.Focus();
+        }
+
+        private void button1_Click(object sender, EventArgs e) //Resetear
+        {
+            bool eliminarusuario = oper.CajaDeMensaje("¿Seguro que de sea resetear este usuario?", "Resetear");
+            if (eliminarusuario)
+            {
+                if (dgvusuarios.SelectedRows.Count == 1)
+                {
+                    oper.ConsultaSinResultado("UPDATE login SET clave_usuario = '123456' WHERE alias_usuario = '" + dgvusuarios.CurrentRow.Cells[0].Value.ToString() + "';");
+                    MostrarTodos();
+                }
+            }
+            else { }
+        }
+
+        private void btnseleccionar_Click(object sender, EventArgs e)
+        {
+            Form f = new Seleccionar_Empleado();
+            MenuPrincipal.idseleccionar = "0";
+            f.ShowDialog();
+            if (MenuPrincipal.idseleccionar != "0")
+            {
+                txtempleado.Text = CargarEmpleado(MenuPrincipal.idseleccionar);
+                txtidempleado.Text = MenuPrincipal.idseleccionar;
+            }
+            else { }
+        }
+
+        private void btnagregar_Click(object sender, EventArgs e)
+        {
+            CrearModificar();
+            MostrarTodos();
+        }
+
+        //Métodos-Funciones
         public void MostrarTodos()
         {
-            DataSet ds = oper.ConsultaConResultado("SELECT login.alias_usuario, login.numero_empleado, login.codigo_tipo_usuario FROM login;");
+            DataSet ds = oper.ConsultaConResultado("SELECT login.alias_usuario, empleado.nombre, tipo_usuario.descripcion_tipo_usuario  FROM login INNER JOIN empleado on empleado.numero_empleado = login.numero_empleado INNER JOIN tipo_usuario on tipo_usuario.codigo_tipo_usuario = login.codigo_tipo_usuario;");
 
-            dgvequipos.Rows.Clear();
+            dgvusuarios.Rows.Clear();
             for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
             {
-                dgvequipos.Rows.Add();
+                dgvusuarios.Rows.Add();
 
-                dgvequipos.Rows[i].Cells[0].Value = ds.Tables[0].Rows[i][0].ToString();
-                dgvequipos.Rows[i].Cells[1].Value = "*******";
-                dgvequipos.Rows[i].Cells[2].Value = ds.Tables[0].Rows[i][1].ToString();
-                dgvequipos.Rows[i].Cells[3].Value = ds.Tables[0].Rows[i][2].ToString();
+                dgvusuarios.Rows[i].Cells[0].Value = ds.Tables[0].Rows[i][0].ToString();
+                dgvusuarios.Rows[i].Cells[1].Value = "*******";
+                dgvusuarios.Rows[i].Cells[2].Value = ds.Tables[0].Rows[i][1].ToString();
+                dgvusuarios.Rows[i].Cells[3].Value = ds.Tables[0].Rows[i][2].ToString();
 
             }
 
         }
+
+        public void Modificar()
+        {
+            try
+            {
+                modificar = true;
+                btnagregar.Text = "MODIFICAR";
+                DataSet ds = oper.ConsultaConResultado("SELECT login.alias_usuario, login.numero_empleado, tipo_usuario.descripcion_tipo_usuario  FROM login INNER JOIN tipo_usuario on tipo_usuario.codigo_tipo_usuario = login.codigo_tipo_usuario WHERE alias_usuario = '" + idmodificar + "';");
+                txtempleado.Text = CargarEmpleado(dgvusuarios.CurrentRow.Cells[2].Value.ToString());
+                txtidempleado.Text = ds.Tables[0].Rows[0][1].ToString();
+                txtusuario.Text = ds.Tables[0].Rows[0][0].ToString();
+                txtcontraseña.Text = "*******";
+                cbtipousuario.Text = ds.Tables[0].Rows[0][2].ToString();
+                txtusuario.Focus();
+            }
+            catch
+            {
+                MessageBox.Show("Hubo un error al intentar cargar el usuario que desea modificar...", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+
+        public string CargarEmpleado(string idempleado)
+        {
+            try
+            {
+                //Cargar nombre del empleado desde el id
+                DataSet ds = oper.ConsultaConResultado("SELECT nombre FROM empleado WHERE numero_empleado = '" + idempleado + "';");
+                return ds.Tables[0].Rows[0][0].ToString();
+            }
+            catch
+            {
+                MessageBox.Show("Error al tratar de Cargar el Empleado...", "Cargar Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return "";
+            }
+
+        }
+
+        public void NuevoUsuario()
+        {
+            modificar = false;
+            txtcontraseña.Clear();
+            txtempleado.Text = "Seleccione";
+            txtidempleado.Text = "0";
+            txtusuario.Clear();
+            cbtipousuario.SelectedIndex = 0;
+            btnagregar.Text = "CREAR";
+        }
+
+        public bool ValidarCampos()
+        {
+            if (txtidempleado.Text != "0")
+            {
+                if (txtusuario.TextLength < 6 || txtcontraseña.TextLength < 6)
+                {
+                    MessageBox.Show("El usuario y la contraseña deben ser de por lo menos seis (6) carácteres...", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    txtusuario.Focus();
+                    return false;
+                }
+                else
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Debe rellenar todos los campos...", "Registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+        }
+
+        public void CrearModificar()
+        {
+            //Crear o modificar el usuario segun sea el caso
+            bool CamposCompletados = ValidarCampos();
+            string CodigoTipoUsuario = SaberTipoUsuarioPorID(cbtipousuario.Text);
+            if (CamposCompletados)
+            {
+                if (modificar)
+                {
+                    oper.ConsultaSinResultado("UPDATE login SET alias_usuario = '" + txtusuario.Text + "', clave_usuario = '" + txtcontraseña.Text + "', numero_empleado = '" + txtidempleado.Text + "', coddigo_tipo_usuario = '" + CodigoTipoUsuario + "' WHERE alias_usuario = '" + idmodificar + "';");
+                    NuevoUsuario();
+                }
+                else
+                {
+                    oper.ConsultaSinResultado("INSERT INTO login (alias_usuario, clave_usuario, numero_empleado, codigo_tipo_usuario) VALUES ('" + txtusuario.Text + "','" + txtcontraseña.Text + "','" + txtidempleado.Text + "','" + CodigoTipoUsuario + "');");
+                    NuevoUsuario();
+                }
+            }
+            else { }
+        }
+
+        public string SaberTipoUsuarioPorID(string descripcion)
+        {
+            DataSet ds = oper.ConsultaConResultado("SELECT tipo_usuario.codigo_tipo_usuario FROM tipo_usuario WHERE tipo_usuario.descripcion_tipo_usuario = '" + descripcion + "';");
+            return ds.Tables[0].Rows[0][0].ToString();
+        }
+
+
     }
 
 }

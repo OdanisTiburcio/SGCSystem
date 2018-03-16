@@ -24,6 +24,7 @@ namespace CGSystem
         public string estadoreporte;
         public static string SelecciónDeCliente = "0";
         public static string SeleccionDeServicio = "0";
+        public static string idseleccionar = "0";
 
         //Clases Reutilizables
         operacion oper = new operacion();
