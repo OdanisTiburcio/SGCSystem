@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Seleccionar_Empleado));
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tbbuscar = new System.Windows.Forms.TextBox();
@@ -40,10 +44,6 @@
             this.btnbuscar = new System.Windows.Forms.Button();
             this.btnagregar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -64,6 +64,30 @@
             this.dataGridView1.Size = new System.Drawing.Size(693, 302);
             this.dataGridView1.TabIndex = 58;
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.Width = 50;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.Width = 170;
+            // 
+            // apellido
+            // 
+            this.apellido.HeaderText = "Apellido";
+            this.apellido.Name = "apellido";
+            this.apellido.Width = 300;
+            // 
+            // cedula
+            // 
+            this.cedula.HeaderText = "Cédula";
+            this.cedula.Name = "cedula";
+            this.cedula.Width = 170;
             // 
             // label2
             // 
@@ -93,6 +117,7 @@
             this.tbbuscar.Name = "tbbuscar";
             this.tbbuscar.Size = new System.Drawing.Size(140, 29);
             this.tbbuscar.TabIndex = 49;
+            this.tbbuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbbuscar_KeyUp);
             // 
             // rdtodos
             // 
@@ -146,6 +171,7 @@
             this.btnbuscar.TabIndex = 50;
             this.btnbuscar.Text = "Buscar";
             this.btnbuscar.UseVisualStyleBackColor = false;
+            this.btnbuscar.Click += new System.EventHandler(this.btnbuscar_Click);
             // 
             // btnagregar
             // 
@@ -170,30 +196,6 @@
             this.button1.Text = "Seleccionar";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // id
-            // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.Width = 50;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.Width = 170;
-            // 
-            // apellido
-            // 
-            this.apellido.HeaderText = "Apellido";
-            this.apellido.Name = "apellido";
-            this.apellido.Width = 300;
-            // 
-            // cedula
-            // 
-            this.cedula.HeaderText = "Cédula";
-            this.cedula.Name = "cedula";
-            this.cedula.Width = 170;
             // 
             // Seleccionar_Empleado
             // 

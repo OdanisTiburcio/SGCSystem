@@ -80,7 +80,6 @@ namespace CGSystem
         {
             MenuPrincipal.SalirDelSistema = true;
             CargarUsuarios();
-            cbusuario.Text = "Cosobo";
         }
 
         public void CargarUsuarios()

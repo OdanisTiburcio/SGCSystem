@@ -16,6 +16,7 @@ namespace CGSystem
         operacion oper = new operacion();
         public bool modificar = false;
         public string idmodificar = "";
+        public string AliasDeUsuarioDelDueñoDelSistema = "Cosobo";
 
         public MantenimientoUsuario()
         {
@@ -36,16 +37,28 @@ namespace CGSystem
 
         private void btnbuscar_Click(object sender, EventArgs e) //Eliminar
         {
-            bool eliminarusuario = oper.CajaDeMensaje("¿Seguro que de sea eliminar este usuario?", "Eliminar");
-            if (eliminarusuario)
+            if (dgvusuarios.CurrentRow.Cells[3].Value.ToString() != "ADMINISTRADOR" && dgvusuarios.CurrentRow.Cells[0].Value.ToString() != "Cosobo")
             {
-                if (dgvusuarios.SelectedRows.Count == 1)
+
+                bool eliminarusuario = oper.CajaDeMensaje("¿Seguro que de sea eliminar este usuario?", "Eliminar");
+                if (eliminarusuario)
                 {
-                    oper.ConsultaSinResultado("DELETE FROM login WHERE usuario = '" + dgvusuarios.CurrentRow.Cells[0].Value.ToString() + "';");
-                    MostrarTodos();
+                    if (dgvusuarios.SelectedRows.Count == 1)
+                    {
+                        oper.ConsultaSinResultado("DELETE FROM login WHERE alias_usuario = '" + dgvusuarios.CurrentRow.Cells[0].Value.ToString() + "';");
+                        MostrarTodos();
+                    }
                 }
+                else
+                {
+
+                }
+
             }
-            else { }
+            else
+            {
+                MessageBox.Show("No puede eliminar la cuenta de un administrador...", "Eliminar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -56,16 +69,24 @@ namespace CGSystem
 
         private void button1_Click(object sender, EventArgs e) //Resetear
         {
-            bool eliminarusuario = oper.CajaDeMensaje("¿Seguro que de sea resetear este usuario?", "Resetear");
-            if (eliminarusuario)
+            if (dgvusuarios.CurrentRow.Cells[3].Value.ToString() != "ADMINISTRADOR" && dgvusuarios.CurrentRow.Cells[0].Value.ToString() != "Cosobo")
             {
-                if (dgvusuarios.SelectedRows.Count == 1)
+                bool eliminarusuario = oper.CajaDeMensaje("¿Seguro que de sea resetear este usuario?", "Resetear");
+                if (eliminarusuario)
                 {
-                    oper.ConsultaSinResultado("UPDATE login SET clave_usuario = '123456' WHERE alias_usuario = '" + dgvusuarios.CurrentRow.Cells[0].Value.ToString() + "';");
-                    MostrarTodos();
+                    if (dgvusuarios.SelectedRows.Count == 1)
+                    {
+                        oper.ConsultaSinResultado("UPDATE login SET clave_usuario = '123456' WHERE alias_usuario = '" + dgvusuarios.CurrentRow.Cells[0].Value.ToString() + "';");
+                        MessageBox.Show("Cuenta Reseteada, ahora la contraseña de este usuario es: 123456", "Reseteada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MostrarTodos();
+                    }
                 }
+                else { }
             }
-            else { }
+            else
+            {
+                MessageBox.Show("No puede resetear la cuenta de un administrador...", "Resetear", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnseleccionar_Click(object sender, EventArgs e)
@@ -77,6 +98,7 @@ namespace CGSystem
             {
                 txtempleado.Text = CargarEmpleado(MenuPrincipal.idseleccionar);
                 txtidempleado.Text = MenuPrincipal.idseleccionar;
+                MenuPrincipal.idseleccionar = "0";
             }
             else { }
         }
@@ -110,15 +132,27 @@ namespace CGSystem
         {
             try
             {
+                txtusuario.Enabled = false;
                 modificar = true;
                 btnagregar.Text = "MODIFICAR";
-                DataSet ds = oper.ConsultaConResultado("SELECT login.alias_usuario, login.numero_empleado, tipo_usuario.descripcion_tipo_usuario  FROM login INNER JOIN tipo_usuario on tipo_usuario.codigo_tipo_usuario = login.codigo_tipo_usuario WHERE alias_usuario = '" + idmodificar + "';");
-                txtempleado.Text = CargarEmpleado(dgvusuarios.CurrentRow.Cells[2].Value.ToString());
+                DataSet ds = oper.ConsultaConResultado("SELECT login.alias_usuario, login.numero_empleado, tipo_usuario.descripcion_tipo_usuario, login.clave_usuario FROM login INNER JOIN tipo_usuario on tipo_usuario.codigo_tipo_usuario = login.codigo_tipo_usuario WHERE alias_usuario = '" + idmodificar + "';");
+                txtempleado.Text = CargarEmpleado(ds.Tables[0].Rows[0][1].ToString());
                 txtidempleado.Text = ds.Tables[0].Rows[0][1].ToString();
                 txtusuario.Text = ds.Tables[0].Rows[0][0].ToString();
-                txtcontraseña.Text = "*******";
+                txtcontraseña.Text = ds.Tables[0].Rows[0][3].ToString();
                 cbtipousuario.Text = ds.Tables[0].Rows[0][2].ToString();
                 txtusuario.Focus();
+
+                //Validar que la cuenta del superusuario o dueño del negocio no esté siendo cambiada a tipo "EMPLEADO"
+                if (txtusuario.Text == AliasDeUsuarioDelDueñoDelSistema)
+                {
+                    cbtipousuario.Enabled = false;
+                }
+                else
+                {
+                    cbtipousuario.Enabled = true;
+                }
+
             }
             catch
             {
@@ -145,6 +179,8 @@ namespace CGSystem
 
         public void NuevoUsuario()
         {
+            txtusuario.Enabled = true;
+            cbtipousuario.Enabled = true;
             modificar = false;
             txtcontraseña.Clear();
             txtempleado.Text = "Seleccione";
@@ -185,12 +221,14 @@ namespace CGSystem
             {
                 if (modificar)
                 {
-                    oper.ConsultaSinResultado("UPDATE login SET alias_usuario = '" + txtusuario.Text + "', clave_usuario = '" + txtcontraseña.Text + "', numero_empleado = '" + txtidempleado.Text + "', coddigo_tipo_usuario = '" + CodigoTipoUsuario + "' WHERE alias_usuario = '" + idmodificar + "';");
+                    oper.ConsultaSinResultado("UPDATE login SET alias_usuario = '" + txtusuario.Text + "', clave_usuario = '" + txtcontraseña.Text + "', numero_empleado = '" + txtidempleado.Text + "', codigo_tipo_usuario = '" + CodigoTipoUsuario + "' WHERE alias_usuario = '" + idmodificar + "';");
                     NuevoUsuario();
+                    MessageBox.Show("Usuario Modificado Satisfactoriamente...", "Modificar", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                 {
                     oper.ConsultaSinResultado("INSERT INTO login (alias_usuario, clave_usuario, numero_empleado, codigo_tipo_usuario) VALUES ('" + txtusuario.Text + "','" + txtcontraseña.Text + "','" + txtidempleado.Text + "','" + CodigoTipoUsuario + "');");
+                    MessageBox.Show("Usuario creado Satisfactoriamente...", "Crear", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     NuevoUsuario();
                 }
             }
@@ -202,6 +240,7 @@ namespace CGSystem
             DataSet ds = oper.ConsultaConResultado("SELECT tipo_usuario.codigo_tipo_usuario FROM tipo_usuario WHERE tipo_usuario.descripcion_tipo_usuario = '" + descripcion + "';");
             return ds.Tables[0].Rows[0][0].ToString();
         }
+
 
 
     }

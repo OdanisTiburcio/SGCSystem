@@ -22,10 +22,16 @@ namespace CGSystem
 
         private void Seleccionar_Empleado_Load(object sender, EventArgs e)
         {
-
+            rdtodos.PerformClick();
+            Buscar(); //MostrarTodo
         }
 
-        public void MostrarTodos()
+        private void btnbuscar_Click(object sender, EventArgs e)
+        {
+            Buscar();
+        }
+
+        public void Buscar()
         {
             try
             {
@@ -85,7 +91,7 @@ namespace CGSystem
             CRUDEmpleados f = new CRUDEmpleados();
             f.ShowDialog();
             rdtodos.PerformClick();
-            MostrarTodos();
+            Buscar();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -110,6 +116,11 @@ namespace CGSystem
                 MessageBox.Show("No seleccionó ningún empleado...", "Seleccionar Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
+        }
+
+        private void tbbuscar_KeyUp(object sender, KeyEventArgs e)
+        {
+            Buscar();
         }
     }
 }
