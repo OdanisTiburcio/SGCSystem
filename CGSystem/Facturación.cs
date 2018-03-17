@@ -350,7 +350,9 @@ namespace CGSystem
                 SavedRowCount = 0;
                 ModDiasARestar = 0;
                 ModDiasASumar = 0;
+                cbingreso.Enabled = true;
                 cbingreso.SelectedIndex = 0;
+
 
 
                 //Vaciar todo y dejar la factura como nueva...
@@ -612,6 +614,7 @@ namespace CGSystem
 
                 //Seleccionar el servicio a facturar
                 Form f = new SeleccionarServicioDiaUnico();
+                AceptarOnce = false;
                 f.ShowDialog();
 
                 if (!AceptarOnce)
@@ -761,6 +764,7 @@ namespace CGSystem
             btnguardar.Enabled = false;
             btnimprimir.Enabled = true;
             btneliminiar.Enabled = false;
+            cbingreso.Enabled = false;
 
             FacturaGuardada = true;//Para afirmar que la factura actual ya ha sido guardada
             FacturaModificadaGuardada = true;

@@ -20,7 +20,7 @@ namespace CGSystem
         private void SeleccionarServicioDiaUnico_Load(object sender, EventArgs e)
         {
             MostrarTodo();
-            dgvListaServicios.Select();
+            //dgvListaServicios.Select();
             dgvListaServicios.Focus();
         }
 
@@ -50,14 +50,14 @@ namespace CGSystem
 
         private void dgvListaServicios_KeyUp(object sender, KeyEventArgs e)
         {
-            //if (e.KeyCode == Keys.Enter)
-            //{
-            //    Seleccionar();
-            //}
-            //else
-            //{
+            if(e.KeyCode == Keys.Enter)
+            {
+                Seleccionar();
+            }
+            else
+            {
 
-            //}
+            }
         }
 
 
@@ -91,14 +91,14 @@ namespace CGSystem
 
         private void dgvListaServicios_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13)
-            {
-                Seleccionar();
-            }
-            else
-            {
+            //if (e.KeyChar == 13)
+            //{
+            //    Seleccionar();
+            //}
+            //else
+            //{
 
-            }
+            //}
         }
     }
 }

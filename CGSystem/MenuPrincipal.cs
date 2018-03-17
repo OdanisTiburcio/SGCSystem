@@ -71,13 +71,26 @@ namespace CGSystem
                 if (TipoUsuario == 1) //Administrador
                 {
                     //Activar
+                    //consultasToolStripMenuItem.DropDownItems[3].Visible = true;
+                    //contabilidadToolStripMenuItem.DropDownItems[0].Visible = true;
+                    //archivoToolStripMenuItem.DropDownItems[1].Visible = true;
+                    //archivoToolStripMenuItem.DropDownItems[2].Visible = true;
+                    //archivoToolStripMenuItem.DropDownItems[3].Visible = true;
+                    //archivoToolStripMenuItem.DropDownItems[6].Visible = true;
+                    //archivoToolStripMenuItem.DropDownItems[7].Visible = true;
                     consultasToolStripMenuItem.DropDownItems[3].Visible = true;
                     contabilidadToolStripMenuItem.DropDownItems[0].Visible = true;
+                    contabilidadToolStripMenuItem.DropDownItems[1].Visible = true;
+                    archivoToolStripMenuItem.DropDownItems[0].Visible = true;
                     archivoToolStripMenuItem.DropDownItems[1].Visible = true;
                     archivoToolStripMenuItem.DropDownItems[2].Visible = true;
                     archivoToolStripMenuItem.DropDownItems[3].Visible = true;
                     archivoToolStripMenuItem.DropDownItems[6].Visible = true;
                     archivoToolStripMenuItem.DropDownItems[7].Visible = true;
+                    archivoToolStripMenuItem.DropDownItems[8].Visible = true;
+                    ayudaToolStripMenuItem.DropDownItems[0].Visible = true;
+
+
 
                 }
                 else //Empleado
@@ -94,7 +107,6 @@ namespace CGSystem
                     archivoToolStripMenuItem.DropDownItems[7].Visible = false;
                     archivoToolStripMenuItem.DropDownItems[8].Visible = false;
                     ayudaToolStripMenuItem.DropDownItems[0].Visible = false;
-
                 }
 
             }

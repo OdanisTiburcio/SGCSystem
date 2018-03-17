@@ -198,6 +198,7 @@
             // 
             // cbciudadcliente
             // 
+            this.cbciudadcliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbciudadcliente.Enabled = false;
             this.cbciudadcliente.FormattingEnabled = true;
             this.cbciudadcliente.Location = new System.Drawing.Point(188, 106);
@@ -216,6 +217,7 @@
             // 
             // cbsectorcliente
             // 
+            this.cbsectorcliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbsectorcliente.Enabled = false;
             this.cbsectorcliente.FormattingEnabled = true;
             this.cbsectorcliente.Location = new System.Drawing.Point(10, 106);

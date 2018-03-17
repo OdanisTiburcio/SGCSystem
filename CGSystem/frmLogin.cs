@@ -92,7 +92,8 @@ namespace CGSystem
                 {
                     cbusuario.Items.Add(fila["alias_usuario"].ToString());
                 }
-                cbusuario.Text = cbusuario.Items[0].ToString(); //Seleccionar el primer usuario encontrado...
+                cbusuario.Text = cbusuario.Items[cbusuario.Items.Count-1].ToString(); //Seleccionar el primer usuario encontrado...
+                cbusuario.Focus();
             }
             catch
             {

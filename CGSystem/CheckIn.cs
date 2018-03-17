@@ -80,7 +80,7 @@ namespace CGSystem
 
                     //Mostrar el tiempo de servicio restante...
                     string tiemporestante = "";
-                    int diasrestantes = (FinPeriodoCliente - Hoy).Days;
+                    int diasrestantes = ((FinPeriodoCliente - Hoy).Days)+1;
                     int mesesretantes = 0;
                     int añosrestantes = 0;
 

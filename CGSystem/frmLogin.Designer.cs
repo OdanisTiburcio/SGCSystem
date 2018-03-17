@@ -101,6 +101,7 @@
             // 
             // cbusuario
             // 
+            this.cbusuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbusuario.Font = new System.Drawing.Font("Monotype Corsiva", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbusuario.FormattingEnabled = true;
             this.cbusuario.Items.AddRange(new object[] {
@@ -159,7 +160,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(566, 258);
+            this.ClientSize = new System.Drawing.Size(566, 259);
             this.Controls.Add(this.tbRutaFoto);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);

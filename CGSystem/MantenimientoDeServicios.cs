@@ -102,16 +102,23 @@ namespace CGSystem
 
         private void btpdelete_Click(object sender, EventArgs e)
         {
-            bool Eliminar = oper.CajaDeMensaje("¿Seguro que quiere eliminar este servicio?", "Aviso");
-            if (Eliminar)
+            if (tbpcodigo.Text != "1")
             {
-                oper.ConsultaSinResultado("UPDATE servicio SET estado = 'DESACTIVADO' WHERE codigo_servicio = '" + tbpcodigo.Text + "'");
-                MessageBox.Show("Se eliminó el servicio correctamente...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Nuevo();
+                bool Eliminar = oper.CajaDeMensaje("¿Seguro que quiere eliminar este servicio?", "Aviso");
+                if (Eliminar)
+                {
+                    oper.ConsultaSinResultado("UPDATE servicio SET estado = 'DESACTIVADO' WHERE codigo_servicio = '" + tbpcodigo.Text + "'");
+                    MessageBox.Show("Se eliminó el servicio correctamente...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Nuevo();
+                }
+                else
+                {
+                    
+                }
             }
             else
             {
-
+                MessageBox.Show("No puede eliminar este servicio, ya que es utilizado para la facturación rápida...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
