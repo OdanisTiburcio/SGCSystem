@@ -648,7 +648,8 @@ namespace CGSystem
                 string TipoIngreso = (Convert.ToInt32(cbingreso.SelectedIndex + 1)).ToString();
                 oper.ConsultaSinResultado("INSERT INTO ingreso (codigo_tipo_ingreso, numero_factura, monto_ingreso, fecha, estado) VALUES ('" + TipoIngreso + "','" + NumeroDeFactura + "','" + onceprecio + "','" + fechaHoy + "', 'ACTIVO');");
 
-                //ActualizarPeriodoDeCliente(); //Desactivado para el cliente de un unico uso diario...
+                IdCliente = "1";
+                ActualizarPeriodoDeCliente();
                 NuevaFactura(); //Método para activar y desactivar los botonoes necesarios hasta la próxima factura...
 
                 MessageBox.Show("¡Facturación de un día de servicio Exitosa!", "Servicio Unico", MessageBoxButtons.OK, MessageBoxIcon.Information);

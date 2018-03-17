@@ -65,9 +65,10 @@ namespace CGSystem
                 crystalReportViewer1.ReportSource = cryRpt;
                 crystalReportViewer1.Refresh();
             }
-            catch
+            catch (Exception)
             {
                 MessageBox.Show("Hubo un error al cargar el reporte", "Aviso");
+                throw;
             }
         }
     }
