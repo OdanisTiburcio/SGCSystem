@@ -24,7 +24,9 @@ namespace CGSystem
 
         private void btnnuevo_Click(object sender, EventArgs e)
         {
-           
+            SeleccionarCliente frm = new SeleccionarCliente();
+            frm.ShowDialog();
+            btnguardar.Enabled = true;
         }
     }
 }

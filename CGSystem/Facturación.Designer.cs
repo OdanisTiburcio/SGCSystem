@@ -116,7 +116,7 @@
             // 
             // tbtotal
             // 
-            this.tbtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbtotal.Font = new System.Drawing.Font("Calisto MT", 12F, System.Drawing.FontStyle.Bold);
             this.tbtotal.ForeColor = System.Drawing.Color.Blue;
             this.tbtotal.Location = new System.Drawing.Point(610, 389);
             this.tbtotal.Name = "tbtotal";
@@ -183,10 +183,10 @@
             // lbfecha
             // 
             this.lbfecha.AutoSize = true;
-            this.lbfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Bold);
+            this.lbfecha.Font = new System.Drawing.Font("Goudy Old Style", 12.75F, System.Drawing.FontStyle.Bold);
             this.lbfecha.Location = new System.Drawing.Point(714, 5);
             this.lbfecha.Name = "lbfecha";
-            this.lbfecha.Size = new System.Drawing.Size(101, 20);
+            this.lbfecha.Size = new System.Drawing.Size(96, 21);
             this.lbfecha.TabIndex = 130;
             this.lbfecha.Text = "00/00/0000";
             // 
@@ -245,11 +245,11 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Script MT Bold", 27.75F, System.Drawing.FontStyle.Bold);
             this.label11.ForeColor = System.Drawing.Color.Blue;
             this.label11.Location = new System.Drawing.Point(13, 6);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(165, 42);
+            this.label11.Size = new System.Drawing.Size(151, 44);
             this.label11.TabIndex = 146;
             this.label11.Text = "Facturar";
             // 
@@ -348,7 +348,7 @@
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.pictureBox1.Image = global::CGSystem.Properties.Resources.Logo;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(564, 178);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(198, 182);
@@ -431,7 +431,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 465);
+            this.ClientSize = new System.Drawing.Size(808, 464);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbingreso);
             this.Controls.Add(this.rdCredito);
