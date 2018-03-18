@@ -55,10 +55,10 @@
             // tbbuscar
             // 
             this.tbbuscar.BackColor = System.Drawing.Color.AliceBlue;
-            this.tbbuscar.Font = new System.Drawing.Font("Agency FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbbuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbbuscar.Location = new System.Drawing.Point(246, 12);
             this.tbbuscar.Name = "tbbuscar";
-            this.tbbuscar.Size = new System.Drawing.Size(137, 30);
+            this.tbbuscar.Size = new System.Drawing.Size(137, 29);
             this.tbbuscar.TabIndex = 33;
             this.tbbuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbbuscar_KeyPress);
             this.tbbuscar.KeyUp += new System.Windows.Forms.KeyEventHandler(this.tbbuscar_KeyUp);

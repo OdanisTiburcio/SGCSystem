@@ -161,6 +161,7 @@ namespace CGSystem
 
         private void btnactualizarcliente_Click(object sender, EventArgs e)
         {
+
             DateTime Fechanac = dtpnacimientocliente.Value;
             string fechanacimiento = oper.FormatearFecha(dtpnacimientocliente.Value);
             string codigosector;

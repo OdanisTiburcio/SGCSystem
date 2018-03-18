@@ -84,32 +84,32 @@ namespace CGSystem
             }
         }
 
-        public void MostrarTodo()
-        {
-            //Este método muestra todos los clientes existentes en la base de datos
-            try
-            {
-                dgvListaClientes.Rows.Clear();
-                //Cargar la Tabla de todos los empleados activos
-                ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, inicio_periodo, fin_periodo FROM cliente;"); //WHERE codigo_estado = '1' o Activo
+        //public void MostrarTodo()
+        //{
+        //    //Este método muestra todos los clientes existentes en la base de datos
+        //    try
+        //    {
+        //        dgvListaClientes.Rows.Clear();
+        //        //Cargar la Tabla de todos los empleados activos
+        //        ds = oper.ConsultaConResultado("SELECT numero_cliente, nombre_cliente, apellido_cliente, telefono, inicio_periodo, fin_periodo FROM cliente;"); //WHERE codigo_estado = '1' o Activo
 
-                for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
-                {
+        //        for (int i = 0; i < ds.Tables[0].Rows.Count; i++)
+        //        {
 
-                    dgvListaClientes.Rows.Add();
-                    for (int k = 0; k < 6; k++)
-                    {
-                        dgvListaClientes.Rows[i].Cells[k].Value = ds.Tables[0].Rows[i][k].ToString();
-                    }
+        //            dgvListaClientes.Rows.Add();
+        //            for (int k = 0; k < 6; k++)
+        //            {
+        //                dgvListaClientes.Rows[i].Cells[k].Value = ds.Tables[0].Rows[i][k].ToString();
+        //            }
 
-                }
+        //        }
 
-            }
-            catch
-            {
+        //    }
+        //    catch
+        //    {
 
-            }
-        }
+        //    }
+        //}
 
         private void btnmostrartodo_Click(object sender, EventArgs e)
         {
@@ -207,6 +207,21 @@ namespace CGSystem
         private void dgvListaClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        public void MostrarTodo()
+        {
+            dataGridView1.Refresh();
+            string consulta = "SELECT cte.numero_cliente Numero, cte.nombre_cliente Nombre, cte.apellido_cliente Apellido, cte.cedula_cliente Cedula, cte.fecha_nacimiento Nacimiento, cte.direccion_cliente Direccion, sec.descripcion_sector Sector, ciu.descripcion_ciudad Ciudad, cte.telefono Telefono, inicio_periodo Desde, fin_periodo Hasta, est.descripcion_estado Estado, cte.sexo Genero, cte.foto FROM cliente cte INNER JOIN sector sec ON sec.codigo_sector = cte.codigo_sector INNER JOIN ciudad ciu ON ciu.codigo_ciudad = cte.codigo_ciudad INNER JOIN estado est ON est.codigo_estado = cte.codigo_estado";
+            SQLiteDataAdapter db = new SQLiteDataAdapter(consulta, cnx);
+            DataSet ds = new DataSet();
+            ds.Reset();
+            DataTable dt = new DataTable();
+            db.Fill(ds);
+            dt = ds.Tables[0];
+            dataGridView1.DataSource = dt;
+            cnx.Close();
+            dataGridView1.Refresh();
         }
 
         public void BuscarPor()
