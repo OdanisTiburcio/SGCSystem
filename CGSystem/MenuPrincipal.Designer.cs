@@ -357,7 +357,7 @@
             this.MinimumSize = new System.Drawing.Size(914, 569);
             this.Name = "MenuPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Control Gym System - Menú";
+            this.Text = "Cosobo Gym - Menú";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.MenuPrincipal_Load);

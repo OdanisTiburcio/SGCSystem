@@ -2,7 +2,7 @@
 <NewDataSet>
   <Table>
     <id_detalle>1</id_detalle>
-    <id_factura>5</id_factura>
+    <id_factura>10</id_factura>
     <codigo>1</codigo>
     <descripcion>UN DIA DE USO</descripcion>
     <precio>40</precio>
