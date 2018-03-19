@@ -22,10 +22,13 @@ namespace CGSystem
         public static bool Logeado = false; //Para confirmar que la sesión esté iniciada
         public static bool SalirDelSistema = false;
         public static int TipoUsuario = 0; //usuario 1 igual a administrador y usuario 2 igual a empleado...
+
+        //Otras Variables estáticas necesarias
         public string estadoreporte;
         public static string SelecciónDeCliente = "0";
         public static string SeleccionDeServicio = "0";
         public static string idseleccionar = "0";
+        public static string idCargar = "0";
 
         //Variables para el guardado de BackUp de la base de Datos
         public string DataBaseOldBackUpRute = "c:\\dbbackup\\old\\SGCSystemBD.db";

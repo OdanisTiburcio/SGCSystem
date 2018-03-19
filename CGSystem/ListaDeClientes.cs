@@ -288,47 +288,60 @@ namespace CGSystem
             Buscar();
         }
 
+        public void CargarSeleccionado()
+        {
+            MenuPrincipal.idCargar = dataGridView1.CurrentRow.Cells[0].Value.ToString(); //Asignar el id actualmente seleccionado a la variable
+            CRUDClientes.CargandoCliente = true; //Activar la variable de Cargar usuario para que al iniciar el CRUD se cargue el usuario seleccionado
+            Form f = new CRUDClientes(); //Instanciando el formulario de CRUD de clientes
+            f.ShowDialog(); //Mostrar el formulario de CRUD de clientes
+            MostrarTodo(); //Una vez cerrado el CRUD de clientes; mostrar todos los clientes...
+            MenuPrincipal.idCargar = "0"; //Devolver el valor por defecto a la variable de selección
+            CRUDClientes.CargandoCliente = false; //Desactivar la variable de búsqueda
+        }
+
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            CRUDClientes forclientes = new CRUDClientes();
-            forclientes.tbnumerocliente.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
-            forclientes.tbnombrecliente.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            forclientes.tbapellidocliente.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            forclientes.tbcedulacliente.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
-            forclientes.dtpnacimientocliente.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
-            forclientes.tbdireccioncliente.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
-            forclientes.cbsectorcliente.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
-            forclientes.cbciudadcliente.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
-            forclientes.tbtelefonocliente.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
-            forclientes.dtpiniciofactura.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
-            forclientes.dtpfinfactura.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
-            forclientes.cbestadocliente.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
-            forclientes.cbsexocliente.Text = dataGridView1.CurrentRow.Cells[12].Value.ToString();
-            forclientes.tbRutaFoto.Text = dataGridView1.CurrentRow.Cells[13].Value.ToString();
-            forclientes.Show();
-            forclientes.tbnombrecliente.Enabled = true;
-            forclientes.tbapellidocliente.Enabled = true;
-            forclientes.tbcedulacliente.Enabled = true;
-            forclientes.dtpnacimientocliente.Enabled = true;
-            forclientes.tbdireccioncliente.Enabled = true;
-            forclientes.cbsectorcliente.Enabled = true;
-            forclientes.cbciudadcliente.Enabled = true;
-            forclientes.tbtelefonocliente.Enabled = true;
-            forclientes.cbestadocliente.Enabled = true;
-            forclientes.cbsexocliente.Enabled = true;
-            forclientes.btnguardarcliente.Enabled = false;
-            forclientes.btnnuevocliente.Enabled = false;
-            forclientes.btnactualizarcliente.Enabled = true;
-            //forclientes.btneliminarcliente.Enabled = true;
-            forclientes.btncargarfotocliente.Enabled = true;
-            if (MenuPrincipal.TipoUsuario == 1)
-            {
-                forclientes.btnactualizarcliente.Enabled = true;
-            }
-            else
-            {
-                forclientes.btnactualizarcliente.Enabled = false;
-            }
+            CargarSeleccionado();
+
+            //CRUDClientes forclientes = new CRUDClientes();
+            //forclientes.tbnumerocliente.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            //forclientes.tbnombrecliente.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+            //forclientes.tbapellidocliente.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
+            //forclientes.tbcedulacliente.Text = dataGridView1.CurrentRow.Cells[3].Value.ToString();
+            //forclientes.dtpnacimientocliente.Text = dataGridView1.CurrentRow.Cells[4].Value.ToString();
+            //forclientes.tbdireccioncliente.Text = dataGridView1.CurrentRow.Cells[5].Value.ToString();
+            //forclientes.cbsectorcliente.Text = dataGridView1.CurrentRow.Cells[6].Value.ToString();
+            //forclientes.cbciudadcliente.Text = dataGridView1.CurrentRow.Cells[7].Value.ToString();
+            //forclientes.tbtelefonocliente.Text = dataGridView1.CurrentRow.Cells[8].Value.ToString();
+            //forclientes.dtpiniciofactura.Text = dataGridView1.CurrentRow.Cells[9].Value.ToString();
+            //forclientes.dtpfinfactura.Text = dataGridView1.CurrentRow.Cells[10].Value.ToString();
+            //forclientes.cbestadocliente.Text = dataGridView1.CurrentRow.Cells[11].Value.ToString();
+            //forclientes.cbsexocliente.Text = dataGridView1.CurrentRow.Cells[12].Value.ToString();
+            //forclientes.tbRutaFoto.Text = dataGridView1.CurrentRow.Cells[13].Value.ToString();
+            //forclientes.Show();
+            //forclientes.tbnombrecliente.Enabled = true;
+            //forclientes.tbapellidocliente.Enabled = true;
+            //forclientes.tbcedulacliente.Enabled = true;
+            //forclientes.dtpnacimientocliente.Enabled = true;
+            //forclientes.tbdireccioncliente.Enabled = true;
+            //forclientes.cbsectorcliente.Enabled = true;
+            //forclientes.cbciudadcliente.Enabled = true;
+            //forclientes.tbtelefonocliente.Enabled = true;
+            //forclientes.cbestadocliente.Enabled = true;
+            //forclientes.cbsexocliente.Enabled = true;
+            //forclientes.btnguardarcliente.Enabled = false;
+            //forclientes.btnnuevocliente.Enabled = false;
+            //forclientes.btnactualizarcliente.Enabled = true;
+            ////forclientes.btneliminarcliente.Enabled = true;
+            //forclientes.btncargarfotocliente.Enabled = true;
+            //if (MenuPrincipal.TipoUsuario == 1)
+            //{
+            //    forclientes.btnactualizarcliente.Enabled = true;
+            //}
+            //else
+            //{
+            //    forclientes.btnactualizarcliente.Enabled = false;
+            //}
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)

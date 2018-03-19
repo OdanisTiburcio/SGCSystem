@@ -15,6 +15,8 @@ namespace CGSystem
     public partial class CRUDClientes : Form
     {
         operacion oper = new operacion();
+        public static bool CargandoCliente = false;
+
         //public int TipoUsuario = 0;
         public CRUDClientes()
         {
@@ -128,6 +130,11 @@ namespace CGSystem
 
         private void CRUDClientes_Load(object sender, EventArgs e)
         {
+
+            //Asignar la fecha de hoy
+            dtpiniciofactura.Value = DateTime.Now;
+            dtpfinfactura.Value = DateTime.Now;
+
             SQLiteConnection cnx = new SQLiteConnection("Data Source=C:\\CGSystem\\SGCSystemBD.db;Version=3;");
             DataSet ds = new DataSet();
             SQLiteDataAdapter da = new SQLiteDataAdapter("SELECT descripcion_sector FROM sector ORDER BY descripcion_sector ", cnx);
@@ -146,6 +153,23 @@ namespace CGSystem
             df.Fill(ds2, "estado");
             cbestadocliente.DataSource = ds2.Tables[0].DefaultView;
             cbestadocliente.ValueMember = "descripcion_estado";
+
+            cbciudadcliente.Text = "";
+            cbsectorcliente.Text = "";
+
+            if (CargandoCliente)//Saber si se está cargando un usuario o creando uno nuevo...
+            {
+                CargarCliente();
+                CargandoCliente = false;
+            }
+            else { }
+
+            CargarFoto(); //Cargar la foto de la ruta especificada
+
+        }
+
+        public void CargarFoto()
+        {
             try
             {
                 Bitmap Foto = new Bitmap(tbRutaFoto.Text);
@@ -155,8 +179,63 @@ namespace CGSystem
             {
 
             }
-            cbciudadcliente.Text = "";
-            cbsectorcliente.Text = "";
+        }
+
+        public void CargarCliente()
+        {
+
+            try
+            {
+                //Cargar el usuario en base al id escrito en la variable en el menú principal
+                DataSet ds = oper.ConsultaConResultado("SELECT * FROM cliente WHERE cliente.numero_cliente = '" + MenuPrincipal.idCargar + "';");
+                //Cargar Inner Joins necesarios en otra DataSet (Sector, Ciudad y Estado)
+
+                DataSet INNER = oper.ConsultaConResultado("SELECT sector.descripcion_sector, ciudad.descripcion_ciudad, estado.descripcion_estado FROM cliente INNER JOIN sector on sector.codigo_sector = cliente.codigo_sector INNER JOIN ciudad on ciudad.codigo_ciudad = cliente.codigo_ciudad INNER JOIN estado on estado.codigo_estado = cliente.codigo_estado WHERE cliente.numero_cliente = ' " + MenuPrincipal.idCargar + " ';");
+
+                tbnumerocliente.Text = ds.Tables[0].Rows[0][0].ToString();
+                tbcedulacliente.Text = ds.Tables[0].Rows[0][1].ToString();
+                tbnombrecliente.Text = ds.Tables[0].Rows[0][2].ToString();
+                tbapellidocliente.Text = ds.Tables[0].Rows[0][3].ToString();
+                dtpnacimientocliente.Text = ds.Tables[0].Rows[0][4].ToString();
+                tbdireccioncliente.Text = ds.Tables[0].Rows[0][5].ToString();
+                cbsectorcliente.Text = INNER.Tables[0].Rows[0][0].ToString(); //Sector obtenido del INNER JOIN
+                cbciudadcliente.Text = INNER.Tables[0].Rows[0][1].ToString(); //Ciudad obtenida del INNER JOIN
+                tbtelefonocliente.Text = ds.Tables[0].Rows[0][8].ToString();
+                dtpiniciofactura.Value = Convert.ToDateTime(ds.Tables[0].Rows[0][9].ToString());
+                dtpfinfactura.Value = Convert.ToDateTime(ds.Tables[0].Rows[0][10].ToString());
+                cbestadocliente.Text = INNER.Tables[0].Rows[0][2].ToString(); //Estado obtenido del INNER JOIN
+                tbRutaFoto.Text = ds.Tables[0].Rows[0][12].ToString();
+                cbsexocliente.Text = ds.Tables[0].Rows[0][13].ToString();
+
+                tbnombrecliente.Enabled = true;
+                tbapellidocliente.Enabled = true;
+                tbcedulacliente.Enabled = true;
+                dtpnacimientocliente.Enabled = true;
+                tbdireccioncliente.Enabled = true;
+                cbsectorcliente.Enabled = true;
+                cbciudadcliente.Enabled = true;
+                tbtelefonocliente.Enabled = true;
+                cbestadocliente.Enabled = true;
+                cbsexocliente.Enabled = true;
+                btnguardarcliente.Enabled = false;
+                btnnuevocliente.Enabled = false;
+                btnactualizarcliente.Enabled = true;
+                btncargarfotocliente.Enabled = true;
+                //btneliminarcliente.Enabled = true;
+
+                if (MenuPrincipal.TipoUsuario == 1)
+                {
+                    btnactualizarcliente.Enabled = true;
+                }
+                else
+                {
+                    btnactualizarcliente.Enabled = false;
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Hubo algún problema al cargar el cliente, si el problema persiste: contacte al encargado de mantenimiento", "Error al Cargar el Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void btnactualizarcliente_Click(object sender, EventArgs e)

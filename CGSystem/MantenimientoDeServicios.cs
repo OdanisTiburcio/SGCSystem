@@ -23,7 +23,6 @@ namespace CGSystem
 
         private void btpnew_Click(object sender, EventArgs e)
         {
-            NuevoServicio = true;
             Nuevo();
         }
 
@@ -37,8 +36,7 @@ namespace CGSystem
             }
             else
             {
-                MessageBox.Show("No seleccionó ningún servicio...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                //MessageBox.Show("No seleccionó ningún servicio...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -79,7 +77,7 @@ namespace CGSystem
             {
                 if (NuevoServicio)
                 {
-                    oper.ConsultaSinResultado("INSERT INTO servicio (descripcion_servicio, precio_servicio, dias, estado) VALUES ('" + tbpnombre.Text.ToString() + "','" + tbpprecio.Text + "','" + tbdias.Text + "', 'ACTIVO')");
+                    oper.ConsultaSinResultado("INSERT INTO servicio (descripcion_servicio, precio_servicio, dias, estado) VALUES ('" + tbpnombre.Text.ToUpper() + "','" + tbpprecio.Text + "','" + tbdias.Text + "', 'ACTIVO')");
                     tbpnombre.Clear();
                     tbpprecio.Clear();
                     tbdias.Clear();
@@ -139,6 +137,7 @@ namespace CGSystem
             tbpsearchcode.Text = "";
             tbdias.Text = "";
             tbpprecio.Text = "";
+            NuevoServicio = true;
         }
 
     }

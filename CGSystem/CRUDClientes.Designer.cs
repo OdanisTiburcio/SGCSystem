@@ -180,6 +180,7 @@
             // 
             // cbestadocliente
             // 
+            this.cbestadocliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbestadocliente.Enabled = false;
             this.cbestadocliente.FormattingEnabled = true;
             this.cbestadocliente.Location = new System.Drawing.Point(121, 147);
