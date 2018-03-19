@@ -268,6 +268,7 @@
             // 
             // cbsexocliente
             // 
+            this.cbsexocliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbsexocliente.Enabled = false;
             this.cbsexocliente.FormattingEnabled = true;
             this.cbsexocliente.Items.AddRange(new object[] {
