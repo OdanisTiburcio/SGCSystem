@@ -75,6 +75,31 @@ namespace CGSystem
 
             if (tbpnombre.Text != "" && tbpprecio.Text != "" && tbdias.Text != "")
             {
+                bool PrecioEsNumero = oper.ValidarNumero(tbpprecio.Text);
+                bool DiasEsNumero = oper.ValidarNumero(tbdias.Text);
+
+                if (PrecioEsNumero)
+                {
+                    if (DiasEsNumero)
+                    {
+                        //Continuar
+                    }else
+                    {
+                        //Los días insertados no representan una cantidad numérica válida
+                        MessageBox.Show("Los días insertados no representan una cantidad numérica válida...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        tbdias.Focus();
+                        tbdias.Select();
+                        return;
+                    }
+                }else
+                {
+                    //Los días insertados no representan una cantidad numérica válida
+                    MessageBox.Show("El precio insertado no representa una cantidad numérica válida...", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    tbpprecio.Focus();
+                    tbpprecio.Select();
+                    return;
+                }
+
                 if (NuevoServicio)
                 {
                     oper.ConsultaSinResultado("INSERT INTO servicio (descripcion_servicio, precio_servicio, dias, estado) VALUES ('" + tbpnombre.Text.ToUpper() + "','" + tbpprecio.Text + "','" + tbdias.Text + "', 'ACTIVO')");
