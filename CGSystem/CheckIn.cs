@@ -53,6 +53,7 @@ namespace CGSystem
                 tbapellidos.Text = ds.Tables[0].Rows[0][1].ToString();
                 tbcedula.Text = ds.Tables[0].Rows[0][2].ToString();
                 string fechafinperiodo = ds.Tables[0].Rows[0][3].ToString();
+                txtfechapago.Text = fechafinperiodo.Substring(0, 10);
                 DateTime FinPeriodoCliente = Convert.ToDateTime(fechafinperiodo);
 
                 //Mostrar la imagen del cliente

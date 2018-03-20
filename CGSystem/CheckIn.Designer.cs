@@ -45,6 +45,8 @@
             this.btnguardar = new System.Windows.Forms.Button();
             this.Restante = new System.Windows.Forms.Label();
             this.tbrestante = new System.Windows.Forms.TextBox();
+            this.txtfechapago = new System.Windows.Forms.TextBox();
+            this.lblfechapago = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ptbfotoempleado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,7 +54,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(17, 101);
+            this.label7.Location = new System.Drawing.Point(17, 93);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(46, 13);
             this.label7.TabIndex = 45;
@@ -60,7 +62,7 @@
             // 
             // tbcedula
             // 
-            this.tbcedula.Location = new System.Drawing.Point(64, 98);
+            this.tbcedula.Location = new System.Drawing.Point(64, 90);
             this.tbcedula.Name = "tbcedula";
             this.tbcedula.ReadOnly = true;
             this.tbcedula.Size = new System.Drawing.Size(115, 20);
@@ -85,7 +87,7 @@
             this.rdbinactivo.AutoCheck = false;
             this.rdbinactivo.AutoSize = true;
             this.rdbinactivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rdbinactivo.Location = new System.Drawing.Point(164, 148);
+            this.rdbinactivo.Location = new System.Drawing.Point(164, 132);
             this.rdbinactivo.Name = "rdbinactivo";
             this.rdbinactivo.Size = new System.Drawing.Size(77, 21);
             this.rdbinactivo.TabIndex = 44;
@@ -98,7 +100,7 @@
             this.rdbactivo.AutoSize = true;
             this.rdbactivo.Checked = true;
             this.rdbactivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.rdbactivo.Location = new System.Drawing.Point(47, 148);
+            this.rdbactivo.Location = new System.Drawing.Point(47, 132);
             this.rdbactivo.Name = "rdbactivo";
             this.rdbactivo.Size = new System.Drawing.Size(74, 21);
             this.rdbactivo.TabIndex = 43;
@@ -122,7 +124,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.label4.Location = new System.Drawing.Point(61, 133);
+            this.label4.Location = new System.Drawing.Point(61, 117);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(148, 17);
             this.label4.TabIndex = 32;
@@ -132,7 +134,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(5, 75);
+            this.label3.Location = new System.Drawing.Point(5, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(58, 13);
             this.label3.TabIndex = 34;
@@ -140,7 +142,7 @@
             // 
             // tbapellidos
             // 
-            this.tbapellidos.Location = new System.Drawing.Point(64, 72);
+            this.tbapellidos.Location = new System.Drawing.Point(64, 64);
             this.tbapellidos.Name = "tbapellidos";
             this.tbapellidos.ReadOnly = true;
             this.tbapellidos.Size = new System.Drawing.Size(191, 20);
@@ -150,7 +152,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(44, 23);
+            this.label2.Location = new System.Drawing.Point(44, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(20, 13);
             this.label2.TabIndex = 28;
@@ -160,7 +162,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(14, 49);
+            this.label1.Location = new System.Drawing.Point(14, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 13);
             this.label1.TabIndex = 26;
@@ -168,7 +170,7 @@
             // 
             // tbid
             // 
-            this.tbid.Location = new System.Drawing.Point(64, 20);
+            this.tbid.Location = new System.Drawing.Point(64, 12);
             this.tbid.Name = "tbid";
             this.tbid.ReadOnly = true;
             this.tbid.Size = new System.Drawing.Size(61, 20);
@@ -176,7 +178,7 @@
             // 
             // tbnombre
             // 
-            this.tbnombre.Location = new System.Drawing.Point(64, 46);
+            this.tbnombre.Location = new System.Drawing.Point(64, 38);
             this.tbnombre.Name = "tbnombre";
             this.tbnombre.ReadOnly = true;
             this.tbnombre.Size = new System.Drawing.Size(191, 20);
@@ -198,7 +200,7 @@
             // 
             this.Restante.AutoSize = true;
             this.Restante.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Restante.Location = new System.Drawing.Point(15, 178);
+            this.Restante.Location = new System.Drawing.Point(15, 162);
             this.Restante.Name = "Restante";
             this.Restante.Size = new System.Drawing.Size(58, 13);
             this.Restante.TabIndex = 47;
@@ -207,17 +209,39 @@
             // tbrestante
             // 
             this.tbrestante.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tbrestante.Location = new System.Drawing.Point(77, 175);
+            this.tbrestante.Location = new System.Drawing.Point(77, 159);
             this.tbrestante.Name = "tbrestante";
             this.tbrestante.ReadOnly = true;
             this.tbrestante.Size = new System.Drawing.Size(151, 20);
             this.tbrestante.TabIndex = 46;
+            // 
+            // txtfechapago
+            // 
+            this.txtfechapago.BackColor = System.Drawing.Color.Snow;
+            this.txtfechapago.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtfechapago.Location = new System.Drawing.Point(108, 184);
+            this.txtfechapago.Name = "txtfechapago";
+            this.txtfechapago.ReadOnly = true;
+            this.txtfechapago.Size = new System.Drawing.Size(119, 20);
+            this.txtfechapago.TabIndex = 46;
+            // 
+            // lblfechapago
+            // 
+            this.lblfechapago.AutoSize = true;
+            this.lblfechapago.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblfechapago.Location = new System.Drawing.Point(14, 187);
+            this.lblfechapago.Name = "lblfechapago";
+            this.lblfechapago.Size = new System.Drawing.Size(93, 13);
+            this.lblfechapago.TabIndex = 47;
+            this.lblfechapago.Text = "Fecha de Pago";
             // 
             // CheckIn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(464, 283);
+            this.Controls.Add(this.lblfechapago);
+            this.Controls.Add(this.txtfechapago);
             this.Controls.Add(this.Restante);
             this.Controls.Add(this.tbrestante);
             this.Controls.Add(this.label7);
@@ -266,5 +290,7 @@
         private System.Windows.Forms.Button btnguardar;
         private System.Windows.Forms.Label Restante;
         private System.Windows.Forms.TextBox tbrestante;
+        private System.Windows.Forms.TextBox txtfechapago;
+        private System.Windows.Forms.Label lblfechapago;
     }
 }
