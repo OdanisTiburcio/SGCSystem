@@ -16,6 +16,9 @@ namespace CGSystem
 {
     public partial class MenuPrincipal : Form
     {
+        //Nombre del Gimnacio
+        public static string NombreDelGimnacio = "Power Gym";
+
         //Variables Estáticas para el usuario logeado
         public static int UsuarioID = 0;
         public static string NombreUsuario = "Adanis Tiburcio";
@@ -48,6 +51,7 @@ namespace CGSystem
             //Mostrar estado si o no en tabla de reportes vencidos
             ds = oper.ConsultaConResultado("SELECT mostrar_reporte FROM reporte_vencidos WHERE id_reporte = '1'");
             estadoreporte = ds.Tables[0].Rows[0][0].ToString();
+            
         }
 
         public void Actualizar()
@@ -143,6 +147,8 @@ namespace CGSystem
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
+            //Asignar Nombre del Gimnacio
+            MenuPrincipal.ActiveForm.Text = NombreDelGimnacio + " - Menú Principal";
             Actualizar();
             if (SalirDelSistema)
             {
