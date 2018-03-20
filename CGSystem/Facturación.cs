@@ -649,6 +649,7 @@ namespace CGSystem
                 oper.ConsultaSinResultado("INSERT INTO ingreso (codigo_tipo_ingreso, numero_factura, monto_ingreso, fecha, estado) VALUES ('" + TipoIngreso + "','" + NumeroDeFactura + "','" + onceprecio + "','" + fechaHoy + "', 'ACTIVO');");
 
                 IdCliente = "1";
+                DiasASumar = 1;
                 ActualizarPeriodoDeCliente();
                 NuevaFactura(); //Método para activar y desactivar los botonoes necesarios hasta la próxima factura...
 
