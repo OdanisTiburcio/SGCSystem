@@ -37,7 +37,7 @@ namespace CGSystem
 
         private void btnbuscar_Click(object sender, EventArgs e) //Eliminar
         {
-            if (dgvusuarios.CurrentRow.Cells[3].Value.ToString() != "ADMINISTRADOR" && dgvusuarios.CurrentRow.Cells[0].Value.ToString() != "Cosobo")
+            if (dgvusuarios.CurrentRow.Cells[3].Value.ToString() != "ADMINISTRADOR" && dgvusuarios.CurrentRow.Cells[0].Value.ToString() != "Administrador")
             {
 
                 bool eliminarusuario = oper.CajaDeMensaje("¿Seguro que de sea eliminar este usuario?", "Eliminar");
@@ -69,7 +69,7 @@ namespace CGSystem
 
         private void button1_Click(object sender, EventArgs e) //Resetear
         {
-            if (dgvusuarios.CurrentRow.Cells[3].Value.ToString() != "ADMINISTRADOR" && dgvusuarios.CurrentRow.Cells[0].Value.ToString() != "Cosobo")
+            if (dgvusuarios.CurrentRow.Cells[3].Value.ToString() != "ADMINISTRADOR" && dgvusuarios.CurrentRow.Cells[0].Value.ToString() != "Administrador")
             {
                 bool eliminarusuario = oper.CajaDeMensaje("¿Seguro que de sea resetear este usuario?", "Resetear");
                 if (eliminarusuario)

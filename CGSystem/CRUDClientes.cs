@@ -162,7 +162,9 @@ namespace CGSystem
                 CargarCliente();
                 CargandoCliente = false;
             }
-            else { }
+            else {
+                btnnuevocliente.PerformClick();
+            }
 
             CargarFoto(); //Cargar la foto de la ruta especificada
 

@@ -199,8 +199,8 @@ namespace CGSystem
         private void btnagregar_Click(object sender, EventArgs e)
         {
             CRUDClientes f = new CRUDClientes();
-            f.Show();
-            f.btnnuevocliente.PerformClick();
+            f.ShowDialog();
+            MostrarTodo();
             Buscar();
         }
 
