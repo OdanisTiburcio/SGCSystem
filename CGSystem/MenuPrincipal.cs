@@ -16,8 +16,8 @@ namespace CGSystem
 {
     public partial class MenuPrincipal : Form
     {
-        //Nombre del Gimnacio
-        public static string NombreDelGimnacio = "Power Gym";
+        //Nombre del Gimnasio
+        public static string NombreDelGimnasio = "Power Gym";
 
         //Variables Estáticas para el usuario logeado
         public static int UsuarioID = 0;
@@ -147,8 +147,8 @@ namespace CGSystem
 
         private void MenuPrincipal_Load(object sender, EventArgs e)
         {
-            //Asignar Nombre del Gimnacio
-            MenuPrincipal.ActiveForm.Text = NombreDelGimnacio + " - Menú Principal";
+            //Asignar Nombre del Gimnasio
+            MenuPrincipal.ActiveForm.Text = NombreDelGimnasio + " - Menú Principal";
             Actualizar();
             if (SalirDelSistema)
             {
