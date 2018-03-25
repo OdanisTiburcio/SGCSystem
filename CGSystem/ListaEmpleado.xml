@@ -1,6 +1,16 @@
 <?xml version="1.0" standalone="yes"?>
 <NewDataSet>
   <Table>
+    <numero_empleado>1</numero_empleado>
+    <nombre>ODANIS</nombre>
+    <apellido>TIBURCIO</apellido>
+    <cedula_empleado>055-5555555-5</cedula_empleado>
+    <descripcion_posicion>GERENTE GENERAL</descripcion_posicion>
+    <descripcion_departamento>GERENCIA GENERAL</descripcion_departamento>
+    <sueldo>1</sueldo>
+    <foto>C:\CGSystem\FotosEmpleados\1.jpg</foto>
+  </Table>
+  <Table>
     <numero_empleado>2</numero_empleado>
     <nombre>JEFREY</nombre>
     <apellido>MARTE</apellido>
