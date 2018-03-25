@@ -17,7 +17,7 @@ namespace CGSystem
     public partial class MenuPrincipal : Form
     {
         //Nombre del Gimnasio
-        public static string NombreDelGimnasio = "Power Gym";
+        public static string NombreDelGimnasio = "Cosobo Gym";
 
         //Variables Estáticas para el usuario logeado
         public static int UsuarioID = 0;
