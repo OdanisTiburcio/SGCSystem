@@ -11,4 +11,15 @@
     <total>40</total>
     <estado>ACTIVO</estado>
   </Table>
+  <Table>
+    <id_detalle>2</id_detalle>
+    <id_factura>13</id_factura>
+    <codigo>2</codigo>
+    <descripcion>membresia</descripcion>
+    <precio>500</precio>
+    <dias>30</dias>
+    <cantidad>1</cantidad>
+    <total>500</total>
+    <estado>ACTIVO</estado>
+  </Table>
 </NewDataSet>

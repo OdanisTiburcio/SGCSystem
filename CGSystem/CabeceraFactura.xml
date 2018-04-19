@@ -3,10 +3,10 @@
   <Table>
     <id_factura>13</id_factura>
     <id_tipo_factura>CONTADO</id_tipo_factura>
-    <id_cliente>VISITANTES</id_cliente>
+    <id_cliente>CLIENTE</id_cliente>
     <id_empleado>ODANIS</id_empleado>
     <fecha>2018-03-25T00:00:00-04:00</fecha>
-    <total>40</total>
+    <total>540</total>
     <estado>ACTIVO</estado>
   </Table>
 </NewDataSet>
