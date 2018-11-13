@@ -5,10 +5,6 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CGSystem", "CGSystem\CGSystem.csproj", "{29FEA030-ADE0-4D23-BE56-D29FEFEAD07A}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CGSystem_Installer_x86", "CGSystem_Installer_x86\CGSystem_Installer_x86.vdproj", "{D4B529C7-D758-465D-9617-131F1DDD0C20}"
-EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "CGSystem_Installer_x64", "CGSystem_Installer_x64\CGSystem_Installer_x64.vdproj", "{6AC6382B-BE17-4BCC-9DE6-3E93A58DD6C9}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,10 +15,6 @@ Global
 		{29FEA030-ADE0-4D23-BE56-D29FEFEAD07A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29FEA030-ADE0-4D23-BE56-D29FEFEAD07A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29FEA030-ADE0-4D23-BE56-D29FEFEAD07A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D4B529C7-D758-465D-9617-131F1DDD0C20}.Debug|Any CPU.ActiveCfg = Debug
-		{D4B529C7-D758-465D-9617-131F1DDD0C20}.Release|Any CPU.ActiveCfg = Release
-		{6AC6382B-BE17-4BCC-9DE6-3E93A58DD6C9}.Debug|Any CPU.ActiveCfg = Debug
-		{6AC6382B-BE17-4BCC-9DE6-3E93A58DD6C9}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
