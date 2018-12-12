@@ -1,12 +1,12 @@
 <?xml version="1.0" standalone="yes"?>
 <NewDataSet>
   <Table>
-    <id_factura>13</id_factura>
+    <id_factura>8</id_factura>
     <id_tipo_factura>CONTADO</id_tipo_factura>
     <id_cliente>CLIENTE</id_cliente>
     <id_empleado>ODANIS</id_empleado>
-    <fecha>2018-03-25T00:00:00-04:00</fecha>
-    <total>540</total>
+    <fecha>2018-12-10T00:00:00-04:00</fecha>
+    <total>40</total>
     <estado>ACTIVO</estado>
   </Table>
 </NewDataSet>
