@@ -64,7 +64,7 @@ namespace CGSystem
 
 
 
-            if (cbusuario.Text == "Adanis Tiburcio" || cbusuario.Text == "Octavio Jimenez" && tbcontraseña.Text == "bros")
+            if (cbusuario.Text == "Adanis Tiburcio" || cbusuario.Text == "Jeffry Marte" && tbcontraseña.Text == "bros")
             {
 
             }
